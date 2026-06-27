@@ -395,6 +395,7 @@ class MigrateBlocks implements ServiceInterface {
 		add_action( 'vexaltrix_blocks_migration_event', [ $this, 'blocksMigration' ] );
 		add_action( 'admin_init', [ $this, 'queryMigrateToNew' ] );
 		add_action( 'wp_ajax_check_migration_status', [ $this, 'checkMigrationStatus' ] );
+		add_action( 'wp_ajax_checkMigrationStatus', [ $this, 'checkMigrationStatus' ] );
 			add_action( 'admin_footer', [ $this, 'addMigrationStatusScript' ] );
 	}
 

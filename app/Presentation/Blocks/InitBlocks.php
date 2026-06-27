@@ -1110,7 +1110,7 @@ class InitBlocks implements ServiceInterface {
 			VXT_VER
 		);
 
-		wp_localize_script( 'vxt-block-editor-js', 'ugb_react', [ 'pro_plugin_status' => self::getPluginStatus( 'vexaltrix-pro/vexaltrix-pro.php' ) ] );
+		wp_localize_script( 'vxt-block-editor-js', 'vxt_react', [ 'pro_plugin_status' => self::getPluginStatus( 'vexaltrix-pro/vexaltrix-pro.php' ) ] );
 
 		wp_enqueue_script( 'vxt-deactivate-block-js', VXT_URL . 'assets/admin/blocks-deactivate.js', [ 'wp-blocks' ], VXT_VER, true );
 

@@ -24,14 +24,14 @@ abstract class AjaxController {
 	 *
 	 * @var string
 	 */
-	private $prefix = 'ugb';
+	private $prefix = VXT_AJAX_PREFIX;
 
 	/**
 	 * Legacy Ajax action prefix.
 	 *
 	 * @var string
 	 */
-	private $legacyPrefix = 'uag';
+	private $legacyPrefix = 'vxt';
 
 	/**
 	 * Erros class instance.
@@ -47,7 +47,7 @@ abstract class AjaxController {
 	 */
 	public function __construct() {
 
-		$this->errors = \Vexaltrix\Transport\Ajax\AjaxErrors::getInstance();
+		$this->errors = AjaxErrors::getInstance();
 	}
 
 	/**
@@ -85,7 +85,7 @@ abstract class AjaxController {
 		if ( current_user_can( 'manage_options' ) ) {
 
 			add_filter(
-				'ugb_react_admin_localize',
+				'vxt_react_admin_localize',
 				function( $localize ) use ( $action ) {
 
 					$localize[ $action . '_nonce' ] = wp_create_nonce( $this->prefix . '_' . $action );

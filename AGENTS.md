@@ -149,8 +149,8 @@ $width = $container->get( SettingsInterface::class )->get( 'content_width' );
 | Block name | `vexaltrix/{name}` | `vexaltrix/container` |
 | Option key | `vxt_wp_blocks_{name}` | `vxt_wp_blocks_file_generation` |
 | Script handle | `vxt-gutenberg-blocks-{name}` | `vxt-gutenberg-blocks-aos-js` |
-| AJAX action | `ugb_{name}` | `ugb_check_beta_update_available` |
-| Nonce name | `ugb_{name}` | `ugb_check_beta_update_available` |
+| AJAX action | `vxt_{name}` | `vxt_check_beta_update_available` |
+| Nonce name | `vxt_{name}` | `vxt_check_beta_update_available` |
 | Filter/action | `vxt_wp_blocks_{name}` | `vxt_wp_blocks_after_cache_purge` |
 | Constants | `VXT_{NAME}` | `VXT_VER` |
 

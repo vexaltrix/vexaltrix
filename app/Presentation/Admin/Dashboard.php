@@ -466,7 +466,7 @@ class Dashboard implements ServiceInterface {
 			define( 'VXT_URI', trailingslashit( 'https://wpvexaltrix.com/' ) );
 		}
 		$localize = apply_filters(
-			'ugb_react_admin_localize',
+			'vxt_react_admin_localize',
 			[
 				'root_id'                    		=> esc_attr( self::ROOT_ID ),
 				'current_user'                      => ! empty( wp_get_current_user()->user_firstname ) ? wp_get_current_user()->user_firstname : wp_get_current_user()->display_name,
@@ -514,10 +514,11 @@ class Dashboard implements ServiceInterface {
 				'plugin_activate_text'              => esc_html__( 'Activate', 'vexaltrix' ),
 				'plugin_manager_nonce'              => wp_create_nonce( 'vexaltrix_plugin_manager_nonce' ),
 				'installer_nonce'                   => wp_create_nonce( 'updates' ),
-				'enable_beta_updates_nonce'         => wp_create_nonce( 'ugb_enable_beta_updates' ),
-				'check_beta_update_available_nonce' => wp_create_nonce( 'ugb_check_beta_update_available' ),
-				'force_check_plugin_updates_nonce'  => wp_create_nonce( 'ugb_force_check_plugin_updates' ),
-				'update_beta_plugin_nonce'          => wp_create_nonce( 'ugb_update_beta_plugin' ),
+				'enable_beta_updates_nonce'         => wp_create_nonce( VXT_AJAX_PREFIX . '_enable_beta_updates' ),
+				'check_beta_update_available_nonce' => wp_create_nonce( VXT_AJAX_PREFIX . '_check_beta_update_available' ),
+				'force_check_plugin_updates_nonce'  => wp_create_nonce( VXT_AJAX_PREFIX . '_force_check_plugin_updates' ),
+				'update_beta_plugin_nonce'          => wp_create_nonce( VXT_AJAX_PREFIX . '_update_beta_plugin' ),
+				'ajax_prefix'                       => VXT_AJAX_PREFIX,
 				'pro_installed_status'              => 'inactive' === self::getPluginStatus( 'vexaltrix-pro/vexaltrix-pro.php' ) ? true : false,
 				'pro_plugin_status'                 => self::getPluginStatus( 'vexaltrix-pro/vexaltrix-pro.php' ),
 				'contry_code'                       => \Vexaltrix\Presentation\Admin\AdminSettings::getUserCountryCode(),

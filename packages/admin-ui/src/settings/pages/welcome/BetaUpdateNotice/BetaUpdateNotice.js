@@ -39,7 +39,7 @@ const BetaUpdateNotice = () => {
 
 		getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'ugb_check_beta_update_available',
+			action: vexaltrixAdmin.ajax_prefix + '_check_beta_update_available',
 			data,
 		} )
 			.then( ( response ) => {
@@ -85,7 +85,7 @@ const BetaUpdateNotice = () => {
 
 		getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'ugb_enable_beta_updates',
+			action: vexaltrixAdmin.ajax_prefix + '_enable_beta_updates',
 			data: enableBetaData,
 		} )
 			.then( ( enableResponse ) => {
@@ -105,7 +105,7 @@ const BetaUpdateNotice = () => {
 
 					getApiData( {
 						url: vexaltrixAdmin.ajax_url,
-						action: 'ugb_update_beta_plugin',
+						action: vexaltrixAdmin.ajax_prefix + '_update_beta_plugin',
 						data: updateData,
 					} )
 						.then( ( updateResponse ) => {

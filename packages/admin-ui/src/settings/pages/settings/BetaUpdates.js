@@ -65,7 +65,7 @@ const BetaUpdates = () => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'ugb_check_beta_update_available',
+			action: vexaltrixAdmin.ajax_prefix + '_check_beta_update_available',
 			data,
 		} );
 
@@ -153,7 +153,7 @@ const BetaUpdates = () => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'ugb_update_beta_plugin',
+			action: vexaltrixAdmin.ajax_prefix + '_update_beta_plugin',
 			data,
 		} );
 
@@ -224,7 +224,7 @@ const BetaUpdates = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'ugb_enable_beta_updates',
+			action: vexaltrixAdmin.ajax_prefix + '_enable_beta_updates',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved

@@ -182,6 +182,7 @@ if ( ! class_exists( 'Vexaltrix\\Core\\Plugin' ) ) {
 			define( 'VXT_MODULES_DIR', VXT_DIR . 'modules/' );
 			define( 'VXT_MODULES_URL', VXT_URL . 'modules/' );
 			define( 'VXT_SLUG', 'vexaltrix' );
+			define( 'VXT_AJAX_PREFIX', 'vxt' );
 			define( 'VXT_URI', trailingslashit( 'https://vexaltrix.com/' ) );
 
 			if ( ! defined( 'VXT_TABLET_BREAKPOINT' ) ) {

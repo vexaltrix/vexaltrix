@@ -21,7 +21,7 @@ use ZipAI\Classes\Module as Zip_Ai_Module;
 /**
  * Class \Vexaltrix\Transport\Ajax\CommonSettings.
  */
-class CommonSettings extends \Vexaltrix\Core\Base\AjaxController {
+class CommonSettings extends AjaxController {
 
 	/**
 	 * Instance
@@ -723,7 +723,7 @@ class CommonSettings extends \Vexaltrix\Core\Base\AjaxController {
 	 * @return void
 	 */
 	public function enableBetaUpdates() {
-		$this->checkPermissionNonce( 'ugb_enable_beta_updates' );
+		$this->checkPermissionNonce( VXT_AJAX_PREFIX . '_enable_beta_updates' );
 		$value = $this->checkPostValue();
 		$this->saveAdminSettings( 'vxt_ultimate_gutenberg_blocks_beta', sanitize_text_field( $value ) );
 
@@ -748,7 +748,7 @@ class CommonSettings extends \Vexaltrix\Core\Base\AjaxController {
 	 * @return void
 	 */
 	public function checkBetaUpdateAvailable() {
-		$this->checkPermissionNonce( 'ugb_check_beta_update_available' );
+		$this->checkPermissionNonce( VXT_AJAX_PREFIX . '_check_beta_update_available' );
 
 		// Validate required constants exist.
 		if ( ! defined( 'VXT_VER' ) ) {
@@ -838,7 +838,7 @@ class CommonSettings extends \Vexaltrix\Core\Base\AjaxController {
 	 * @return void
 	 */
 	public function forceCheckPluginUpdates() {
-		$this->checkPermissionNonce( 'ugb_force_check_plugin_updates' );
+		$this->checkPermissionNonce( VXT_AJAX_PREFIX . '_force_check_plugin_updates' );
 
 		// Validate required constants exist.
 		if ( ! defined( 'VXT_BASE' ) ) {
@@ -922,7 +922,7 @@ class CommonSettings extends \Vexaltrix\Core\Base\AjaxController {
 	 * @return void
 	 */
 	public function updateBetaPlugin() {
-		$this->checkPermissionNonce( 'ugb_update_beta_plugin' );
+		$this->checkPermissionNonce( VXT_AJAX_PREFIX . '_update_beta_plugin' );
 
 		// Validate required constants and user capabilities.
 		if ( ! defined( 'VXT_BASE' ) ) {
