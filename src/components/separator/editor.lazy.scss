@@ -1,0 +1,17 @@
+@use '../../styles/variables';
+
+.vexaltrix-separator {
+	width: 100%;
+	height: 1px;
+	margin: variables.$vexaltrix-control-vertical-gap 0;
+	background-color: variables.$vexaltrix-color-border;
+
+	&--removed-top-space {
+		margin-top: 0 !important;
+	}
+}
+
+.vxt-inspector-tab .components-panel__body .vexaltrix-separator {
+	width: auto;
+	margin: variables.$vexaltrix-control-vertical-gap ( -( variables.$vexaltrix-panel-body-padding ) );
+}

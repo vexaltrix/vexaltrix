@@ -1,0 +1,25 @@
+.vxt-forms-radio-wrap input[type='radio'],
+.vxt-form-radio-option input[type='radio'] {
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+.vxt-forms-radio-controls {
+	margin-top: 10px;
+}
+
+.vxt-form-radio-option-delete.has-icon {
+	vertical-align: middle;
+	padding: 10px;
+	margin: 0;
+}
+
+.vxt-forms-main-form .vxt-inner-input-view {
+	vertical-align: middle;
+	width: 35% !important;
+	margin: 0 10px !important;
+}
+
+.vxt-forms-main-form .vxt-forms-radio-wrap input[type='radio'] {
+	border-radius: 50%;
+}

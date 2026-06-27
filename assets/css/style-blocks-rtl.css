@@ -1,0 +1,126 @@
+.rtl.block-editor-page #wpwrap .wp-block-vxt-blockquote .vxt-blockquote__skin-border blockquote.vxt-blockquote,
+.rtl .wp-block-vxt-blockquote .vxt-blockquote__skin-border blockquote.vxt-blockquote {
+	border-left-style: none;
+	border-left-width: 0;
+	padding-right: 15px;
+}
+
+.rtl.block-editor-page #wpwrap .wp-block-vxt-blockquote .vxt-blockquote__content.block-editor-rich-text__editable,
+.rtl .wp-block-vxt-blockquote .vxt-blockquote__content.block-editor-rich-text__editable {
+	text-align: right;
+}
+
+.rtl .vxt_ultimate_gutenberg_blocks_review_block .vxt_ultimate_gutenberg_blocks_review_entry {
+	display: unset;
+}
+
+.rtl .vxt-post-grid .vxt-post__text {
+	text-align: right;
+}
+
+.rtl .vxt-icon-list__outer-wrap:not(.vxt-icon-list__no-label) .vxt-icon-list__source-wrap {
+	margin-left: 15px;
+}
+
+.rtl .vxt-faq__outer-wrap.vxt-faq-icon-row .vxt-faq-item .vxt-faq-icon-wrap {
+	margin-left: 10px;
+}
+
+.rtl .vxt-rm__content {
+	text-align: right;
+}
+
+/* Vexaltrix blocks */
+.rtl .wp-block-vxt-team.vxt-team__image-position-above.vxt-team__align-center .vxt-team__content,
+.rtl .wp-block-vxt-team.vxt-team__image-position-above.vxt-team__align-left .vxt-team__content,
+.rtl .wp-block-vxt-team.vxt-team__image-position-above.vxt-team__align-right .vxt-team__content {
+	text-align: right;
+}
+
+.rtl .wp-block-vxt-inline-notice.vxt-inline_notice__align-left,
+.rtl .wp-block-vxt-inline-notice.vxt-inline_notice__align-right,
+.rtl .wp-block-vxt-inline-notice.vxt-inline_notice__align-center {
+	text-align: right;
+}
+
+.rtl .vxt-tm__content {
+	text-align: right;
+}
+
+.rtl .vxt-social-share__outer-wrap,
+.vxt-social-share__wrap {
+	justify-content: right;
+}
+
+.rtl .vxt-post-grid .vxt-post__inner-wrap {
+	text-align: right;
+}
+
+.rtl .wp-block-vxt-marketing-button.vxt-marketing-btn__align-center,
+.wp-block-vxt-marketing-button.vxt-marketing-btn__align-text-center .vxt-marketing-btn__title-wrap,
+.rtl .wp-block-vxt-marketing-button.vxt-marketing-btn__align-text-center .vxt-marketing-btn__link {
+	text-align: right;
+}
+
+.rtl .wp-block-vxt-marketing-button.vxt-marketing-btn__align-center,
+.rtl .wp-block-vxt-marketing-button.vxt-marketing-btn__align-text-center .vxt-marketing-btn__title-wrap,
+.rtl .wp-block-vxt-marketing-button.vxt-marketing-btn__align-text-center .vxt-marketing-btn__link {
+	justify-content: right;
+}
+
+.rtl .vxt-infobox-icon-left.vxt-infobox__content-wrap,
+.vxt-infobox-icon-right.vxt-infobox__content-wrap,
+.rtl .vxt-infobox-icon-left-title .vxt-ifb-left-title-image,
+.rtl .vxt-infobox-icon-right-title .vxt-ifb-right-title-image {
+	flex-direction: row;
+}
+
+.rtl .wp-block-vxt-restaurant-menu .vxt-rest_menu__wrap .vxt-rm__content,
+.rtl .vxt-rest_menu__wrap .vxt-rest_menu__wrap .vxt-rm__content { /* without image */
+	text-align: right;
+}
+
+.rtl .wp-block-vxt-restaurant-menu .vxt-rm__image-position-left.vxt-rm__align-left .vxt-rm__price,
+.rtl .wp-block-vxt-restaurant-menu .vxt-rm__image-position-left.vxt-rm__align-right .vxt-rm__price,
+.rtl .wp-block-vxt-restaurant-menu .vxt-rm__image-position-left.vxt-rm__align-center .vxt-rm__price,
+.rtl .vxt-rest_menu__wrap .vxt-rm__image-position-left.vxt-rm__align-left .vxt-rm__price,
+.rtl .vxt-rest_menu__wrap .vxt-rm__image-position-left.vxt-rm__align-right .vxt-rm__price,
+.rtl .vxt-rest_menu__wrap .vxt-rm__image-position-left.vxt-rm__align-center .vxt-rm__price {
+	text-align: left;
+}
+
+.rtl .wp-block-vxt-restaurant-menu .vxt-rm__image-position-left img,
+.rtl .vxt-rest_menu__wrap .vxt-rm__image-position-left img {
+	margin-left: 10px;
+}
+
+.rtl .wp-block-vxt-restaurant-menu .vxt-rest_menu__wrap.vxt-rm__align-center .vxt-rm__separator,
+.rtl .vxt-rest_menu__wrap .vxt-rest_menu__wrap.vxt-rm__align-center .vxt-rm__separator {
+	align-self: flex-start;
+}
+
+.rtl .wp-block-vxt-blockquote blockquote.vxt-blockquote {
+	border-right-style: none;
+}
+
+.rtl .vxt-forms-radio-wrap input[type="radio"] + label::before {
+	margin-left: 10px;
+}
+
+.rtl .vxt-forms-checkbox-wrap input[type="checkbox"] + label::before,
+.rtl .vxt-forms-accept-wrap input[type="checkbox"] + label::before {
+	margin-left: 10px;
+}
+
+.rtl .wp-block-vxt-restaurant-menu .vxt-rest_menu__wrap.vxt-rm__align-right .vxt-rm__content {
+	text-align: left;
+}
+
+.rtl .vxt-blockquote__tweet-icon_text a.vxt-blockquote__tweet-button svg {
+	margin-left: 10px;
+	margin-right: 0;
+}
+
+.rtl .uag-star-rating__title {
+	margin-left: 10px;
+}

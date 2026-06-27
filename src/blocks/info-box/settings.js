@@ -1,0 +1,2486 @@
+import UAGIconPicker from '@Components/icon-picker';
+import { memo } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+import TypographyControl from '@Components/typography';
+import ResponsiveBorder from '@Components/responsive-border';
+import AdvancedPopColorControl from '@Components/color-control/advanced-pop-color-control.js';
+import InspectorTabs from '@Components/inspector-tabs/InspectorTabs.js';
+import InspectorTab, { UAGTabs } from '@Components/inspector-tabs/InspectorTab.js';
+import SpacingControl from '@Components/spacing-control';
+import Range from '@Components/range/Range.js';
+import ResponsiveSlider from '@Components/responsive-slider';
+import UAGMediaPicker from '@Components/image';
+import MultiButtonsControl from '@Components/multi-buttons-control';
+import UAGSelectControl from '@Components/select-control';
+import UAGTabsControl from '@Components/tabs';
+import infoBoxPresets, { buttonsPresets } from './presets';
+import UAGPresets from '@Components/presets';
+import { InspectorControls } from '@wordpress/block-editor';
+import { getImageSize } from '@Utils/Helpers';
+import { ToggleControl, Icon } from '@wordpress/components';
+import UAGTextControl from '@Components/text-control';
+import renderSVG from '@Controls/renderIcon';
+import renderGBSSettings from '@Controls/renderGBSSettings';
+import styling from './styling';
+import UpgradeComponent from '@Components/upgrade-to-pro-cta';
+
+let imageSizeOptions = [
+	{
+		value: 'thumbnail',
+		label: __( 'Thumbnail', 'vexaltrix' ),
+	},
+	{ value: 'medium', label: __( 'Medium', 'vexaltrix' ) },
+	{ value: 'full', label: __( 'Large', 'vexaltrix' ) },
+];
+
+import UAGAdvancedPanelBody from '@Components/advanced-panel-body';
+
+const Settings = ( props ) => {
+	const { setAttributes, attributes, deviceType } = props;
+
+	// Setup the attributes.
+	const {
+		headingAlign,
+		headingAlignTablet,
+		headingAlignMobile,
+		headingColor,
+		subHeadingColor,
+		prefixColor,
+		prefixFontSize,
+		prefixFontSizeType,
+		prefixFontSizeTypeMobile,
+		prefixFontSizeTypeTablet,
+		prefixFontSizeTablet,
+		prefixFontSizeMobile,
+		prefixFontFamily,
+		prefixFontWeight,
+		prefixFontStyle,
+		prefixLineHeightType,
+		prefixLineHeight,
+		prefixLineHeightTablet,
+		prefixLineHeightMobile,
+		prefixTransform,
+		prefixDecoration,
+		prefixLoadGoogleFonts,
+		prefixHeadingTag,
+		headingTag,
+		headFontSize,
+		headFontSizeType,
+		headFontSizeTypeMobile,
+		headFontSizeTypeTablet,
+		headFontSizeTablet,
+		headFontSizeMobile,
+		headFontFamily,
+		headFontWeight,
+		headFontStyle,
+		headLineHeightType,
+		headLineHeight,
+		headLineHeightTablet,
+		headLineHeightMobile,
+		headLoadGoogleFonts,
+		subHeadFontSize,
+		subHeadFontSizeType,
+		subHeadFontSizeTypeMobile,
+		subHeadFontSizeTypeTablet,
+		subHeadFontSizeTablet,
+		subHeadFontSizeMobile,
+		subHeadFontFamily,
+		subHeadFontWeight,
+		subHeadFontStyle,
+		subHeadLineHeightType,
+		subHeadLineHeight,
+		subHeadLineHeightTablet,
+		subHeadLineHeightMobile,
+		subHeadTransform,
+		subHeadDecoration,
+		subHeadLoadGoogleFonts,
+		separatorWidthType,
+		icon,
+		iconColor,
+		iconSize,
+		iconSizeType,
+		iconSizeTablet,
+		iconSizeMobile,
+		iconimgPosition,
+		iconHover,
+		iconimgBorderRadius,
+		iconimgBorderRadiusUnit,
+		source_type,
+		sourceAlign,
+		seperatorPosition,
+		seperatorStyle,
+		seperatorWidth,
+		seperatorWidthTablet,
+		seperatorWidthMobile,
+		seperatorColor,
+		seperatorThickness,
+		thicknessUnit,
+		ctaType,
+		ctaButtonType,
+		ctaBgType,
+		ctaBgHoverType,
+		ctaLink,
+		ctaTarget,
+		showCtaIcon,
+		ctaIcon,
+		ctaIconPosition,
+		ctaIconSpace,
+		ctaIconSpaceTablet,
+		ctaIconSpaceMobile,
+		ctaIconSpaceType,
+		ctaLinkColor,
+		ctaFontSize,
+		ctaFontSizeType,
+		ctaFontSizeTypeMobile,
+		ctaFontSizeTypeTablet,
+		ctaFontSizeMobile,
+		ctaFontSizeTablet,
+		ctaTransform,
+		ctaDecoration,
+		ctaFontFamily,
+		ctaFontWeight,
+		ctaFontStyle,
+		ctaLineHeightType,
+		ctaLineHeight,
+		ctaLineHeightMobile,
+		ctaLineHeightTablet,
+		ctaLetterSpacingType,
+		ctaLetterSpacing,
+		ctaLetterSpacingTablet,
+		ctaLetterSpacingMobile,
+		ctaLoadGoogleFonts,
+		ctaBtnLinkColor,
+		ctaLinkHoverColor,
+		ctaBgHoverColor,
+		ctaBgColor,
+		paddingBtnUnit,
+		mobilePaddingBtnUnit,
+		tabletPaddingBtnUnit,
+		paddingBtnTop,
+		paddingBtnBottom,
+		paddingBtnLeft,
+		paddingBtnRight,
+		paddingBtnTopTablet,
+		paddingBtnRightTablet,
+		paddingBtnBottomTablet,
+		paddingBtnLeftTablet,
+		paddingBtnTopMobile,
+		paddingBtnRightMobile,
+		paddingBtnBottomMobile,
+		paddingBtnLeftMobile,
+		iconLeftMargin,
+		iconRightMargin,
+		iconTopMargin,
+		iconBottomMargin,
+		iconMarginTopTablet,
+		iconMarginRightTablet,
+		iconMarginBottomTablet,
+		iconMarginLeftTablet,
+		iconMarginTopMobile,
+		iconMarginRightMobile,
+		iconMarginBottomMobile,
+		iconMarginLeftMobile,
+		iconMarginUnit,
+		iconMobileMarginUnit,
+		iconTabletMarginUnit,
+		iconImage,
+		imageSize,
+		imageWidth,
+		imageWidthMobile,
+		imageWidthTablet,
+		imageWidthType,
+		imageWidthUnit,
+		imageWidthUnitTablet,
+		imageWidthUnitMobile,
+		stack,
+		showIcon,
+		showPrefix,
+		showTitle,
+		showDesc,
+		spacingLink,
+		paddingspacingLink,
+		htmlTag,
+		headTransform,
+		headDecoration,
+		headLetterSpacing,
+		headLetterSpacingTablet,
+		headLetterSpacingMobile,
+		headLetterSpacingType,
+		tempHeadingDesc,
+
+		prefixTopMargin,
+		prefixRightMargin,
+		prefixSpace,
+		prefixLeftMargin,
+		prefixMarginTopTablet,
+		prefixMarginRightTablet,
+		prefixTabletSpace,
+		prefixMarginLeftTablet,
+		prefixMarginTopMobile,
+		prefixMarginRightMobile,
+		prefixMobileSpace,
+		prefixMarginLeftMobile,
+		prefixSpaceUnit,
+		prefixMobileMarginUnit,
+		prefixTabletMarginUnit,
+		spacingPrefixLink,
+		prefixLetterSpacing,
+		prefixLetterSpacingTablet,
+		prefixLetterSpacingMobile,
+		prefixLetterSpacingType,
+
+		headTopMargin,
+		headRightMargin,
+		headSpace,
+		headLeftMargin,
+		headMarginTopTablet,
+		headMarginRightTablet,
+		headTabletSpace,
+		headMarginLeftTablet,
+		headMarginTopMobile,
+		headMarginRightMobile,
+		headMobileSpace,
+		headMarginLeftMobile,
+		headSpaceUnit,
+		headMobileMarginUnit,
+		headTabletMarginUnit,
+		spacingHeadLink,
+
+		separatorTopMargin,
+		separatorRightMargin,
+		seperatorSpace,
+		separatorLeftMargin,
+		separatorMarginTopTablet,
+		separatorMarginRightTablet,
+		seperatorTabletSpace,
+		separatorMarginLeftTablet,
+		separatorMarginTopMobile,
+		separatorMarginRightMobile,
+		seperatorMobileSpace,
+		separatorMarginLeftMobile,
+		seperatorSpaceUnit,
+		separatorMobileMarginUnit,
+		separatorTabletMarginUnit,
+		spacingSeparatorLink,
+
+		subHeadTopMargin,
+		subHeadRightMargin,
+		subHeadSpace,
+		subHeadLeftMargin,
+		subHeadMarginTopTablet,
+		subHeadMarginRightTablet,
+		subHeadTabletSpace,
+		subHeadMarginLeftTablet,
+		subHeadMarginTopMobile,
+		subHeadMarginRightMobile,
+		subHeadMobileSpace,
+		subHeadMarginLeftMobile,
+		subHeadSpaceUnit,
+		subHeadMobileMarginUnit,
+		subHeadTabletMarginUnit,
+		spacingSubheadLink,
+		subHeadLetterSpacing,
+		subHeadLetterSpacingTablet,
+		subHeadLetterSpacingMobile,
+		subHeadLetterSpacingType,
+
+		iconView,
+		iconShape,
+		iconBackgroundColor,
+		iconBackgroundHoverColor,
+		iconBorderWidth,
+
+		// margin
+		blockTopMargin,
+		blockRightMargin,
+		blockLeftMargin,
+		blockBottomMargin,
+		blockTopMarginTablet,
+		blockRightMarginTablet,
+		blockLeftMarginTablet,
+		blockBottomMarginTablet,
+		blockTopMarginMobile,
+		blockRightMarginMobile,
+		blockLeftMarginMobile,
+		blockBottomMarginMobile,
+		blockMarginUnit,
+		blockMarginUnitTablet,
+		blockMarginUnitMobile,
+		blockMarginLink,
+		// padding
+		blockTopPadding,
+		blockRightPadding,
+		blockLeftPadding,
+		blockBottomPadding,
+		blockTopPaddingTablet,
+		blockRightPaddingTablet,
+		blockLeftPaddingTablet,
+		blockBottomPaddingTablet,
+		blockTopPaddingMobile,
+		blockRightPaddingMobile,
+		blockLeftPaddingMobile,
+		blockBottomPaddingMobile,
+		blockPaddingUnit,
+		blockPaddingUnitTablet,
+		blockPaddingUnitMobile,
+		blockPaddingLink,
+		inheritFromTheme,
+		enableMultilineParagraph,
+		imageAlt,
+	} = attributes;
+
+	/*
+	 * Event to set Image as while adding.
+	 */
+	const onSelectImage = ( media ) => {
+		if ( ! media || ! media.url ) {
+			setAttributes( { iconImage: null } );
+			return;
+		}
+
+		if ( ! media.type || 'image' !== media.type ) {
+			setAttributes( { iconImage: null } );
+			return;
+		}
+		if ( media.sizes ) {
+			const new_img = getImageSize( media.sizes );
+			imageSizeOptions = new_img;
+		}
+		setAttributes( { iconImage: media } );
+		setAttributes( { imageAlt: media.alt } );
+	};
+
+	/*
+	 * Event to set Image as null while removing.
+	 */
+	const onRemoveImage = () => {
+		setAttributes( { iconImage: '' } );
+	};
+
+	if ( iconImage && iconImage.sizes ) {
+		imageSizeOptions = getImageSize( iconImage.sizes );
+	}
+
+	const currentTheme = vxt_ultimate_gutenberg_blocks_blocks_info.current_theme;
+
+	// Global Controls.
+	const imageIconPanel = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Image/Icon', 'vexaltrix' ) } initialOpen={ true }>
+				<ToggleControl
+					checked={ showIcon }
+					onChange={ () => setAttributes( { showIcon: ! showIcon } ) }
+					label={ __( 'Enable Icon/Image', 'vexaltrix' ) }
+				/>
+				{ showIcon && (
+					<UAGSelectControl
+						label={ __( 'Select Position', 'vexaltrix' ) }
+						data={ {
+							value: iconimgPosition,
+							label: 'iconimgPosition',
+						} }
+						setAttributes={ setAttributes }
+						options={ [
+							{
+								value: 'above-title',
+								label: __( 'Above Title', 'vexaltrix' ),
+							},
+							{
+								value: 'below-title',
+								label: __( 'Below Title', 'vexaltrix' ),
+							},
+							{
+								value: 'left-title',
+								label: __( 'Left of Title', 'vexaltrix' ),
+							},
+							{
+								value: 'right-title',
+								label: __( 'Right of Title', 'vexaltrix' ),
+							},
+							{
+								value: 'left',
+								label: __( 'Left of Text and Title', 'vexaltrix' ),
+							},
+							{
+								value: 'right',
+								label: __( 'Right of Text and Title', 'vexaltrix' ),
+							},
+						] }
+					/>
+				) }
+				{ ( iconimgPosition === 'left' || iconimgPosition === 'right' ) && (
+					<UAGSelectControl
+						label={ __( 'Stack on', 'vexaltrix' ) }
+						data={ {
+							value: stack,
+							label: 'stack',
+						} }
+						setAttributes={ setAttributes }
+						options={ [
+							{
+								value: 'none',
+								label: __( 'None', 'vexaltrix' ),
+							},
+							{
+								value: 'tablet',
+								label: __( 'Tablet', 'vexaltrix' ),
+							},
+							{
+								value: 'mobile',
+								label: __( 'Mobile', 'vexaltrix' ),
+							},
+						] }
+						help={ __( 'Note: Choose on what breakpoint the Info Box will stack.', 'vexaltrix' ) }
+					/>
+				) }
+				{ iconimgPosition && iconimgPosition !== 'above-title' && iconimgPosition !== 'below-title' && (
+					<MultiButtonsControl
+						setAttributes={ setAttributes }
+						label={ __( 'Vertical Alignment', 'vexaltrix' ) }
+						data={ {
+							value: sourceAlign,
+							label: 'sourceAlign',
+						} }
+						options={ [
+							{
+								value: 'top',
+								label: __( 'Top', 'vexaltrix' ),
+							},
+							{
+								value: 'middle',
+								label: __( 'Middle', 'vexaltrix' ),
+							},
+						] }
+					/>
+				) }
+
+				{ showIcon && (
+					<MultiButtonsControl
+						setAttributes={ setAttributes }
+						label={ __( 'Select Source', 'vexaltrix' ) }
+						data={ {
+							value: source_type,
+							label: 'source_type',
+						} }
+						options={ [
+							{
+								value: 'icon',
+								label: __( 'Icon', 'vexaltrix' ),
+							},
+							{
+								value: 'image',
+								label: __( 'Image', 'vexaltrix' ),
+							},
+						] }
+					/>
+				) }
+
+				{ false !== showIcon && source_type === 'icon' && (
+					<>
+						<UAGIconPicker
+							label={ __( 'Icon', 'vexaltrix' ) }
+							value={ icon }
+							onChange={ ( value ) => setAttributes( { icon: value } ) }
+						/>
+					</>
+				) }
+				{ false !== showIcon && source_type === 'image' && (
+					<>
+						<UAGMediaPicker
+							onSelectImage={ onSelectImage }
+							backgroundImage={ iconImage }
+							onRemoveImage={ onRemoveImage }
+						/>
+						<UAGTextControl
+							label={ __( 'Alternate Text', 'vexaltrix' ) }
+							enableDynamicContent={ true }
+							dynamicContentType="text"
+							value={ imageAlt }
+							name="imageAlt"
+							setAttributes={ setAttributes }
+							data={ {
+								value: imageAlt,
+								label: 'imageAlt',
+							} }
+						/>
+						{ iconImage && iconImage.url !== 'null' && iconImage.url !== '' && (
+							<UAGSelectControl
+								label={ __( 'Image Size', 'vexaltrix' ) }
+								data={ {
+									value: imageSize,
+									label: 'imageSize',
+								} }
+								setAttributes={ setAttributes }
+								options={ imageSizeOptions }
+							/>
+						) }
+					</>
+				) }
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	// Typography settings.
+	const typographySettings = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Content', 'vexaltrix' ) } initialOpen={ false }>
+				<UAGSelectControl
+					label={ __( 'HTML Tag', 'vexaltrix' ) }
+					data={ {
+						value: htmlTag,
+						label: 'htmlTag',
+					} }
+					setAttributes={ setAttributes }
+					options={ [
+						{
+							value: 'div',
+							label: __( 'div', 'vexaltrix' ),
+						},
+						{
+							value: 'header',
+							label: __( 'header', 'vexaltrix' ),
+						},
+						{
+							value: 'footer',
+							label: __( 'footer', 'vexaltrix' ),
+						},
+						{
+							value: 'main',
+							label: __( 'main', 'vexaltrix' ),
+						},
+						{
+							value: 'article',
+							label: __( 'article', 'vexaltrix' ),
+						},
+						{
+							value: 'section',
+							label: __( 'section', 'vexaltrix' ),
+						},
+						{
+							value: 'aside',
+							label: __( 'aside', 'vexaltrix' ),
+						},
+						{
+							value: 'nav',
+							label: __( 'nav', 'vexaltrix' ),
+						},
+					] }
+				/>
+				{ ( false === showIcon &&
+					! (
+						iconimgPosition === 'left-title' ||
+						iconimgPosition === 'right-title' ||
+						iconimgPosition === 'left' ||
+						iconimgPosition === 'right'
+					) ) ||
+				( showIcon &&
+					iconimgPosition &&
+					( iconimgPosition === 'above-title' || iconimgPosition === 'below-title' ) ) ? (
+					<MultiButtonsControl
+						setAttributes={ setAttributes }
+						label={ __( 'Alignment', 'vexaltrix' ) }
+						responsive={ true }
+						data={ {
+							desktop: {
+								value: headingAlign,
+								label: 'headingAlign',
+							},
+							tablet: {
+								value: headingAlignTablet,
+								label: 'headingAlignTablet',
+							},
+							mobile: {
+								value: headingAlignMobile,
+								label: 'headingAlignMobile',
+							},
+						} }
+						className="vxt-multi-button-alignment-control"
+						options={ [
+							{
+								value: 'left',
+								icon: <Icon icon={ renderSVG( 'fa fa-align-left' ) } />,
+								tooltip: __( 'Left', 'vexaltrix' ),
+							},
+							{
+								value: 'center',
+								icon: <Icon icon={ renderSVG( 'fa fa-align-center' ) } />,
+								tooltip: __( 'Center', 'vexaltrix' ),
+							},
+							{
+								value: 'right',
+								icon: <Icon icon={ renderSVG( 'fa fa-align-right' ) } />,
+								tooltip: __( 'Right', 'vexaltrix' ),
+							},
+						] }
+						showIcons={ true }
+					/>
+				) : null }
+
+				<ToggleControl
+					checked={ showPrefix }
+					onChange={ () => setAttributes( { showPrefix: ! showPrefix } ) }
+					label={ __( 'Enable Prefix', 'vexaltrix' ) }
+				/>
+				{ showPrefix && (
+					<>
+						<MultiButtonsControl
+							setAttributes={ setAttributes }
+							label={ __( 'Prefix Tag', 'vexaltrix' ) }
+							data={ {
+								value: prefixHeadingTag,
+								label: 'prefixHeadingTag',
+							} }
+							options={ [
+								{ value: 'h1', label: __( 'H1', 'vexaltrix' ) },
+								{ value: 'h2', label: __( 'H2', 'vexaltrix' ) },
+								{ value: 'h3', label: __( 'H3', 'vexaltrix' ) },
+								{ value: 'h4', label: __( 'H4', 'vexaltrix' ) },
+								{ value: 'h5', label: __( 'H5', 'vexaltrix' ) },
+								{ value: 'h6', label: __( 'H6', 'vexaltrix' ) },
+								{ value: 'p', label: __( 'P', 'vexaltrix' ) },
+								{ value: 'span', label: __( 'Span', 'vexaltrix' ) },
+							] }
+						/>
+					</>
+				) }
+
+				<ToggleControl
+					checked={ showTitle }
+					onChange={ () => setAttributes( { showTitle: ! showTitle } ) }
+					label={ __( 'Enable Title', 'vexaltrix' ) }
+				/>
+
+				{ showTitle && (
+					<>
+						<MultiButtonsControl
+							setAttributes={ setAttributes }
+							label={ __( 'Title Tag', 'vexaltrix' ) }
+							data={ {
+								value: headingTag,
+								label: 'headingTag',
+							} }
+							options={ [
+								{ value: 'h1', label: __( 'H1', 'vexaltrix' ) },
+								{ value: 'h2', label: __( 'H2', 'vexaltrix' ) },
+								{ value: 'h3', label: __( 'H3', 'vexaltrix' ) },
+								{ value: 'h4', label: __( 'H4', 'vexaltrix' ) },
+								{ value: 'h5', label: __( 'H5', 'vexaltrix' ) },
+								{ value: 'h6', label: __( 'H6', 'vexaltrix' ) },
+								{ value: 'p', label: __( 'P', 'vexaltrix' ) },
+							] }
+						/>
+					</>
+				) }
+
+				<ToggleControl
+					checked={ showDesc }
+					onChange={ () => setAttributes( { showDesc: ! showDesc } ) }
+					label={ __( 'Enable Description', 'vexaltrix' ) }
+				/>
+
+				{ showDesc && (
+					<>
+						<ToggleControl
+							checked={ enableMultilineParagraph }
+							onChange={ () => {
+								setAttributes( { enableMultilineParagraph: ! enableMultilineParagraph } );
+								if ( enableMultilineParagraph ) {
+									setAttributes( { headingDesc: tempHeadingDesc } );
+								}
+							} }
+							label={ __( 'Enable Semantic Markup', 'vexaltrix' ) }
+							help={
+								! enableMultilineParagraph
+									? __(
+											'Use Core/Paragraph: Improve accessibility and SEO with semantic HTML markup. Note: Existing Rich Text content will not be preserved.',
+											'vexaltrix'
+									  )
+									: ''
+							}
+						/>
+					</>
+				) }
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	// Separator settings.
+	const seperatorSettings = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Separator', 'vexaltrix' ) } initialOpen={ false }>
+				<UAGSelectControl
+					label={ __( 'Style', 'vexaltrix' ) }
+					data={ {
+						value: seperatorStyle,
+						label: 'seperatorStyle',
+					} }
+					setAttributes={ setAttributes }
+					options={ [
+						{
+							value: 'none',
+							label: __( 'None', 'vexaltrix' ),
+						},
+						{
+							value: 'solid',
+							label: __( 'Solid', 'vexaltrix' ),
+						},
+						{
+							value: 'double',
+							label: __( 'Double', 'vexaltrix' ),
+						},
+						{
+							value: 'dashed',
+							label: __( 'Dashed', 'vexaltrix' ),
+						},
+						{
+							value: 'dotted',
+							label: __( 'Dotted', 'vexaltrix' ),
+						},
+					] }
+				/>
+				{ 'none' !== seperatorStyle && (
+					<UAGSelectControl
+						label={ __( 'Position', 'vexaltrix' ) }
+						data={ {
+							value: seperatorPosition,
+							label: 'seperatorPosition',
+						} }
+						setAttributes={ setAttributes }
+						options={ [
+							{
+								value: 'after_icon',
+								label: __( 'After Icon/Image', 'vexaltrix' ),
+							},
+							{
+								value: 'after_prefix',
+								label: __( 'After Prefix', 'vexaltrix' ),
+							},
+							{
+								value: 'after_title',
+								label: __( 'After Title', 'vexaltrix' ),
+							},
+							{
+								value: 'after_desc',
+								label: __( 'After Description', 'vexaltrix' ),
+							},
+						] }
+					/>
+				) }
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	const ctaSettings = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Call To Action', 'vexaltrix' ) } initialOpen={ false }>
+				<UAGSelectControl
+					label={ __( 'Type', 'vexaltrix' ) }
+					data={ {
+						value: ctaType,
+						label: 'ctaType',
+					} }
+					setAttributes={ setAttributes }
+					options={ [
+						{
+							value: 'none',
+							label: __( 'None', 'vexaltrix' ),
+						},
+						{
+							value: 'text',
+							label: __( 'Text', 'vexaltrix' ),
+						},
+						{
+							value: 'button',
+							label: __( 'Button', 'vexaltrix' ),
+						},
+						{
+							value: 'all',
+							label: __( 'Complete Box', 'vexaltrix' ),
+						},
+					] }
+				/>
+				{ 'button' === ctaType && (
+					<>
+						{ ! inheritFromTheme && (
+							<UAGPresets
+								setAttributes={ setAttributes }
+								presets={ buttonsPresets }
+								presetInputType="radioImage"
+							/>
+						) }
+					</>
+				) }
+				{ ctaType !== 'all' && ctaType !== 'none' && (
+					<>
+						<ToggleControl
+							checked={ inheritFromTheme }
+							onChange={ () => setAttributes( { inheritFromTheme: ! inheritFromTheme } ) }
+							label={ __( 'Inherit From Theme', 'vexaltrix' ) }
+						/>
+						{ inheritFromTheme && 'Astra' === currentTheme && (
+							<MultiButtonsControl
+								setAttributes={ setAttributes }
+								label={ __( 'Button Type', 'vexaltrix' ) }
+								data={ {
+									value: ctaButtonType,
+									label: 'ctaButtonType',
+								} }
+								options={ [
+									{
+										value: 'primary',
+										label: __( 'Primary', 'vexaltrix' ),
+									},
+									{
+										value: 'secondary',
+										label: __( 'Secondary', 'vexaltrix' ),
+									},
+								] }
+							/>
+						) }
+						<ToggleControl
+							label={ __( 'Show Icon', 'vexaltrix' ) }
+							checked={ showCtaIcon }
+							onChange={ () => setAttributes( { showCtaIcon: ! showCtaIcon } ) }
+						/>
+						{ showCtaIcon && (
+							<UAGIconPicker
+								label={ __( 'Button Icon', 'vexaltrix' ) }
+								value={ ctaIcon }
+								onChange={ ( value ) => setAttributes( { ctaIcon: value } ) }
+							/>
+						) }
+					</>
+				) }
+				{ ctaType !== 'none' && (
+					<>
+						<UAGTextControl
+							label={ __( 'Link', 'vexaltrix' ) }
+							enableDynamicContent={ true }
+							name="ctaLink"
+							value={ ctaLink }
+							setAttributes={ setAttributes }
+							data={ {
+								value: ctaLink,
+								label: 'ctaLink',
+							} }
+						/>
+						<ToggleControl
+							checked={ ctaTarget }
+							onChange={ () => setAttributes( { ctaTarget: ! ctaTarget } ) }
+							label={ __( 'Open in new window', 'vexaltrix' ) }
+						/>
+					</>
+				) }
+				{ showIcon && ctaType !== 'all' && ctaType !== 'none' && (
+					<>
+						<UAGIconPicker
+							label={ __( 'Icon', 'vexaltrix' ) }
+							value={ ctaIcon }
+							onChange={ ( value ) => setAttributes( { ctaIcon: value } ) }
+						/>
+					</>
+				) }
+				{ showCtaIcon && ctaIcon !== '' && ctaType !== 'all' && ctaType !== 'none' && (
+					<>
+						<MultiButtonsControl
+							setAttributes={ setAttributes }
+							label={ __( 'Icon Position', 'vexaltrix' ) }
+							data={ {
+								value: ctaIconPosition,
+								label: 'ctaIconPosition',
+							} }
+							className="vxt-multi-button-alignment-control"
+							options={ [
+								{
+									value: 'before',
+									label: __( 'Before Text', 'vexaltrix' ),
+								},
+								{
+									value: 'after',
+									label: __( 'After Text', 'vexaltrix' ),
+								},
+							] }
+							showIcons={ false }
+						/>
+						<ResponsiveSlider
+							label={ __( 'Icon Spacing', 'vexaltrix' ) }
+							data={ {
+								desktop: {
+									value: ctaIconSpace,
+									label: 'ctaIconSpace',
+								},
+								tablet: {
+									value: ctaIconSpaceTablet,
+									label: 'ctaIconSpaceTablet',
+								},
+								mobile: {
+									value: ctaIconSpaceMobile,
+									label: 'ctaIconSpaceMobile',
+								},
+							} }
+							min={ -50 }
+							max={ 50 }
+							unit={ {
+								value: ctaIconSpaceType,
+								label: 'ctaIconSpaceType',
+							} }
+							units={ [
+								{
+									name: __( 'Pixel', 'vexaltrix' ),
+									unitValue: 'px',
+								},
+								{
+									name: __( 'EM', 'vexaltrix' ),
+									unitValue: 'em',
+								},
+							] }
+							setAttributes={ setAttributes }
+						/>
+					</>
+				) }
+			</UAGAdvancedPanelBody>
+		);
+	};
+	const styleSettings = () => {
+		return (
+			<>
+				{ ( ( false !== showIcon &&
+					source_type !== 'icon' &&
+					iconImage &&
+					iconImage.url !== 'null' &&
+					iconImage.url !== '' ) ||
+					( false !== showIcon && source_type === 'icon' && '' !== icon ) ) && (
+					<UAGAdvancedPanelBody title="Icon/Image" initialOpen={ true }>
+						<>
+							{ source_type === 'icon' && (
+								<>
+									<UAGSelectControl
+										label={ __( 'View', 'vexaltrix' ) }
+										data={ {
+											value: iconView,
+											label: 'iconView',
+										} }
+										setAttributes={ setAttributes }
+										options={ [
+											{
+												value: 'none',
+												label: __( 'Default', 'vexaltrix' ),
+											},
+											{
+												value: 'Stacked',
+												label: __( 'Stacked', 'vexaltrix' ),
+											},
+											{
+												value: 'Framed',
+												label: __( 'Framed', 'vexaltrix' ),
+											},
+										] }
+									/>
+									{ iconView !== 'none' && (
+										<>
+											<UAGSelectControl
+												label={ __( 'Shape', 'vexaltrix' ) }
+												data={ {
+													value: iconShape,
+													label: 'iconShape',
+												} }
+												setAttributes={ setAttributes }
+												options={ [
+													{
+														value: 'Circle',
+														label: __( 'Circle', 'vexaltrix' ),
+													},
+													{
+														value: 'Square',
+														label: __( 'Square', 'vexaltrix' ),
+													},
+												] }
+											/>
+										</>
+									) }
+
+									{ iconView === 'Framed' && (
+										<>
+											<Range
+												label={ __( 'Set Border Width', 'vexaltrix' ) }
+												setAttributes={ setAttributes }
+												value={ iconBorderWidth }
+												data={ {
+													value: iconBorderWidth,
+													label: 'iconBorderWidth',
+												} }
+												min={ 0 }
+												max={ 15 }
+												units={ [
+													{
+														name: __( 'Pixel', 'vexaltrix' ),
+														unitValue: 'px',
+													},
+												] }
+											/>
+										</>
+									) }
+
+									<UAGTabsControl
+										tabs={ [
+											{
+												name: 'normal',
+												title: __( 'Normal', 'vexaltrix' ),
+											},
+											{
+												name: 'hover',
+												title: __( 'Hover', 'vexaltrix' ),
+											},
+										] }
+										normal={
+											<>
+												<AdvancedPopColorControl
+													label={ __( 'Color', 'vexaltrix' ) }
+													colorValue={ iconColor ? iconColor : '' }
+													data={ {
+														value: iconColor,
+														label: 'iconColor',
+													} }
+													setAttributes={ setAttributes }
+												/>
+												{ iconView !== 'none' && (
+													<>
+														<AdvancedPopColorControl
+															label={ __( 'Icon Background Color', 'vexaltrix' ) }
+															colorValue={
+																iconBackgroundColor ? iconBackgroundColor : ''
+															}
+															data={ {
+																value: iconBackgroundColor,
+																label: 'iconBackgroundColor',
+															} }
+															setAttributes={ setAttributes }
+														/>
+													</>
+												) }
+											</>
+										}
+										hover={
+											<>
+												<AdvancedPopColorControl
+													label={ __( 'Color', 'vexaltrix' ) }
+													colorValue={ iconHover ? iconHover : '' }
+													data={ {
+														value: iconHover,
+														label: 'iconHover',
+													} }
+													setAttributes={ setAttributes }
+												/>
+												{ iconView !== 'none' && (
+													<>
+														<AdvancedPopColorControl
+															label={ __( 'Icon Background Color', 'vexaltrix' ) }
+															colorValue={
+																iconBackgroundHoverColor ? iconBackgroundHoverColor : ''
+															}
+															data={ {
+																value: iconBackgroundHoverColor,
+																label: 'iconBackgroundHoverColor',
+															} }
+															setAttributes={ setAttributes }
+														/>
+													</>
+												) }
+											</>
+										}
+										disableBottomSeparator={ false }
+									/>
+									<ResponsiveSlider
+										label={ __( 'Width', 'vexaltrix' ) }
+										data={ {
+											desktop: {
+												value: iconSize,
+												label: 'iconSize',
+											},
+											tablet: {
+												value: iconSizeTablet,
+												label: 'iconSizeTablet',
+											},
+											mobile: {
+												value: iconSizeMobile,
+												label: 'iconSizeMobile',
+											},
+										} }
+										min={ 0 }
+										max={ 100 }
+										unit={ {
+											value: iconSizeType,
+											label: 'iconSizeType',
+										} }
+										units={ [
+											{
+												name: __( 'Pixel', 'vexaltrix' ),
+												unitValue: 'px',
+											},
+											{
+												name: __( '%', 'vexaltrix' ),
+												unitValue: '%',
+											},
+											{
+												name: __( 'EM', 'vexaltrix' ),
+												unitValue: 'em',
+											},
+										] }
+										setAttributes={ setAttributes }
+									/>
+								</>
+							) }
+							{ source_type === 'image' &&
+								iconImage &&
+								iconImage.url !== 'null' &&
+								iconImage.url !== '' && (
+									<>
+										<ToggleControl
+											checked={ imageWidthType }
+											onChange={ () =>
+												setAttributes( {
+													imageWidthType: ! imageWidthType,
+												} )
+											}
+											label={ __( 'Custom Width', 'vexaltrix' ) }
+											help={ __(
+												'Turn this off to inherit the natural width of Image.',
+												'vexaltrix'
+											) }
+										/>
+
+										{ imageWidthType && (
+											<ResponsiveSlider
+												label={ __( 'Width', 'vexaltrix' ) }
+												data={ {
+													desktop: {
+														value: imageWidth,
+														label: 'imageWidth',
+														unit: {
+															value: imageWidthUnit,
+															label: 'imageWidthUnit',
+														},
+													},
+													tablet: {
+														value: imageWidthTablet,
+														label: 'imageWidthTablet',
+														unit: {
+															value: imageWidthUnitTablet,
+															label: 'imageWidthUnitTablet',
+														},
+													},
+													mobile: {
+														value: imageWidthMobile,
+														label: 'imageWidthMobile',
+														unit: {
+															value: imageWidthUnitMobile,
+															label: 'imageWidthUnitMobile',
+														},
+													},
+												} }
+												min={ 0 }
+												limitMax={ { px: 500, '%': 100, em: 100 } }
+												units={ [
+													{
+														name: __( 'Pixel', 'vexaltrix' ),
+														unitValue: 'px',
+													},
+													{
+														name: __( '%', 'vexaltrix' ),
+														unitValue: '%',
+													},
+													{
+														name: __( 'EM', 'vexaltrix' ),
+														unitValue: 'em',
+													},
+												] }
+												setAttributes={ setAttributes }
+											/>
+										) }
+										<Range
+											label={ __( 'Border Radius', 'vexaltrix' ) }
+											setAttributes={ setAttributes }
+											value={ iconimgBorderRadius }
+											data={ {
+												value: iconimgBorderRadius,
+												label: 'iconimgBorderRadius',
+											} }
+											min={ 0 }
+											max={ 100 }
+											unit={ {
+												value: iconimgBorderRadiusUnit,
+												label: 'iconimgBorderRadiusUnit',
+											} }
+											units={ [
+												{
+													name: __( 'Pixel', 'vexaltrix' ),
+													unitValue: 'px',
+												},
+												{
+													name: __( 'EM', 'vexaltrix' ),
+													unitValue: 'em',
+												},
+											] }
+										/>
+									</>
+								) }
+							<SpacingControl
+								{ ...props }
+								label={ __( 'Padding', 'vexaltrix' ) }
+								valueTop={ {
+									value: iconTopMargin,
+									label: 'iconTopMargin',
+								} }
+								valueRight={ {
+									value: iconRightMargin,
+									label: 'iconRightMargin',
+								} }
+								valueBottom={ {
+									value: iconBottomMargin,
+									label: 'iconBottomMargin',
+								} }
+								valueLeft={ {
+									value: iconLeftMargin,
+									label: 'iconLeftMargin',
+								} }
+								valueTopTablet={ {
+									value: iconMarginTopTablet,
+									label: 'iconMarginTopTablet',
+								} }
+								valueRightTablet={ {
+									value: iconMarginRightTablet,
+									label: 'iconMarginRightTablet',
+								} }
+								valueBottomTablet={ {
+									value: iconMarginBottomTablet,
+									label: 'iconMarginBottomTablet',
+								} }
+								valueLeftTablet={ {
+									value: iconMarginLeftTablet,
+									label: 'iconMarginLeftTablet',
+								} }
+								valueTopMobile={ {
+									value: iconMarginTopMobile,
+									label: 'iconMarginTopMobile',
+								} }
+								valueRightMobile={ {
+									value: iconMarginRightMobile,
+									label: 'iconMarginRightMobile',
+								} }
+								valueBottomMobile={ {
+									value: iconMarginBottomMobile,
+									label: 'iconMarginBottomMobile',
+								} }
+								valueLeftMobile={ {
+									value: iconMarginLeftMobile,
+									label: 'iconMarginLeftMobile',
+								} }
+								unit={ {
+									value: iconMarginUnit,
+									label: 'iconMarginUnit',
+								} }
+								mUnit={ {
+									value: iconMobileMarginUnit,
+									label: 'iconMobileMarginUnit',
+								} }
+								tUnit={ {
+									value: iconTabletMarginUnit,
+									label: 'iconTabletMarginUnit',
+								} }
+								deviceType={ deviceType }
+								attributes={ attributes }
+								setAttributes={ setAttributes }
+								link={ {
+									value: spacingLink,
+									label: 'spacingLink',
+								} }
+								units={ [
+									{
+										name: __( 'Pixel', 'vexaltrix' ),
+										unitValue: 'px',
+									},
+									{
+										name: __( 'EM', 'vexaltrix' ),
+										unitValue: 'em',
+									},
+								] }
+							/>
+						</>
+					</UAGAdvancedPanelBody>
+				) }
+				{ showPrefix && (
+					<UAGAdvancedPanelBody title="Prefix" initialOpen={ false }>
+						<>
+							<AdvancedPopColorControl
+								label={ __( 'Color', 'vexaltrix' ) }
+								colorValue={ prefixColor ? prefixColor : '' }
+								data={ {
+									value: prefixColor,
+									label: 'prefixColor',
+								} }
+								setAttributes={ setAttributes }
+							/>
+							<TypographyControl
+								label={ __( 'Typography', 'vexaltrix' ) }
+								attributes={ attributes }
+								setAttributes={ setAttributes }
+								loadGoogleFonts={ {
+									value: prefixLoadGoogleFonts,
+									label: 'prefixLoadGoogleFonts',
+								} }
+								fontFamily={ {
+									value: prefixFontFamily,
+									label: 'prefixFontFamily',
+								} }
+								fontWeight={ {
+									value: prefixFontWeight,
+									label: 'prefixFontWeight',
+								} }
+								fontStyle={ {
+									value: prefixFontStyle,
+									label: 'prefixFontStyle',
+								} }
+								fontSizeType={ {
+									value: prefixFontSizeType,
+									label: 'prefixFontSizeType',
+								} }
+								fontSizeTypeTablet={ {
+									value: prefixFontSizeTypeTablet,
+									label: 'prefixFontSizeTypeTablet',
+								} }
+								fontSizeTypeMobile={ {
+									value: prefixFontSizeTypeMobile,
+									label: 'prefixFontSizeTypeMobile',
+								} }
+								fontSize={ {
+									value: prefixFontSize,
+									label: 'prefixFontSize',
+								} }
+								fontSizeMobile={ {
+									value: prefixFontSizeMobile,
+									label: 'prefixFontSizeMobile',
+								} }
+								fontSizeTablet={ {
+									value: prefixFontSizeTablet,
+									label: 'prefixFontSizeTablet',
+								} }
+								lineHeightType={ {
+									value: prefixLineHeightType,
+									label: 'prefixLineHeightType',
+								} }
+								lineHeight={ {
+									value: prefixLineHeight,
+									label: 'prefixLineHeight',
+								} }
+								lineHeightMobile={ {
+									value: prefixLineHeightMobile,
+									label: 'prefixLineHeightMobile',
+								} }
+								lineHeightTablet={ {
+									value: prefixLineHeightTablet,
+									label: 'prefixLineHeightTablet',
+								} }
+								transform={ {
+									value: prefixTransform,
+									label: 'prefixTransform',
+								} }
+								decoration={ {
+									value: prefixDecoration,
+									label: 'prefixDecoration',
+								} }
+								letterSpacing={ {
+									value: prefixLetterSpacing,
+									label: 'prefixLetterSpacing',
+								} }
+								letterSpacingTablet={ {
+									value: prefixLetterSpacingTablet,
+									label: 'prefixLetterSpacingTablet',
+								} }
+								letterSpacingMobile={ {
+									value: prefixLetterSpacingMobile,
+									label: 'prefixLetterSpacingMobile',
+								} }
+								letterSpacingType={ {
+									value: prefixLetterSpacingType,
+									label: 'prefixLetterSpacingType',
+								} }
+							/>
+							<SpacingControl
+								{ ...props }
+								label={ __( 'Margin', 'vexaltrix' ) }
+								valueTop={ {
+									value: prefixTopMargin,
+									label: 'prefixTopMargin',
+								} }
+								valueRight={ {
+									value: prefixRightMargin,
+									label: 'prefixRightMargin',
+								} }
+								valueBottom={ {
+									value: prefixSpace,
+									label: 'prefixSpace',
+								} }
+								valueLeft={ {
+									value: prefixLeftMargin,
+									label: 'prefixLeftMargin',
+								} }
+								valueTopTablet={ {
+									value: prefixMarginTopTablet,
+									label: 'prefixMarginTopTablet',
+								} }
+								valueRightTablet={ {
+									value: prefixMarginRightTablet,
+									label: 'prefixMarginRightTablet',
+								} }
+								valueBottomTablet={ {
+									value: prefixTabletSpace,
+									label: 'prefixTabletSpace',
+								} }
+								valueLeftTablet={ {
+									value: prefixMarginLeftTablet,
+									label: 'prefixMarginLeftTablet',
+								} }
+								valueTopMobile={ {
+									value: prefixMarginTopMobile,
+									label: 'prefixMarginTopMobile',
+								} }
+								valueRightMobile={ {
+									value: prefixMarginRightMobile,
+									label: 'prefixMarginRightMobile',
+								} }
+								valueBottomMobile={ {
+									value: prefixMobileSpace,
+									label: 'prefixMobileSpace',
+								} }
+								valueLeftMobile={ {
+									value: prefixMarginLeftMobile,
+									label: 'prefixMarginLeftMobile',
+								} }
+								unit={ {
+									value: prefixSpaceUnit,
+									label: 'prefixSpaceUnit',
+								} }
+								mUnit={ {
+									value: prefixMobileMarginUnit,
+									label: 'prefixMobileMarginUnit',
+								} }
+								tUnit={ {
+									value: prefixTabletMarginUnit,
+									label: 'prefixTabletMarginUnit',
+								} }
+								deviceType={ deviceType }
+								attributes={ attributes }
+								setAttributes={ setAttributes }
+								link={ {
+									value: spacingPrefixLink,
+									label: 'spacingPrefixLink',
+								} }
+							/>
+						</>
+					</UAGAdvancedPanelBody>
+				) }
+				{ showTitle && (
+					<UAGAdvancedPanelBody title="Title" initialOpen={ false }>
+						<AdvancedPopColorControl
+							label={ __( 'Color', 'vexaltrix' ) }
+							colorValue={ headingColor ? headingColor : '' }
+							data={ {
+								value: headingColor,
+								label: 'headingColor',
+							} }
+							setAttributes={ setAttributes }
+						/>
+						<TypographyControl
+							label={ __( 'Typography', 'vexaltrix' ) }
+							attributes={ attributes }
+							setAttributes={ setAttributes }
+							loadGoogleFonts={ {
+								value: headLoadGoogleFonts,
+								label: 'headLoadGoogleFonts',
+							} }
+							fontFamily={ {
+								value: headFontFamily,
+								label: 'headFontFamily',
+							} }
+							fontWeight={ {
+								value: headFontWeight,
+								label: 'headFontWeight',
+							} }
+							fontStyle={ {
+								value: headFontStyle,
+								label: 'headFontStyle',
+							} }
+							fontSizeType={ {
+								value: headFontSizeType,
+								label: 'headFontSizeType',
+							} }
+							fontSizeTypeTablet={ {
+								value: headFontSizeTypeTablet,
+								label: 'headFontSizeTypeTablet',
+							} }
+							fontSizeTypeMobile={ {
+								value: headFontSizeTypeMobile,
+								label: 'headFontSizeTypeMobile',
+							} }
+							fontSize={ {
+								value: headFontSize,
+								label: 'headFontSize',
+							} }
+							fontSizeMobile={ {
+								value: headFontSizeMobile,
+								label: 'headFontSizeMobile',
+							} }
+							fontSizeTablet={ {
+								value: headFontSizeTablet,
+								label: 'headFontSizeTablet',
+							} }
+							lineHeightType={ {
+								value: headLineHeightType,
+								label: 'headLineHeightType',
+							} }
+							lineHeight={ {
+								value: headLineHeight,
+								label: 'headLineHeight',
+							} }
+							lineHeightMobile={ {
+								value: headLineHeightMobile,
+								label: 'headLineHeightMobile',
+							} }
+							lineHeightTablet={ {
+								value: headLineHeightTablet,
+								label: 'headLineHeightTablet',
+							} }
+							transform={ {
+								value: headTransform,
+								label: 'headTransform',
+							} }
+							decoration={ {
+								value: headDecoration,
+								label: 'headDecoration',
+							} }
+							letterSpacing={ {
+								value: headLetterSpacing,
+								label: 'headLetterSpacing',
+							} }
+							letterSpacingTablet={ {
+								value: headLetterSpacingTablet,
+								label: 'headLetterSpacingTablet',
+							} }
+							letterSpacingMobile={ {
+								value: headLetterSpacingMobile,
+								label: 'headLetterSpacingMobile',
+							} }
+							letterSpacingType={ {
+								value: headLetterSpacingType,
+								label: 'headLetterSpacingType',
+							} }
+						/>
+						<SpacingControl
+							{ ...props }
+							label={ __( 'Margin', 'vexaltrix' ) }
+							valueTop={ {
+								value: headTopMargin,
+								label: 'headTopMargin',
+							} }
+							valueRight={ {
+								value: headRightMargin,
+								label: 'headRightMargin',
+							} }
+							valueBottom={ {
+								value: headSpace,
+								label: 'headSpace',
+							} }
+							valueLeft={ {
+								value: headLeftMargin,
+								label: 'headLeftMargin',
+							} }
+							valueTopTablet={ {
+								value: headMarginTopTablet,
+								label: 'headMarginTopTablet',
+							} }
+							valueRightTablet={ {
+								value: headMarginRightTablet,
+								label: 'headMarginRightTablet',
+							} }
+							valueBottomTablet={ {
+								value: headTabletSpace,
+								label: 'headTabletSpace',
+							} }
+							valueLeftTablet={ {
+								value: headMarginLeftTablet,
+								label: 'headMarginLeftTablet',
+							} }
+							valueTopMobile={ {
+								value: headMarginTopMobile,
+								label: 'headMarginTopMobile',
+							} }
+							valueRightMobile={ {
+								value: headMarginRightMobile,
+								label: 'headMarginRightMobile',
+							} }
+							valueBottomMobile={ {
+								value: headMobileSpace,
+								label: 'headMobileSpace',
+							} }
+							valueLeftMobile={ {
+								value: headMarginLeftMobile,
+								label: 'headMarginLeftMobile',
+							} }
+							unit={ {
+								value: headSpaceUnit,
+								label: 'headSpaceUnit',
+							} }
+							mUnit={ {
+								value: headMobileMarginUnit,
+								label: 'headMobileMarginUnit',
+							} }
+							tUnit={ {
+								value: headTabletMarginUnit,
+								label: 'headTabletMarginUnit',
+							} }
+							deviceType={ deviceType }
+							attributes={ attributes }
+							setAttributes={ setAttributes }
+							link={ {
+								value: spacingHeadLink,
+								label: 'spacingHeadLink',
+							} }
+						/>
+					</UAGAdvancedPanelBody>
+				) }
+				{ 'none' !== seperatorStyle && (
+					<UAGAdvancedPanelBody title="Separator" initialOpen={ false }>
+						<ResponsiveSlider
+							label={ __( 'Width', 'vexaltrix' ) }
+							data={ {
+								desktop: {
+									value: seperatorWidth,
+									label: 'seperatorWidth',
+								},
+								tablet: {
+									value: seperatorWidthTablet,
+									label: 'seperatorWidthTablet',
+								},
+								mobile: {
+									value: seperatorWidthMobile,
+									label: 'seperatorWidthMobile',
+								},
+							} }
+							min={ 0 }
+							max={ '%' === separatorWidthType ? 100 : 500 }
+							unit={ {
+								value: separatorWidthType,
+								label: 'separatorWidthType',
+							} }
+							units={ [
+								{
+									name: __( 'Pixel', 'vexaltrix' ),
+									unitValue: 'px',
+								},
+								{
+									name: __( '%', 'vexaltrix' ),
+									unitValue: '%',
+								},
+							] }
+							setAttributes={ setAttributes }
+						/>
+						<Range
+							label={ __( 'Thickness', 'vexaltrix' ) }
+							setAttributes={ setAttributes }
+							value={ seperatorThickness }
+							data={ {
+								value: seperatorThickness,
+								label: 'seperatorThickness',
+							} }
+							min={ 0 }
+							max={ 10 }
+							unit={ {
+								value: thicknessUnit,
+								label: 'thicknessUnit',
+							} }
+						/>
+						<AdvancedPopColorControl
+							label={ __( 'Color', 'vexaltrix' ) }
+							colorValue={ seperatorColor ? seperatorColor : '' }
+							data={ {
+								value: seperatorColor,
+								label: 'seperatorColor',
+							} }
+							setAttributes={ setAttributes }
+						/>
+						<SpacingControl
+							{ ...props }
+							label={ __( 'Margin', 'vexaltrix' ) }
+							valueTop={ {
+								value: separatorTopMargin,
+								label: 'separatorTopMargin',
+							} }
+							valueRight={ {
+								value: separatorRightMargin,
+								label: 'separatorRightMargin',
+							} }
+							valueBottom={ {
+								value: seperatorSpace,
+								label: 'seperatorSpace',
+							} }
+							valueLeft={ {
+								value: separatorLeftMargin,
+								label: 'separatorLeftMargin',
+							} }
+							valueTopTablet={ {
+								value: separatorMarginTopTablet,
+								label: 'separatorMarginTopTablet',
+							} }
+							valueRightTablet={ {
+								value: separatorMarginRightTablet,
+								label: 'separatorMarginRightTablet',
+							} }
+							valueBottomTablet={ {
+								value: seperatorTabletSpace,
+								label: 'seperatorTabletSpace',
+							} }
+							valueLeftTablet={ {
+								value: separatorMarginLeftTablet,
+								label: 'separatorMarginLeftTablet',
+							} }
+							valueTopMobile={ {
+								value: separatorMarginTopMobile,
+								label: 'separatorMarginTopMobile',
+							} }
+							valueRightMobile={ {
+								value: separatorMarginRightMobile,
+								label: 'separatorMarginRightMobile',
+							} }
+							valueBottomMobile={ {
+								value: seperatorMobileSpace,
+								label: 'seperatorMobileSpace',
+							} }
+							valueLeftMobile={ {
+								value: separatorMarginLeftMobile,
+								label: 'separatorMarginLeftMobile',
+							} }
+							unit={ {
+								value: seperatorSpaceUnit,
+								label: 'seperatorSpaceUnit',
+							} }
+							mUnit={ {
+								value: separatorMobileMarginUnit,
+								label: 'separatorMobileMarginUnit',
+							} }
+							tUnit={ {
+								value: separatorTabletMarginUnit,
+								label: 'separatorTabletMarginUnit',
+							} }
+							deviceType={ deviceType }
+							attributes={ attributes }
+							setAttributes={ setAttributes }
+							link={ {
+								value: spacingSeparatorLink,
+								label: 'spacingSeparatorLink',
+							} }
+						/>
+					</UAGAdvancedPanelBody>
+				) }
+				{ showDesc && (
+					<UAGAdvancedPanelBody title="Description" initialOpen={ false }>
+						<>
+							<AdvancedPopColorControl
+								label={ __( 'Color', 'vexaltrix' ) }
+								colorValue={ subHeadingColor ? subHeadingColor : '' }
+								data={ {
+									value: subHeadingColor,
+									label: 'subHeadingColor',
+								} }
+								setAttributes={ setAttributes }
+							/>
+							<TypographyControl
+								label={ __( 'Typography', 'vexaltrix' ) }
+								attributes={ attributes }
+								setAttributes={ setAttributes }
+								loadGoogleFonts={ {
+									value: subHeadLoadGoogleFonts,
+									label: 'subHeadLoadGoogleFonts',
+								} }
+								fontFamily={ {
+									value: subHeadFontFamily,
+									label: 'subHeadFontFamily',
+								} }
+								fontWeight={ {
+									value: subHeadFontWeight,
+									label: 'subHeadFontWeight',
+								} }
+								fontStyle={ {
+									value: subHeadFontStyle,
+									label: 'subHeadFontStyle',
+								} }
+								fontSizeType={ {
+									value: subHeadFontSizeType,
+									label: 'subHeadFontSizeType',
+								} }
+								fontSizeTypeTablet={ {
+									value: subHeadFontSizeTypeTablet,
+									label: 'subHeadFontSizeTypeTablet',
+								} }
+								fontSizeTypeMobile={ {
+									value: subHeadFontSizeTypeMobile,
+									label: 'subHeadFontSizeTypeMobile',
+								} }
+								fontSize={ {
+									value: subHeadFontSize,
+									label: 'subHeadFontSize',
+								} }
+								fontSizeMobile={ {
+									value: subHeadFontSizeMobile,
+									label: 'subHeadFontSizeMobile',
+								} }
+								fontSizeTablet={ {
+									value: subHeadFontSizeTablet,
+									label: 'subHeadFontSizeTablet',
+								} }
+								lineHeightType={ {
+									value: subHeadLineHeightType,
+									label: 'subHeadLineHeightType',
+								} }
+								lineHeight={ {
+									value: subHeadLineHeight,
+									label: 'subHeadLineHeight',
+								} }
+								lineHeightMobile={ {
+									value: subHeadLineHeightMobile,
+									label: 'subHeadLineHeightMobile',
+								} }
+								lineHeightTablet={ {
+									value: subHeadLineHeightTablet,
+									label: 'subHeadLineHeightTablet',
+								} }
+								transform={ {
+									value: subHeadTransform,
+									label: 'subHeadTransform',
+								} }
+								decoration={ {
+									value: subHeadDecoration,
+									label: 'subHeadDecoration',
+								} }
+								letterSpacing={ {
+									value: subHeadLetterSpacing,
+									label: 'subHeadLetterSpacing',
+								} }
+								letterSpacingTablet={ {
+									value: subHeadLetterSpacingTablet,
+									label: 'subHeadLetterSpacingTablet',
+								} }
+								letterSpacingMobile={ {
+									value: subHeadLetterSpacingMobile,
+									label: 'subHeadLetterSpacingMobile',
+								} }
+								letterSpacingType={ {
+									value: subHeadLetterSpacingType,
+									label: 'subHeadLetterSpacingType',
+								} }
+							/>
+							<SpacingControl
+								{ ...props }
+								label={ __( 'Margin', 'vexaltrix' ) }
+								valueTop={ {
+									value: subHeadTopMargin,
+									label: 'subHeadTopMargin',
+								} }
+								valueRight={ {
+									value: subHeadRightMargin,
+									label: 'subHeadRightMargin',
+								} }
+								valueBottom={ {
+									value: subHeadSpace,
+									label: 'subHeadSpace',
+								} }
+								valueLeft={ {
+									value: subHeadLeftMargin,
+									label: 'subHeadLeftMargin',
+								} }
+								valueTopTablet={ {
+									value: subHeadMarginTopTablet,
+									label: 'subHeadMarginTopTablet',
+								} }
+								valueRightTablet={ {
+									value: subHeadMarginRightTablet,
+									label: 'subHeadMarginRightTablet',
+								} }
+								valueBottomTablet={ {
+									value: subHeadTabletSpace,
+									label: 'subHeadTabletSpace',
+								} }
+								valueLeftTablet={ {
+									value: subHeadMarginLeftTablet,
+									label: 'subHeadMarginLeftTablet',
+								} }
+								valueTopMobile={ {
+									value: subHeadMarginTopMobile,
+									label: 'subHeadMarginTopMobile',
+								} }
+								valueRightMobile={ {
+									value: subHeadMarginRightMobile,
+									label: 'subHeadMarginRightMobile',
+								} }
+								valueBottomMobile={ {
+									value: subHeadMobileSpace,
+									label: 'subHeadMobileSpace',
+								} }
+								valueLeftMobile={ {
+									value: subHeadMarginLeftMobile,
+									label: 'subHeadMarginLeftMobile',
+								} }
+								unit={ {
+									value: subHeadSpaceUnit,
+									label: 'subHeadSpaceUnit',
+								} }
+								mUnit={ {
+									value: subHeadMobileMarginUnit,
+									label: 'subHeadMobileMarginUnit',
+								} }
+								tUnit={ {
+									value: subHeadTabletMarginUnit,
+									label: 'subHeadTabletMarginUnit',
+								} }
+								deviceType={ deviceType }
+								attributes={ attributes }
+								setAttributes={ setAttributes }
+								link={ {
+									value: spacingSubheadLink,
+									label: 'spacingSubheadLink',
+								} }
+							/>
+						</>
+					</UAGAdvancedPanelBody>
+				) }
+				{ 'none' !== ctaType && 'all' !== ctaType && ! inheritFromTheme && (
+					<UAGAdvancedPanelBody title="Call to Action" initialOpen={ false }>
+						<>
+							<TypographyControl
+								label={ __( 'Typography', 'vexaltrix' ) }
+								attributes={ attributes }
+								setAttributes={ setAttributes }
+								loadGoogleFonts={ {
+									value: ctaLoadGoogleFonts,
+									label: 'ctaLoadGoogleFonts',
+								} }
+								fontFamily={ {
+									value: ctaFontFamily,
+									label: 'ctaFontFamily',
+								} }
+								fontWeight={ {
+									value: ctaFontWeight,
+									label: 'ctaFontWeight',
+								} }
+								fontStyle={ {
+									value: ctaFontStyle,
+									label: 'ctaFontStyle',
+								} }
+								fontSizeType={ {
+									value: ctaFontSizeType,
+									label: 'ctaFontSizeType',
+								} }
+								fontSizeTypeTablet={ {
+									value: ctaFontSizeTypeTablet,
+									label: 'ctaFontSizeTypeTablet',
+								} }
+								fontSizeTypeMobile={ {
+									value: ctaFontSizeTypeMobile,
+									label: 'ctaFontSizeTypeMobile',
+								} }
+								fontSize={ {
+									value: ctaFontSize,
+									label: 'ctaFontSize',
+								} }
+								fontSizeMobile={ {
+									value: ctaFontSizeMobile,
+									label: 'ctaFontSizeMobile',
+								} }
+								fontSizeTablet={ {
+									value: ctaFontSizeTablet,
+									label: 'ctaFontSizeTablet',
+								} }
+								lineHeightType={ {
+									value: ctaLineHeightType,
+									label: 'ctaLineHeightType',
+								} }
+								lineHeight={ {
+									value: ctaLineHeight,
+									label: 'ctaLineHeight',
+								} }
+								lineHeightMobile={ {
+									value: ctaLineHeightMobile,
+									label: 'ctaLineHeightMobile',
+								} }
+								lineHeightTablet={ {
+									value: ctaLineHeightTablet,
+									label: 'ctaLineHeightTablet',
+								} }
+								transform={ {
+									value: ctaTransform,
+									label: 'ctaTransform',
+								} }
+								decoration={ {
+									value: ctaDecoration,
+									label: 'ctaDecoration',
+								} }
+								letterSpacing={ {
+									value: ctaLetterSpacing,
+									label: 'ctaLetterSpacing',
+								} }
+								letterSpacingTablet={ {
+									value: ctaLetterSpacingTablet,
+									label: 'ctaLetterSpacingTablet',
+								} }
+								letterSpacingMobile={ {
+									value: ctaLetterSpacingMobile,
+									label: 'ctaLetterSpacingMobile',
+								} }
+								letterSpacingType={ {
+									value: ctaLetterSpacingType,
+									label: 'ctaLetterSpacingType',
+								} }
+							/>
+							{ ctaType === 'text' && (
+								<UAGTabsControl
+									tabs={ [
+										{
+											name: 'normal',
+											title: __( 'Normal', 'vexaltrix' ),
+										},
+										{
+											name: 'hover',
+											title: __( 'Hover', 'vexaltrix' ),
+										},
+									] }
+									normal={
+										<AdvancedPopColorControl
+											label={ __( 'Text Color', 'vexaltrix' ) }
+											colorValue={ ctaLinkColor ? ctaLinkColor : '' }
+											data={ {
+												value: ctaLinkColor,
+												label: 'ctaLinkColor',
+											} }
+											setAttributes={ setAttributes }
+										/>
+									}
+									hover={
+										<AdvancedPopColorControl
+											label={ __( 'Text Color', 'vexaltrix' ) }
+											colorValue={ ctaLinkHoverColor ? ctaLinkHoverColor : '' }
+											data={ {
+												value: ctaLinkHoverColor,
+												label: 'ctaLinkHoverColor',
+											} }
+											setAttributes={ setAttributes }
+										/>
+									}
+									disableBottomSeparator={ true }
+								/>
+							) }
+							{ ctaType === 'button' && ! inheritFromTheme && (
+								<>
+									<UAGTabsControl
+										tabs={ [
+											{
+												name: 'normal',
+												title: __( 'Normal', 'vexaltrix' ),
+											},
+											{
+												name: 'hover',
+												title: __( 'Hover', 'vexaltrix' ),
+											},
+										] }
+										normal={
+											<>
+												<AdvancedPopColorControl
+													label={ __( 'Button Text Color', 'vexaltrix' ) }
+													colorValue={ ctaBtnLinkColor ? ctaBtnLinkColor : '' }
+													data={ {
+														value: ctaBtnLinkColor,
+														label: 'ctaBtnLinkColor',
+													} }
+													setAttributes={ setAttributes }
+												/>
+												<MultiButtonsControl
+													setAttributes={ setAttributes }
+													label={ __( 'Background Type', 'vexaltrix' ) }
+													data={ {
+														value: ctaBgType,
+														label: 'ctaBgType',
+													} }
+													className="vxt-multi-button-alignment-control"
+													options={ [
+														{
+															value: 'transparent',
+															label: __( 'Transparent', 'vexaltrix' ),
+														},
+														{
+															value: 'color',
+															label: __( 'Color', 'vexaltrix' ),
+														},
+													] }
+												/>
+												{ 'color' === ctaBgType && (
+													<>
+														<AdvancedPopColorControl
+															label={ __( 'Background Color', 'vexaltrix' ) }
+															colorValue={ ctaBgColor ? ctaBgColor : '' }
+															data={ {
+																value: ctaBgColor,
+																label: 'ctaBgColor',
+															} }
+															setAttributes={ setAttributes }
+														/>
+													</>
+												) }
+											</>
+										}
+										hover={
+											<>
+												<AdvancedPopColorControl
+													label={ __( 'Button Text Color', 'vexaltrix' ) }
+													colorValue={ ctaLinkHoverColor ? ctaLinkHoverColor : '' }
+													data={ {
+														value: ctaLinkHoverColor,
+														label: 'ctaLinkHoverColor',
+													} }
+													setAttributes={ setAttributes }
+												/>
+												<MultiButtonsControl
+													setAttributes={ setAttributes }
+													label={ __( 'Background Type', 'vexaltrix' ) }
+													data={ {
+														value: ctaBgHoverType,
+														label: 'ctaBgHoverType',
+													} }
+													className="vxt-multi-button-alignment-control"
+													options={ [
+														{
+															value: 'transparent',
+															label: __( 'Transparent', 'vexaltrix' ),
+														},
+														{
+															value: 'color',
+															label: __( 'Color', 'vexaltrix' ),
+														},
+													] }
+												/>
+												{ 'color' === ctaBgHoverType && (
+													<>
+														<AdvancedPopColorControl
+															label={ __( 'Background Color', 'vexaltrix' ) }
+															colorValue={ ctaBgHoverColor ? ctaBgHoverColor : '' }
+															data={ {
+																value: ctaBgHoverColor,
+																label: 'ctaBgHoverColor',
+															} }
+															setAttributes={ setAttributes }
+														/>
+													</>
+												) }
+											</>
+										}
+									/>
+									<SpacingControl
+										{ ...props }
+										label={ __( 'Button Padding', 'vexaltrix' ) }
+										valueTop={ {
+											value: paddingBtnTop,
+											label: 'paddingBtnTop',
+										} }
+										valueRight={ {
+											value: paddingBtnRight,
+											label: 'paddingBtnRight',
+										} }
+										valueBottom={ {
+											value: paddingBtnBottom,
+											label: 'paddingBtnBottom',
+										} }
+										valueLeft={ {
+											value: paddingBtnLeft,
+											label: 'paddingBtnLeft',
+										} }
+										valueTopTablet={ {
+											value: paddingBtnTopTablet,
+											label: 'paddingBtnTopTablet',
+										} }
+										valueRightTablet={ {
+											value: paddingBtnRightTablet,
+											label: 'paddingBtnRightTablet',
+										} }
+										valueBottomTablet={ {
+											value: paddingBtnBottomTablet,
+											label: 'paddingBtnBottomTablet',
+										} }
+										valueLeftTablet={ {
+											value: paddingBtnLeftTablet,
+											label: 'paddingBtnLeftTablet',
+										} }
+										valueTopMobile={ {
+											value: paddingBtnTopMobile,
+											label: 'paddingBtnTopMobile',
+										} }
+										valueRightMobile={ {
+											value: paddingBtnRightMobile,
+											label: 'paddingBtnRightMobile',
+										} }
+										valueBottomMobile={ {
+											value: paddingBtnBottomMobile,
+											label: 'paddingBtnBottomMobile',
+										} }
+										valueLeftMobile={ {
+											value: paddingBtnLeftMobile,
+											label: 'paddingBtnLeftMobile',
+										} }
+										unit={ {
+											value: paddingBtnUnit,
+											label: 'paddingBtnUnit',
+										} }
+										mUnit={ {
+											value: mobilePaddingBtnUnit,
+											label: 'mobilePaddingBtnUnit',
+										} }
+										tUnit={ {
+											value: tabletPaddingBtnUnit,
+											label: 'tabletPaddingBtnUnit',
+										} }
+										deviceType={ deviceType }
+										attributes={ attributes }
+										setAttributes={ setAttributes }
+										link={ {
+											value: paddingspacingLink,
+											label: 'paddingspacingLink',
+										} }
+									/>
+									<hr className="vxt-editor__separator" />
+									<ResponsiveBorder
+										disabledBorderTitle={ false }
+										setAttributes={ setAttributes }
+										prefix={ 'btn' }
+										attributes={ attributes }
+										deviceType={ deviceType }
+										disableBottomSeparator={ true }
+									/>
+								</>
+							) }
+						</>
+					</UAGAdvancedPanelBody>
+				) }
+			</>
+		);
+	};
+
+	const spacingStylePanel = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Spacing', 'vexaltrix' ) } initialOpen={ false }>
+				<SpacingControl
+					label={ __( 'Padding', 'vexaltrix' ) }
+					valueTop={ {
+						value: blockTopPadding,
+						label: 'blockTopPadding',
+					} }
+					valueRight={ {
+						value: blockRightPadding,
+						label: 'blockRightPadding',
+					} }
+					valueBottom={ {
+						value: blockBottomPadding,
+						label: 'blockBottomPadding',
+					} }
+					valueLeft={ {
+						value: blockLeftPadding,
+						label: 'blockLeftPadding',
+					} }
+					valueTopTablet={ {
+						value: blockTopPaddingTablet,
+						label: 'blockTopPaddingTablet',
+					} }
+					valueRightTablet={ {
+						value: blockRightPaddingTablet,
+						label: 'blockRightPaddingTablet',
+					} }
+					valueBottomTablet={ {
+						value: blockBottomPaddingTablet,
+						label: 'blockBottomPaddingTablet',
+					} }
+					valueLeftTablet={ {
+						value: blockLeftPaddingTablet,
+						label: 'blockLeftPaddingTablet',
+					} }
+					valueTopMobile={ {
+						value: blockTopPaddingMobile,
+						label: 'blockTopPaddingMobile',
+					} }
+					valueRightMobile={ {
+						value: blockRightPaddingMobile,
+						label: 'blockRightPaddingMobile',
+					} }
+					valueBottomMobile={ {
+						value: blockBottomPaddingMobile,
+						label: 'blockBottomPaddingMobile',
+					} }
+					valueLeftMobile={ {
+						value: blockLeftPaddingMobile,
+						label: 'blockLeftPaddingMobile',
+					} }
+					unit={ {
+						value: blockPaddingUnit,
+						label: 'blockPaddingUnit',
+					} }
+					mUnit={ {
+						value: blockPaddingUnitMobile,
+						label: 'blockPaddingUnitMobile',
+					} }
+					tUnit={ {
+						value: blockPaddingUnitTablet,
+						label: 'blockPaddingUnitTablet',
+					} }
+					deviceType={ deviceType }
+					attributes={ attributes }
+					setAttributes={ setAttributes }
+					link={ {
+						value: blockPaddingLink,
+						label: 'blockPaddingLink',
+					} }
+				/>
+				<SpacingControl
+					label={ __( 'Margin', 'vexaltrix' ) }
+					valueTop={ {
+						value: blockTopMargin,
+						label: 'blockTopMargin',
+					} }
+					valueRight={ {
+						value: blockRightMargin,
+						label: 'blockRightMargin',
+					} }
+					valueBottom={ {
+						value: blockBottomMargin,
+						label: 'blockBottomMargin',
+					} }
+					valueLeft={ {
+						value: blockLeftMargin,
+						label: 'blockLeftMargin',
+					} }
+					valueTopTablet={ {
+						value: blockTopMarginTablet,
+						label: 'blockTopMarginTablet',
+					} }
+					valueRightTablet={ {
+						value: blockRightMarginTablet,
+						label: 'blockRightMarginTablet',
+					} }
+					valueBottomTablet={ {
+						value: blockBottomMarginTablet,
+						label: 'blockBottomMarginTablet',
+					} }
+					valueLeftTablet={ {
+						value: blockLeftMarginTablet,
+						label: 'blockLeftMarginTablet',
+					} }
+					valueTopMobile={ {
+						value: blockTopMarginMobile,
+						label: 'blockTopMarginMobile',
+					} }
+					valueRightMobile={ {
+						value: blockRightMarginMobile,
+						label: 'blockRightMarginMobile',
+					} }
+					valueBottomMobile={ {
+						value: blockBottomMarginMobile,
+						label: 'blockBottomMarginMobile',
+					} }
+					valueLeftMobile={ {
+						value: blockLeftMarginMobile,
+						label: 'blockLeftMarginMobile',
+					} }
+					unit={ {
+						value: blockMarginUnit,
+						label: 'blockMarginUnit',
+					} }
+					mUnit={ {
+						value: blockMarginUnitMobile,
+						label: 'blockMarginUnitMobile',
+					} }
+					tUnit={ {
+						value: blockMarginUnitTablet,
+						label: 'blockMarginUnitTablet',
+					} }
+					deviceType={ deviceType }
+					attributes={ attributes }
+					setAttributes={ setAttributes }
+					link={ {
+						value: blockMarginLink,
+						label: 'blockMarginLink',
+					} }
+				/>
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	const borderSettings = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Border', 'vexaltrix' ) } initialOpen={ false }>
+				<ResponsiveBorder
+					setAttributes={ setAttributes }
+					prefix={ 'infobox' }
+					attributes={ attributes }
+					deviceType={ deviceType }
+					disableBottomSeparator={ true }
+					disabledBorderTitle={ true }
+				/>
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	const presetSettings = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Presets', 'vexaltrix' ) } initialOpen={ false }>
+				<UAGPresets setAttributes={ setAttributes } presets={ infoBoxPresets } presetInputType="radioImage" />
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	const proUpgradePanel = () => {
+		return (
+			<UAGAdvancedPanelBody title={ __( 'Dynamic Content', 'vexaltrix' ) }>
+				<UpgradeComponent
+					control={ {
+						title: __(
+							'Experience dynamic content with Vexaltrix Pro. No more static displays. Personalize your user experience.',
+							'vexaltrix'
+						),
+						renderAs: 'list',
+						campaign: 'dynamic-content',
+					} }
+				/>
+			</UAGAdvancedPanelBody>
+		);
+	};
+
+	return (
+		<>
+			<InspectorControls>
+				<InspectorTabs>
+					<InspectorTab { ...UAGTabs.general } parentProps={ props }>
+						{ imageIconPanel() }
+						{ typographySettings() }
+						{ seperatorSettings() }
+						{ ctaSettings() }
+						{ presetSettings() }
+						{ 'not-installed' === vxt_ultimate_gutenberg_blocks_blocks_info.vexaltrix_pro_status &&
+							proUpgradePanel() }
+					</InspectorTab>
+					<InspectorTab { ...UAGTabs.style } parentProps={ props }>
+						{ styleSettings() }
+						{ borderSettings() }
+						{ spacingStylePanel() }
+					</InspectorTab>
+					<InspectorTab { ...UAGTabs.advance } parentProps={ props }>
+						{ renderGBSSettings( styling, setAttributes, attributes ) }
+					</InspectorTab>
+				</InspectorTabs>
+			</InspectorControls>
+		</>
+	);
+};
+export default memo( Settings );

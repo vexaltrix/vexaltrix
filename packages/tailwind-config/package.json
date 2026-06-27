@@ -1,0 +1,31 @@
+{
+  "name": "@vexaltrix/tailwind-config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared Tailwind CSS preset & config for Vexaltrix's admin/frontend",
+  "author": "Huu Ha",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "tailwind",
+    "wordpress",
+    "preset"
+  ],
+  "homepage": "https://vexaltrix.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github2.com/vexaltrix/vexaltrix.git",
+    "directory": "packages/tailwind-config"
+  },
+  "bugs": {
+    "url": "https://github2.com/vexaltrix/vexaltrix/issues"
+  },
+  "files": [
+    "preset.js",
+    "admin.config.js",
+    "frontend.config.js"
+  ],
+  "main": "preset.js",
+  "dependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}

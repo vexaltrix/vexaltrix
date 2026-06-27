@@ -1,0 +1,161 @@
+body {
+	&.hide-scroll {
+		overflow: hidden;
+	}
+
+	.vxt-modal-popup-wrap {
+		.wp-block {
+			max-width: none !important;
+			margin: 0 !important;
+		}
+	}
+}
+
+.vxt-modal-popup {
+	visibility: hidden;
+	position: fixed;
+
+	&.active {
+		top: 0;
+		bottom: 0;
+		justify-content: center;
+		align-items: center;
+		background: rgba( 0, 0, 0, 0.7 );
+		left: 0;
+		right: 0;
+		display: flex;
+		visibility: visible;
+
+		.vxt-modal-popup-close {
+			opacity: 1;
+			display: flex;
+			align-items: center;
+			position: absolute;
+			text-align: center;
+			cursor: pointer;
+			fill: #fff;
+
+			svg {
+				-webkit-transition-property: filter, transform;
+				-moz-transition-property: filter, transform;
+				-o-transition-property: filter, transform;
+				transition-property: filter, transform;
+				-webkit-transition-duration: 250ms;
+				-moz-transition-duration: 250ms;
+				-o-transition-duration: 250ms;
+				transition-duration: 250ms;
+			}
+
+			&:focus svg {
+				transform: scale( 1.2 );
+			}
+		}
+	}
+
+	.vxt-modal-popup-close {
+		display: none;
+		border: none;
+		background: transparent;
+		padding: 0;
+	}
+
+	.vxt-modal-popup-content {
+		padding: 35px 35px;
+		overflow-x: hidden;
+		overflow-y: overlay;
+		height: 100%;
+	}
+
+	.vxt-modal-popup-wrap {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		width: 700px;
+		height: 450px;
+		max-width: 100%;
+		box-sizing: border-box;
+		background: #fff;
+		color: #333;
+		position: relative;
+
+		.vxt-modal-popup-content::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		.vxt-modal-popup-content::-webkit-scrollbar-thumb {
+			box-shadow: inset 0 0 6px rgba( 0, 0, 0, 0.3 );
+			border-radius: 100px;
+		}
+	}
+}
+.wp-block-vxt-modal {
+	width: 100%;
+}
+.entry {
+	.entry-content {
+		a.vxt-modal-button-link {
+			text-decoration: inherit;
+			align-items: center;
+		}
+
+		a.vxt-modal-button-link:hover {
+			color: inherit;
+		}
+	}
+}
+
+.vxt-modal-trigger:not( img ) {
+	display: flex;
+
+	svg {
+		font-size: 30px;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		cursor: pointer;
+	}
+}
+
+img.vxt-modal-trigger {
+	cursor: pointer;
+	height: auto;
+	max-width: 100%;
+}
+
+div.vxt-button-wrapper {
+	line-height: 1;
+
+	.vxt-modal-button-link.vxt-modal-trigger {
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+
+		svg {
+			fill: currentcolor;
+			font-style: normal;
+			vertical-align: top;
+			width: 15px;
+			height: 15px;
+			font-size: 15px;
+		}
+	}
+}
+
+.block-editor-block-popover.components-popover {
+	z-index: 99999999;
+}
+
+/* Effect 1: Fade in and scale up */
+.vxt-effect-default {
+	.vxt-modal-popup-wrap {
+		opacity: 0;
+	}
+
+	&.active {
+		.vxt-modal-popup-wrap {
+			opacity: 1;
+			-webkit-transition: all 0.3s;
+			transition: all 0.3s;
+		}
+	}
+}

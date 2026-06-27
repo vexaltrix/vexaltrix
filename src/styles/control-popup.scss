@@ -1,0 +1,107 @@
+/* --------- Common Popup Used In The Settings Panel --------- */
+
+@use 'variables';
+
+.vexaltrix-control-popup {
+	position: relative;
+	top: variables.$vexaltrix-control-popup-vertical-gap;
+	// z-index: 99;
+	width: 100%;
+	border-radius: variables.$vexaltrix-control-popup-border-radius;
+	padding: variables.$vexaltrix-control-popup-padding;
+	margin-bottom: variables.$vexaltrix-control-popup-vertical-gap + variables.$vexaltrix-control-vertical-gap;
+	box-shadow: variables.$vexaltrix-control-popup-box-shadow;
+	background: variables.$vexaltrix-color-plain-background;
+
+	// Important Required to override the common panel margins.
+
+	& > .components-base-control {
+		margin-bottom: variables.$vexaltrix-control-popup-vertical-gap !important;
+
+		&:last-child {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	& > .vxt-size-type-field-tabs {
+		margin-bottom: variables.$vexaltrix-control-popup-vertical-gap !important;
+
+		.components-base-control {
+			margin-bottom: 0 !important;
+		}
+
+		&:last-child {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	& .vxt-select-control--layout-inline .components-select-control {
+		margin-bottom: variables.$vexaltrix-control-popup-vertical-gap !important;
+	}
+
+	// The Popup Option
+	&__options {
+		margin-bottom: variables.$vexaltrix-control-popup-vertical-gap;
+		position: relative;
+
+		&--action {
+			&-wrapper {
+				display: flex;
+				justify-content: space-between;
+				margin: 0;
+				align-items: center;
+
+				& > .uag-control-label {
+					margin-bottom: 0;
+				}
+			}
+
+			&-button {
+				margin: 0;
+				height: variables.$vexaltrix-control-circle-indicator;
+				width: variables.$vexaltrix-control-circle-indicator;
+				padding: 5px;
+				border: 1px solid variables.$vexaltrix-color-border;
+				border-radius: 14px;
+				color: variables.$vexaltrix-color-body;
+
+				.dashicons-edit {
+					font-size: 15px;
+					line-height: 20px;
+				}
+
+				&:focus:not( :disabled ) {
+					box-shadow: none;
+					outline: none;
+
+					&.is-pressed {
+						box-shadow: none;
+						outline: none;
+					}
+				}
+
+				&:hover {
+					color: variables.$vexaltrix-color-primary;
+				}
+			}
+		}
+
+		&.active {
+			.vexaltrix-control-popup__options--action-button {
+				color: variables.$vexaltrix-color-primary;
+				background-color: variables.$vexaltrix-color-plain-background;
+
+				&:hover {
+					color: variables.$vexaltrix-color-primary;
+					background-color: variables.$vexaltrix-color-plain-background;
+				}
+			}
+		}
+	}
+}
+
+.components-base-control:last-child {
+	.vexaltrix-control-popup {
+		margin-bottom: variables.$vexaltrix-panel-body-padding;
+	}
+}

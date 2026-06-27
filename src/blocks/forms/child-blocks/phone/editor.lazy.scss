@@ -1,0 +1,47 @@
+.editor-styles-wrapper {
+	.vxt-forms-phone-wrap .vxt-form-phone-country-editor {
+		line-height: normal;
+
+		.components-input-control__backdrop {
+			border: none;
+			// gutenberg unwanted border remove from select tag
+			box-shadow: none !important;
+		}
+	}
+
+	.vxt-form-phone-country {
+		border: 1px solid #8c8f94;
+		border-radius: 4px;
+	}
+
+	.vxt-forms-phone-wrap {
+		.components-base-control {
+			width: 30%;
+			float: right;
+		}
+
+		.vxt-forms-phone-input {
+			width: 70%;
+		}
+	}
+}
+
+.vxt-editor-preview-mode-tablet {
+	.vxt-forms-phone-flex {
+		height: unset !important;
+
+		.vxt-form-phone-country {
+			height: unset;
+		}
+	}
+}
+
+.vxt-editor-preview-mode-mobile {
+	.vxt-forms-phone-flex {
+		height: unset !important;
+
+		.vxt-form-phone-country {
+			height: unset;
+		}
+	}
+}

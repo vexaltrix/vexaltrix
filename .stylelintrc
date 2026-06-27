@@ -1,0 +1,16 @@
+{
+	"extends": [ "@wordpress/stylelint-config/scss" ],
+	"rules": {
+		"selector-class-pattern": null,
+		"no-descending-specificity": null,
+		"font-weight-notation": null,
+		"comment-empty-line-before": null,
+		"rule-empty-line-before": null,
+		"at-rule-empty-line-before": null,
+		"scss/at-extend-no-missing-placeholder": null,
+		"scss/selector-no-redundant-nesting-selector": null,
+		"declaration-property-unit-allowed-list": {
+			"line-height": [ "px", "em" ]
+		}
+	}
+}

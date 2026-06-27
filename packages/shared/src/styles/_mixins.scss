@@ -1,0 +1,30 @@
+// packages/shared/src/styles/_mixins.scss
+// Shared SCSS mixins — NOT a replacement for Tailwind utilities,
+// only used for complex CSS that would be cumbersome to write with utility classes.
+
+@mixin vxl-truncate( $lines: 1 ) {
+	@if $lines == 1 {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	} @else {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: $lines;
+		overflow: hidden;
+	}
+}
+
+@mixin vxl-scrollbar-thin {
+	scrollbar-width: thin;
+
+	&::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: rgba( 0, 0, 0, 0.2 );
+		border-radius: 999px;
+	}
+}

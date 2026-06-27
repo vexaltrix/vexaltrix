@@ -1,0 +1,935 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+
+/* ------------------------------------------------------------------------------------------------*/
+
+@use 'sass:meta';
+@use 'styles/variables';
+
+/* Gutenberg Reset CSS */
+.block-editor-block-inspector {
+	.vxt-inspector-tab {
+		.components-notice.is-warning {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		.components-panel__body {
+			> div:not( .components-panel__row ):not( .vxt-select-control ) > .components-base-control {
+				margin-bottom: variables.$vexaltrix-control-vertical-gap;
+			}
+
+			> .components-base-control {
+				margin-bottom: variables.$vexaltrix-control-vertical-gap;
+
+				.components-base-control,
+				.components-base-control__field {
+					padding-top: 0;
+					margin-bottom: 0;
+				}
+			}
+
+			> .components-base-control:last-child {
+				margin-bottom: 0;
+			}
+
+			> .vexaltrix-components-control .components-base-control {
+				margin-bottom: variables.$vexaltrix-control-vertical-gap;
+
+				.components-base-control,
+				.components-base-control__field {
+					padding-top: 0;
+					margin-bottom: 0;
+				}
+			}
+
+			> .vexaltrix-components-control:last-child .components-base-control {
+				margin-bottom: 0;
+			}
+
+			.vexaltrix-panel__body-sub-heading {
+				font-size: 13px;
+				font-weight: 500;
+				line-height: 16px;
+				color: #50575e;
+			}
+
+			/* Gutenberg DatePicker CSS */
+			.components-datetime {
+				.components-datetime__buttons {
+					margin: 10px 0 10px 0;
+
+					/* Unset box-shadow */
+					.components-button:focus:not( :disabled ) {
+						box-shadow: unset;
+					}
+				}
+			}
+
+			/* Gutenberg Toggle Help CSS*/
+			.components-base-control__help {
+				margin-top: 10px;
+
+				/* Spacing issue in toggle control help text with 6.7 compatibiity */
+				.components-toggle-control__help {
+					margin: 0;
+				}
+			}
+
+			/* Add a border top and bottom of responsive condition */
+			&:last-child:not( .block-editor-block-inspector__upgrade_pro ) {
+				border-bottom: 1px solid #e0e0e0;
+			}
+		}
+	}
+}
+
+/* Gutenberg Editor border hover */
+.edit-site-block-editor__block-list.is-outline-mode,
+.edit-post-visual-editor .editor-styles-wrapper > .block-editor-block-list__layout {
+	.block-editor-block-list__block:not( .remove-outline ).is-hovered::after,
+	.block-editor-block-list__block:hover::after,
+	.block-editor-block-list__block:not( [contenteditable] ):focus::after {
+		outline: 1.5px solid variables.$vexaltrix-color-primary;
+		border-radius: 2px;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		outline-offset: -1.5px;
+	}
+
+	.block-editor-block-list__block:not( [contenteditable] ):focus {
+		z-index: 1;
+	}
+}
+
+.edit-post-visual-editor
+	.editor-styles-wrapper
+	> .block-editor-block-list__layout
+	.block-editor-block-list__block:hover::after,
+.ast-highlight-wpblock-onhover
+	.edit-post-visual-editor
+	.editor-styles-wrapper
+	> .block-editor-block-list__layout
+	.block-editor-block-list__block:not( .editor-post-title__input ):hover,
+.edit-post-visual-editor
+	.editor-styles-wrapper
+	> .block-editor-block-list__layout
+	.block-editor-block-list__block.is-selected:not( [contenteditable] ):focus::after,
+.block-editor-block-list__layout .block-editor-block-list__block.is-selected,
+.block-editor-block-list__layout .block-editor-block-list__block.is-highlighted::after {
+	// Added CSS for better clarity to the users to indicates which block is selected & being edited.
+	outline: 1.5px solid variables.$vexaltrix-color-primary;
+	border-radius: 2px;
+	box-shadow: none;
+	outline-offset: -1.5px;
+}
+
+/* UAG Control Label CSS*/
+.uag-control-label,
+.vxt-inspector-tab .components-base-control__label,
+.vxt-inspector-tab .components-panel__body label,
+.vxt-extention-tab label {
+	color: variables.$vexaltrix-color-body;
+	font-size: variables.$vexaltrix-font-size-label !important;
+	line-height: variables.$vexaltrix-line-height-label !important;
+	margin-bottom: variables.$vexaltrix-control-label-bottom-margin;
+	text-transform: variables.$vexaltrix-text-transform-label !important;
+	font-weight: variables.$vexaltrix-font-weight-label !important;
+}
+
+.vxt-inspector-tab label.components-toggle-control__label {
+	margin-bottom: 0;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+/* Editor panel sidebar - scrollbar design CSS start */
+
+.interface-interface-skeleton__sidebar::-webkit-scrollbar {
+	width: 5px;
+}
+
+.interface-interface-skeleton__sidebar::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 6px rgba( 0, 0, 0, 0.3 );
+	border-radius: 100px;
+}
+
+/* Editor panel sidebar - scrollbar design CSS end */
+
+/* Panel Body CSS*/
+.vxt-inspector-tab,
+[data-vxt-tab] {
+	.components-panel__body-title .components-button {
+		font-size: variables.$vexaltrix-font-size-button;
+	}
+}
+
+/* GB Select Control CSS*/
+.vxt-inspector-tab .components-select-control {
+	height: auto;
+}
+
+body {
+	&.vexaltrix-wp-gte-6-9 {
+		.vxt-select-control--layout-inline .components-select-control {
+			grid-template-columns: 100%;
+
+			.components-input-base {
+				align-items: center;
+				display: grid;
+				grid-template-columns: 50% 50%;
+				gap: 0;
+			}
+		}
+	}
+}
+
+/* Tabs Pabel CSS for .vxt-size-type-field-tabs START*/
+.vxt-size-type-field-tabs .components-tab-panel__tabs {
+	display: block;
+	border-bottom: 0;
+	text-align: right;
+	padding-right: 28px;
+	margin-right: 45px;
+	margin-bottom: -20px;
+	z-index: unset;
+
+	button span.dashicon.dashicons {
+		font-size: 15px;
+	}
+
+	button.active-tab svg,
+	button.active-tab svg:focus {
+		color: variables.$vexaltrix-color-primary;
+	}
+}
+
+.vxt-size-type-field-tabs .components-tab-panel__tabs button svg,
+.vxt-size-type-field-tabs .uag-responsive-label-wrap svg {
+	width: auto;
+	height: 10px;
+}
+
+.vxt-size-type-field-tabs .components-tab-panel__tabs button {
+	border: 0;
+	border-bottom: 0;
+	padding: 4px;
+	margin-bottom: 0;
+	outline: 0;
+	font-size: 8px;
+	background: transparent;
+	color: #999;
+	display: inline-block;
+	height: 16px;
+	width: 22px;
+	margin-right: 3px;
+}
+
+.vxt-size-type-field-tabs .components-tab-panel__tabs button.active-tab,
+.vxt-size-type-field-tabs .components-tab-panel__tabs button.active-tab:focus {
+	box-shadow: none;
+	color: variables.$vexaltrix-color-primary;
+	border-radius: 100%;
+	padding: 0;
+	margin: 0;
+	line-height: 0;
+}
+
+.vxt-control__actions .vxt-size-type-field-tabs {
+	margin: 0;
+}
+
+/* Tabs Pabel CSS for .vxt-size-type-field-tabs END*/
+
+/* ------------------------------------------------------------------------------------------------*/
+
+.vxt-inspect-tabs .components-tab-panel__tabs button {
+	padding: 10px;
+	background: transparent;
+	color: #333;
+	outline: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 3px solid #eee;
+	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+hr.vxt-editor__separator {
+	border-bottom: 1px solid #e2e4e7;
+	margin-top: 0;
+}
+
+.vxt-inspect-tabs > .components-tab-panel__tabs button.active-tab,
+.vxt-inspect-tabs > .components-tab-panel__tabs button:focus {
+	border-bottom: 3px solid #333;
+	outline: none;
+	font-weight: 500;
+}
+
+.vxt-inspect-tab-title {
+	margin-top: 20px;
+}
+
+.vxt-inspect-tabs-col-2 > .components-tab-panel__tabs button,
+.vxt-inspect-tabs.vxt-inspect-tabs-col-2 > .components-tab-panel__tabs button {
+	width: 50%;
+}
+
+.components-button-group .components-button.is-primary,
+.components-button-group .components-button:focus,
+.components-toolbar .components-button,
+.components-toolbar .components-button::before {
+	z-index: unset;
+}
+
+.vxt-inspect-tabs .components-tab-panel__tabs {
+	margin-bottom: 15px;
+}
+
+.vxt-inspect-tabs-col-3 > .components-tab-panel__tabs button {
+	width: 33.33%;
+}
+
+.vxt-settings-notice {
+	color: #478a3b;
+	background-color: #e5fce3;
+	padding: 15px;
+	border-left: 5px solid #c3f9c5;
+	font-size: 12px;
+	line-height: 1.5;
+	text-align: left;
+}
+
+/* UAG Help Notice CSS*/
+.vxt-note,
+.components-base-control__help {
+	color: #a4afb7;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.components-range-control.vxt-margin-control .components-base-control__label {
+	width: 30px;
+}
+
+.vxt-icons-list .vxt-widget-icon {
+	-js-display: flex;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	padding: 1em;
+	margin: 0;
+	border: 1px solid #f1f1f1;
+	cursor: pointer;
+	text-align: center;
+	font-size: 16px;
+	line-height: 16px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+}
+
+.vxt-icons-list {
+	display: inline-block;
+	max-height: 200px;
+	padding: 0;
+	margin: 1em 0 0 0;
+	overflow: auto;
+}
+
+.vxt-widget-icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+.vxt-icon-picker-wrap {
+	position: relative;
+	vertical-align: middle;
+	width: 100%;
+	margin: 8px 0;
+}
+
+.vxt-icon-picker-wrap .search-icon {
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #e0e0e0;
+}
+
+.components-button-group.vxt-size-type-field {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0;
+	text-align: right;
+	margin-bottom: -18px;
+}
+
+.edit-post-sidebar h2.vxt-size-type-field-title {
+	font-size: 14px;
+	margin-bottom: 0;
+	color: #555d66;
+	margin-top: 30px;
+}
+
+.vxt-size-type-field button.components-button.vxt-size-btn {
+	background: transparent;
+	color: #777;
+	border: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: none;
+	height: 18px;
+	line-height: 18px;
+	padding: 0 3px;
+}
+
+.vxt-size-type-field button.components-button.vxt-size-btn:first-child {
+	padding-left: 0;
+}
+
+.vxt-size-type-field button.components-button.vxt-size-btn:last-child {
+	padding-right: 0;
+}
+
+.vxt-size-type-field button.components-button.vxt-size-btn.is-primary,
+.vxt-size-type-field
+	button.components-button.vxt-size-btn.is-primary:focus:not( :disabled ):not( [aria-disabled='true'] ) {
+	box-shadow: none;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: variables.$vexaltrix-color-heading;
+	text-decoration: underline;
+	-webkit-box-shadow: none;
+}
+
+.components-button-group .components-button.is-button {
+	position: relative;
+	z-index: 1;
+}
+
+.vxt-size-type-field button.components-button.vxt-size-btn:hover,
+.vxt-size-type-field button.components-button.vxt-size-btn:hover:focus:not( :disabled ):not( [aria-disabled='true'] ) {
+	color: variables.$vexaltrix-color-heading;
+	background: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	outline: none;
+}
+
+.vxt-size-type-field__common-tabs .components-tab-panel__tabs {
+	display: block;
+	margin-bottom: -34px;
+}
+
+.uag-box-shadow-option-actions {
+	margin-top: 1.5em;
+	margin-bottom: 2em;
+}
+
+.vxt_ultimate_gutenberg_blocks__url-panel-body .block-editor-url-input input {
+	width: 100%;
+}
+
+/*
+ Fonticon picker css
+ */
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.vxt-setting-label .component-color-indicator {
+	vertical-align: middle;
+	background-color: transparent;
+}
+
+[class^='fipicon-'] {
+	speak: none;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: flex;
+}
+
+i.fipicon-angle-down::before {
+	font-family: dashicons, serif;
+	content: '\f140';
+}
+
+i.fipicon-angle-up::before {
+	font-family: dashicons, serif;
+	content: '\f142';
+}
+
+i.fipicon-angle-right::before {
+	font-family: dashicons, serif;
+	content: '\f345';
+}
+
+i.fipicon-angle-left::before {
+	font-family: dashicons, serif;
+	content: '\f341';
+}
+
+label.wp-block-vxt-blockquote__via-label svg {
+	fill: #6c7781;
+	vertical-align: middle;
+}
+
+.slick-arrow svg {
+	vertical-align: middle;
+}
+
+// Select control text going out of screen.
+
+.vxt-inspector-tab .components-select-control .components-input-control__container .components-select-control__input {
+	text-transform: capitalize;
+	line-height: 30px;
+}
+
+.components-panel__body.vxt-repeater-panel {
+	max-width: 100%;
+	margin: 0 auto;
+	margin-bottom: 1em;
+	border: 1px solid #e2e4e7;
+	background: #fff;
+	margin-top: 1em;
+}
+
+.edit-post-settings-sidebar__panel-block .components-panel__body.vxt-repeater-panel:last-child {
+	margin-bottom: 1em;
+}
+
+.vxt-inline-margin .vxt-margin-control label.components-base-control__label {
+	display: inline-block;
+}
+
+.vxt-inline-margin .components-button-group.vxt-size-type-field {
+	display: inline-block;
+	float: right;
+}
+
+.vxt-forms-button-group {
+	margin-bottom: 15px;
+}
+
+.uag-typography-range-options + .components-base-control {
+	.components-base-control__field .css-unzpkb-Flex-Root {
+		position: inherit;
+	}
+}
+
+.uag-typography-range-options + .components-button-group.vxt-size-type-field {
+	margin-bottom: -33px;
+}
+
+/* Common uagb reset CSS start here */
+button.components-button.vxt-reset.is-secondary.is-small:not( :disabled ) {
+	color: variables.$vexaltrix-color-primary;
+}
+
+.vxt-reset .dashicons-image-rotate {
+	width: 10px;
+	height: 10px;
+	font-size: 10px;
+}
+
+button.components-button.vxt-reset.is-secondary.is-small {
+	box-shadow: unset;
+	background: 0 0;
+	color: variables.$vexaltrix-color-icon-disabled;
+
+	&.is-pressed,
+	&:focus:not( :disabled ) {
+		border: 0;
+	}
+}
+
+/* Common uagb reset CSS end here */
+
+/* Common CSS for border start here */
+.vxt-border-width {
+	margin-bottom: -15px;
+}
+
+.vxt-border-wrap {
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.vxt-border-radius {
+	margin-bottom: -20px;
+}
+
+label.vxt-border-label {
+	margin-right: 130px;
+}
+
+/* Common CSS for border ens here */
+
+button.components-button.vxt-review-select-btn.is-secondary {
+	margin-bottom: 10px;
+}
+
+.components-panel__body .vxt-control__label {
+	margin-bottom: 0;
+}
+
+.vxt-components-base-control {
+	margin-bottom: 18px;
+}
+
+.uag-typography-range-options .components-base-control .components-flex.components-select-control {
+	position: unset;
+}
+
+.uag-typography-option-actions .vxt-typography-control-btn.components-button:focus:not( :disabled ) {
+	box-shadow: unset;
+	outline: none;
+	color: variables.$vexaltrix-color-secondary;
+}
+
+.vxt-inspector-tab .components-panel__body.is-opened > .components-panel__body-title {
+	margin-bottom: 16px;
+}
+
+.vxt-inspector-tab > .components-base-control,
+.vxt-inspector-tab > h2 {
+	padding: 0 10px;
+	margin: -10px;
+	margin-bottom: 16px;
+}
+
+.vxt-inspector-tab .components-panel__body > .components-panel__body-title {
+	.components-button.components-panel__body-toggle:focus {
+		box-shadow: none;
+		border: none;
+	}
+}
+
+.uag-responsive-common-button {
+	box-shadow: none;
+	color: variables.$vexaltrix-color-body;
+	border-radius: 100%;
+	border: 0;
+	border-bottom: 0;
+	outline: 0;
+	font-size: 10px;
+	display: inline-block;
+	height: 16px;
+	width: 22px;
+	cursor: pointer;
+	font-weight: 500;
+	padding: 4px;
+	margin: 0;
+	line-height: 0;
+	margin-left: 10px;
+
+	svg {
+		color: variables.$vexaltrix-color-body;
+	}
+}
+
+.components-panel__body.is-opened .vxt-range-control-responsive {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.components-panel__body .components-base-control {
+	.vxt-control__header .vxt-range-control-responsive .vxt-responsive-tabs {
+		margin: 0;
+		padding: 4px;
+		line-height: 0;
+		box-shadow: none;
+		border: none;
+
+		&:hover {
+			color: #1e1e1e;
+			background-color: variables.$vexaltrix-color-plain-background;
+		}
+
+		&.is-pressed {
+			background-color: variables.$vexaltrix-color-plain-background;
+		}
+	}
+}
+
+.vxt-inspector-tab .components-base-control .components-range-control__wrapper {
+	direction: initial;
+	margin-left: 5px;
+}
+
+.components-range-control__slider {
+	align-items: center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.vxt-inspector-tab span[CLASS*='-ThumbWrapper'] {
+	left: 0%;
+	height: 17px;
+	width: 17px;
+	margin-left: 0;
+	margin-top: 6px;
+}
+
+.edit-post-layout .interface-interface-skeleton__sidebar {
+	// Resolved an issue of margin added by vexaltrix for the sidebar causing background color visible in site editor https://d.pr/i/PRlLIf.
+	margin-bottom: 10px;
+	overflow-x: hidden;
+
+	.components-panel[data-vxt-tab='advance'] {
+		.block-editor-block-inspector__advanced {
+			&.vxt-extention-tab {
+				border: none;
+				border-bottom: 1px solid #e0e0e0;
+			}
+
+			&:not( .vxt-extention-tab ) .components-button:focus:not( :disabled ) {
+				border: none;
+			}
+		}
+
+		.components-base-control .components-base-control__label {
+			color: variables.$vexaltrix-color-body;
+			font-size: variables.$vexaltrix-font-size-label;
+			line-height: variables.$vexaltrix-line-height-label;
+			margin-bottom: variables.$vexaltrix-control-label-bottom-margin;
+			text-transform: variables.$vexaltrix-text-transform-label;
+			font-weight: variables.$vexaltrix-font-weight-label;
+		}
+	}
+}
+
+/* Block icons white when block is selected in list view. */
+.block-editor-list-view-leaf.is-selected .block-editor-list-view-block-contents svg.vxt-editor-icons {
+	path,
+	rect,
+	circle {
+		stroke: #fff;
+	}
+}
+
+/* Block icons white when toggle is set to select from tools. */
+.block-editor-block-list__block-selection-button,
+.is-selected {
+	.block-editor-block-icon.has-colors svg.vxt-editor-icons {
+		stroke: #fff;
+		path,
+		rect,
+		circle {
+			stroke: #fff;
+		}
+	}
+}
+
+/* Block icons turn to secondary color when they are a parent block. */
+.block-editor-block-parent-selector .block-editor-block-icon svg.vxt-editor-icons {
+	path,
+	rect,
+	circle {
+		stroke: variables.$vexaltrix-color-heading;
+	}
+}
+
+/* Toolbar Icon Color Set To Black */
+[data-toolbar-item='true'] .block-editor-block-icon.has-colors svg.vxt-editor-icons {
+	stroke: #000;
+
+	path,
+	rect,
+	circle {
+		stroke: #000;
+	}
+}
+
+//  Toolbar Icon Height and Width WordPress 6.5 Fix
+.block-editor-block-toolbar {
+	.block-editor-block-parent-selector {
+		.components-button {
+			height: 48px;
+
+			&.has-icon {
+				min-width: 48px;
+			}
+		}
+	}
+}
+
+/* Block Editor Block Icons Color*/
+.block-editor-block-icon.has-colors svg.vxt-editor-icons {
+	stroke: variables.$vexaltrix-color-secondary;
+
+	path,
+	rect,
+	circle {
+		stroke: variables.$vexaltrix-color-secondary;
+	}
+}
+
+// WordPress 6.6 compatibility fix.
+.editor-editor-interface {
+	.interface-navigable-region,
+	.admin-ui-navigable-region {
+		&.interface-interface-skeleton__footer {
+			z-index: 1000000;
+		}
+	}
+}
+
+/* Breadcrumbs css */
+.block-editor .interface-interface-skeleton__footer,
+.edit-site .interface-interface-skeleton__footer {
+	padding: 5px;
+	border-top: 1px solid #e9e9e9;
+
+	.block-editor-block-breadcrumb {
+		li {
+			color: variables.$vexaltrix-color-secondary;
+			font-weight: 600;
+			font-size: 14px;
+
+			button {
+				color: variables.$vexaltrix-color-secondary;
+				font-weight: 600;
+			}
+
+			svg {
+				width: 25px;
+				height: 25px;
+			}
+
+			.block-editor-block-breadcrumb__button::before {
+				box-shadow: none;
+			}
+
+			.block-editor-block-breadcrumb__button:active:not( :disabled ) {
+				background: transparent;
+			}
+		}
+	}
+}
+
+/* Gradient Picker CSS */
+.vxt-gradient-picker {
+	// This helps to fix alignment of gradient control input fields.
+	.components-flex.components-custom-gradient-picker__ui-line {
+		align-items: baseline;
+	}
+
+	.components-angle-picker-control {
+		margin-bottom: 0;
+	}
+
+	label {
+		text-transform: capitalize;
+		font-weight: 400;
+	}
+}
+
+/* Toggle Control */
+.vxt-inspector-tab {
+	.components-toggle-control .components-base-control__field {
+		.components-flex {
+			// WP6.1 compatibility.
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
+
+/* Vexaltrix Page Level Settings */
+.is-pressed .vexaltrix-page-settings-button path {
+	fill: #fff;
+}
+
+.vexaltrix-page-settings-button:hover path {
+	fill: #007cba;
+}
+
+/* Vexaltrix Sidebar Settings Notice */
+.vexaltrix-sidebar-settings-notice {
+	margin: 0;
+
+	&.is-error {
+		background-color: #f5d9d9;
+	}
+}
+
+/* Vexaltrix Multiselect Control */
+.vexaltrix-multi-select__control {
+	box-shadow: none !important;
+	border-color: #e6e7e9 !important;
+	border-radius: 3px !important;
+
+	.vexaltrix-multi-select__input input {
+		box-shadow: none !important;
+	}
+
+	.vexaltrix-multi-select__multi-value__label {
+		font-size: 13px !important;
+	}
+
+	.vexaltrix-multi-select__menu .vexaltrix-multi-select__option {
+		font-size: 13px !important;
+	}
+}
+
+.editor-styles-wrapper .block-editor-block-list__block.wp-block[data-type*='uagb'] {
+	::selection {
+		color: #fff;
+		background: #2f86dd;
+	}
+}
+
+.block-editor-block-inspector
+	.vxt-inspector-tab
+	.components-panel__body.uag-advance-panel-body-animations
+	> .components-base-control:last-child {
+	margin-bottom: 9px;
+}
+
+@include meta.load-css( 'styles/gutenberg-override' );
+@include meta.load-css( 'styles/control-responsive' );
+@include meta.load-css( 'styles/control-header' );
+@include meta.load-css( 'styles/control-popup' );
+@include meta.load-css( 'styles/control-media-picker' );
+@include meta.load-css( 'styles/control-variation-picker' );
+@include meta.load-css( 'styles/change-indicators' );
+@include meta.load-css( 'styles/legacy' );

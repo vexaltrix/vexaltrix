@@ -1,0 +1,615 @@
+/**
+ * Returns Dynamic Generated CSS
+ */
+
+import generateCSS from '@Controls/generateCSS';
+import generateCSSUnit from '@Controls/generateCSSUnit';
+import { getFallbackNumber } from '@Controls/getAttributeFallback';
+import { getLogicalTextAlign } from '@Utils/Helpers';
+
+function contentTimelineStyle( attributes, clientId, name, deviceType ) {
+	const blockName = name.replace( 'vexaltrix/', '' );
+	const previewType = deviceType.toLowerCase();
+	const {
+		block_id,
+		dateBottomspace,
+		dateBottomspaceTablet,
+		dateBottomspaceMobile,
+		backgroundColor,
+		separatorColor,
+		separatorFillColor,
+		separatorBg,
+		separatorBorder,
+		borderFocus,
+		separatorwidth,
+		borderwidth,
+		connectorBgsize,
+		connectorBgsizeTablet,
+		connectorBgsizeMobile,
+		borderRadius,
+		borderRadiusTablet,
+		borderRadiusMobile,
+		iconColor,
+		dateFontSizeType,
+		dateFontSize,
+		dateFontSizeTablet,
+		dateFontSizeMobile,
+		dateFontFamily,
+		dateFontWeight,
+		dateLineHeightType,
+		dateLineHeight,
+		dateLineHeightTablet,
+		dateLineHeightMobile,
+		dateColor,
+		iconSize,
+		iconSizeTablet,
+		iconSizeMobile,
+		iconBgFocus,
+		headFontSizeType,
+		headFontSize,
+		headFontSizeTablet,
+		headFontSizeMobile,
+		headFontFamily,
+		headFontWeight,
+		headLineHeightType,
+		headLineHeight,
+		headLineHeightTablet,
+		headLineHeightMobile,
+		align,
+		alignTablet,
+		alignMobile,
+		headingColor,
+		headSpace,
+		headSpaceTablet,
+		headSpaceMobile,
+		subHeadFontSizeType,
+		subHeadFontSize,
+		subHeadFontSizeTablet,
+		subHeadFontSizeMobile,
+		subHeadFontFamily,
+		subHeadFontWeight,
+		subHeadLineHeightType,
+		subHeadLineHeight,
+		subHeadLineHeightTablet,
+		subHeadLineHeightMobile,
+		subHeadingColor,
+		topPadding,
+		rightPadding,
+		bottomPadding,
+		leftPadding,
+		topPaddingTablet,
+		rightPaddingTablet,
+		bottomPaddingTablet,
+		leftPaddingTablet,
+		topPaddingMobile,
+		rightPaddingMobile,
+		bottomPaddingMobile,
+		leftPaddingMobile,
+		paddingUnit,
+		mobilePaddingUnit,
+		tabletPaddingUnit,
+		headFontStyle,
+		subHeadFontStyle,
+		dateFontStyle,
+		headTransform,
+		subHeadTransform,
+		dateTransform,
+		headDecoration,
+		subHeadDecoration,
+		dateDecoration,
+		iconFocus,
+		headLetterSpacing,
+		headLetterSpacingTablet,
+		headLetterSpacingMobile,
+		headLetterSpacingType,
+		subHeadLetterSpacing,
+		subHeadLetterSpacingTablet,
+		subHeadLetterSpacingMobile,
+		subHeadLetterSpacingType,
+		dateLetterSpacing,
+		dateLetterSpacingTablet,
+		dateLetterSpacingMobile,
+		dateLetterSpacingType,
+		verticalSpace,
+		verticalSpaceTablet,
+		verticalSpaceMobile,
+		verticalSpaceUnit,
+		verticalSpaceUnitTablet,
+		verticalSpaceUnitMobile,
+		horizontalSpace,
+		horizontalSpaceTablet,
+		horizontalSpaceMobile,
+		horizontalSpaceUnit,
+		horizontalSpaceUnitTablet,
+		horizontalSpaceUnitMobile,
+	} = attributes;
+
+	const borderWidthFallback = getFallbackNumber( borderwidth, 'borderwidth', blockName );
+
+	const separatorWidthFallback = getFallbackNumber( separatorwidth, 'separatorwidth', blockName );
+	const headSpaceFallback = getFallbackNumber( headSpace, 'headSpace', blockName );
+	const borderRadiusFallback = getFallbackNumber( borderRadius, 'borderRadius', blockName );
+	const dateBottomSpaceFallback = getFallbackNumber( dateBottomspace, 'dateBottomspace', blockName );
+
+	const iconSizeFallback = getFallbackNumber( iconSize, 'iconSize', blockName );
+	const iconSizeTabletFallback = getFallbackNumber( iconSizeTablet, 'iconSizeTablet', blockName );
+	const iconSizeMobileFallback = getFallbackNumber( iconSizeMobile, 'iconSizeMobile', blockName );
+
+	const connectorBgsizeFallback = getFallbackNumber( connectorBgsize, 'connectorBgsize', blockName );
+	const connectorBgsizeTabletFallback = getFallbackNumber(
+		connectorBgsizeTablet,
+		'connectorBgsizeTablet',
+		blockName
+	);
+	const connectorBgsizeMobileFallback = getFallbackNumber(
+		connectorBgsizeMobile,
+		'connectorBgsizeMobile',
+		blockName
+	);
+
+	const selectors = {
+		' .vxt-timeline__heading.rich-text': {
+			'font-size': generateCSSUnit( headFontSize, headFontSizeType ),
+			'font-family': headFontFamily,
+			'font-weight': headFontWeight,
+			'line-height': generateCSSUnit( headLineHeight, headLineHeightType ),
+			'text-align': getLogicalTextAlign( align ),
+			color: headingColor,
+			'font-style': headFontStyle,
+			'text-decoration': headDecoration,
+			'text-transform': headTransform,
+			'letter-spacing': generateCSSUnit( headLetterSpacing, headLetterSpacingType ),
+		},
+		' .vxt-timeline__heading a': {
+			'font-size': generateCSSUnit( headFontSize, headFontSizeType ),
+			'font-family': headFontFamily,
+			'font-weight': headFontWeight,
+			'line-height': generateCSSUnit( headLineHeight, headLineHeightType ),
+			'text-align': getLogicalTextAlign( align ),
+			color: headingColor,
+			'font-style': headFontStyle,
+			'text-decoration': headDecoration,
+			'text-transform': headTransform,
+			'letter-spacing': generateCSSUnit( headLetterSpacing, headLetterSpacingType ),
+		},
+		' .vxt-timeline__heading': {
+			'margin-bottom': generateCSSUnit( headSpaceFallback, 'px' ),
+		},
+		' p.vxt-timeline-desc-content': {
+			'font-size': generateCSSUnit( subHeadFontSize, subHeadFontSizeType ),
+			'font-family': subHeadFontFamily,
+			'font-weight': subHeadFontWeight,
+			'line-height': generateCSSUnit( subHeadLineHeight, subHeadLineHeightType ),
+			'text-align': getLogicalTextAlign( align ),
+			color: subHeadingColor,
+			'font-style': subHeadFontStyle,
+			'text-decoration': subHeadDecoration,
+			'text-transform': subHeadTransform,
+			'letter-spacing': generateCSSUnit( subHeadLetterSpacing, subHeadLetterSpacingType ),
+		},
+		' .vxt-timeline__day-new': {
+			'text-align': getLogicalTextAlign( align ),
+		},
+		' .vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( align ),
+		},
+		' .vxt-timeline__day-right .vxt-timeline__arrow:after': {
+			'border-left-color': backgroundColor,
+			'border-right-color': backgroundColor,
+		},
+		' .vxt-timeline__day-left .vxt-timeline__arrow:after': {
+			'border-left-color': backgroundColor,
+			'border-right-color': backgroundColor,
+		},
+		' .vxt-timeline__center-block .vxt-timeline__day-right .vxt-timeline__arrow:after': {
+			'border-left-color': backgroundColor,
+		},
+		' .vxt-timeline__right-block .vxt-timeline__day-right .vxt-timeline__arrow:after': {
+			'border-left-color': backgroundColor,
+		},
+		' .vxt-timeline__right-block .vxt-timeline__day-left .vxt-timeline__arrow:after': {
+			'border-left-color': backgroundColor,
+		},
+		' .vxt-timeline__center-block .vxt-timeline__day-left .vxt-timeline__arrow:after': {
+			'border-right-color': backgroundColor,
+		},
+		' .vxt-timeline__left-block .vxt-timeline__day-left .vxt-timeline__arrow:after': {
+			'border-right-color': backgroundColor,
+		},
+		' .vxt-timeline__line__inner': {
+			'background-color': separatorFillColor,
+		},
+		' .vxt-timeline__line': {
+			'background-color': separatorColor,
+			width: generateCSSUnit( separatorWidthFallback, 'px' ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__line': {
+			'inset-inline-end': 'calc( ' + connectorBgsizeFallback + 'px / 2 )',
+		},
+		'.vxt-timeline__left-block .vxt-timeline__line': {
+			'inset-inline-start': 'calc( ' + connectorBgsizeFallback + 'px / 2 )',
+		},
+		' .vxt-timeline__marker': {
+			'background-color': separatorBg,
+			'min-height': generateCSSUnit( connectorBgsizeFallback, 'px' ),
+			'min-width': generateCSSUnit( connectorBgsizeFallback, 'px' ),
+			'line-height': generateCSSUnit( connectorBgsizeFallback, 'px' ),
+			border: borderWidthFallback + 'px solid ' + separatorBorder,
+		},
+		'.vxt-timeline__left-block .vxt-timeline__left .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeFallback, 'px' ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__right .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__left .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__right .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__left .vxt-timeline__marker': {
+			'margin-left': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+			'margin-right': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__right .vxt-timeline__marker': {
+			'margin-left': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+			'margin-right': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+		},
+		' .vxt-timeline__field': {
+			'margin-bottom': generateCSSUnit( verticalSpace, verticalSpaceUnit ),
+		},
+		' .vxt-timeline__date-hide.vxt-timeline__inner-date-new': {
+			'margin-bottom': generateCSSUnit( dateBottomSpaceFallback, 'px' ),
+			color: dateColor,
+			'font-size': generateCSSUnit( dateFontSize, dateFontSizeType ),
+			'font-family': dateFontFamily,
+			'font-weight': dateFontWeight,
+			'line-height': generateCSSUnit( dateLineHeight, dateLineHeightType ),
+			'text-align': getLogicalTextAlign( align ),
+			'font-style': dateFontStyle,
+			'text-decoration': dateDecoration,
+			'text-transform': dateTransform,
+			'letter-spacing': generateCSSUnit( dateLetterSpacing, dateLetterSpacingType ),
+		},
+		' .vxt-timeline__date-hide.vxt-timeline__date-inner': {
+			'margin-bottom': generateCSSUnit( dateBottomSpaceFallback, 'px' ),
+			color: dateColor,
+			'font-size': generateCSSUnit( dateFontSize, dateFontSizeType ),
+			'font-family': dateFontFamily,
+			'font-weight': dateFontWeight,
+			'line-height': generateCSSUnit( dateLineHeight, dateLineHeightType ),
+			'text-align': getLogicalTextAlign( align ),
+			'font-style': dateFontStyle,
+			'text-decoration': dateDecoration,
+			'text-transform': dateTransform,
+			'letter-spacing': generateCSSUnit( dateLetterSpacing, dateLetterSpacingType ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__day-new.vxt-timeline__day-left': {
+			'margin-right': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__day-new.vxt-timeline__day-left': {
+			'margin-left': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__day-new.vxt-timeline__day-right': {
+			'margin-left': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__day-new.vxt-timeline__day-right': {
+			'margin-right': generateCSSUnit( horizontalSpace, horizontalSpaceUnit ),
+		},
+		' .vxt-timeline__date-new': {
+			color: dateColor,
+			'font-size': generateCSSUnit( dateFontSize, dateFontSizeType ),
+			'font-family': dateFontFamily,
+			'font-weight': dateFontWeight,
+			'line-height': generateCSSUnit( dateLineHeight, dateLineHeightType ),
+			'font-style': dateFontStyle,
+			'text-decoration': dateDecoration,
+			'text-transform': dateTransform,
+			'letter-spacing': generateCSSUnit( dateLetterSpacing, dateLetterSpacingType ),
+		},
+		' .vxt-timeline__events-inner-new': {
+			'background-color': backgroundColor,
+			'border-radius': generateCSSUnit( borderRadiusFallback, 'px' ),
+		},
+		' .vxt-timeline__events-inner--content': {
+			'padding-left': generateCSSUnit( leftPadding, paddingUnit ),
+			'padding-right': generateCSSUnit( rightPadding, paddingUnit ),
+			'padding-top': generateCSSUnit( topPadding, paddingUnit ),
+			'padding-bottom': generateCSSUnit( bottomPadding, paddingUnit ),
+		},
+		' svg': {
+			fill: iconColor,
+			'font-size': generateCSSUnit( iconSizeFallback, 'px' ),
+			width: generateCSSUnit( iconSizeFallback, 'px' ),
+		},
+		' .vxt-timeline__marker.vxt-timeline__in-view-icon': {
+			background: iconBgFocus,
+			'border-color': borderFocus,
+		},
+		' .vxt-timeline__marker.vxt-timeline__in-view-icon svg': {
+			fill: iconFocus,
+		},
+	};
+
+	/* Generate Responsive CSS for timeline */
+	const tabletSelectors = {
+		' .vxt-timeline__heading.rich-text': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__date-hide.vxt-timeline__date-inner': {
+			'font-size': generateCSSUnit( dateFontSizeTablet, dateFontSizeType ),
+			'line-height': generateCSSUnit( dateLineHeightTablet, dateLineHeightType ),
+			'margin-bottom': generateCSSUnit( dateBottomspaceTablet, 'px' ),
+			'letter-spacing': generateCSSUnit( dateLetterSpacingTablet, dateLetterSpacingType ),
+		},
+		' svg': {
+			'font-size': generateCSSUnit( iconSizeTabletFallback, 'px' ),
+			width: generateCSSUnit( iconSizeTabletFallback, 'px' ),
+		},
+		' .vxt-timeline__date-hide.vxt-timeline__inner-date-new': {
+			'font-size': generateCSSUnit( dateFontSizeTablet, dateFontSizeType ),
+			'line-height': generateCSSUnit( dateLineHeightTablet, dateLineHeightType ),
+			'margin-bottom': generateCSSUnit( dateBottomspaceTablet, 'px' ),
+			'text-align': getLogicalTextAlign( alignTablet ),
+			'letter-spacing': generateCSSUnit( dateLetterSpacingTablet, dateLetterSpacingType ),
+		},
+		' .vxt-timeline__date-new': {
+			'font-size': generateCSSUnit( dateFontSizeTablet, dateFontSizeType ),
+			'line-height': generateCSSUnit( dateLineHeightTablet, dateLineHeightType ),
+			'margin-bottom': generateCSSUnit( dateBottomspaceTablet, 'px' ),
+			'letter-spacing': generateCSSUnit( dateLetterSpacingTablet, dateLetterSpacingType ),
+		},
+		' .vxt-timeline__heading': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+			'font-size': generateCSSUnit( headFontSizeTablet, headFontSizeType ),
+			'line-height': generateCSSUnit( headLineHeightTablet, headLineHeightType ),
+			'margin-bottom': generateCSSUnit( headSpaceTablet, 'px' ),
+			'letter-spacing': generateCSSUnit( headLetterSpacingTablet, headLetterSpacingType ),
+		},
+		' .vxt-timeline__heading a': {
+			'font-size': generateCSSUnit( headFontSizeTablet, headFontSizeType ),
+			'line-height': generateCSSUnit( headLineHeightTablet, headLineHeightType ),
+			'text-align': getLogicalTextAlign( alignTablet ),
+			'letter-spacing': generateCSSUnit( headLetterSpacingTablet, headLetterSpacingType ),
+		},
+		' p.vxt-timeline-desc-content': {
+			'font-size': generateCSSUnit( subHeadFontSizeTablet, subHeadFontSizeType ),
+			'line-height': generateCSSUnit( subHeadLineHeightTablet, subHeadLineHeightType ),
+			'text-align': getLogicalTextAlign( alignTablet ),
+			'letter-spacing': generateCSSUnit( subHeadLetterSpacingTablet, subHeadLetterSpacingType ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__marker': {
+			'margin-left': generateCSSUnit( horizontalSpaceTablet, horizontalSpaceUnitTablet ),
+			'margin-right': generateCSSUnit( horizontalSpaceTablet, horizontalSpaceUnitTablet ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__day-new.vxt-timeline__day-left': {
+			'margin-right': generateCSSUnit( horizontalSpaceTablet, horizontalSpaceUnitTablet ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__day-new.vxt-timeline__day-left': {
+			'margin-left': generateCSSUnit( horizontalSpaceTablet, horizontalSpaceUnitTablet ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__day-new.vxt-timeline__day-right': {
+			'margin-left': generateCSSUnit( horizontalSpaceTablet, horizontalSpaceUnitTablet ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__day-new.vxt-timeline__day-right': {
+			'margin-right': generateCSSUnit( horizontalSpaceTablet, horizontalSpaceUnitTablet ),
+		},
+		' .vxt-timeline__field': {
+			'margin-bottom': generateCSSUnit( verticalSpaceTablet, verticalSpaceUnitTablet ),
+		},
+		' .vxt-timeline__events-inner-new': {
+			'border-radius': generateCSSUnit( borderRadiusTablet, 'px' ),
+		},
+		' .vxt-timeline__events-inner--content': {
+			'padding-left': generateCSSUnit( leftPaddingTablet, tabletPaddingUnit ),
+			'padding-right': generateCSSUnit( rightPaddingTablet, tabletPaddingUnit ),
+			'padding-top': generateCSSUnit( topPaddingTablet, tabletPaddingUnit ),
+			'padding-bottom': generateCSSUnit( bottomPaddingTablet, tabletPaddingUnit ),
+		},
+		' .vxt-timeline__day-new': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__heading': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block p.vxt-timeline-desc-content': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__day-new': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__date-hide.vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__author-link': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__link_parent': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__image a': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		' .vxt-timeline__center-block a.vxt-timeline__image': {
+			'text-align': getLogicalTextAlign( alignTablet ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__line': {
+			'inset-inline-end': 'calc( ' + connectorBgsizeTabletFallback + 'px / 2 )',
+		},
+		'.vxt-timeline__left-block .vxt-timeline__line': {
+			'inset-inline-start': 'calc( ' + connectorBgsizeTabletFallback + 'px / 2 )',
+		},
+		' .vxt-timeline__marker': {
+			'min-height': generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+			'min-width': generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+			'line-height': generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__left .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__right .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__left .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__right .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeTabletFallback, 'px' ),
+		},
+	};
+
+	const mobileSelectors = {
+		' .vxt-timeline__heading.rich-text': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__date-hide.vxt-timeline__date-inner': {
+			'font-size': generateCSSUnit( dateFontSizeMobile, dateFontSizeType ),
+			'line-height': generateCSSUnit( dateLineHeightMobile, dateLineHeightType ),
+			'margin-bottom': generateCSSUnit( dateBottomspaceMobile, 'px' ),
+			'letter-spacing': generateCSSUnit( dateLetterSpacingMobile, dateLetterSpacingType ),
+		},
+		' svg': {
+			'font-size': generateCSSUnit( iconSizeMobileFallback, 'px' ),
+			width: generateCSSUnit( iconSizeMobileFallback, 'px' ),
+		},
+		' .vxt-timeline__date-hide.vxt-timeline__inner-date-new': {
+			'font-size': generateCSSUnit( dateFontSizeMobile, dateFontSizeType ),
+			'line-height': generateCSSUnit( dateLineHeightMobile, dateLineHeightType ),
+			'margin-bottom': generateCSSUnit( dateBottomspaceMobile, 'px' ),
+			'text-align': getLogicalTextAlign( alignMobile ),
+			'letter-spacing': generateCSSUnit( dateLetterSpacingMobile, dateLetterSpacingType ),
+		},
+		' .vxt-timeline__date-new': {
+			'font-size': generateCSSUnit( dateFontSizeMobile, dateFontSizeType ),
+			'line-height': generateCSSUnit( dateLineHeightMobile, dateLineHeightType ),
+			'margin-bottom': generateCSSUnit( dateBottomspaceMobile, 'px' ),
+			'letter-spacing': generateCSSUnit( dateLetterSpacingMobile, dateLetterSpacingType ),
+		},
+		' .vxt-timeline__heading': {
+			'font-size': generateCSSUnit( headFontSizeMobile, headFontSizeType ),
+			'line-height': generateCSSUnit( headLineHeightMobile, headLineHeightType ),
+			'margin-bottom': generateCSSUnit( headSpaceMobile, 'px' ),
+			'text-align': getLogicalTextAlign( alignMobile ),
+			'letter-spacing': generateCSSUnit( headLetterSpacingMobile, headLetterSpacingType ),
+		},
+		' .vxt-timeline__heading a': {
+			'font-size': generateCSSUnit( headFontSizeMobile, headFontSizeType ),
+			'line-height': generateCSSUnit( headLineHeightMobile, headLineHeightType ),
+			'text-align': getLogicalTextAlign( alignMobile ),
+			'letter-spacing': generateCSSUnit( headLetterSpacingMobile, headLetterSpacingType ),
+		},
+		' p.vxt-timeline-desc-content': {
+			'font-size': generateCSSUnit( subHeadFontSizeMobile, subHeadFontSizeType ),
+			'line-height': generateCSSUnit( subHeadLineHeightMobile, subHeadLineHeightType ),
+			'text-align': getLogicalTextAlign( alignMobile ),
+			'letter-spacing': generateCSSUnit( subHeadLetterSpacingMobile, subHeadLetterSpacingType ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__marker': {
+			'margin-left': 0,
+			'margin-right': 0,
+		},
+		'.vxt-timeline__right-block .vxt-timeline__day-new.vxt-timeline__day-left': {
+			'margin-right': generateCSSUnit( horizontalSpaceMobile, horizontalSpaceUnitMobile ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__day-new.vxt-timeline__day-left': {
+			'margin-left': generateCSSUnit( horizontalSpaceMobile, horizontalSpaceUnitMobile ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__day-new.vxt-timeline__day-right': {
+			'margin-left': generateCSSUnit( horizontalSpaceMobile, horizontalSpaceUnitMobile ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__day-new.vxt-timeline__day-right': {
+			'margin-right': generateCSSUnit( horizontalSpaceMobile, horizontalSpaceUnitMobile ),
+		},
+		' .vxt-timeline__events-inner-new': {
+			'border-radius': generateCSSUnit( borderRadiusMobile, 'px' ),
+		},
+		' .vxt-timeline__events-inner--content': {
+			'padding-left': generateCSSUnit( leftPaddingMobile, mobilePaddingUnit ),
+			'padding-right': generateCSSUnit( rightPaddingMobile, mobilePaddingUnit ),
+			'padding-top': generateCSSUnit( topPaddingMobile, mobilePaddingUnit ),
+			'padding-bottom': generateCSSUnit( bottomPaddingMobile, mobilePaddingUnit ),
+		},
+		' .vxt-timeline__field': {
+			'margin-bottom': generateCSSUnit( verticalSpaceMobile, verticalSpaceUnitMobile ),
+		},
+		' .vxt-timeline__day-new': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__heading': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block p.vxt-timeline-desc-content': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__day-new': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__date-hide.vxt-timeline__date-inner': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__author-link': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__link_parent': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block .vxt-timeline__image a': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		' .vxt-timeline__center-block a.vxt-timeline__image': {
+			'text-align': getLogicalTextAlign( alignMobile ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__line': {
+			'inset-inline-end': 'calc( ' + connectorBgsizeMobileFallback + 'px / 2 )',
+		},
+		'.vxt-timeline__left-block .vxt-timeline__line': {
+			'inset-inline-start': 'calc( ' + connectorBgsizeMobileFallback + 'px / 2 )',
+		},
+		' .vxt-timeline__marker': {
+			'min-height': generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+			'min-width': generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+			'line-height': generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+		},
+		'.vxt-timeline__left-block .vxt-timeline__left .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+		},
+		'.vxt-timeline__right-block .vxt-timeline__right .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__left .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+		},
+		'.vxt-timeline__center-block .vxt-timeline__right .vxt-timeline__arrow': {
+			height: generateCSSUnit( connectorBgsizeMobileFallback, 'px' ),
+		},
+	};
+
+	let stylingCss = '';
+	const id = `.editor-styles-wrapper .vxt-block-${ block_id }.vxt-timeline__outer-wrap`;
+
+	stylingCss = generateCSS( selectors, id );
+
+	if ( 'tablet' === previewType || 'mobile' === previewType ) {
+		stylingCss += generateCSS( tabletSelectors, `${ id }`, true, 'tablet' );
+
+		if ( 'mobile' === previewType ) {
+			stylingCss += generateCSS( mobileSelectors, `${ id }`, true, 'mobile' );
+		}
+	}
+	return stylingCss;
+}
+
+export default contentTimelineStyle;

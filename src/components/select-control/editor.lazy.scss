@@ -1,0 +1,24 @@
+@use '../../styles/variables';
+
+.vxt-select-control {
+	&--layout-inline {
+		.components-select-control {
+			align-items: center;
+			display: grid;
+			grid-template-columns: 50% 50%;
+			margin-bottom: variables.$vexaltrix-control-vertical-gap;
+			color: variables.$vexaltrix-color-body;
+			gap: 0;
+		}
+
+		.vxt-control__header,
+		.uag-control-label,
+		.components-select-control label.components-input-control__label {
+			margin-bottom: 0;
+		}
+
+		&:last-child .components-select-control {
+			margin-bottom: 0;
+		}
+	}
+}

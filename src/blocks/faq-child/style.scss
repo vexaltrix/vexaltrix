@@ -1,0 +1,58 @@
+.wp-block-vxt-faq-child {
+	.vxt-faq-questions-button {
+		display: flex;
+		align-items: center;
+
+		.vxt-faq-icon-wrap {
+			display: flex;
+			align-items: center;
+		}
+
+		.vxt-question {
+			width: 100%;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	.vxt-icon svg,
+	.vxt-icon-active svg {
+		width: 15px;
+		height: 15px;
+		font-size: 15px;
+	}
+
+	&.vxt-faq-child__outer-wrap.vxt-faq-item .vxt-icon-active,
+	&.vxt-faq-child__outer-wrap.vxt-faq-item.vxt-faq-item-active .vxt-icon,
+	&.vxt-faq-child__outer-wrap .vxt-faq-item .vxt-icon-active,
+	&.vxt-faq-child__outer-wrap .vxt-faq-item.vxt-faq-item-active .vxt-icon {
+		display: none;
+		width: 0;
+		padding: 0;
+		height: 0;
+		margin: 0;
+	}
+
+	&.vxt-faq-child__outer-wrap.vxt-faq-item .vxt-icon,
+	&.vxt-faq-child__outer-wrap.vxt-faq-item.vxt-faq-item-active .vxt-icon-active,
+	&.vxt-faq-child__outer-wrap .vxt-faq-item .vxt-icon,
+	&.vxt-faq-child__outer-wrap .vxt-faq-item.vxt-faq-item-active .vxt-icon-active {
+		display: flex;
+		width: auto;
+		height: auto;
+	}
+}
+
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap.vxt-faq-item .vxt-icon,
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap.vxt-faq-item.vxt-faq-item-active .vxt-icon-active,
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap .vxt-faq-item .vxt-icon,
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap .vxt-faq-item.vxt-faq-item-active .vxt-icon-active {
+	display: none;
+}
+
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap.vxt-faq-item span.vxt-icon-active.vxt-faq-icon-wrap,
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap.vxt-faq-item.vxt-faq-item-active .vxt-icon-active,
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap .vxt-faq-item span.vxt-icon-active.vxt-faq-icon-wrap,
+.vxt-faq-layout-grid .vxt-faq-child__outer-wrap .vxt-faq-item.vxt-faq-item-active .vxt-icon-active {
+	display: none;
+}

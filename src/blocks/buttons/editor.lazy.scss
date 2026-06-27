@@ -1,0 +1,76 @@
+/**
+ * Editor styles for the admin
+ */
+
+.wp-block[data-type='vexaltrix/buttons'][data-btn-width='full'] {
+	.block-editor-inner-blocks,
+	.wp-block[data-type='vexaltrix/buttons-child'] {
+		width: 100%;
+	}
+}
+
+.vxt-buttons__outer-wrap .block-editor-inner-blocks {
+	width: 100%;
+
+	.block-editor-block-list__layout {
+		display: inline-flex;
+	}
+}
+
+.vxt-buttons__outer-wrap {
+	.vxt-buttons__wrap .block-editor-block-list__layout .block-list-appender {
+		margin-right: -60px !important;
+	}
+
+	&.vxt-btn__small-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+		padding: 5px 10px;
+	}
+
+	&.vxt-btn__medium-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+		padding: 12px 24px;
+	}
+
+	&.vxt-btn__large-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+		padding: 20px 30px;
+	}
+
+	&.vxt-btn__extralarge-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+		padding: 30px 65px;
+	}
+
+	&.vxt-editor-preview-mode-tablet {
+		&.vxt-btn-tablet__small-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 5px 10px;
+		}
+
+		&.vxt-btn-tablet__medium-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 12px 24px;
+		}
+
+		&.vxt-btn-tablet__large-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 20px 30px;
+		}
+
+		&.vxt-btn-tablet__extralarge-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 30px 65px;
+		}
+	}
+
+	&.vxt-editor-preview-mode-mobile {
+		&.vxt-btn-mobile__small-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 5px 10px;
+		}
+
+		&.vxt-btn-mobile__medium-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 12px 24px;
+		}
+
+		&.vxt-btn-mobile__large-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 20px 30px;
+		}
+
+		&.vxt-btn-mobile__extralarge-btn .vxt-buttons-repeater.wp-block-button__link:not( .is-style-outline ) {
+			padding: 30px 65px;
+		}
+	}
+}

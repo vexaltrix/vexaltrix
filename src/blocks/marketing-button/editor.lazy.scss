@@ -1,0 +1,24 @@
+/**
+ * Editor styles for the admin
+ */
+
+p.vxt-marketing-btn__prefix.block-editor-rich-text__editable {
+	margin-bottom: 0 !important;
+}
+
+#wpwrap .edit-post-visual-editor a.vxt-marketing-btn__link {
+	pointer-events: all;
+	display: inline-block;
+}
+
+.vxt-marketing-btn__align-text-center .vxt-marketing-btn__link {
+	text-align: center;
+}
+
+.vxt-marketing-btn__align-text-left .vxt-marketing-btn__link {
+	text-align: left;
+}
+
+.vxt-marketing-btn__align-text-right .vxt-marketing-btn__link {
+	text-align: right;
+}

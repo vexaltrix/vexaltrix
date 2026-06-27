@@ -1,0 +1,15 @@
+.vxt-forms-editor-privacy-link .components-base-control__help {
+	color: #f00;
+}
+
+[data-type='vexaltrix/forms-accept'] {
+	.vxt-forms-required-wrap {
+		width: 100%;
+
+		.components-base-control.components-toggle-control {
+			.components-base-control__field {
+				justify-content: flex-start;
+			}
+		}
+	}
+}

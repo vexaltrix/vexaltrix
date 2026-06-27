@@ -1,0 +1,12 @@
+$vxl-font-base: 14px;
+$vxl-radius-base: 6px;
+$vxl-transition-base: 150ms ease-in-out;
+
+$vxl-z-index-modal: 100000;
+$vxl-z-index-overlay: 99999;
+
+:root {
+	--vxl-font-base: #{$vxl-font-base};
+	--vxl-radius-base: #{$vxl-radius-base};
+	--vxl-transition-base: #{$vxl-transition-base};
+}

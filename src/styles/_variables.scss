@@ -1,0 +1,146 @@
+// All Variables Required for Vexaltrix are listed here.
+
+// Only the variables defined here will be used throughout Vexaltrix based on their category.
+// Certain Variables will have the same value. This is for Consistency during usage, and will not affect perfomance as Sass is a preprocessor for CSS.
+
+/* stylelint-disable color-hex-case, color-hex-length */
+
+// -------------------------------------------
+// All General CSS Variables Below This Point.
+// -------------------------------------------
+
+// Vexaltrix Colors.
+
+$vexaltrix-color-primary: #007cba;
+$vexaltrix-color-secondary: #0063a1;
+$vexaltrix-color-heading: #1d2327;
+$vexaltrix-color-body: #50575e;
+$vexaltrix-color-light-background: #f0f0f1;
+$vexaltrix-color-plain-background: #ffffff;
+$vexaltrix-color-border: #e6e7e9;
+$vexaltrix-color-border-hover: #959595;
+$vexaltrix-color-icon: #555d66;
+$vexaltrix-color-icon-disabled: #cccccc;
+$vexaltrix-color-tab-background: #dcf2ff;
+$vexaltrix-color-tab-border: #cde9f9;
+
+// Vexaltrix Font Sizes.
+
+$vexaltrix-font-size-title-large: 32px;
+$vexaltrix-font-size-title-medium: 24px;
+$vexaltrix-font-size-title-small: 20px;
+$vexaltrix-font-size-subtitle: 16px;
+$vexaltrix-font-size-subtitle-small: 14px;
+$vexaltrix-font-size-body: 13px;
+$vexaltrix-font-size-button: 13px;
+$vexaltrix-font-size-label: 13px;
+$vexaltrix-font-size-label-semibold: 13px;
+$vexaltrix-font-size-link-text: 13px;
+$vexaltrix-font-size-placeholder: 13px;
+$vexaltrix-font-size-body-small: 12px;
+$vexaltrix-font-size-helper-text: 12px;
+$vexaltrix-font-size-small-button-text: 11px;
+$vexaltrix-font-size-section-heading: 11px;
+
+// Vexaltrix Font Weights.
+
+$vexaltrix-font-weight-title-large: 400;
+$vexaltrix-font-weight-title-medium: 400;
+$vexaltrix-font-weight-title-small: 400;
+$vexaltrix-font-weight-subtitle: 600;
+$vexaltrix-font-weight-subtitle-small: 600;
+$vexaltrix-font-weight-body: 400;
+$vexaltrix-font-weight-button: 400;
+$vexaltrix-font-weight-label: 400;
+$vexaltrix-font-weight-label-semibold: 600;
+$vexaltrix-font-weight-link-text: 400;
+$vexaltrix-font-weight-placeholder: 400;
+$vexaltrix-font-weight-body-small: 400;
+$vexaltrix-font-weight-helper-text: 400;
+$vexaltrix-font-weight-small-button-text: 400;
+$vexaltrix-font-weight-section-heading: 500;
+
+// Vexaltrix Line Heights.
+
+$vexaltrix-line-height-title-large: 40px;
+$vexaltrix-line-height-title-medium: 32px;
+$vexaltrix-line-height-title-small: 28px;
+$vexaltrix-line-height-subtitle: 24px;
+$vexaltrix-line-height-subtitle-small: 20px;
+$vexaltrix-line-height-body: 1.4em;
+$vexaltrix-line-height-button: 13px;
+$vexaltrix-line-height-label: 1.4em;
+$vexaltrix-line-height-label-semibold: 1.4em;
+$vexaltrix-line-height-link-text: 1.4em;
+$vexaltrix-line-height-placeholder: 1em;
+$vexaltrix-line-height-body-small: 1.4em;
+$vexaltrix-line-height-helper-text: 1.4em;
+$vexaltrix-line-height-small-button-text: 22px;
+$vexaltrix-line-height-section-heading: 1.4em;
+
+// Vexaltrix Text Transforms.
+
+$vexaltrix-text-transform-title-large: none;
+$vexaltrix-text-transform-title-medium: none;
+$vexaltrix-text-transform-title-small: none;
+$vexaltrix-text-transform-subtitle: none;
+$vexaltrix-text-transform-subtitle-small: none;
+$vexaltrix-text-transform-body: none;
+$vexaltrix-text-transform-button: none;
+$vexaltrix-text-transform-label: none;
+$vexaltrix-text-transform-label-semibold: none;
+$vexaltrix-text-transform-link-text: none;
+$vexaltrix-text-transform-placeholder: none;
+$vexaltrix-text-transform-body-small: none;
+$vexaltrix-text-transform-helper-text: none;
+$vexaltrix-text-transform-small-button-text: uppercase;
+$vexaltrix-text-transform-section-heading: uppercase;
+
+// Vexaltrix Letter Spacing.
+
+$vexaltrix-letter-spacing: 0;
+
+// --------------------------------------------
+// All Specific CSS Variables Below This Point.
+// --------------------------------------------
+
+// Vexaltrix Panel UI.
+
+$vexaltrix-panel-heading-padding: 16px 48px 16px 16px;
+$vexaltrix-panel-body-padding: 16px;
+
+// Vexaltrix Control UI.
+
+$vexaltrix-control-vertical-gap: 25px;
+$vexaltrix-control-label-bottom-margin: 10px;
+$vexaltrix-control-border-radius: 3px;
+$vexaltrix-control-input-padding: 7px 12px;
+$vexaltrix-control-input-height: 30px;
+$vexaltrix-control-circle-indicator: 28px;
+$vexaltrix-control-mediapicker-height: 130px;
+$vexaltrix-control-mediapicker-height-small: 96px;
+
+// Vexaltrix Control Popup UI.
+
+$vexaltrix-control-popup-padding: 16px;
+$vexaltrix-control-popup-vertical-gap: 15px;
+$vexaltrix-control-popup-border-radius: 2px;
+$vexaltrix-control-popup-box-shadow: 0 2px 8px rgba( 0, 0, 0, 0.2 );
+
+// Vexaltrix Fullscreen Popup UI.
+
+$vexaltrix-popup-heading-padding: 18px 66px 18px 30px;
+$vexaltrix-popup-content-padding: 18px 30px;
+$vexaltrix-popup-vertical-gap: 30px;
+$vexaltrix-popup-border-radius: 2px;
+$vexaltrix-popup-box-shadow: 0 4px 4px rgba( 0, 0, 0, 0.25 );
+
+// Vexaltrix Variation Picker UI.
+
+$vexaltrix-variation-padding: 48px 1em;
+$vexaltrix-variation-gap: 32px 0 0;
+$vexaltrix-variation-button-width: 80px;
+$vexaltrix-variation-button-margin: 16px 24px 0;
+$vexaltrix-variation-button-padding: 20px;
+$vexaltrix-variation-button-border-radius: 3px;
+$vexaltrix-variation-button-icon: 36px;

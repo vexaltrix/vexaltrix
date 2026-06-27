@@ -1,0 +1,18 @@
+@use '../../styles/variables';
+
+.vxt-inspector-tab .vexaltrix {
+	&__matrix-control {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+
+		&--box {
+			border: 1px solid variables.$vexaltrix-color-border;
+			border-radius: variables.$vexaltrix-control-border-radius;
+		}
+
+		.uag-control-label {
+			margin: 0;
+		}
+	}
+}

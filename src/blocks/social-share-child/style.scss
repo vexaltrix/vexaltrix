@@ -1,0 +1,23 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.wp-block-vxt-social-share .vxt-social-share__wrapper {
+	text-decoration: none;
+}
+
+.vxt-social-share__wrapper {
+	box-shadow: none;
+}
+
+.vxt-social-share__outer-wrap:not( .vxt-social-share__no-label ) .vxt-social-share__source-wrap {
+	margin-right: 15px;
+}
+
+.vxt-social-share__outer-wrap.vxt-social-share__icon-at-top .vxt-social-share__source-wrap {
+	-ms-flex-item-align: flex-start;
+	align-self: flex-start;
+	margin-top: 5px;
+}

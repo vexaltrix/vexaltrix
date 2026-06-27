@@ -1,0 +1,30 @@
+{
+  "name": "@vexaltrix/scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Internal utility scripts: generate the .pot file (i18n) and package the plugin into a .zip",
+  "author": "Huu Ha",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "wordpress",
+    "scripts",
+    "package"
+  ],
+  "homepage": "https://vexaltrix.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github2.com/vexaltrix/vexaltrix.git",
+    "directory": "packages/scripts"
+  },
+  "bugs": {
+    "url": "https://github2.com/vexaltrix/vexaltrix/issues"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "fast-glob": "^3.3.2"
+  },
+  "scripts": {
+    "i18n": "node i18n.mjs",
+    "zip": "node zip.mjs"
+  }
+}

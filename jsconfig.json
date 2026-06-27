@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@Admin/*": [ "packages/admin-ui/src/*" ],
+			"@Attributes/*": [ "includes/blocks-config/blocks-attributes/*" ],
+			"@Blocks/*": [ "src/blocks/*" ],
+			"@Common/*": [ "packages/admin-ui/src/common/*" ],
+			"@Components/*": [ "src/components/*" ],
+			"@Controls/*": [ "includes/blocks-config/vxt-controls/*" ],
+			"@Settings/*": [ "packages/admin-ui/src/settings-app/*" ],
+			"@Skeleton/*": [ "packages/admin-ui/src/common/skeleton/*" ],
+			"@Store/*": [ "src/store/*" ],
+			"@Utils/*": [
+				"includes/blocks-config/utils/*",
+				"packages/admin-ui/src/utils/*"
+			]
+		}
+	},
+	"exclude": [
+		"node_modules",
+		"vendor",
+		"build",
+	]
+}

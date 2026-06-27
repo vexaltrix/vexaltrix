@@ -1,0 +1,17 @@
+@use '../../styles/variables';
+
+.vxt-responsive-select-control {
+	.vxt-size-type-field-tabs {
+		align-items: center;
+		display: grid;
+		grid-template-columns: 50% 50%;
+
+		.vxt-control__header {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.components-base-control .components-base-control.vxt-responsive-select-control {
+	margin-bottom: variables.$vexaltrix-control-vertical-gap !important;
+}

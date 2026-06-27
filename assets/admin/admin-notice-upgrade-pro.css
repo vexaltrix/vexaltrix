@@ -1,0 +1,41 @@
+#vxt-pro-popup-note .vxt-notice-container {
+	align-items: flex-start;
+}
+
+#vxt-pro-popup-note.notice {
+	display: block;
+	border: 1px solid #6105ff;
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+	border-right-color: #fff;
+	border-left-width: 4px;
+	box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.32);
+}
+
+#vxt-pro-popup-note a.vxt-review-notice.button-primary {
+	background: #6105ff;
+	border-color: #6105ff;
+}
+
+#vxt-pro-popup-note a.vxt-review-notice.button-primary:hover {
+	background: #5300e0;
+}
+
+.post-type-vexaltrix-popup .notice-dismiss {
+	color: #fff;
+}
+
+a.vexaltrix-plugins-go-pro {
+	color: #6104ff;
+	text-shadow: 1px 1px 1px #eee;
+	font-weight: bold;
+}
+
+a.vexaltrix-plugins-go-pro:hover {
+	color: #5300e0;
+}
+
+.post-type-vexaltrix-popup .astra-notice-wrapper:not( .vexaltrix-upsell ),
+.post-type-vexaltrix-popup .notice:not( .vexaltrix-upsell ) { /* Hide all other notices apart from upsell. */
+	display: none;
+}

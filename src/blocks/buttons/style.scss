@@ -1,0 +1,100 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.vxt-buttons__outer-wrap {
+	.vxt-buttons__wrap {
+		display: inline-flex;
+		width: 100%;
+	}
+
+	&.vxt-btn__small-btn .vxt-buttons-repeater {
+		&.wp-block-button__link:not( .is-style-outline ),
+		&.ast-outline-button {
+			padding: 5px 10px;
+		}
+	}
+
+	&.vxt-btn__medium-btn .vxt-buttons-repeater {
+		&.wp-block-button__link:not( .is-style-outline ),
+		&.ast-outline-button {
+			padding: 12px 24px;
+		}
+	}
+
+	&.vxt-btn__large-btn .vxt-buttons-repeater {
+		&.wp-block-button__link:not( .is-style-outline ),
+		&.ast-outline-button {
+			padding: 20px 30px;
+		}
+	}
+
+	&.vxt-btn__extralarge-btn .vxt-buttons-repeater {
+		&.wp-block-button__link:not( .is-style-outline ),
+		&.ast-outline-button {
+			padding: 30px 65px;
+		}
+	}
+
+	@media ( max-width: 976px ) {
+		&.vxt-btn-tablet__small-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 5px 10px;
+			}
+		}
+
+		&.vxt-btn-tablet__medium-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 12px 24px;
+			}
+		}
+
+		&.vxt-btn-tablet__large-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 20px 30px;
+			}
+		}
+
+		&.vxt-btn-tablet__extralarge-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 30px 65px;
+			}
+		}
+	}
+
+	@media ( max-width: 767px ) {
+		&.vxt-btn-mobile__small-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 5px 10px;
+			}
+		}
+
+		&.vxt-btn-mobile__medium-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 12px 24px;
+			}
+		}
+
+		&.vxt-btn-mobile__large-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 20px 30px;
+			}
+		}
+
+		&.vxt-btn-mobile__extralarge-btn .vxt-buttons-repeater {
+			&.wp-block-button__link:not( .is-style-outline ),
+			&.ast-outline-button {
+				padding: 30px 65px;
+			}
+		}
+	}
+}

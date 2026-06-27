@@ -1,0 +1,596 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+/* Info Box */
+
+.vxt-ifb-content > svg * {
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.vxt-ifb-content > svg,
+.vxt-ifb-content {
+	display: inline-block;
+}
+
+.vxt-ifb-content > svg {
+	vertical-align: middle;
+	width: inherit;
+	height: inherit;
+	font-style: initial;
+}
+
+.vxt-ifb-content .vxt-ifb-icon-wrap svg {
+	box-sizing: content-box;
+	width: inherit;
+	height: inherit;
+}
+
+.vxt-ifb-button-wrapper:empty {
+	display: none;
+}
+
+div.vxt-ifb-button-wrapper a.vxt-infobox-cta-link,
+div.vxt-ifb-cta a.vxt-infobox-cta-link,
+.entry .entry-content a.vxt-infobox-cta-link,
+a.vxt-infobox-link-wrap,
+.entry .entry-content a.vxt-infobox-link-wrap {
+	text-decoration: none;
+	align-items: center;
+}
+
+.vxt-infobox-icon-left-title.vxt-infobox-image-valign-middle .vxt-ifb-title-wrap,
+.vxt-infobox-icon-right-title.vxt-infobox-image-valign-middle .vxt-ifb-title-wrap,
+.vxt-infobox-image-valign-middle .vxt-ifb-icon-wrap,
+.vxt-infobox-image-valign-middle .vxt-ifb-image-content,
+.vxt-infobox-icon-left.vxt-infobox-image-valign-middle .vxt-ifb-content,
+.vxt-infobox-icon-right.vxt-infobox-image-valign-middle .vxt-ifb-content {
+	-ms-flex-item-align: center;
+	-webkit-align-self: center;
+	align-self: center;
+}
+
+.vxt-infobox-icon-left-title.vxt-infobox-image-valign-top .vxt-ifb-title-wrap,
+.vxt-infobox-icon-right-title.vxt-infobox-image-valign-top .vxt-ifb-title-wrap,
+.vxt-infobox-image-valign-top .vxt-ifb-icon-wrap,
+.vxt-infobox-image-valign-top .vxt-ifb-image-content,
+.vxt-infobox-icon-left.vxt-infobox-image-valign-top .vxt-ifb-content,
+.vxt-infobox-icon-right.vxt-infobox-image-valign-top .vxt-ifb-content {
+	-webkit-align-self: self-start;
+	align-self: self-start;
+}
+
+.vxt-infobox-left {
+	justify-content: flex-start;
+	text-align: left;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	-webkit-justify-content: flex-start;
+	-moz-box-pack: start;
+}
+
+.vxt-infobox-center {
+	justify-content: center;
+	text-align: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+}
+
+.vxt-infobox-right {
+	justify-content: flex-end;
+	text-align: right;
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-box-pack: end;
+}
+
+.vxt-infobox-icon-above-title.vxt-infobox__content-wrap,
+.vxt-infobox-icon-below-title.vxt-infobox__content-wrap {
+	display: block;
+	width: 100%;
+}
+
+/* Left/Right of Title */
+.vxt-infobox-icon-left-title .vxt-ifb-content > svg,
+.vxt-infobox-icon-left .vxt-ifb-content > svg {
+	margin-right: 10px;
+}
+
+.vxt-infobox-icon-right-title .vxt-ifb-content > svg,
+.vxt-infobox-icon-right .vxt-ifb-content > svg {
+	margin-left: 10px;
+}
+
+/* Left/Right */
+.vxt-infobox-icon-left.vxt-infobox__content-wrap,
+.vxt-infobox-icon-right.vxt-infobox__content-wrap,
+.vxt-infobox-icon-left-title .vxt-ifb-left-title-image,
+.vxt-infobox-icon-right-title .vxt-ifb-right-title-image {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: flex;
+	-js-display: flex;
+}
+
+.vxt-infobox-icon-left-title .vxt-ifb-left-title-image .vxt-ifb-image-content,
+.vxt-infobox-icon-right-title .vxt-ifb-right-title-image .vxt-ifb-image-content,
+.vxt-infobox-icon-left .vxt-ifb-image-content,
+.vxt-infobox-icon-right .vxt-ifb-image-content {
+	flex-shrink: 0;
+	line-height: 0;
+}
+
+.vxt-infobox-icon-left-title .vxt-ifb-left-title-image .vxt-ifb-title-wrap,
+.vxt-infobox-icon-right-title .vxt-ifb-right-title-image .vxt-ifb-title-wrap,
+.vxt-infobox-icon-left .vxt-ifb-content,
+.vxt-infobox-icon-right .vxt-ifb-content {
+	flex-grow: 1;
+}
+
+.vxt-infobox-icon-right.vxt-infobox__content-wrap,
+.vxt-infobox-icon-right-title .vxt-ifb-right-title-image {
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-box-pack: end;
+	justify-content: flex-end;
+}
+
+/* Infobox image css */
+.vxt-ifb-content img {
+	position: relative;
+	display: inline-block;
+	line-height: 0;
+	width: auto;
+	height: auto !important;
+	max-width: 100%;
+	border-radius: inherit;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-border-radius: inherit;
+}
+
+/* Info box complete box link css */
+.vxt-infobox-module-link {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+}
+
+.vxt-edit-mode .vxt-infobox-module-link {
+	z-index: 2;
+}
+
+.vxt-infobox-link-icon-after {
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.vxt-infobox-link-icon-before {
+	margin-right: 5px;
+	margin-left: 0;
+}
+
+.vxt-infobox-link-icon {
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+
+.vxt-infobox__content-wrap {
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	word-break: break-word;
+	z-index: 1;
+}
+
+.vxt-ifb-separator {
+	display: inline-block;
+	margin: 0;
+	border-top-color: #333;
+	border-top-style: solid;
+	border-top-width: 2px;
+	line-height: 0;
+}
+
+.vxt-ifb-button-wrapper {
+	line-height: 1;
+
+	&.vxt-ifb-button-type-text {
+		.vxt-infobox-cta-link {
+			&.wp-block-button__link {
+				background-color: unset;
+				border: none;
+			}
+			&.wp-block-button__link:hover {
+				background-color: unset;
+				border-color: unset;
+			}
+		}
+	}
+	.vxt-infobox-cta-link {
+		cursor: pointer;
+
+		&.wp-block-button__link {
+			width: auto;
+		}
+	}
+
+	.wp-block-button__link svg,
+	.ast-outline-button svg {
+		fill: currentcolor;
+	}
+}
+
+.vxt-infobox__content-wrap a {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-decoration: none;
+}
+
+.vxt-ifb-title-wrap {
+	width: 100%;
+}
+
+.vxt-ifb-title {
+	margin-block-start: 0;
+}
+
+.vxt-ifb-title-wrap .vxt-ifb-title-prefix {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.vxt-infobox__content-wrap.vxt-infobox__content-wrap {
+	position: relative;
+}
+
+.vxt-ifb-content {
+	width: 100%;
+}
+
+.vxt-infobox__content-wrap.vxt-infobox,
+.vxt-ifb-content,
+.vxt-ifb-title-wrap,
+.vxt-ifb-title-prefix *,
+svg.dashicon.dashicons-upload {
+	z-index: 1;
+}
+
+a.vxt-infobox-link-wrap {
+	color: inherit;
+}
+
+.vxt-ifb-content p:empty {
+	display: none;
+}
+
+.vxt-infobox__content-wrap .vxt-ifb-content {
+	img {
+		display: inline-block;
+		max-width: 100%;
+	}
+
+	svg {
+		display: inline-block;
+	}
+}
+
+.vxt-infobox__content-wrap .vxt-ifb-icon-wrap,
+.vxt-infobox-icon-left .vxt-ifb-image-content,
+.vxt-infobox-icon-right .vxt-ifb-image-content {
+	box-sizing: content-box;
+}
+
+.vxt-infobox-cta-link > svg {
+	vertical-align: middle;
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+}
+
+.vxt-infobox-cta-link {
+	display: inline-flex;
+}
+
+.block-editor-page #wpwrap .vxt-infobox-cta-link svg,
+.vxt-infobox-cta-link svg {
+	font-style: normal;
+}
+
+/* Left/Right of Title */
+.vxt-infobox-icon-left-title .vxt-ifb-icon-wrap,
+.vxt-infobox-icon-left .vxt-ifb-icon-wrap {
+	margin-right: 10px;
+	line-height: 0;
+}
+
+.vxt-infobox-icon-right-title .vxt-ifb-icon-wrap,
+.vxt-infobox-icon-right .vxt-ifb-icon-wrap {
+	margin-left: 10px;
+	line-height: 0;
+}
+
+html[dir='rtl'] {
+	/* Left/Right of Title */
+	.vxt-infobox-icon-left-title .vxt-ifb-icon-wrap,
+	.vxt-infobox-icon-left .vxt-ifb-icon-wrap {
+		margin-left: 10px;
+		line-height: 0;
+	}
+
+	.vxt-infobox-icon-right-title .vxt-ifb-icon-wrap,
+	.vxt-infobox-icon-right .vxt-ifb-icon-wrap {
+		margin-right: 10px;
+		line-height: 0;
+	}
+
+	.vxt-infobox-left {
+		justify-content: flex-end;
+		text-align: right;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		-webkit-justify-content: flex-end;
+		-moz-box-pack: end;
+	}
+
+	.vxt-infobox-right {
+		justify-content: flex-start;
+		text-align: left;
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+		-webkit-justify-content: flex-start;
+		-moz-box-pack: start;
+	}
+}
+
+/* Left/Right */
+.vxt-infobox-icon-left .vxt-ifb-left-right-wrap,
+.vxt-infobox-icon-right .vxt-ifb-left-right-wrap,
+.vxt-infobox-icon-left-title .vxt-ifb-left-title-image,
+.vxt-infobox-icon-right-title .vxt-ifb-right-title-image {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.vxt-infobox-icon-right .vxt-ifb-left-right-wrap,
+.vxt-infobox-icon-right-title .vxt-ifb-right-title-image {
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-box-pack: end;
+	justify-content: flex-end;
+}
+
+a.vxt-infbox__link-to-all {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+	box-shadow: none;
+	text-decoration: none;
+	-webkit-box-shadow: none;
+}
+
+@media only screen and ( max-width: 976px ) {
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap .vxt-ifb-image-content {
+		padding: 0;
+		margin-bottom: 20px;
+	}
+
+	.vxt-infobox-stacked-tablet.vxt-reverse-order-tablet.vxt-infobox__content-wrap {
+		display: -webkit-inline-box;
+		display: -ms-inline-flexbox;
+		display: -webkit-inline-flex;
+		display: -moz-inline-box;
+		display: inline-flex;
+		flex-direction: column-reverse;
+		-js-display: inline-flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: reverse;
+		-ms-flex-direction: column-reverse;
+		-webkit-flex-direction: column-reverse;
+		-moz-box-orient: vertical;
+		-moz-box-direction: reverse;
+	}
+
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap .vxt-ifb-content,
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap .vxt-ifb-icon-wrap,
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap .vxt-ifb-image-content {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap .vxt-ifb-icon-wrap,
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap .vxt-ifb-image-content {
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.vxt-infobox-stacked-tablet.vxt-infobox__content-wrap {
+		display: inline-block;
+	}
+
+	.vxt-infobox-icon-left-title.vxt-infobox-stacked-tablet,
+	.vxt-infobox-icon-left.vxt-infobox-stacked-tablet {
+		.vxt-ifb-image-content,
+		.vxt-ifb-icon-wrap {
+			margin-right: 0;
+		}
+	}
+
+	.vxt-infobox-icon-right-title.vxt-infobox-stacked-tablet,
+	.vxt-infobox-icon-right.vxt-infobox-stacked-tablet {
+		.vxt-ifb-image-content,
+		.vxt-ifb-icon-wrap {
+			margin-left: 0;
+		}
+	}
+
+	.vxt-infobox-icon-left-title .vxt-ifb-separator {
+		margin: 10px 0;
+	}
+}
+
+@media screen and ( max-width: 767px ) {
+	.vxt-infobox-stacked-mobile.vxt-infobox__content-wrap {
+		display: inline-block;
+
+		.vxt-ifb-image-content,
+		.vxt-ifb-icon-wrap {
+			padding: 0;
+			margin-bottom: 20px;
+			margin-right: 0;
+			margin-left: 0;
+		}
+
+		&.vxt-reverse-order-mobile {
+			display: -webkit-inline-box;
+			display: -ms-inline-flexbox;
+			display: -webkit-inline-flex;
+			display: -moz-inline-box;
+			display: inline-flex;
+			flex-direction: column-reverse;
+			-js-display: inline-flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: reverse;
+			-ms-flex-direction: column-reverse;
+			-webkit-flex-direction: column-reverse;
+			-moz-box-orient: vertical;
+			-moz-box-direction: reverse;
+		}
+
+		.vxt-ifb-image-content,
+		.vxt-ifb-icon-wrap,
+		.vxt-ifb-content {
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	.vxt-infobox-icon-left-title.vxt-infobox-stacked-mobile,
+	.vxt-infobox-icon-left.vxt-infobox-stacked-mobile {
+		.vxt-ifb-image-content,
+		.vxt-ifb-icon-wrap {
+			margin-right: 0;
+		}
+	}
+
+	.vxt-infobox-icon-right-title.vxt-infobox-stacked-mobile,
+	.vxt-infobox-icon-right.vxt-infobox-stacked-mobile {
+		.vxt-ifb-image-content,
+		.vxt-ifb-icon-wrap {
+			margin-left: 0;
+		}
+	}
+
+	.vxt-infobox-icon-left-title .vxt-ifb-separator {
+		margin: 10px 0;
+	}
+}
+
+.vxt-ifb-icon svg {
+	width: inherit;
+	height: inherit;
+	vertical-align: middle;
+}
+
+/* For Backword */
+.vxt-ifb-button-icon {
+	height: 15px;
+	width: 15px;
+	font-size: 15px;
+	vertical-align: middle;
+
+	svg {
+		height: inherit;
+		width: inherit;
+		display: inline-block;
+	}
+
+	&.vxt-ifb-align-icon-after {
+		float: right;
+	}
+}
+
+.vxt-ifb-cta-button {
+	display: inline-block;
+}
+
+.vxt-disable-link {
+	pointer-events: none;
+}
+
+@media only screen and ( min-width: 977px ) {
+	.vxt-infobox-margin-wrapper {
+		display: flex;
+	}
+}
+
+.vxt-ifb-content .vxt-ifb-desc p:last-child {
+	margin-bottom: 0;
+}
+
+/* ============================================================
+ * RTL OVERRIDES — Info Box
+ *
+ * The existing html[dir="rtl"] block (lines ~329-361) handles
+ * icon-wrap margins and infobox-left/right alignment.
+ * This delta closes the remaining static-CSS gaps:
+ *   - inline SVG icon margins (icon-left / icon-right variants)
+ *   - link icon before/after margins
+ *   - icon-after float direction (deprecated but still present)
+ *
+ * Additive only — no existing LTR rule modified.
+ * ============================================================ */
+/* stylelint-disable-next-line no-duplicate-selectors */
+html[dir='rtl'] {
+	/* Inline SVG icon spacing — mirror of lines 101-109 */
+	.vxt-infobox-icon-left-title .vxt-ifb-content > svg,
+	.vxt-infobox-icon-left .vxt-ifb-content > svg {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	.vxt-infobox-icon-right-title .vxt-ifb-content > svg,
+	.vxt-infobox-icon-right .vxt-ifb-content > svg {
+		margin-left: 0;
+		margin-right: 10px;
+	}
+
+	/* Link icon position — mirror of lines 178-186 */
+	.vxt-infobox-link-icon-after {
+		margin-right: 5px;
+		margin-left: 0;
+	}
+
+	.vxt-infobox-link-icon-before {
+		margin-right: 0;
+		margin-left: 5px;
+	}
+
+	/* Deprecated icon-after float — mirror of line 534 */
+	.vxt-ifb-button-icon.vxt-ifb-align-icon-after {
+		float: left;
+	}
+}

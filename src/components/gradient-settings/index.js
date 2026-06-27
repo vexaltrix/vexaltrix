@@ -1,0 +1,262 @@
+import styles from './editor.lazy.scss';
+import { GradientPicker } from '@wordpress/components';
+import Range from '@Components/range/Range.js';
+import { __ } from '@wordpress/i18n';
+import MultiButtonsControl from '@Components/multi-buttons-control';
+import AdvancedPopColorControl from '@Components/color-control/advanced-pop-color-control.js';
+import { useLayoutEffect, useEffect, useState, useRef } from '@wordpress/element';
+import { getPanelIdFromRef } from '@Utils/Helpers';
+import { select } from '@wordpress/data';
+import { applyFilters } from '@wordpress/hooks';
+import ResponsiveSlider from '@Components/responsive-slider';
+
+const GradientSettings = ( props ) => {
+	const [ panelNameForHook, setPanelNameForHook ] = useState( null );
+	const panelRef = useRef( null );
+	const { getSelectedBlock } = select( 'core/block-editor' );
+	// Add and remove the CSS on the drop and remove of the component.
+	useLayoutEffect( () => {
+		styles.use();
+		return () => {
+			styles.unuse();
+		};
+	}, [] );
+
+	const {
+		setAttributes,
+		gradientType,
+		backgroundGradient,
+		backgroundGradientColor2,
+		backgroundGradientColor1,
+		backgroundGradientType,
+		backgroundGradientLocation1,
+		backgroundGradientLocationTablet1,
+		backgroundGradientLocationMobile1,
+		backgroundGradientLocation2,
+		backgroundGradientLocationTablet2,
+		backgroundGradientLocationMobile2,
+		backgroundGradientAngle,
+		backgroundGradientAngleTablet,
+		backgroundGradientAngleMobile,
+	} = props;
+
+	const blockNameForHook = getSelectedBlock()?.name.split( '/' ).pop();
+
+	const currentBlock = select( 'core/block-editor' ).getSelectedBlock();
+
+	useEffect( () => {
+		setPanelNameForHook( getPanelIdFromRef( panelRef ) );
+	}, [ blockNameForHook ] );
+
+	const onGradientChange = ( value ) => {
+		setAttributes( { [ backgroundGradient.label ]: value } );
+	};
+
+	const controlName = 'gradient-settings'; // there is no label props that's why keep hard coded label
+	const controlBeforeDomElement = applyFilters(
+		`vexaltrix.${ blockNameForHook }.${ panelNameForHook }.${ controlName }.before`,
+		'',
+		blockNameForHook
+	);
+	const controlAfterDomElement = applyFilters(
+		`vexaltrix.${ blockNameForHook }.${ panelNameForHook }.${ controlName }`,
+		'',
+		blockNameForHook
+	);
+
+	const type = undefined !== gradientType ? gradientType.value : 'basic';
+
+	return (
+		<>
+			{ undefined !== gradientType && (
+				<MultiButtonsControl
+					setAttributes={ setAttributes }
+					label={ 'Select Gradient' }
+					data={ {
+						value: gradientType.value,
+						label: gradientType.label,
+					} }
+					options={ [
+						{
+							value: 'basic',
+							label: __( 'Basic', 'vexaltrix' ),
+						},
+						{
+							value: 'advanced',
+							label: __( 'Advanced', 'vexaltrix' ),
+						},
+					] }
+					showIcons={ false }
+				/>
+			) }
+			<div ref={ panelRef }>
+				{ controlBeforeDomElement }
+				{ 'basic' === type && (
+					<GradientPicker
+						__nextHasNoMargin={ true }
+						value={ backgroundGradient?.value || null }
+						onChange={ onGradientChange }
+						className="vxt-gradient-picker"
+						gradients={ [] } // Passing it an empty to resolve block encounters an error when gutenberg is activated.
+					/>
+				) }
+				{ controlAfterDomElement }
+			</div>
+			{ 'advanced' === type && (
+				<>
+					<AdvancedPopColorControl
+						label={ __( 'Color 1', 'vexaltrix' ) }
+						colorValue={ backgroundGradientColor1.value ? backgroundGradientColor1.value : '' }
+						data={ {
+							value: backgroundGradientColor1.value,
+							label: backgroundGradientColor1.label,
+						} }
+						setAttributes={ setAttributes }
+					/>
+					<AdvancedPopColorControl
+						label={ __( 'Color 2', 'vexaltrix' ) }
+						colorValue={ backgroundGradientColor2.value ? backgroundGradientColor2.value : '' }
+						data={ {
+							value: backgroundGradientColor2.value,
+							label: backgroundGradientColor2.label,
+						} }
+						setAttributes={ setAttributes }
+					/>
+					<MultiButtonsControl
+						setAttributes={ setAttributes }
+						label={ __( 'Type', 'vexaltrix' ) }
+						data={ {
+							value: backgroundGradientType.value,
+							label: backgroundGradientType.label,
+						} }
+						className="vxt-multi-button-alignment-control"
+						options={ [
+							{
+								value: 'linear',
+								label: __( 'Linear', 'vexaltrix' ),
+							},
+							{
+								value: 'radial',
+								label: __( 'Radial', 'vexaltrix' ),
+							},
+						] }
+					/>
+					{ 'vexaltrix/columns' === currentBlock?.name ||
+					'vexaltrix/column' === currentBlock?.name ||
+					'vexaltrix/section' === currentBlock?.name ? (
+						<>
+							<Range
+								label={ __( 'Location 1', 'vexaltrix' ) }
+								setAttributes={ setAttributes }
+								value={ backgroundGradientLocation1.value }
+								data={ {
+									value: backgroundGradientLocation1.value,
+									label: backgroundGradientLocation1.label,
+								} }
+								min={ -100 }
+								max={ 100 }
+								displayUnit={ false }
+							/>
+							<Range
+								label={ __( 'Location 2', 'vexaltrix' ) }
+								setAttributes={ setAttributes }
+								value={ backgroundGradientLocation2.value }
+								data={ {
+									value: backgroundGradientLocation2.value,
+									label: backgroundGradientLocation2.label,
+								} }
+								min={ -100 }
+								max={ 100 }
+								displayUnit={ false }
+							/>
+							{ 'linear' === backgroundGradientType.value && (
+								<Range
+									label={ __( 'Angle', 'vexaltrix' ) }
+									setAttributes={ setAttributes }
+									value={ backgroundGradientAngle.value }
+									data={ {
+										value: backgroundGradientAngle.value,
+										label: backgroundGradientAngle.label,
+									} }
+									min={ 0 }
+									max={ 360 }
+									displayUnit={ false }
+								/>
+							) }
+						</>
+					) : (
+						<>
+							<ResponsiveSlider
+								label={ __( 'Location 1', 'vexaltrix' ) }
+								data={ {
+									desktop: {
+										value: backgroundGradientLocation1.value,
+										label: backgroundGradientLocation1.label,
+									},
+									tablet: {
+										value: backgroundGradientLocationTablet1.value,
+										label: backgroundGradientLocationTablet1.label,
+									},
+									mobile: {
+										value: backgroundGradientLocationMobile1.value,
+										label: backgroundGradientLocationMobile1.label,
+									},
+								} }
+								min={ -100 }
+								max={ 100 }
+								setAttributes={ setAttributes }
+								displayUnit={ false }
+							/>
+							<ResponsiveSlider
+								label={ __( 'Location 2', 'vexaltrix' ) }
+								data={ {
+									desktop: {
+										value: backgroundGradientLocation2.value,
+										label: backgroundGradientLocation2.label,
+									},
+									tablet: {
+										value: backgroundGradientLocationTablet2.value,
+										label: backgroundGradientLocationTablet2.label,
+									},
+									mobile: {
+										value: backgroundGradientLocationMobile2.value,
+										label: backgroundGradientLocationMobile2.label,
+									},
+								} }
+								min={ -100 }
+								max={ 100 }
+								setAttributes={ setAttributes }
+								displayUnit={ false }
+							/>
+							{ 'linear' === backgroundGradientType.value && (
+								<ResponsiveSlider
+									label={ __( 'Angle', 'vexaltrix' ) }
+									data={ {
+										desktop: {
+											value: backgroundGradientAngle.value,
+											label: backgroundGradientAngle.label,
+										},
+										tablet: {
+											value: backgroundGradientAngleTablet.value,
+											label: backgroundGradientAngleTablet.label,
+										},
+										mobile: {
+											value: backgroundGradientAngleMobile.value,
+											label: backgroundGradientAngleMobile.label,
+										},
+									} }
+									min={ 0 }
+									max={ 360 }
+									setAttributes={ setAttributes }
+									displayUnit={ false }
+								/>
+							) }
+						</>
+					) }
+				</>
+			) }
+		</>
+	);
+};
+
+export default GradientSettings;

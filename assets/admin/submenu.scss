@@ -1,0 +1,66 @@
+/* stylelint-disable selector-id-pattern */
+
+$dashboard-menu-selector: '#toplevel_page_vexaltrix';
+
+#{$dashboard-menu-selector} {
+	// Clear to evenly position the next list items after the separator.
+	.wp-submenu li {
+		clear: both;
+	}
+
+	// Add the separator after the second last item in the Vexaltrix Settings Submenu.
+	.wp-submenu li:nth-child( 6 )::after {
+		content: '';
+		border-bottom: 1px solid rgb( 255 255 255 / 0.2 );
+		display: block;
+		float: left;
+		margin: 8px 0;
+		width: 100%;
+	}
+
+	// Add negative margins to the top separator if this is not the current submenu.
+	&.wp-not-current-submenu .wp-submenu li.wp-first-item::after {
+		margin: 8px -3px;
+	}
+
+	// Add negative margins to the bottom separator if this is not the current submenu.
+	&.wp-not-current-submenu .wp-submenu li:nth-last-child( 2 )::after {
+		margin: 8px -3px;
+	}
+
+	// Upgrade now button in sub-menu.
+	.wp-submenu a[href='admin.php?page=vexaltrix&path=upgrade-now'] {
+		background-color: #6104ff;
+		color: #fff;
+		padding: 6px 12px;
+		border-radius: 4px;
+		text-align: center;
+		display: block;
+		margin: 8px 12px;
+		text-decoration: none;
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 18px;
+
+		&:focus,
+		&:hover {
+			box-shadow: unset;
+			background-color: #5300e0;
+		}
+	}
+}
+
+.wp-submenu li {
+	&:has( > a[href*='path=free-vs-pro'] ) {
+		background-color: #00a32a !important;
+
+		&:hover {
+			background-color: #008000 !important;
+		}
+	}
+
+	a[href*='path=free-vs-pro'] {
+		color: #fff !important;
+		font-weight: 500;
+	}
+}

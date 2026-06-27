@@ -1,0 +1,94 @@
+/**
+ * BLOCK: Forms - Save Block
+ */
+
+import classnames from 'classnames';
+
+import { InnerBlocks, RichText } from '@wordpress/block-editor';
+
+export default function save( props ) {
+	const { attributes } = props;
+
+	const {
+		block_id,
+		formLabel,
+		submitButtonText,
+		confirmationType,
+		confirmationMessage,
+		failedMessage,
+		reCaptchaEnable,
+		reCaptchaType,
+		buttonSize,
+	} = attributes;
+
+	const renderButtonHtml = () => {
+		return (
+			<button className="vxt-forms-main-submit-button wp-block-button__link">
+				<RichText.Content
+					tagName="div"
+					value={ submitButtonText.replace( /<(?!br\s*V?)[^>]+>/g, '' ) }
+					className="vxt-forms-main-submit-button-text"
+				/>
+			</button>
+		);
+	};
+	if ( props.innerBlocks.length === 0 ) {
+		// If no preset selected then return.
+		return;
+	}
+	return (
+		<div
+			className={ classnames(
+				'vxt-forms__outer-wrap',
+				`vxt-block-${ block_id }`,
+				`vxt-forms__${ buttonSize }-btn`
+			) }
+		>
+			<form className="vxt-forms-main-form" method="post" autoComplete="on" name={ `vxt-form-${ block_id }` }>
+				<InnerBlocks.Content />
+				<div className="vxt-forms-form-hidden-data">
+					{ reCaptchaEnable && (
+						<input type="hidden" id="g-recaptcha-response" className="vxt-forms-recaptcha" />
+					) }
+					<input
+						type="hidden"
+						className="vxt_ultimate_gutenberg_blocks_forms_form_label"
+						value={ formLabel }
+					/>
+					<input
+						type="hidden"
+						className="vxt_ultimate_gutenberg_blocks_forms_form_id"
+						value={ `vxt-form-${ block_id }` }
+					/>
+				</div>
+				{ reCaptchaEnable && 'v2' === reCaptchaType && (
+					<>
+						<div className="g-recaptcha vxt-forms-field-set" data-sitekey=""></div>
+					</>
+				) }
+				<div className={ `vxt-form-reacaptcha-error-${ block_id }` }></div>
+				<div className="vxt-forms-main-submit-button-wrap wp-block-button">{ renderButtonHtml() }</div>
+			</form>
+			{ 'message' === confirmationType && (
+				<>
+					<div
+						className={ classnames(
+							`vxt-forms-success-message-${ block_id }`,
+							'vxt-forms-submit-message-hide'
+						) }
+					>
+						<span>{ confirmationMessage }</span>
+					</div>
+					<div
+						className={ classnames(
+							`vxt-forms-failed-message-${ block_id }`,
+							'vxt-forms-submit-message-hide'
+						) }
+					>
+						<span>{ failedMessage }</span>
+					</div>
+				</>
+			) }
+		</div>
+	);
+}

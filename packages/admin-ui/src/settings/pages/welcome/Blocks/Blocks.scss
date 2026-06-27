@@ -1,0 +1,12 @@
+.size-2\.5 {
+	width: 0.625rem;
+	height: 0.625rem;
+}
+
+.vxt-remove-ring input[type="checkbox"],
+.vxt-remove-ring a,
+.vxt-remove-ring {
+	outline: none !important;
+	--tw-ring-inset: auto !important;
+	box-shadow: unset !important;
+}

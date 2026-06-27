@@ -1,0 +1,36 @@
+.vxt-gradient-picker {
+	.components-custom-gradient-picker__gradient-bar {
+		border-radius: 5px;
+		height: 30px;
+
+		.components-custom-gradient-picker__control-point-button {
+			top: 9px;
+			width: 12px;
+			height: 12px;
+		}
+
+		.components-custom-gradient-picker__insert-point {
+			top: 7px;
+		}
+	}
+}
+
+.block-editor-block-inspector .vxt-inspector-tab .uag-background-gradient,
+.block-editor-block-inspector .uag-background-image-overlay-gradient {
+	.vxt-color-popover-container,
+	.vxt-multi-buttons-control,
+	.vxt-size-type-field-tabs {
+		margin-bottom: 24px;
+	}
+
+	.vxt-size-type-field-tabs {
+		display: block;
+	}
+
+	.vxt-gradient-advanced-option {
+		width: 100%;
+		justify-content: right;
+		margin-bottom: 5px;
+		padding-right: 0;
+	}
+}

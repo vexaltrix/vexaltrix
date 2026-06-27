@@ -1,0 +1,102 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.editor-styles-wrapper {
+	[data-type='vexaltrix/restaurant-menu'].block-editor-block-list__block {
+		display: flex;
+		width: 100%;
+	}
+
+	.wp-block-vxt-restaurant-menu {
+		width: 100%;
+		display: block;
+
+		.block-editor-block-list__layout {
+			display: grid;
+		}
+
+		.vxt-rm__title {
+			margin-top: 0;
+		}
+
+		.vxt-rm__separator {
+			margin-bottom: 10px;
+		}
+
+		.vxt-rm__price.rich-text {
+			min-width: fit-content !important;
+		}
+
+		& .vxt-rest_menu__wrap .vxt-rm__content {
+			padding-left: unset;
+			padding-right: unset;
+			display: inline-flex;
+		}
+
+		.vxt-rm__desc,
+		.vxt-rm__desc.block-editor-rich-text__editable {
+			margin-bottom: 15px;
+		}
+
+		&.vxt-editor-preview-mode-desktop.vxt-rm__desk-column-1 .block-editor-block-list__layout {
+			grid-template-columns: auto;
+		}
+
+		&.vxt-editor-preview-mode-desktop.vxt-rm__desk-column-2 .block-editor-block-list__layout {
+			grid-template-columns: auto auto;
+		}
+
+		&.vxt-editor-preview-mode-desktop.vxt-rm__desk-column-3 .block-editor-block-list__layout {
+			grid-template-columns: auto auto auto;
+		}
+
+		&.vxt-editor-preview-mode-desktop.vxt-rm__desk-column-4 .block-editor-block-list__layout {
+			grid-template-columns: auto auto auto auto;
+		}
+
+		/*
+		/* Responsive for price-list on tablet in editor
+		*/
+		&.vxt-editor-preview-mode-tablet {
+			&.vxt-rm__tablet-column-1 .block-editor-block-list__layout {
+				grid-template-columns: auto;
+			}
+
+			&.vxt-rm__tablet-column-2 .block-editor-block-list__layout {
+				grid-template-columns: auto auto;
+			}
+
+			&.vxt-rm__tablet-column-3 .block-editor-block-list__layout {
+				grid-template-columns: auto auto auto;
+			}
+
+			&.vxt-rm__tablet-column-4 .block-editor-block-list__layout {
+				grid-template-columns: auto auto auto auto;
+			}
+		}
+
+		/*
+		/* Responsive for price-list on mobile in editor
+		*/
+		&.vxt-editor-preview-mode-mobile {
+			&.vxt-rm__mobile-column-1 .block-editor-block-list__layout {
+				grid-template-columns: auto;
+			}
+
+			&.vxt-rm__mobile-column-2 .block-editor-block-list__layout {
+				grid-template-columns: auto auto;
+			}
+
+			&.vxt-rm__mobile-column-3 .block-editor-block-list__layout {
+				grid-template-columns: auto auto auto;
+			}
+
+			&.vxt-rm__mobile-column-4 .block-editor-block-list__layout {
+				grid-template-columns: auto auto auto auto;
+			}
+		}
+	}
+}

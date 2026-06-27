@@ -1,0 +1,238 @@
+.vxt-slick-carousel .slick-list,
+.vxt-slick-carousel .slick-slider,
+.vxt-slick-carousel.slick-slider,
+.vxt-slick-carousel .slick-track {
+	position: relative;
+	display: block;
+}
+
+.vxt-slick-carousel .slick-loading .slick-slide,
+.vxt-slick-carousel .slick-loading .slick-track {
+	visibility: hidden;
+}
+
+.vxt-slick-carousel.slick-slider {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.vxt-slick-carousel .slick-list {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.vxt-slick-carousel .slick-list:focus {
+	outline: 0;
+}
+
+.vxt-slick-carousel .slick-list.dragging {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.vxt-slick-carousel.slick-slider .slick-list,
+.vxt-slick-carousel.slick-slider .slick-track {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.vxt-slick-carousel .slick-track {
+	top: 0;
+	left: 0;
+}
+
+.vxt-slick-carousel .slick-track::after,
+.vxt-slick-carousel .slick-track::before {
+	display: table;
+	content: "";
+}
+
+.vxt-slick-carousel .slick-track::after {
+	clear: both;
+}
+
+/* For testimonial */
+.vxt-slick-carousel .slick-initialized .slick-slide {
+	display: block;
+}
+
+.vxt-slick-carousel .slick-slide {
+	display: none;
+	float: left;
+	height: 100%;
+	min-height: 1px;
+}
+
+[dir="rtl"] .vxt-slick-carousel .slick-slide {
+	float: right;
+}
+
+.vxt-slick-carousel .slick-slide img {
+	display: block;
+}
+
+.vxt-slick-carousel .slick-slide.slick-loading img {
+	display: none;
+}
+
+.vxt-slick-carousel .slick-slide.dragging img {
+	pointer-events: none;
+}
+
+.vxt-slick-carousel.slick-initialized .slick-slide {
+	display: block;
+}
+
+.vxt-slick-carousel .slick-vertical .slick-slide {
+	display: block;
+	height: auto;
+	border: 1px solid transparent;
+}
+
+.vxt-slick-carousel .slick-arrow.slick-hidden {
+	display: none;
+}
+
+.vxt-slick-carousel {
+	padding: 30px;
+}
+
+.vxt-slick-carousel .slick-prev,
+.vxt-slick-carousel .slick-next {
+	font-size: 0;
+	line-height: 0;
+	position: absolute;
+	top: 50%;
+	display: block;
+	width: auto;
+	padding: 0;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	cursor: pointer;
+	color: #aaa;
+	border-color: #aaa;
+	outline: none;
+	background: transparent;
+}
+
+.vxt-slick-carousel .slick-prev::before,
+.vxt-slick-carousel .slick-next::before {
+	font-size: 35px;
+	line-height: 1;
+	opacity: 0.75;
+	color: #000;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.vxt-slick-carousel .slick-prev::before,
+[dir="rtl"] .vxt-slick-carousel .slick-prev::before,
+.vxt-slick-carousel .slick-next::before,
+[dir="rtl"] .vxt-slick-carousel .slick-next::before {
+	content: "";
+	font-size: 0;
+	line-height: 0;
+}
+
+.vxt-slick-carousel .slick-prev {
+	left: -45px;
+	z-index: 1;
+	border-radius: 0;
+}
+
+[dir="rtl"] .vxt-tm__arrow-outside.vxt-slick-carousel .slick-prev {
+	left: auto;
+	right: -45px;
+}
+
+.vxt-slick-carousel button.slick-arrow {
+	padding: 7px;
+}
+
+.vxt-slick-carousel .slick-prev i,
+.vxt-slick-carousel .slick-next i,
+.vxt-slick-carousel .slick-prev i:hover,
+.vxt-slick-carousel .slick-next i:hover,
+.vxt-slick-carousel .slick-prev i:focus,
+.vxt-slick-carousel .slick-next i:focus {
+	font-size: 20px;
+	width: 1.5em;
+	height: 1.5em;
+	line-height: 26px;
+	text-align: center;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.vxt-slick-carousel ul.slick-dots {
+	padding-top: 0;
+	display: block;
+	position: absolute;
+	margin: 0;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	-webkit-transform: translateY(100%);
+	-ms-transform: translateY(100%);
+	transform: translateY(100%);
+	text-align: center;
+}
+
+.vxt-slick-carousel ul.slick-dots li {
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+.vxt-slick-carousel ul.slick-dots li.slick-active button::before {
+	opacity: 0.75;
+	color: #000f;
+}
+
+.vxt-slick-carousel ul.slick-dots li button {
+	font-size: 0;
+	line-height: 0;
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 5px;
+	cursor: pointer;
+	color: transparent;
+	border: 0;
+	outline: none;
+	background: transparent;
+}
+
+.vxt-slick-carousel ul.slick-dots li button::before {
+	font-family: none;
+	font-size: 30px;
+	line-height: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	content: "•";
+	text-align: center;
+	opacity: 0.25;
+	color: #000;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@media only screen and (max-width: 976px) {
+
+	.vxt-slick-carousel {
+		padding: 0;
+	}
+}

@@ -1,0 +1,767 @@
+/* stylelint-disable */
+@use "sass:meta";
+@use "variables";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--accent-color: #2271b1;
+	--accent-hv-color: #0a4b78;
+	--background-light-color: #f0f0f1;
+	--heading-color: #1d2327;
+	--content-color: #3c434a;
+	--link-color: #2271b1;
+	--link-hv-color: #0a4b78;
+	--metabox-background-color: #fff;
+	--heading-font-family: "Figtree";
+	--heading-font-style: normal;
+	--heading-weight-500: 500;
+	--heading-weight-400: 400;
+	--heading-font-size: 18px;
+	--heading-line-height: 24px;
+}
+
+
+.wp-admin {
+	overflow-y: scroll;
+}
+
+#wpbody-content > .notice:not(.uag-notice),
+#wpbody-content > .error {
+	display: none !important;
+}
+
+.uag-menu-page-wrapper,
+.uag-menu-page-wrapper * {
+	box-sizing: border-box;
+}
+
+.uag-menu-page-wrapper a:focus,
+.uag-menu-page-wrapper button:focus,
+.uag-menu-page-wrapper input:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+.vexaltrix-admin__dialog {
+	z-index: 99999;
+}
+// This Class Can Be Cleared Before Final Push.
+#uag-menu-page .uag-accordion {
+
+	svg {
+		fill: variables.$slate-200;
+	}
+
+	&:hover {
+
+		svg {
+			fill: variables.$slate-600;
+		}
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
+	&:focus-visible {
+
+		svg {
+			fill: variables.$slate-600;
+		}
+	}
+}
+
+.toplevel_page_vexaltrix {
+
+	#wpcontent {
+		padding-left: 0;
+	}
+}
+
+.uag-menu-page-wrapper .uag-settings-app {
+	font-family: var(--heading-font-family);
+	left: -20px;
+	position: relative;
+	width: calc(100% + 20px);
+	// Button CSS.
+	.uag-normal-button-control {
+
+		.uag-button {
+			display: inline-block;
+			text-decoration: none;
+			font-size: 14px;
+			margin: 0;
+			font-weight: var(--heading-weight-400);
+			font-family: var(--heading-font-family);
+			font-style: var(--heading-font-style);
+			padding: 10px 16px;
+			cursor: pointer;
+			-webkit-appearance: none;
+			border-radius: 3px;
+			white-space: nowrap;
+			box-sizing: border-box;
+			text-transform: capitalize;
+		}
+
+	}
+
+	h2 {
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-weight-500);
+		font-size: 24px;
+		margin-bottom: 20px;
+		margin-top: 0;
+		color: var(--content-color);
+		line-height: 32px;
+
+	}
+
+	h3 {
+		margin: 0;
+		margin-bottom: 10px;
+		color: var(--content-color);
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-weight-500);
+		font-size: 18px;
+		font-style: var(--heading-font-style);
+		line-height: 1.3em;
+	}
+
+	.uag-field {
+		border-radius: 2px;
+	}
+	// Paragraph CSS.
+	p {
+		color: var(--content-color);
+		font-family: var(--heading-font-family);
+		font-weight: var(--heading-weight-400);
+		font-size: 14px;
+		margin-top: 0;
+		margin-bottom: 20px;
+		line-height: 1.55em;
+		text-align: left;
+	}
+
+	.components-base-control__field {
+		font-size: 16px;
+	}
+}
+
+.uag-user-info {
+	background: var(--background-light-color);
+	padding: 35px 0;
+	box-sizing: border-box;
+	width: 1200px;
+	margin: 0 auto;
+	max-width: 100%;
+
+	a[href=""] {
+		display: none;
+	}
+}
+
+.uag-button--primary:hover,
+.uag-button--primary:focus,
+.uag-button--primary:active {
+	background: var(--accent-hv-color);
+	color: var(--metabox-background-color);
+}
+
+.uag-button--primary {
+	border: 1px solid var(--accent-color);
+	background: var(--accent-color);
+	color: var(--background-light-color);
+}
+
+.uag-button--secondary {
+	color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+	background: #fff;
+	vertical-align: top;
+}
+
+.uag-button--secondary:hover,
+.uag-button--secondary:focus,
+.uag-button--secondary:active {
+	background: #f0f0f1;
+	border-color: var(--accent-hv-color);
+	color: var(--accent-hv-color);
+}
+
+.uag-control__status-yes,
+.uag-control__status-enabled {
+	display: inline-flex;
+	color: #639102;
+	align-items: center;
+	font-weight: var(--heading-weight-400);
+	font-family: var(--heading-font-family);
+	font-style: var(--heading-font-style);
+
+	img {
+		margin-left: 5px;
+		width: 18px;
+	}
+}
+
+.uag-control__status-no,
+.uag-control__status-disabled {
+	color: #f00;
+	font-weight: var(--heading-weight-400);
+	font-family: var(--heading-font-family);
+	font-style: var(--heading-font-style);
+	display: inline-flex;
+	align-items: center;
+
+	img {
+		display: none;
+	}
+}
+
+#wpwrap {
+	background-color: variables.$slate-50;
+
+	.vexaltrix-admin {
+
+		&__input-field {
+			color: variables.$slate-500;
+			background-color: #fff;
+			border: 1px solid variables.$slate-200;
+			border-radius: 0.375rem;
+			padding: 0.5rem 0.75rem;
+			font-size: 1rem;
+			line-height: 1.25rem;
+
+			&--read-only {
+				border: 1px solid variables.$slate-300 !important;
+				background-color: variables.$slate-100 !important;
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			&:focus {
+				outline: none;
+				border-color: variables.$slate-400;
+				box-shadow: none;
+
+				& + .vexaltrix-admin__input-field--end-display {
+					border-color: variables.$slate-400;
+					box-shadow: none;
+				}
+			}
+		}
+
+		&__dropdown {
+			padding-right: 2rem;
+
+			&:hover {
+				color: #2c3338;
+			}
+		}
+
+		&__block-label {
+			box-sizing: content-box;
+		}
+	}
+
+	// This is required since Tailwind CSS is overridden by load-styles
+	.vexaltrix-content-width-input-wrap {
+
+		> input {
+			padding: 0.5rem 0 0.5rem 0.75rem;
+			border-radius: 0.25rem 0 0 0.25rem;
+			border-right-width: 0;
+		}
+
+		> span {
+			padding: 0.5rem 0.75rem;
+			font-size: 1rem;
+			line-height: 1.25rem;
+			color: variables.$slate-500;
+			background-color: #fff;
+			border-radius: 0 0.25rem 0.25rem 0;
+			border: 1px solid variables.$slate-200;
+		}
+	}
+}
+
+.uag-font-select-disabled {
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+.uag-menu-page-wrapper {
+	font-family: Figtree, sans-serif;
+
+	p:not(.no-line-height) {
+		font-size: 14px;
+		line-height: 22.4px;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	h3 {
+		font-size: 1.125rem;
+	}
+}
+
+.vexaltrix-video-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%;
+
+	.vexaltrix-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+}
+
+// The Block SVGs when Disabled
+.vexaltrix-icon-transition {
+
+	svg,
+	path,
+	rect,
+	circle {
+		transition-property: stroke;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 150ms;
+	}
+}
+
+.vexaltrix-disabled-icon {
+
+	svg,
+	path,
+	rect,
+	circle {
+		stroke: variables.$slate-400;
+	}
+}
+
+// Changelog Styling.
+.vexaltrix-changelog-description {
+
+	strong {
+		font-weight: 500;
+		font-size: 0.875rem;
+			line-height: 1.25rem;
+		color: #1e293b;
+	}
+
+	ul {
+		margin-top: 0.25rem;
+		margin-bottom: 0.75rem;
+
+		&:last-child {
+			margin-top: 0;
+		}
+	}
+
+	li {
+		font-weight: 400;
+		font-size: 0.75rem;
+			line-height: 1rem;
+		color: #64748b;
+	}
+}
+
+// This Class Can Be Cleared Before Final Push.
+// Custom Scrollbar.
+.vexaltrix__scrollable {
+	scrollbar-width: 0.5rem;
+	scrollbar-color: variables.$slate-300 variables.$slate-100;
+
+	&--blocks {
+		scrollbar-width: 0.5rem;
+		scrollbar-color: variables.$slate-300 variables.$slate-100;
+
+		&::-webkit-scrollbar {
+			width: 0.5rem;
+			height: 0.5rem;
+		}
+
+		&::-webkit-scrollbar-track {
+			margin: 1rem 0;
+			border-radius: 0.25rem;
+			background-color: variables.$slate-100;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 0.25rem;
+			background-color: variables.$slate-300;
+		}
+	}
+
+	&--settings {
+		// overflow-y: auto;
+		overflow-y: scroll;
+		scrollbar-width: 0.5rem;
+		scrollbar-color: variables.$slate-300 variables.$slate-100;
+		// scrollbar-gutter: stable both-edges;
+
+		&::-webkit-scrollbar {
+			width: 0.5rem;
+			height: 0.5rem;
+		}
+
+		&::-webkit-scrollbar-track {
+			border-radius: 0 0.5rem 0.5rem 0;
+			background-color: variables.$slate-100;
+			opacity: 0.4;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: 0.25rem;
+			background-color: variables.$slate-300;
+			opacity: 0.4;
+		}
+	}
+}
+
+.vexaltrix {
+
+	&__settings {
+
+		& > section:last-child:not(.not-last-child) {
+			border-bottom: none;
+		}
+	}
+}
+
+.section-disabled {
+	pointer-events: none;
+	opacity: 0.4;
+}
+
+.uag-dashboard-app {
+
+	.uag-radio-input {
+		width: 20px !important;
+		height: 20px !important;
+		border: 1px solid variables.$slate-300;
+		box-shadow: none !important;
+
+		&:checked {
+			border-color: variables.$vexaltrix-wpcolor;
+			box-shadow: none !important;
+			color: variables.$vexaltrix-wpcolor;
+		}
+
+		&::before {
+			display: none !important;
+		}
+
+		&:active,
+		&:focus {
+			border-color: variables.$vexaltrix-wpcolor;
+			color: variables.$vexaltrix-wpcolor;
+		}
+
+		&:hover {
+			color: variables.$vexaltrix-wpcolor;
+		}
+	}
+}
+
+[dir="rtl"] .uag-dashboard-app button.bg-vexaltrix[aria-checked="false"] span {
+	right: 0;
+}
+
+[dir="rtl"] .uag-dashboard-app button.bg-vexaltrix[aria-checked="true"] span {
+	transform: translateX(20px);
+}
+.fse-trash-font {
+	fill: #ef4444;
+	cursor: pointer;
+}
+
+.whats-new-rss-flyout-contents {
+	font-family: Figtree, sans-serif;
+	top: 32px !important;
+	height: calc(100% - 32px) !important;
+}
+
+.vxt-remove-ring input[type="checkbox"],
+.vxt-remove-ring a,
+.vxt-remove-ring {
+	outline: none;
+	--tw-ring-inset: auto;
+	box-shadow: unset;
+}
+
+.settings-input > {
+	input {
+		&:hover {
+			outline-color: #e5e7eb !important;
+		}
+	}
+}
+
+.vxt-input > {
+	input {
+		background-color: #f9fafb !important;
+
+		&:hover {
+			outline-color: #e5e7eb !important;
+		}
+	}
+}
+
+.vxt-radio-button {
+	min-width: 1rem;
+	height: 1rem;
+	border: 2px solid #9ca3af;
+	border-radius: 100%;
+	background-color: #fff;
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 50%;
+		height: 50%;
+		background-color: rgb(96, 5, 255);
+		border-radius: 100%;
+		transition: 0.3s;
+		scale: 0;
+	}
+}
+
+.vxt-radio-input {
+	&:checked + {
+		.vxt-radio-button {
+			border: 2px solid #6005ff;
+
+			&::after {
+				scale: 1;
+			}
+		}
+	}
+}
+
+.size-2\.5 {
+	width: 0.625rem;
+	height: 0.625rem;
+}
+
+.size-3 {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+
+.border-none > input {
+	border: none !important;
+}
+
+.vxt-settings-sidebar {
+	height: 100% !important;
+	min-height: 100vh;
+	border: none !important;
+	border-bottom-right-radius: 12px;
+}
+
+.vxt-outline-button {
+	border: none !important;
+	outline: 1px solid #e5e7eb !important;
+	--tw-ring-inset: auto;
+	box-shadow: unset;
+
+	:focus {
+		border: none !important;
+		outline: 1px solid #e5e7eb !important;
+	}
+}
+
+.regenerate-btn {
+	> span {
+		display: flex !important;
+		align-items: center !important;
+		gap: 4px !important;
+	}
+}
+
+.dashicons-wordpress-alt::before {
+	display: block;
+	width: 16px !important;
+	height: 16px !important;
+	font-size: 16px !important;
+}
+
+.dropdown-container > * {
+	width: 100% !important;
+}
+
+.unlock-pro-features-dropdown-container {
+	// Empty line before the @media rule.
+	@media (max-width: 1300px) and (min-width: 1024px) {
+		flex-direction: column;
+		gap: 8px;
+
+		> div {
+			width: 100% !important;
+		}
+	}
+
+	@media (max-width: 425px) {
+		flex-direction: column;
+		gap: 8px;
+
+		> div {
+			width: 100% !important;
+		}
+	}
+}
+
+.block-item:hover {
+	outline: 1px solid #ece5fd !important;
+}
+
+.custom-border {
+	border: 1px solid #e5e7eb;
+	transition: border-color 0.2s ease-in-out;
+}
+
+.custom-border:hover {
+	border-color: #6b7280;
+}
+
+[data-floating-ui-focusable] {
+	z-index: 9999 !important;
+}
+
+/* Tooltip styles override to fix background styling when rendered in body portal outside the scoped tailwind prefix */
+.bg-tooltip-background-dark {
+	background-color: #111827 !important;
+}
+.bg-tooltip-background-light {
+	background-color: #fff !important;
+}
+.text-tooltip-background-dark {
+	color: #111827 !important;
+}
+.text-tooltip-background-light {
+	color: #fff !important;
+}
+.text-text-on-color {
+	color: #fff !important;
+}
+.text-text-primary {
+	color: #111827 !important;
+}
+
+
+// Consolidated Blocks Styles
+.switch-disabled {
+
+	> input {
+		background-color: #9ca3af !important;
+	}
+}
+
+
+// Consolidated Extend Your Website Styles
+.vxt-res {
+	// Media query for mobile devices (less than 768px)
+	@media (min-width: 1024px) and (max-width: 1400px) {
+		flex-direction: column;
+		align-items: center !important;
+		gap: 12px !important;
+
+		> .icon {
+			align-self: flex-start;
+		}
+	}
+}
+
+
+// Consolidated Custom Components Styles
+// A Progress Bar - Set the Background Color from Tailwind.
+.vexaltrix-progress-bar {
+	width: 100%;
+	height: 8px;
+	border-radius: 4px;
+	overflow: hidden;
+
+	// The Bar Progression - Set the Background Color from Tailwind.
+	&__progress {
+		height: 100%;
+		border-radius: 4px;
+	}
+}
+
+
+// Consolidated Onboarding Styles
+// Vexaltrix Onboarding — Full Screen Support (matches SureForms pattern).
+html:has( > body.toplevel_page_vxt-onboarding ).wp-toolbar {
+	padding-top: 0 !important;
+	box-sizing: border-box;
+}
+
+body.toplevel_page_vxt-onboarding #wpcontent,
+body.toplevel_page_vxt-onboarding #wpbody {
+	padding: 0;
+	margin: 0;
+}
+
+body.toplevel_page_vxt-onboarding #wpadminbar,
+body.toplevel_page_vxt-onboarding #adminmenuwrap,
+body.toplevel_page_vxt-onboarding #adminmenuback,
+body.toplevel_page_vxt-onboarding #wpfooter,
+body.toplevel_page_vxt-onboarding .notice,
+body.toplevel_page_vxt-onboarding .updated,
+body.toplevel_page_vxt-onboarding .update-nag,
+body.toplevel_page_vxt-onboarding .error {
+	display: none !important;
+}
+
+body.toplevel_page_vxt-onboarding #wpbody-content {
+	padding-bottom: 0;
+}
+
+
+// Consolidated Tailwind Important Overrides
+// Overriding all Wordpress Shadow Focus CSS with Tailwind CSS.
+.shadow-focused:focus {
+
+	&.shadow-sm {
+		box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+	}
+
+	&.shadow {
+		box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+	}
+
+	&.shadow-md {
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+	}
+
+	&.shadow-lg {
+		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+	}
+
+	&.shadow-xl {
+		box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1) !important;
+	}
+
+	&.shadow-2xl {
+		box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+	}
+
+	&.shadow-inner {
+		box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05) !important;
+	}
+}

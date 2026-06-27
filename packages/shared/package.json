@@ -1,0 +1,31 @@
+{
+  "name": "@vexaltrix/shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hooks, constants, utils, and SCSS shared between Vexaltrix's admin and frontend",
+  "author": "Huu Ha",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "wordpress",
+    "shared",
+    "utilities"
+  ],
+  "homepage": "https://vexaltrix.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github2.com/vexaltrix/vexaltrix.git",
+    "directory": "packages/shared"
+  },
+  "bugs": {
+    "url": "https://github2.com/vexaltrix/vexaltrix/issues"
+  },
+  "main": "src/index.js",
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.4.0",
+    "@wordpress/element": "^6.4.0"
+  }
+}

@@ -1,0 +1,16 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.vxt-google-map__wrap {
+	display: flex;
+
+	.vxt-google-map__iframe {
+		width: 100%;
+		box-shadow: none;
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+}

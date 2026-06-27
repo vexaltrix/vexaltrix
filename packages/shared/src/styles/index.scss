@@ -1,0 +1,6 @@
+// packages/shared/src/styles/index.scss
+// Forwards every shared "legacy" SCSS partial. Import from admin.scss / frontend.scss with:
+//   @use "@vexaltrix/shared/src/styles" as shared;
+
+@forward 'variables';
+@forward 'mixins';

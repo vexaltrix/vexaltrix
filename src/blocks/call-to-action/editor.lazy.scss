@@ -1,0 +1,110 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.vxt-cta__content-wrap.vxt-cta__icon-position-above-title {
+	text-align: center;
+}
+
+.editor-styles-wrapper .edit-post-visual-editor a.vxt-cta__block-link-wrap {
+	color: inherit;
+}
+
+.editor-styles-wrapper .vxt-cta__title,
+.editor-styles-wrapper .vxt-cta-separator-parent,
+.editor-styles-wrapper .vxt-cta__desc {
+	margin-bottom: 10px;
+	margin-top: auto;
+}
+
+.editor-styles-wrapper .vxt-cta__desc {
+	margin: 0;
+}
+
+.editor-styles-wrapper .vxt-cta__block-link i {
+	font-style: normal;
+}
+
+.wp-block-vxt-call-to-action.vxt-cta__outer-wrap a.vxt-cta__link-to-all {
+	z-index: 0;
+}
+
+.editor-styles-wrapper {
+	.vxt-cta__outer-wrap .vxt-cta__buttons {
+		display: inline-flex;
+	}
+
+	.vxt-cta__outer-wrap a.wp-block-button__link,
+	.vxt-cta__outer-wrap a.ast-outline-button {
+		justify-content: center;
+	}
+
+	.vxt-cta__outer-wrap .vxt-cta__button-link-wrapper,
+	.vxt-cta__outer-wrap .vxt-cta-second__button {
+		fill: currentcolor;
+		width: 100%;
+	}
+
+	.vxt-cta__outer-wrap a.vxt-cta__button-link-wrapper,
+	.vxt-cta__outer-wrap a.vxt-cta-second__button {
+		text-decoration: none;
+		fill: currentcolor;
+		width: 100%;
+	}
+
+	// Focus effects for better editing experience.
+	.vxt-cta__title[contenteditable='true']:focus,
+	.vxt-cta__desc[contenteditable='true']:focus {
+		border: 2px solid var( --wp-admin-theme-color );
+		border-radius: 8px;
+	}
+
+	.vxt-editor-preview-mode-tablet {
+		.vxt-cta__content-stacked-tablet .vxt-cta__left-right-wrap {
+			flex-direction: column;
+			text-align: center;
+
+			.vxt-cta__link-wrapper {
+				width: 100%;
+
+				.vxt-cta__button-wrapper {
+					float: none;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+
+	.vxt-editor-preview-mode-mobile {
+		.vxt-cta__content-stacked-mobile .vxt-cta__left-right-wrap {
+			flex-direction: column;
+			text-align: center;
+
+			.vxt-cta__link-wrapper {
+				width: 100%;
+
+				.vxt-cta__button-wrapper {
+					float: none;
+					margin: 0 auto;
+				}
+			}
+		}
+
+		.vxt-cta__content-stacked-tablet .vxt-cta__left-right-wrap {
+			flex-direction: column;
+			text-align: center;
+
+			.vxt-cta__link-wrapper {
+				width: 100%;
+
+				.vxt-cta__button-wrapper {
+					float: none;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}

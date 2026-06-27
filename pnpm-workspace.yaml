@@ -1,0 +1,9 @@
+packages:
+    - '.'
+    - 'packages/*'
+
+allowBuilds:
+    '@parcel/watcher': true
+    'core-js-pure': true
+    'core-js': true
+    'unrs-resolver': true

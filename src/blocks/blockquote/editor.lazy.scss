@@ -1,0 +1,71 @@
+/**
+ * Editor styles for the admin
+ */
+
+.editor-styles-wrapper {
+	.vxt-blockquote__skin-quotation blockquote.vxt-blockquote {
+		vertical-align: baseline;
+		padding: 0;
+		margin: 0;
+		background: transparent;
+		border: 0 none;
+		outline: 0;
+		font-size: 100%;
+		font-style: normal;
+		quotes: none;
+	}
+
+	blockquote.vxt-blockquote {
+		padding: 0;
+		margin: 0;
+	}
+
+	.vxt-blockquote__skin-border blockquote {
+		padding-left: 10px;
+	}
+
+	.vxt-blockquote__content,
+	cite.vxt-blockquote__author,
+	.vxt-blockquote__author {
+		font-style: normal;
+	}
+
+	.vxt-blockquote a {
+		box-shadow: none;
+		text-decoration: none;
+		-webkit-box-shadow: none;
+	}
+
+	.vxt-blockquote__tweet-style-classic a.vxt-blockquote__tweet-button,
+	.vxt-blockquote__tweet-style-bubble a.vxt-blockquote__tweet-button {
+		color: #fff;
+	}
+
+	.vxt-blockquote__align-center a.vxt-blockquote__tweet-button {
+		margin: 0 auto;
+	}
+}
+
+.vxt-editor-preview-mode-tablet {
+	.vxt-blockquote__stack-img-tablet footer {
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+
+		.vxt-blockquote__tweet-button {
+			align-self: flex-start;
+		}
+	}
+}
+
+.vxt-editor-preview-mode-mobile {
+	.vxt-blockquote__stack-img-mobile footer {
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+
+		.vxt-blockquote__tweet-button {
+			align-self: flex-start;
+		}
+	}
+}

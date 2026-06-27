@@ -1,0 +1,61 @@
+/* Normal & Hover Tabs CSS*/
+
+@use '../../styles/variables';
+
+.uag-control-tabs {
+	// width: 100%;
+	margin: 0 ( -( variables.$vexaltrix-panel-body-padding ) );
+	padding: 0 variables.$vexaltrix-panel-body-padding;
+
+	&.uag-control-tabs-three-tabs {
+		.components-tab-panel__tabs {
+			& > .components-button {
+				width: 31.3%;
+			}
+		}
+	}
+
+	& > .components-tab-panel__tabs {
+		justify-content: space-between;
+		margin: 0 ( -( variables.$vexaltrix-panel-body-padding ) ) variables.$vexaltrix-control-vertical-gap;
+		padding: 0 variables.$vexaltrix-panel-body-padding;
+		border-bottom: 1px solid variables.$vexaltrix-color-border;
+
+		& > .components-button {
+			width: 47%;
+			text-align: center;
+			justify-content: center;
+			border: 1px solid variables.$vexaltrix-color-border;
+			border-radius: variables.$vexaltrix-control-border-radius variables.$vexaltrix-control-border-radius 0 0;
+			color: variables.$vexaltrix-color-body;
+			background-color: variables.$vexaltrix-color-light-background;
+			max-height: 30px;
+			font-size: variables.$vexaltrix-font-size-button;
+			border-bottom: 0;
+			margin-bottom: -1px;
+
+			&.active-tab {
+				color: variables.$vexaltrix-color-primary;
+				background: variables.$vexaltrix-color-plain-background;
+			}
+
+			&:focus:not( :disabled ) {
+				box-shadow: none;
+			}
+		}
+	}
+
+	& .components-base-control {
+		margin-bottom: variables.$vexaltrix-control-vertical-gap;
+
+		.components-base-control,
+		.components-base-control__field {
+			padding-top: 0;
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

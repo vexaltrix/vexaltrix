@@ -1,0 +1,32 @@
+.wp-block-vxt-faq {
+	width: 100%;
+	&.vxt-faq-layout-accordion .vxt-faq-child__outer-wrap .vxt-faq-questions-button {
+		cursor: pointer;
+	}
+
+	.vxt-faq-content {
+		margin-bottom: 0;
+
+		p {
+			margin: auto;
+		}
+	}
+}
+
+.vxt-faq-layout-grid.vxt-faq-equal-height.vxt-faq__wrap {
+	.vxt-faq-child__outer-wrap,
+	.vxt-faq-item {
+		height: 100%;
+	}
+}
+
+// These fixes are specific to the Astra theme.
+body[class*='astra'] {
+	.vxt-faq-questions {
+		line-height: normal;
+	}
+}
+
+.vxt-faq-item {
+	overflow: hidden;
+}

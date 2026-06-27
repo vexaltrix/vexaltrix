@@ -1,0 +1,100 @@
+/**
+ * Editor styles for the admin
+ */
+
+.uagb-toc__list > p {
+	color: #666;
+	font-size: 13px;
+	font-style: italic;
+}
+
+.block-editor-page {
+	.uagb-toc__scroll-top {
+		position: fixed;
+		right: 343px;
+		bottom: 50px;
+		display: none;
+		padding: 10px;
+		background: #ccd0d4;
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1.85714285714286;
+
+		svg {
+			width: 1.6em;
+			height: 0.6em;
+			margin-left: 0;
+			transform: translate( 0, -20% ) rotate( 180deg );
+			fill: currentcolor;
+		}
+
+		&.uagb-toc__show-scroll {
+			display: inline-table;
+		}
+	}
+}
+
+.uagb-light-font-weight {
+	font-weight: 400;
+}
+
+.block-editor-block-list__block .wp-block-uagb-table-of-contents {
+	ol.uagb-toc__list li.uagb-toc__list ul,
+	ol.uagb-toc__list ul.uagb-toc__list ul {
+		list-style-type: circle;
+	}
+
+	ol.uagb-toc__list > ul,
+	ol.uagb-toc__list > li {
+		list-style-type: disc;
+	}
+
+	.uagb-toc__wrap {
+		box-sizing: border-box;
+	}
+}
+
+// WordPress adds a margin to list elements, due to which there's inconsistent layout on enditor and frontend.
+ol.uagb-toc__list {
+	margin-top: 0;
+}
+// For collapsible list items, there should be no marker. Instead we add the before pseudo elemet with the arrow.
+// Note that this should be the topmost CSS applied to the list, despite other customizability.
+.block-editor-block-list__block .wp-block-uagb-table-of-contents ol.uagb-toc__list li.uagb-toc__list.uagb-toc__list--expandable, // API v2 compatible CSS.
+.block-editor-block-list__block.wp-block-uagb-table-of-contents ol.uagb-toc__list li.uagb-toc__list.uagb-toc__list--expandable {
+	// API v3 compatible CSS.
+	list-style-type: none !important;
+}
+
+.list-open::before,
+.list-collapsed::before {
+	content: '\25BC';
+	transform: scale( 0.7 ) translateX( -50% );
+	display: inline-block;
+}
+
+.list-collapsed::before {
+	transform: scale( 0.7 ) rotate( -90deg ) translate( -84%, 6% );
+}
+
+span.list-open,
+span.list-collapsed {
+	cursor: pointer;
+}
+/* Transition class for max-height */
+.uagb-toc__list.transition {
+	transition: max-height 300ms ease-out;
+}
+
+// RTL based static CSS.
+[dir='rtl'] {
+	// In RTL, the opened arrows should be pushed right-wards instead of left-wards.
+	.list-open::before {
+		transform: scale( 0.7 ) translateX( 50% );
+	}
+
+	// In RTL, the direction should be reversed for the closed arrows.
+	.list-collapsed::before {
+		transform: scale( 0.7 ) rotate( 90deg ) translate( 84%, 6% );
+	}
+}
