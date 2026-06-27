@@ -91,7 +91,7 @@ const FSEFontFamilies = () => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_load_fse_font_globally',
+			action: 'vxt_load_fse_font_globally',
 			data,
 		} );
 
@@ -171,7 +171,7 @@ const FSEFontFamilies = () => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_fse_font_globally',
+			action: 'vxt_fse_font_globally',
 			data,
 		} );
 

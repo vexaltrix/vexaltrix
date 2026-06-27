@@ -176,10 +176,10 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\Forms\\Forms' ) ) {
 			check_ajax_referer( 'vxt_ultimate_gutenberg_blocks_forms_ajax_nonce', 'nonce' );
 
 			$options = [
-				'recaptchaSiteKeyV2'   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v2', '' ),
-				'recaptchaSiteKeyV3'   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v3', '' ),
-				'recaptchaSecretKeyV2' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v2', '' ),
-				'recaptchaSecretKeyV3' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v3', '' ),
+				'recaptchaSiteKeyV2'   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v2', '' ),
+				'recaptchaSiteKeyV3'   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v3', '' ),
+				'recaptchaSecretKeyV2' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v2', '' ),
+				'recaptchaSecretKeyV3' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v3', '' ),
 			];
 
 			if ( empty( $_POST['post_id'] ) || empty( $_POST['block_id'] ) ) {

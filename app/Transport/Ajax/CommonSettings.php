@@ -114,14 +114,14 @@ class CommonSettings extends AjaxController {
 	 */
 	public function btnInheritFromTheme() {
 
-		$this->checkPermissionNonce( 'uag_btn_inherit_from_theme' );
-		if ( false !== get_option( 'uag_btn_inherit_from_theme_fallback' ) ) {
-			\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'uag_btn_inherit_from_theme_fallback' );
+		$this->checkPermissionNonce( 'vxt_btn_inherit_from_theme' );
+		if ( false !== get_option( 'vxt_btn_inherit_from_theme_fallback' ) ) {
+			\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'vxt_btn_inherit_from_theme_fallback' );
 		};
 		
 		$value = $this->checkPostValue();
 		$this->deleteAllAssets(); // We need to regenerate assets when user changes this setting to regenerate the dynamic CSS according to it.
-		$this->saveAdminSettings( 'uag_btn_inherit_from_theme', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_btn_inherit_from_theme', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -143,9 +143,9 @@ class CommonSettings extends AjaxController {
 		/**
 		 * Nonce verification
 		 */
-		$legacyOption = 0 === strpos( $option, 'ugb_' )
-			? 'uag_' . substr( $option, 4 )
-			: 'ugb_' . substr( $option, 4 );
+		$legacyOption = 0 === strpos( $option, 'vxt_' )
+			? 'vxt_' . substr( $option, 4 )
+			: 'vxt_' . substr( $option, 4 );
 
 		if (
 			! check_ajax_referer( $option, $security, false ) &&
@@ -214,7 +214,7 @@ class CommonSettings extends AjaxController {
 		wp_clean_plugins_cache();
 		$value = $this->checkPostValue();
 		$value = sanitize_text_field( wp_unslash( $value ) );
-		$this->checkPermissionNonce( 'uag_pro_activate', 'activate_plugins' );
+		$this->checkPermissionNonce( 'vxt_pro_activate', 'activate_plugins' );
 
 		if ( empty( $value ) ) {
 			$responseData = [ 'messsage' => $this->getErrorMsg( 'default' ) ];
@@ -246,9 +246,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function recaptchaSecretKeyV3() {
-		$this->checkPermissionNonce( 'uag_recaptcha_secret_key_v3' );
+		$this->checkPermissionNonce( 'vxt_recaptcha_secret_key_v3' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_recaptcha_secret_key_v3', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_recaptcha_secret_key_v3', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -257,9 +257,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function recaptchaSecretKeyV2() {
-		$this->checkPermissionNonce( 'uag_recaptcha_secret_key_v2' );
+		$this->checkPermissionNonce( 'vxt_recaptcha_secret_key_v2' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_recaptcha_secret_key_v2', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_recaptcha_secret_key_v2', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -268,9 +268,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function recaptchaSiteKeyV2() {
-		$this->checkPermissionNonce( 'uag_recaptcha_site_key_v2' );
+		$this->checkPermissionNonce( 'vxt_recaptcha_site_key_v2' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_recaptcha_site_key_v2', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_recaptcha_site_key_v2', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -279,9 +279,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function recaptchaSiteKeyV3() {
-		$this->checkPermissionNonce( 'uag_recaptcha_site_key_v3' );
+		$this->checkPermissionNonce( 'vxt_recaptcha_site_key_v3' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_recaptcha_site_key_v3', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_recaptcha_site_key_v3', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -290,7 +290,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function fetchPages() {
-		$this->checkPermissionNonce( 'uag_fetch_pages' );
+		$this->checkPermissionNonce( 'vxt_fetch_pages' );
 
 		$args = [
 			'post_type'      => 'page',
@@ -322,9 +322,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function visibilityPage() {
-		$this->checkPermissionNonce( 'uag_visibility_page' );
+		$this->checkPermissionNonce( 'vxt_visibility_page' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_visibility_page', intval( $value ) );
+		$this->saveAdminSettings( 'vxt_visibility_page', intval( $value ) );
 	}
 
 	/**
@@ -333,9 +333,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function visibilityMode() {
-		$this->checkPermissionNonce( 'uag_visibility_mode' );
+		$this->checkPermissionNonce( 'vxt_visibility_mode' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_visibility_mode', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_visibility_mode', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -344,9 +344,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function contentWidth() {
-		$this->checkPermissionNonce( 'uag_content_width' );
+		$this->checkPermissionNonce( 'vxt_content_width' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_content_width', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_content_width', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -355,9 +355,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function containerGlobalPadding() {
-		$this->checkPermissionNonce( 'uag_container_global_padding' );
+		$this->checkPermissionNonce( 'vxt_container_global_padding' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_container_global_padding', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_container_global_padding', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -366,9 +366,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function containerGlobalElementsGap() {
-		$this->checkPermissionNonce( 'uag_container_global_elements_gap' );
+		$this->checkPermissionNonce( 'vxt_container_global_elements_gap' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_container_global_elements_gap', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_container_global_elements_gap', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -377,9 +377,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function blocksEditorSpacing() {
-		$this->checkPermissionNonce( 'uag_blocks_editor_spacing' );
+		$this->checkPermissionNonce( 'vxt_blocks_editor_spacing' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_blocks_editor_spacing', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_blocks_editor_spacing', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -388,9 +388,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function loadSelectFontGlobally() {
-		$this->checkPermissionNonce( 'uag_load_select_font_globally' );
+		$this->checkPermissionNonce( 'vxt_load_select_font_globally' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_load_select_font_globally', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_load_select_font_globally', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -400,9 +400,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function loadFseFontGlobally() {
-		$this->checkPermissionNonce( 'uag_load_fse_font_globally' );
+		$this->checkPermissionNonce( 'vxt_load_fse_font_globally' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_load_fse_font_globally', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_load_fse_font_globally', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -412,7 +412,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function selectFontGlobally() {
-		$this->checkPermissionNonce( 'uag_select_font_globally' );
+		$this->checkPermissionNonce( 'vxt_select_font_globally' );
 		$value = $this->checkPostValueJson();
 		$value = json_decode( $value, true );
 
@@ -421,7 +421,7 @@ class CommonSettings extends AjaxController {
 			wp_send_json_error( [ 'messsage' => __( 'Invalid JSON data received.', 'vexaltrix' ) ] );
 		}
 
-		$this->saveAdminSettings( 'uag_select_font_globally', $this->sanitizeFormInputs( $value ) );
+		$this->saveAdminSettings( 'vxt_select_font_globally', $this->sanitizeFormInputs( $value ) );
 	}
 
 	/**
@@ -431,7 +431,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function fseFontGloballyDelete() {
-		$this->checkPermissionNonce( 'uag_fse_font_globally_delete' );
+		$this->checkPermissionNonce( 'vxt_fse_font_globally_delete' );
 		$value = $this->checkPostValueJson();
 		$value = json_decode( $value, true );
 
@@ -450,7 +450,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function fseFontGlobally() {
-		$this->checkPermissionNonce( 'uag_fse_font_globally' );
+		$this->checkPermissionNonce( 'vxt_fse_font_globally' );
 		$value = $this->checkPostValueJson();
 		$value = json_decode( $value, true );
 
@@ -476,9 +476,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableMasonryGallery() {
-		$this->checkPermissionNonce( 'uag_enable_masonry_gallery' );
+		$this->checkPermissionNonce( 'vxt_enable_masonry_gallery' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_masonry_gallery', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_masonry_gallery', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -488,10 +488,10 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableQuickActionSidebar() {
-		$this->checkPermissionNonce( 'uag_enable_quick_action_sidebar' );
+		$this->checkPermissionNonce( 'vxt_enable_quick_action_sidebar' );
 		$value = $this->checkPostValue();
 		$value = 'disabled' === $value ? 'disabled' : 'enabled';
-		$this->saveAdminSettings( 'uag_enable_quick_action_sidebar', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_quick_action_sidebar', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -500,9 +500,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function loadGfontsLocally() {
-		$this->checkPermissionNonce( 'uag_load_gfonts_locally' );
+		$this->checkPermissionNonce( 'vxt_load_gfonts_locally' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_load_gfonts_locally', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_load_gfonts_locally', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -511,9 +511,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function collapsePanels() {
-		$this->checkPermissionNonce( 'uag_collapse_panels' );
+		$this->checkPermissionNonce( 'vxt_collapse_panels' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_collapse_panels', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_collapse_panels', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -522,9 +522,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function copyPaste() {
-		$this->checkPermissionNonce( 'uag_copy_paste' );
+		$this->checkPermissionNonce( 'vxt_copy_paste' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_copy_paste', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_copy_paste', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -535,10 +535,10 @@ class CommonSettings extends AjaxController {
 	 * @since 2.1.0
 	 */
 	public function social() {
-		$this->checkPermissionNonce( 'uag_social' );
+		$this->checkPermissionNonce( 'vxt_social' );
 
 		$social = \Vexaltrix\Presentation\Admin\AdminSettings::get(
-			'uag_social',
+			'vxt_social',
 			[
 				'socialRegister'    => false,
 				'googleClientId'    => '',
@@ -560,7 +560,7 @@ class CommonSettings extends AjaxController {
 			$social['facebookAppSecret'] = sanitize_text_field( wp_unslash( $_POST['facebookAppSecret'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 		}
 
-		$this->saveAdminSettings( 'uag_social', $social );
+		$this->saveAdminSettings( 'vxt_social', $social );
 	}
 
 	/**
@@ -571,9 +571,9 @@ class CommonSettings extends AjaxController {
 	 * @since 2.1.0
 	 */
 	public function dynamicContentMode() {
-		$this->checkPermissionNonce( 'uag_dynamic_content_mode' );
+		$this->checkPermissionNonce( 'vxt_dynamic_content_mode' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_dynamic_content_mode', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_dynamic_content_mode', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -582,9 +582,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function preloadLocalFonts() {
-		$this->checkPermissionNonce( 'uag_preload_local_fonts' );
+		$this->checkPermissionNonce( 'vxt_preload_local_fonts' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_preload_local_fonts', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_preload_local_fonts', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -595,9 +595,9 @@ class CommonSettings extends AjaxController {
 	 * @since 2.4.0
 	 */
 	public function enableBlockCondition() {
-		$this->checkPermissionNonce( 'uag_enable_block_condition' );
+		$this->checkPermissionNonce( 'vxt_enable_block_condition' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_block_condition', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_block_condition', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -606,9 +606,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableBlockResponsive() {
-		$this->checkPermissionNonce( 'uag_enable_block_responsive' );
+		$this->checkPermissionNonce( 'vxt_enable_block_responsive' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_block_responsive', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_block_responsive', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -619,9 +619,9 @@ class CommonSettings extends AjaxController {
 	 * @since 2.1.0
 	 */
 	public function enableDynamicContent() {
-		$this->checkPermissionNonce( 'uag_enable_dynamic_content' );
+		$this->checkPermissionNonce( 'vxt_enable_dynamic_content' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_dynamic_content', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_dynamic_content', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -632,9 +632,9 @@ class CommonSettings extends AjaxController {
 	 * @since 2.6.0
 	 */
 	public function enableAnimationsExtension() {
-		$this->checkPermissionNonce( 'uag_enable_animations_extension' );
+		$this->checkPermissionNonce( 'vxt_enable_animations_extension' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_animations_extension', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_animations_extension', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -643,9 +643,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableTemplatesButton() {
-		$this->checkPermissionNonce( 'uag_enable_templates_button' );
+		$this->checkPermissionNonce( 'vxt_enable_templates_button' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_templates_button', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_templates_button', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -654,9 +654,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableOnPageCssButton() {
-		$this->checkPermissionNonce( 'uag_enable_on_page_css_button' );
+		$this->checkPermissionNonce( 'vxt_enable_on_page_css_button' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_on_page_css_button', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_on_page_css_button', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -665,7 +665,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function blocksActivationAndDeactivation() {
-		$this->checkPermissionNonce( 'uag_blocks_activation_and_deactivation' );
+		$this->checkPermissionNonce( 'vxt_blocks_activation_and_deactivation' );
 		$value  = $this->checkPostValueJson();
 		$status = $this->checkPostValue( 'status' );
 		if ( '' !== $status ) {
@@ -685,12 +685,12 @@ class CommonSettings extends AjaxController {
 		if ( '' !== $status ) {
 			// Update all extensions.
 			$updateAllExtensions = [
-				'uag_enable_animations_extension',
-				'uag_enable_dynamic_content',
-				'uag_enable_block_condition',
-				'uag_enable_block_responsive',
-				'uag_enable_masonry_gallery',
-				'uag_enable_gbs_extension',
+				'vxt_enable_animations_extension',
+				'vxt_enable_dynamic_content',
+				'vxt_enable_block_condition',
+				'vxt_enable_block_responsive',
+				'vxt_enable_masonry_gallery',
+				'vxt_enable_gbs_extension',
 				'_vxt_ultimate_gutenberg_blocks_blocks',
 			];
 			// Create an array with the new status for each extension.
@@ -1051,9 +1051,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableLegacyBlocks() {
-		$this->checkPermissionNonce( 'uag_enable_legacy_blocks' );
+		$this->checkPermissionNonce( 'vxt_enable_legacy_blocks' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_enable_legacy_blocks', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_enable_legacy_blocks', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -1062,7 +1062,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableFileGeneration() {
-		$this->checkPermissionNonce( 'uag_enable_file_generation' );
+		$this->checkPermissionNonce( 'vxt_enable_file_generation' );
 		$value = $this->checkPostValue();
 		$this->saveAdminSettings( '_vxt_ultimate_gutenberg_blocks_allow_file_generation', sanitize_text_field( $value ) );
 	}
@@ -1105,7 +1105,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function regenerateAssets() {
-		$this->checkPermissionNonce( 'uag_regenerate_assets' );
+		$this->checkPermissionNonce( 'vxt_regenerate_assets' );
 		
 		/* Update the asset version */
 		\Vexaltrix\Presentation\Admin\AdminSettings::createSpecificStylesheet();
@@ -1148,9 +1148,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function loadFontAwesome5() {
-		$this->checkPermissionNonce( 'uag_load_font_awesome_5' );
+		$this->checkPermissionNonce( 'vxt_load_font_awesome_5' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_load_font_awesome_5', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_load_font_awesome_5', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -1159,9 +1159,9 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function autoBlockRecovery() {
-		$this->checkPermissionNonce( 'uag_auto_block_recovery' );
+		$this->checkPermissionNonce( 'vxt_auto_block_recovery' );
 		$value = $this->checkPostValue();
-		$this->saveAdminSettings( 'uag_auto_block_recovery', sanitize_text_field( $value ) );
+		$this->saveAdminSettings( 'vxt_auto_block_recovery', sanitize_text_field( $value ) );
 	}
 
 	/**
@@ -1172,7 +1172,7 @@ class CommonSettings extends AjaxController {
 	 * @since 2.4.1
 	 */
 	public function instaLinkedAccounts() {
-		$this->checkPermissionNonce( 'uag_insta_linked_accounts' );
+		$this->checkPermissionNonce( 'vxt_insta_linked_accounts' );
 		$value = $this->checkPostValueJson();
 		$value = json_decode( $value, true );
 
@@ -1182,7 +1182,7 @@ class CommonSettings extends AjaxController {
 		}
 
 		// The previous $value is not sanitized, as the array sanitization is handled in the class method used below.
-		$this->saveAdminSettings( 'uag_insta_linked_accounts', $this->sanitizeFormInputs( $value ) );
+		$this->saveAdminSettings( 'vxt_insta_linked_accounts', $this->sanitizeFormInputs( $value ) );
 	}
 
 	/**
@@ -1193,7 +1193,7 @@ class CommonSettings extends AjaxController {
 	 * @since 2.4.1
 	 */
 	public function instaAllUsersMedia() {
-		$this->checkPermissionNonce( 'uag_insta_all_users_media' );
+		$this->checkPermissionNonce( 'vxt_insta_all_users_media' );
 		$value = $this->checkPostValueJson();
 		$value = json_decode( $value, true );
 
@@ -1202,7 +1202,7 @@ class CommonSettings extends AjaxController {
 			wp_send_json_error( [ 'messsage' => __( 'Invalid JSON data received.', 'vexaltrix' ) ] );
 		}
 		// The previous $value is not sanitized, as the array sanitization is handled in the class method used below.
-		$this->saveAdminSettings( 'uag_insta_all_users_media', $this->sanitizeFormInputs( $value ) );
+		$this->saveAdminSettings( 'vxt_insta_all_users_media', $this->sanitizeFormInputs( $value ) );
 	}
 
 	/**
@@ -1214,7 +1214,7 @@ class CommonSettings extends AjaxController {
 	 */
 	public function instaRefreshAllTokens() {
 		// nonce verification is done in above function check_permission_nonce.
-		$this->checkPermissionNonce( 'uag_insta_refresh_all_tokens' );
+		$this->checkPermissionNonce( 'vxt_insta_refresh_all_tokens' );
 		if ( ! empty( $_POST['value'] ) && class_exists( '\VexaltrixPro\BlocksConfig\InstagramFeed\Block' ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Missing
 			\VexaltrixPro\BlocksConfig\InstagramFeed\Block::refresh_all_instagram_users();
 			wp_send_json_success( [ 'messsage' => __( 'Successfully refreshed tokens!', 'vexaltrix' ) ] );
@@ -1229,13 +1229,13 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableGbsExtension() {
-		$this->checkPermissionNonce( 'uag_enable_gbs_extension' );
+		$this->checkPermissionNonce( 'vxt_enable_gbs_extension' );
 		$value = $this->checkPostValue();
 
 		$value = 'enabled' === $value ? 'enabled' : 'disabled';
 		$this->saveGbsDefaultInUploadFolder( $value );
 
-		$this->saveAdminSettings( 'uag_enable_gbs_extension', $value );
+		$this->saveAdminSettings( 'vxt_enable_gbs_extension', $value );
 	}
 
 	/**
@@ -1279,9 +1279,9 @@ class CommonSettings extends AjaxController {
 						continue;
 					}
 
-					delete_post_meta( $postId, '_uag_page_assets' );
-					delete_post_meta( $postId, '_uag_css_file_name' );
-					delete_post_meta( $postId, '_uag_js_file_name' );
+					delete_post_meta( $postId, '_vxt_page_assets' );
+					delete_post_meta( $postId, '_vxt_css_file_name' );
+					delete_post_meta( $postId, '_vxt_js_file_name' );
 
 					$postIds[] = $postId;
 				}
@@ -1346,7 +1346,7 @@ class CommonSettings extends AjaxController {
 	 */
 	public function zipAiModuleStatus() {
 		// Check permission.
-		$this->checkPermissionNonce( 'uag_zip_ai_module_status' );
+		$this->checkPermissionNonce( 'vxt_zip_ai_module_status' );
 		// Check the post value.
 		$value = $this->checkPostValue();
 		// Check the post module.
@@ -1426,7 +1426,7 @@ class CommonSettings extends AjaxController {
 	 */
 	public function zipAiVerifyAuthenticity() {
 		// Check permission.
-		$this->checkPermissionNonce( 'uag_zip_ai_verify_authenticity' );
+		$this->checkPermissionNonce( 'vxt_zip_ai_verify_authenticity' );
 
 		// If the Zip AI Helper Class exists, return a success based on the authorizatoin status, else return an error.
 		if ( class_exists( '\ZipAI\Classes\Helper' ) ) {
@@ -1444,7 +1444,7 @@ class CommonSettings extends AjaxController {
 	 * @return void
 	 */
 	public function enableBsfAnalyticsOption() {
-		$this->checkPermissionNonce( 'uag_enable_bsf_analytics_option' );
+		$this->checkPermissionNonce( 'vxt_enable_bsf_analytics_option' );
 		$value = $this->checkPostValue();
 		$this->saveAdminSettings( 'vexaltrix_analytics_optin', sanitize_text_field( $value ) );
 	}

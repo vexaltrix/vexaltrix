@@ -471,22 +471,22 @@ class Dashboard implements ServiceInterface {
 				'root_id'                    		=> esc_attr( self::ROOT_ID ),
 				'current_user'                      => ! empty( wp_get_current_user()->user_firstname ) ? wp_get_current_user()->user_firstname : wp_get_current_user()->display_name,
 				'admin_base_url'                    => admin_url(),
-				'uag_base_url'                      => admin_url( 'admin.php?page=' . $this->menuSlug ),
+				'vxt_base_url'                      => admin_url( 'admin.php?page=' . $this->menuSlug ),
 				'plugin_dir'                        => VXT_URL,
 				'plugin_ver'                        => VXT_VER,
 				'admin_url'                         => admin_url( 'admin.php' ),
 				'ajax_url'                          => admin_url( 'admin-ajax.php' ),
 				'wp_pages_url'                      => admin_url( 'post-new.php?post_type=page' ),
 				'home_slug'                         => $this->menuSlug,
-				'rollback_url'                      => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=uag_rollback' ), 'uag_rollback' ) ) ),
+				'rollback_url'                      => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=vxt_rollback' ), 'vxt_rollback' ) ) ),
 				'blocks_info'                       => $blocksInfo,
 				'reusable_url'                      => esc_url( admin_url( 'edit.php?post_type=wp_block' ) ),
 				'global_data'                       => \Vexaltrix\Presentation\Admin\DashboardHelper::getOptions(),
-				'uag_content_width_set_by'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_content_width_set_by', __('Vexaltrix', 'vexaltrix' ) ),
+				'vxt_content_width_set_by'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_content_width_set_by', __('Vexaltrix', 'vexaltrix' ) ),
 				'vexaltrix_pro_installed'             => file_exists( VXT_DIR . '../vexaltrix-pro/vexaltrix-pro.php' ),
 				'vexaltrix_pro_licensing'             => file_exists( VXT_DIR . '../vexaltrix-pro/admin/license-handler.php' ),
 				'vexaltrix_pro_status'                => is_plugin_active( 'vexaltrix-pro/vexaltrix-pro.php' ),
-				'vexaltrix_pro_ver'                   => defined( 'WP_VXT_PRO_VER' ) ? WP_VXT_PRO_VER : null,
+				'vexaltrix_pro_ver'                   => defined( 'WP_VXT_PRO_VER' ) ? VXT_PRO_VER : null,
 				'vexaltrix_custom_fonts'              => apply_filters( 'vexaltrix_system_fonts', [] ),
 				'vexaltrix_admin_video'               => apply_filters( 'vexaltrix_display_admin_video', true ),
 				'is_allow_registration'             => (bool) get_option( 'users_can_register' ),
@@ -658,7 +658,7 @@ class Dashboard implements ServiceInterface {
 					$excludeBlocks[] = $addon;
 				}
 
-				$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
+				$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_legacy_blocks' );
 
 				if ( 'yes' !== $enableLegacyBlocks ) {
 					$excludeBlocks[] = 'wp-search';

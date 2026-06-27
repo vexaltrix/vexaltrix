@@ -59,31 +59,31 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 
 			$options = [
 				'vxt_ultimate_gutenberg_blocks_beta'                         => self::get( 'vxt_ultimate_gutenberg_blocks_beta', 'no' ),
-				'uag_enable_legacy_blocks'          => self::get( 'uag_enable_legacy_blocks' ),
+				'vxt_enable_legacy_blocks'          => self::get( 'vxt_enable_legacy_blocks' ),
 				'_vxt_ultimate_gutenberg_blocks_allow_file_generation'       => self::get( '_vxt_ultimate_gutenberg_blocks_allow_file_generation', 'enabled' ),
-				'uag_enable_templates_button'       => self::get( 'uag_enable_templates_button', 'yes' ),
-				'uag_enable_on_page_css_button'     => self::get( 'uag_enable_on_page_css_button', 'yes' ),
-				'uag_enable_block_condition'        => self::get( 'uag_enable_block_condition', 'disabled' ),
-				'uag_enable_masonry_gallery'        => self::get( 'uag_enable_masonry_gallery', 'enabled' ),
-				'uag_enable_quick_action_sidebar'   => self::get( 'uag_enable_quick_action_sidebar', 'enabled' ),
-				'uag_enable_animations_extension'   => self::get( 'uag_enable_animations_extension', 'enabled' ),
-				'uag_enable_gbs_extension'          => self::get( 'uag_enable_gbs_extension', 'enabled' ),
-				'uag_enable_block_responsive'       => self::get( 'uag_enable_block_responsive', 'enabled' ),
-				'uag_select_font_globally'          => self::get( 'uag_select_font_globally', [] ),
-				'uag_load_select_font_globally'     => self::get( 'uag_load_select_font_globally', 'disabled' ),
-				'uag_load_gfonts_locally'           => self::get( 'uag_load_gfonts_locally', 'disabled' ),
-				'uag_collapse_panels'               => self::get( 'uag_collapse_panels', 'enabled' ),
-				'uag_copy_paste'                    => self::get( 'uag_copy_paste', 'enabled' ),
-				'uag_preload_local_fonts'           => self::get( 'uag_preload_local_fonts', 'disabled' ),
-				'uag_visibility_mode'               => self::get( 'uag_visibility_mode', 'disabled' ),
-				'uag_container_global_padding'      => self::get( 'uag_container_global_padding', 'default' ),
-				'uag_container_global_elements_gap' => self::get( 'uag_container_global_elements_gap', 20 ),
-				'uag_btn_inherit_from_theme'        => self::get( 'uag_btn_inherit_from_theme', 'disabled' ),
-				'uag_blocks_editor_spacing'         => apply_filters( 'vxt_ultimate_gutenberg_blocks_default_blocks_editor_spacing', self::get( 'uag_blocks_editor_spacing', 0 ) ),
-				'uag_load_font_awesome_5'           => self::get( 'uag_load_font_awesome_5' ),
-				'uag_auto_block_recovery'           => self::get( 'uag_auto_block_recovery' ),
-				'uag_enable_bsf_analytics_option'   => self::get( 'vexaltrix_usage_optin', 'no' ),
-				'uag_content_width'                 => $contentWidth,
+				'vxt_enable_templates_button'       => self::get( 'vxt_enable_templates_button', 'yes' ),
+				'vxt_enable_on_page_css_button'     => self::get( 'vxt_enable_on_page_css_button', 'yes' ),
+				'vxt_enable_block_condition'        => self::get( 'vxt_enable_block_condition', 'disabled' ),
+				'vxt_enable_masonry_gallery'        => self::get( 'vxt_enable_masonry_gallery', 'enabled' ),
+				'vxt_enable_quick_action_sidebar'   => self::get( 'vxt_enable_quick_action_sidebar', 'enabled' ),
+				'vxt_enable_animations_extension'   => self::get( 'vxt_enable_animations_extension', 'enabled' ),
+				'vxt_enable_gbs_extension'          => self::get( 'vxt_enable_gbs_extension', 'enabled' ),
+				'vxt_enable_block_responsive'       => self::get( 'vxt_enable_block_responsive', 'enabled' ),
+				'vxt_select_font_globally'          => self::get( 'vxt_select_font_globally', [] ),
+				'vxt_load_select_font_globally'     => self::get( 'vxt_load_select_font_globally', 'disabled' ),
+				'vxt_load_gfonts_locally'           => self::get( 'vxt_load_gfonts_locally', 'disabled' ),
+				'vxt_collapse_panels'               => self::get( 'vxt_collapse_panels', 'enabled' ),
+				'vxt_copy_paste'                    => self::get( 'vxt_copy_paste', 'enabled' ),
+				'vxt_preload_local_fonts'           => self::get( 'vxt_preload_local_fonts', 'disabled' ),
+				'vxt_visibility_mode'               => self::get( 'vxt_visibility_mode', 'disabled' ),
+				'vxt_container_global_padding'      => self::get( 'vxt_container_global_padding', 'default' ),
+				'vxt_container_global_elements_gap' => self::get( 'vxt_container_global_elements_gap', 20 ),
+				'vxt_btn_inherit_from_theme'        => self::get( 'vxt_btn_inherit_from_theme', 'disabled' ),
+				'vxt_blocks_editor_spacing'         => apply_filters( 'vxt_ultimate_gutenberg_blocks_default_blocks_editor_spacing', self::get( 'vxt_blocks_editor_spacing', 0 ) ),
+				'vxt_load_font_awesome_5'           => self::get( 'vxt_load_font_awesome_5' ),
+				'vxt_auto_block_recovery'           => self::get( 'vxt_auto_block_recovery' ),
+				'vxt_enable_bsf_analytics_option'   => self::get( 'vexaltrix_usage_optin', 'no' ),
+				'vxt_content_width'                 => $contentWidth,
 				'vexaltrix_core_blocks'               => apply_filters(
 					'vexaltrix_core_blocks',
 					[
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 		 */
 		public function getRollbackVersions() {
 
-			$rollbackVersions = get_transient( 'uag_rollback_versions_' . VXT_VER );
+			$rollbackVersions = get_transient( 'vxt_rollback_versions_' . VXT_VER );
 
 			if ( empty( $rollbackVersions ) ) {
 
@@ -390,7 +390,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 
 				$rollbackVersions = array_slice( $rollbackVersions, 0, $maxVersions, true );
 
-				set_transient( 'uag_rollback_versions_' . VXT_VER, $rollbackVersions, WEEK_IN_SECONDS );
+				set_transient( 'vxt_rollback_versions_' . VXT_VER, $rollbackVersions, WEEK_IN_SECONDS );
 			}
 
 			return $rollbackVersions;
@@ -485,9 +485,9 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 		 * @access public
 		 */
 		public static function getGlobalContentWidth() {
-			$contentWidth                = self::get( 'uag_content_width', '' );
+			$contentWidth                = self::get( 'vxt_content_width', '' );
 			$uagContentWidthSetBy     = 'Vexaltrix';
-			$getUagContentWidthSetBy = self::get( 'uag_content_width_set_by', '' );
+			$getUagContentWidthSetBy = self::get( 'vxt_content_width_set_by', '' );
 
 			if ( '' === $contentWidth ) {
 				$contentWidthThirdParty = apply_filters( 'vexaltrix_global_content_width', 'default' );
@@ -507,9 +507,9 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 				}
 			}
 
-			// Update admin settings option uag_content_width_set_by if $getUagContentWidthSetBy and $uagContentWidthSetBy are not same.
+			// Update admin settings option vxt_content_width_set_by if $getUagContentWidthSetBy and $uagContentWidthSetBy are not same.
 			if ( $getUagContentWidthSetBy !== $uagContentWidthSetBy ) {
-				self::updateAdminSettingsOption( 'uag_content_width_set_by', $uagContentWidthSetBy );
+				self::updateAdminSettingsOption( 'vxt_content_width_set_by', $uagContentWidthSetBy );
 			}
 
 			return '' === $contentWidth ? 1140 : $contentWidth;

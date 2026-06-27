@@ -48,10 +48,10 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\ImageGallery\\ImageGa
 		 */
 		public function __construct() {
 			add_action( 'init', [ $this, 'registerImageGallery' ] );
-			add_action( 'wp_ajax_uag_load_image_gallery_masonry', [ $this, 'renderMasonryPagination' ] );
-			add_action( 'wp_ajax_nopriv_uag_load_image_gallery_masonry', [ $this, 'renderMasonryPagination' ] );
-			add_action( 'wp_ajax_uag_load_image_gallery_grid_pagination', [ $this, 'renderGridPagination' ] );
-			add_action( 'wp_ajax_nopriv_uag_load_image_gallery_grid_pagination', [ $this, 'renderGridPagination' ] );
+			add_action( 'wp_ajax_vxt_load_image_gallery_masonry', [ $this, 'renderMasonryPagination' ] );
+			add_action( 'wp_ajax_nopriv_vxt_load_image_gallery_masonry', [ $this, 'renderMasonryPagination' ] );
+			add_action( 'wp_ajax_vxt_load_image_gallery_grid_pagination', [ $this, 'renderGridPagination' ] );
+			add_action( 'wp_ajax_nopriv_vxt_load_image_gallery_grid_pagination', [ $this, 'renderGridPagination' ] );
 
 			// Prevent Imagify from converting images into <picture> tags, which breaks the Vexaltrix Lightbox.
 			add_filter( 'imagify_allow_picture_tags_for_nextgen', '__return_false' );

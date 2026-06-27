@@ -12,7 +12,7 @@ const RendererDesc = ( props ) => {
 
 	// Check if this has dynamic content.
 	if ( descriptionHasDynamicContent ) {
-		const renderedMarkup = applyFilters( `uag_render_text_loop_data`, headingDesc, context );
+		const renderedMarkup = applyFilters( `vxt_render_text_loop_data`, headingDesc, context );
 		if ( renderedMarkup !== '' ) {
 			allowedFormats = [ 'vexaltrix/dynamic-content' ];
 			headingDesc = renderedMarkup;

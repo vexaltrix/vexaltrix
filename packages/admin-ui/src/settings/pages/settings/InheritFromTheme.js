@@ -22,7 +22,7 @@ const InheritFromThemeRender = () => {
 
 		const getApiDataFetch = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_btn_inherit_from_theme',
+			action: 'vxt_btn_inherit_from_theme',
 			data,
 		} );
 

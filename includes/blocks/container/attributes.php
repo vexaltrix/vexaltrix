@@ -9,8 +9,8 @@
 
 $borderAttribute     = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'container' );
 $defaultWidth        = \Vexaltrix\Presentation\Admin\AdminSettings::getGlobalContentWidth();
-$defaultPadding      = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_container_global_padding', '' );
-$defaultElementsGap = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_container_global_elements_gap', 20 );
+$defaultPadding      = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_container_global_padding', '' );
+$defaultElementsGap = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_container_global_elements_gap', 20 );
 $gridCssObject      = [
 	[
 		'default' => 'custom',

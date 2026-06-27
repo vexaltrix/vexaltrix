@@ -25,7 +25,7 @@ const BlockSettings = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_recaptcha_site_key_v2',
+			action: 'vxt_recaptcha_site_key_v2',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved
@@ -46,7 +46,7 @@ const BlockSettings = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_recaptcha_site_key_v3',
+			action: 'vxt_recaptcha_site_key_v3',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved
@@ -67,7 +67,7 @@ const BlockSettings = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_recaptcha_secret_key_v2',
+			action: 'vxt_recaptcha_secret_key_v2',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved
@@ -88,7 +88,7 @@ const BlockSettings = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_recaptcha_secret_key_v3',
+			action: 'vxt_recaptcha_secret_key_v3',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved

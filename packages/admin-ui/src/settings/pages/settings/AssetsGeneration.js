@@ -19,7 +19,7 @@ const AssetsGeneration = () => {
 
 		dispatch( { type: 'UPDATE_FILE_GENERATION', payload: assetStatus } );
 
-		const action = 'uag_enable_file_generation',
+		const action = 'vxt_enable_file_generation',
 			nonce = vexaltrixAdmin.enable_file_generation_nonce;
 		// Create an object with the security and value properties
 		const data = {

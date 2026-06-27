@@ -90,4 +90,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_social_share_presets`, presets );
+export default applyFilters( `vxt_social_share_presets`, presets );

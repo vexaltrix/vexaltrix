@@ -23,7 +23,7 @@ const QuickActionBar = () => {
 
 			const getApiFetchData = getApiData( {
 				url: vexaltrixAdmin.ajax_url,
-				action: 'uag_enable_quick_action_sidebar',
+				action: 'vxt_enable_quick_action_sidebar',
 				data,
 			} );
 

@@ -23,7 +23,7 @@ const Prefix = ( props ) => {
 
 	// Check if this has dynamic content.
 	if ( hasPrefixTitleDC ) {
-		const renderedMarkup = applyFilters( `uag_render_text_loop_data`, prefixTitle, context );
+		const renderedMarkup = applyFilters( `vxt_render_text_loop_data`, prefixTitle, context );
 		if ( renderedMarkup !== '' ) {
 			allowedFormats = [ 'vexaltrix/dynamic-content' ];
 			prefixTitle = renderedMarkup;

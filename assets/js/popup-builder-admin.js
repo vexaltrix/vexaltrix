@@ -7,7 +7,7 @@ const VexaltrixToggelSwitch = ( event ) => {
 	const updatedStatus = element.classList.contains( 'vexaltrix-popup-builder__switch--active' ) ? 'false' : 'true';
 
 	const mediaData = new FormData();
-	mediaData.append( 'action', 'uag_update_popup_status' );
+	mediaData.append( 'action', 'vxt_update_popup_status' );
 	mediaData.append(
 		'nonce',
 		vxt_ultimate_gutenberg_blocks_popup_builder_admin.vxt_ultimate_gutenberg_blocks_popup_builder_admin_nonce

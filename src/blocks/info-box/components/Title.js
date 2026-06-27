@@ -17,7 +17,7 @@ const Title = ( props ) => {
 
 	// Check if this has dynamic content.
 	if ( hasTitleDC ) {
-		const renderedMarkup = applyFilters( `uag_render_text_loop_data`, infoBoxTitle, context );
+		const renderedMarkup = applyFilters( `vxt_render_text_loop_data`, infoBoxTitle, context );
 		if ( renderedMarkup !== '' ) {
 			allowedFormats = [ 'vexaltrix/dynamic-content' ];
 			infoBoxTitle = renderedMarkup;

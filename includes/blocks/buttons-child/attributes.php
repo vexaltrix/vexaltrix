@@ -11,9 +11,9 @@ $disableVHPadding = apply_filters( 'vxt_ultimate_gutenberg_blocks_disable_v_h_pa
 
 $borderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
 
-$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
+$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_legacy_blocks' );
 
-$inheritFromTheme = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+$inheritFromTheme = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' );
 
 return array_merge(
 	[

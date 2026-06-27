@@ -41,8 +41,8 @@ class Visibility implements ServiceInterface {
 	 */
 	public function __construct() {
 
-		$visibility         = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_mode', 'disabled' );
-		$visibilityPageId = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_page', false );
+		$visibility         = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_mode', 'disabled' );
+		$visibilityPageId = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_page', false );
 
 		if ( 'disabled' !== $visibility && ! is_user_logged_in() && false !== $visibilityPageId && isset( $visibilityPageId ) && ! empty( $visibilityPageId ) ) {
 	}
@@ -67,12 +67,12 @@ class Visibility implements ServiceInterface {
 	 * @return void
 	 */
 	public function setVisibilityPage() {
-		$visibilityPageId = intval( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_page', false ) );
+		$visibilityPageId = intval( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_page', false ) );
 
 		$currentPageId = get_the_ID();
 
 		if ( $visibilityPageId !== $currentPageId && 'publish' === get_post_status( $visibilityPageId ) ) {
-			$maintenance = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_mode', 'disabled' );
+			$maintenance = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_mode', 'disabled' );
 			if ( 'maintenance' === $maintenance ) {
 				status_header( 503 );
 			}
@@ -97,7 +97,7 @@ class Visibility implements ServiceInterface {
 		}
 
 		$currentPageId    = get_the_ID();
-		$visibilityPageId = intval( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_page', false ) );
+		$visibilityPageId = intval( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_page', false ) );
 
 		if ( $visibilityPageId === $currentPageId ) {
 			wp_enqueue_style(

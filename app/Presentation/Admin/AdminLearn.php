@@ -78,7 +78,7 @@ class AdminLearn implements ServiceInterface {
 						],
 						'action'      => [
 							'label'      => __( 'Set Up', 'vexaltrix' ),
-							'url'        => ( 'yes' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_templates_button', 'yes' ) ? $homepageUrl . '#learn-insert-ready-made-sections' : admin_url( 'admin.php?page=vexaltrix&path=settings&settings=editor-enhancements' ) ),
+							'url'        => ( 'yes' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_templates_button', 'yes' ) ? $homepageUrl . '#learn-insert-ready-made-sections' : admin_url( 'admin.php?page=vexaltrix&path=settings&settings=editor-enhancements' ) ),
 							'isExternal' => true,
 						],
 						'completed'   => false,

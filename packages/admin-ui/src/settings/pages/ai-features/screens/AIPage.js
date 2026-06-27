@@ -113,7 +113,7 @@ const AIPage = () => {
 			// Call the getApiData function with the required parameters.
 			const getApiFetchData = getApiData( {
 				url: vexaltrixAdmin.ajax_url,
-				action: 'uag_zip_ai_verify_authenticity',
+				action: 'vxt_zip_ai_verify_authenticity',
 				data,
 			} );
 
@@ -197,7 +197,7 @@ const AIPage = () => {
 		// Send the data to the server.
 		const getApiDataFetch = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_zip_ai_module_status',
+			action: 'vxt_zip_ai_module_status',
 			data,
 		} );
 

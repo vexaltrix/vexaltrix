@@ -125,4 +125,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_marketing_button_presets`, presets );
+export default applyFilters( `vxt_marketing_button_presets`, presets );

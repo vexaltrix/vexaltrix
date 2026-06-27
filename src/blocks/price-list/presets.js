@@ -132,4 +132,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_price_list_presets`, presets );
+export default applyFilters( `vxt_price_list_presets`, presets );

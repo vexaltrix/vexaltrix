@@ -157,7 +157,7 @@ export const boxShadowHoverPresets = [
 	},
 ];
 
-export default applyFilters( `uag_buttons_child_presets`, boxShadowPresets );
+export default applyFilters( `vxt_buttons_child_presets`, boxShadowPresets );
 
 const buttonsPresets = [
 	{

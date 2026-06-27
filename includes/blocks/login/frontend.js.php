@@ -17,7 +17,7 @@
 $formSelector = '#vexaltrix-pro-login-form-' . $id;
 $selector      = '.vxt-block-' . $id;  // Block selector.
 
-$loginBlock          = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_login_block', [] );
+$loginBlock          = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_login_block', [] );
 $thisFieldErrorMsg = [
 	'username' => sprintf(
 		// translators: %s: Attribute User Name Label value or This Field.
@@ -38,7 +38,7 @@ $loginBlockOptions  = apply_filters(
 		'block_id'             => $id,
 		'enableReCaptcha'      => $attr['reCaptchaEnable'],
 		'recaptchaVersion'     => $attr['reCaptchaType'],
-		'recaptchaSiteKey'     => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_' . $attr['reCaptchaType'], '' ),
+		'recaptchaSiteKey'     => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_' . $attr['reCaptchaType'], '' ),
 		'loginRedirectURL'     => esc_url( ( isset( $attr['redirectAfterLoginURL']['url'] ) && $attr['redirectAfterLoginURL']['url'] ? $attr['redirectAfterLoginURL']['url'] : home_url( '/' ) ) ),
 		'logoutRedirectURL'    => esc_url( ( isset( $attr['redirectAfterLogoutURL']['url'] ) && $attr['redirectAfterLogoutURL']['url'] ? $attr['redirectAfterLogoutURL']['url'] : home_url( '/' ) ) ),
 		'this_field_error_msg' => $thisFieldErrorMsg,

@@ -39,14 +39,14 @@ const AddGBSStyles = ( ChildComponent ) => {
 		useEffect( () => {
 			if (
 				vxt_ultimate_gutenberg_blocks_blocks_info?.vexaltrix_pro_status &&
-				'enabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.uag_enable_gbs_extension
+				'enabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.vxt_enable_gbs_extension
 			) {
 				const editorStyles = getGBSEditorStyles( globalBlockStyles, globalBlockStyleId );
 				AddGBSStylesDom( globalBlockStyleId, editorStyles );
 			}
 
 			// Don't set attribute is extension is not enabled.
-			if ( 'disabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.uag_enable_gbs_extension ) {
+			if ( 'disabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.vxt_enable_gbs_extension ) {
 				return;
 			}
 
@@ -75,7 +75,7 @@ const AddGBSStyles = ( ChildComponent ) => {
 		// Filter the placeholder attribute.
 		if (
 			globalBlockStyleId &&
-			'disabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.uag_enable_gbs_extension
+			'disabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.vxt_enable_gbs_extension
 		) {
 			// If extension is disabled then set attributes as default.
 			for ( const objectKey in modifiedAttr ) {

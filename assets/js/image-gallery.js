@@ -173,7 +173,7 @@ const VexaltrixImageGalleryMasonry = {
 
 	callAjax( $scope, $obj, $attr, append = false, count, $selector, lightboxSwiper, thumbnailSwiper ) {
 		const mediaData = new FormData();
-		mediaData.append( 'action', 'uag_load_image_gallery_masonry' );
+		mediaData.append( 'action', 'vxt_load_image_gallery_masonry' );
 		mediaData.append(
 			'nonce',
 			vxt_ultimate_gutenberg_blocks_image_gallery.vxt_ultimate_gutenberg_blocks_image_gallery_masonry_ajax_nonce
@@ -369,7 +369,7 @@ const VexaltrixImageGalleryPagedGrid = {
 
 	callAjax( $scope, $obj, $attr, arrows, $selector, lightboxSwiper, thumbnailSwiper ) {
 		const mediaData = new FormData();
-		mediaData.append( 'action', 'uag_load_image_gallery_grid_pagination' );
+		mediaData.append( 'action', 'vxt_load_image_gallery_grid_pagination' );
 		mediaData.append(
 			'nonce',
 			vxt_ultimate_gutenberg_blocks_image_gallery.vxt_ultimate_gutenberg_blocks_image_gallery_grid_pagination_ajax_nonce

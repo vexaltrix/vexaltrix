@@ -29,7 +29,7 @@ export const applyScopedCSS = ( customCSS ) => {
 const PageCustomCSS = () => {
 	const tabRef = useRef( null );
 	const [ customCSS, setCustomCSS ] = useState(
-		select( 'core/editor' ).getEditedPostAttribute( 'meta' )?._uag_custom_page_level_css
+		select( 'core/editor' ).getEditedPostAttribute( 'meta' )?._vxt_custom_page_level_css
 	);
 
 	useLayoutEffect( () => {
@@ -78,7 +78,7 @@ const PageCustomCSS = () => {
 				editor?.codemirror?.save();
 				const value = editor?.codemirror?.getValue();
 				setCustomCSS( value );
-				dispatch( 'core/editor' ).editPost( { meta: { _uag_custom_page_level_css: value } } );
+				dispatch( 'core/editor' ).editPost( { meta: { _vxt_custom_page_level_css: value } } );
 			} );
 		}
 	}, [ tabRef ] );

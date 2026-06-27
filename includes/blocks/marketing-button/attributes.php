@@ -10,7 +10,7 @@
 $buttonAttribute   = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'btn'
 );
-$inheritFromTheme = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
+$inheritFromTheme = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' ) );
 
 return array_merge(
 	[

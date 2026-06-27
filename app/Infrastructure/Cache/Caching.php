@@ -129,7 +129,7 @@ class Caching implements ServiceInterface {
 	 * @return void
 	 */
 	public function boot(): void {
-		add_action( 'vxt_ultimate_gutenberg_blocks_delete_uag_asset_dir', [ $this, 'clearCache' ] );
+		add_action( 'vxt_ultimate_gutenberg_blocks_delete_vxt_asset_dir', [ $this, 'clearCache' ] );
 		add_action( 'vxt_ultimate_gutenberg_blocks_delete_page_assets', [ $this, 'clearCache' ] );
 	}
 

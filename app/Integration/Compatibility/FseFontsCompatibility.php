@@ -104,7 +104,7 @@ if ( ! class_exists( 'Vexaltrix\Integration\Compatibility\\FseFontsCompatibility
 
 			self::deleteAllThemeFontFamily();
 
-			$loadFseFontGlobally = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_fse_font_globally', 'disabled' );
+			$loadFseFontGlobally = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_fse_font_globally', 'disabled' );
 
 			if ( 'disabled' !== $loadFseFontGlobally ) {
 
@@ -120,8 +120,8 @@ if ( ! class_exists( 'Vexaltrix\Integration\Compatibility\\FseFontsCompatibility
 		 * @return void
 		 */
 		public function getFontFamilyForStarterTemplate( $families ) {
-			if ( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_fse_font_globally', 'disabled' ) ) { // if Load FSE Fonts Globaly is disabled then enabled it.
-				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_load_fse_font_globally', 'enabled' );
+			if ( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_fse_font_globally', 'disabled' ) ) { // if Load FSE Fonts Globaly is disabled then enabled it.
+				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_load_fse_font_globally', 'enabled' );
 			}
 			$newFontFamilies = [];
 			$newFontFaces    = [];

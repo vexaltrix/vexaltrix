@@ -71,7 +71,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 		 * UAG Block Flag
 		 *
 		 * @since 1.13.4
-		 * @var uag_flag
+		 * @var vxt_flag
 		 * @deprecated 1.23.0
 		 */
 		public static $uagFlag = false;
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 		 *
 		 * @since 1.18.1
 		 * @deprecated 1.23.0
-		 * @var uag_faq_layout
+		 * @var vxt_faq_layout
 		 */
 		public static $uagFaqLayout = false;
 
@@ -354,7 +354,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 			}
 
 			// Load Polyfiller Array if needed.
-			$loadFontAwesome5 = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_font_awesome_5' );
+			$loadFontAwesome5 = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_font_awesome_5' );
 
 			if ( 'disabled' !== $loadFontAwesome5 ) {
 				// If Icon doesn't need Polyfilling, use the Original.
@@ -636,7 +636,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 				VxtUltimateGutenbergBlocksInstall()->createFiles();
 			}
 
-			return apply_filters( 'uag_get_upload_dir', $dirInfo );
+			return apply_filters( 'vxt_get_upload_dir', $dirInfo );
 		}
 
 		/**
@@ -721,7 +721,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 			// Create empty files.
 			VxtUltimateGutenbergBlocksInstall()->createFiles();
 			\Vexaltrix\Presentation\Admin\AdminSettings::createSpecificStylesheet();
-			do_action( 'vxt_ultimate_gutenberg_blocks_delete_uag_asset_dir' );
+			do_action( 'vxt_ultimate_gutenberg_blocks_delete_vxt_asset_dir' );
 			return true;
 		}
 
@@ -1291,7 +1291,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 				}
 
 				if ( 'vexaltrix/faq' === $name && ! isset( $blockattr['layout'] ) ) {
-					$this->uag_faq_layout = true;
+					$this->vxt_faq_layout = true;
 				}
 			}
 
@@ -1522,13 +1522,13 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 			$uniqueIds = get_option( '_vxt_ultimate_gutenberg_blocks_fse_uniqids' );
 			if ( ! empty( $uniqueIds ) && is_array( $uniqueIds ) ) {
 				foreach ( $uniqueIds as $id ) {
-					delete_post_meta( (int) $id, '_uag_page_assets' );
+					delete_post_meta( (int) $id, '_vxt_page_assets' );
 				}
 			}
 
-			delete_post_meta( $postId, '_uag_page_assets' );
-			delete_post_meta( $postId, '_uag_css_file_name' );
-			delete_post_meta( $postId, '_uag_js_file_name' );
+			delete_post_meta( $postId, '_vxt_page_assets' );
+			delete_post_meta( $postId, '_vxt_css_file_name' );
+			delete_post_meta( $postId, '_vxt_js_file_name' );
 
 			/* Update the asset version */
 			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( '__vxt_ultimate_gutenberg_blocks_asset_version', time() );

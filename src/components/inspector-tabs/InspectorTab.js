@@ -12,7 +12,7 @@ const InspectorTab = ( props ) => {
 	const blockName = getSelectedBlock()?.name;
 
 	const tabContent = function () {
-		return applyFilters( `uag_${ type }_tab_content`, '', props.parentProps );
+		return applyFilters( `vxt_${ type }_tab_content`, '', props.parentProps );
 	};
 
 	useEffect( () => {

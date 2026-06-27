@@ -36,14 +36,14 @@ export default function MyAccount() {
 		setRegenerateAssetsState( 'loading' );
 
 		const data = {
-			action: 'uag_license_activation',
+			action: 'vxt_license_activation',
 			security: vexaltrixAdmin.license_activation_nonce,
 			key: licenseKey,
 		};
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_license_activation',
+			action: 'vxt_license_activation',
 			data,
 		} );
 
@@ -76,7 +76,7 @@ export default function MyAccount() {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_license_deactivation',
+			action: 'vxt_license_deactivation',
 			data,
 		} );
 

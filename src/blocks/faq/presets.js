@@ -124,4 +124,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_faq_presets`, presets );
+export default applyFilters( `vxt_faq_presets`, presets );

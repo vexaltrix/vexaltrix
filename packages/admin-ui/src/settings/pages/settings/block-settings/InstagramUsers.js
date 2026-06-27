@@ -22,7 +22,7 @@ const InstagramUsers = () => {
 		};
 		const getApiDataFetch = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_insta_refresh_all_tokens',
+			action: 'vxt_insta_refresh_all_tokens',
 			data,
 		} );
 		getApiDataFetch.then( () => {} );
@@ -200,7 +200,7 @@ const InstagramUsers = () => {
 
 				const getApiDataFetch = getApiData( {
 					url: vexaltrixAdmin.ajax_url,
-					action: 'uag_insta_linked_accounts',
+					action: 'vxt_insta_linked_accounts',
 					data: formData,
 				} );
 				getApiDataFetch.then( ( responseData ) => {

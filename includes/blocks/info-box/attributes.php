@@ -10,7 +10,7 @@
 $ctaBorderAttribute     = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'btn'
 );
-$inheritFromTheme       = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+$inheritFromTheme       = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' );
 $infoboxBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'infobox' );
 $imageWidthDefault      = ( 'yes' === get_option( 'vxt-old-user-less-than-2' ) ) ? 120 : '';
 

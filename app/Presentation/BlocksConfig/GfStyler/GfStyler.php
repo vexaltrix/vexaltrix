@@ -53,7 +53,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\GfStyler\\GfStyler' )
 				return;
 			}
 
-			$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
+			$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_legacy_blocks' );
 
 			if ( 'yes' === $enableLegacyBlocks ) {
 				register_block_type(

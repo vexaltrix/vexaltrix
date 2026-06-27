@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 
 const GbsNotice = ( { globalBlockStyleId, globalBlockStyleName } ) => {
 	if (
-		'enabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.uag_enable_gbs_extension &&
+		'enabled' === vxt_ultimate_gutenberg_blocks_blocks_info?.vxt_enable_gbs_extension &&
 		globalBlockStyleId &&
 		globalBlockStyleName
 	) {

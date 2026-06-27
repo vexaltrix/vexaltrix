@@ -81,7 +81,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Blocks\\Block' ) ) {
 				$this->register( $blockFile );
 			}
 
-			do_action( 'uag_register_block', $this );
+			do_action( 'vxt_register_block', $this );
 		}
 
 		/**

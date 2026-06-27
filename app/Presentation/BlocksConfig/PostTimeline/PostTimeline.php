@@ -63,7 +63,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\PostTimeline\\PostTim
 				return;
 			}
 
-			$inheritFromTheme = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
+			$inheritFromTheme = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' ) );
 
 			register_block_type(
 				'vexaltrix/post-timeline',

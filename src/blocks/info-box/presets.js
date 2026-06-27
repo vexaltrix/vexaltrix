@@ -60,7 +60,7 @@ const infoBoxPresets = [
 	},
 ];
 
-export default applyFilters( `uag_info_box_presets`, infoBoxPresets );
+export default applyFilters( `vxt_info_box_presets`, infoBoxPresets );
 
 const buttonsPresets = [
 	{

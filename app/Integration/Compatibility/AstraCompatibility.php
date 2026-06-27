@@ -42,7 +42,7 @@ class AstraCompatibility implements ServiceInterface {
 
 		// Update Astra's admin top level menu position.
 
-		$uagLoadFontsLocally = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_gfonts_locally', 'disabled' );
+		$uagLoadFontsLocally = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_gfonts_locally', 'disabled' );
 
 		if ( 'disabled' === $uagLoadFontsLocally ) {
 

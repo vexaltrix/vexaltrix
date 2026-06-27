@@ -93,7 +93,7 @@ class MigrateBlocks implements ServiceInterface {
 
 		// Removed wp_ajax_nopriv_check_migration_status - migration status should only be accessible to authenticated users.
 
-		if ( 'yes' === get_option( 'uag_migration_status', 'no' ) && 'yes' === get_option( 'vxt-old-user-less-than-2', false ) ) {
+		if ( 'yes' === get_option( 'vxt_migration_status', 'no' ) && 'yes' === get_option( 'vxt-old-user-less-than-2', false ) ) {
 			$this->migrateBlocks();
 	}
 	}
@@ -133,8 +133,8 @@ class MigrateBlocks implements ServiceInterface {
 		if ( ! wp_next_scheduled( 'vexaltrix_blocks_migration_event' ) ) {
 			wp_schedule_single_event( time(), 'vexaltrix_blocks_migration_event' );
 		}
-		update_option( 'uag_enable_legacy_blocks', 'yes' );
-		update_option( 'uag_load_font_awesome_5', 'enabled' );
+		update_option( 'vxt_enable_legacy_blocks', 'yes' );
+		update_option( 'vxt_load_font_awesome_5', 'enabled' );
 	}
 
 	/**
@@ -160,7 +160,7 @@ class MigrateBlocks implements ServiceInterface {
 					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Reason: Necessary for migration process.
 					'meta_query'     => [
 						[
-							'key'     => '_uag_migration_processed',
+							'key'     => '_vxt_migration_processed',
 							'compare' => 'NOT EXISTS',
 						],
 					],
@@ -215,12 +215,12 @@ class MigrateBlocks implements ServiceInterface {
 			return;
 		}
 	
-		$migrationComplete     = get_option( 'uag_migration_complete', 'no' );
-		$migrationNeedsReload = get_transient( 'uag_migration_needs_reload' ) ? 'yes' : 'no';
+		$migrationComplete     = get_option( 'vxt_migration_complete', 'no' );
+		$migrationNeedsReload = get_transient( 'vxt_migration_needs_reload' ) ? 'yes' : 'no';
 	
 		// If migration is complete and reload is needed, delete the transient to avoid repeated reloads.
 		if ( 'yes' === $migrationComplete && 'yes' === $migrationNeedsReload ) {
-			delete_transient( 'uag_migration_needs_reload' );
+			delete_transient( 'vxt_migration_needs_reload' );
 		}
 	
 		// Check if the migration status retrieval failed.

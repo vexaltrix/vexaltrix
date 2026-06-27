@@ -296,7 +296,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\Login\\Login' ) ) {
 				return;
 			}
 
-			$recaptchaSiteKey = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v2', '' );
+			$recaptchaSiteKey = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v2', '' );
 			if ( ! is_string( $recaptchaSiteKey ) ) {
 				$recaptchaSiteKey = '';
 			}
@@ -470,9 +470,9 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\Login\\Login' ) ) {
 				$recaptchaType   = ( isset( $_POST['reCaptchaType'] ) ? sanitize_text_field( $_POST['reCaptchaType'] ) : 'v2' );
 				$recaptchaSecret = '';
 				if ( 'v2' === $recaptchaType ) {
-					$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v2', '' );
+					$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v2', '' );
 				} else {
-					$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v3', '' );
+					$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v3', '' );
 				}
 
 				if ( ! is_string( $recaptchaSecret ) ) {

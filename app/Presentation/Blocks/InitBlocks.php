@@ -69,10 +69,10 @@ class InitBlocks implements ServiceInterface {
 		add_action( 'wp_ajax_vxt_ultimate_gutenberg_blocks_forms_recaptcha', [ $this, 'formsRecaptcha' ] );
 
 		// For Vexaltrix Global Block Styles.
-		add_action( 'wp_ajax_uag_global_block_styles', [ $this, 'uagGlobalBlockStyles' ] );
+		add_action( 'wp_ajax_vxt_global_block_styles', [ $this, 'uagGlobalBlockStyles' ] );
 		// For Vexaltrix Global Quick Action Bar.
-		add_action( 'wp_ajax_uag_global_sidebar_enabled', [ $this, 'uagGlobalSidebarEnabled' ] );
-		add_action( 'wp_ajax_uag_global_update_allowed_block', [ $this, 'uagGlobalUpdateAllowedBlock' ] );
+		add_action( 'wp_ajax_vxt_global_sidebar_enabled', [ $this, 'uagGlobalSidebarEnabled' ] );
+		add_action( 'wp_ajax_vxt_global_update_allowed_block', [ $this, 'uagGlobalUpdateAllowedBlock' ] );
 
 		if ( ! is_admin() ) {
 			add_action( 'renderBlock', [ $this, 'renderBlock' ], 5, 2 );
@@ -210,7 +210,7 @@ class InitBlocks implements ServiceInterface {
 		$vexaltrixPopupDashboard = \Vexaltrix\Presentation\BlocksConfig\PopupBuilder\PopupBuilder::createForAdmin();
 
 		add_action( 'admin_enqueue_scripts', [ $vexaltrixPopupDashboard, 'popupToggleScripts' ] );
-		add_action( 'wp_ajax_uag_update_popup_status', [ $vexaltrixPopupDashboard, 'updatePopupStatus' ] );
+		add_action( 'wp_ajax_vxt_update_popup_status', [ $vexaltrixPopupDashboard, 'updatePopupStatus' ] );
 
 		do_action( 'vexaltrix_pro_popup_dashboard' );
 
@@ -364,7 +364,7 @@ class InitBlocks implements ServiceInterface {
 
 		// Check if animations extension is enabled and an animation type is selected.
 		if (
-			'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_animations_extension', 'enabled' ) &&
+			'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_animations_extension', 'enabled' ) &&
 			! empty( $block['attrs']['UAGAnimationType'] )
 		) {
 
@@ -682,10 +682,10 @@ class InitBlocks implements ServiceInterface {
 			$value = [];
 		}
 
-		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_recaptcha_secret_key_v2', sanitize_text_field( $value['reCaptchaSecretKeyV2'] ) );
-		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_recaptcha_secret_key_v3', sanitize_text_field( $value['reCaptchaSecretKeyV3'] ) );
-		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_recaptcha_site_key_v2', sanitize_text_field( $value['reCaptchaSiteKeyV2'] ) );
-		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_recaptcha_site_key_v3', sanitize_text_field( $value['reCaptchaSiteKeyV3'] ) );
+		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_recaptcha_secret_key_v2', sanitize_text_field( $value['reCaptchaSecretKeyV2'] ) );
+		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_recaptcha_secret_key_v3', sanitize_text_field( $value['reCaptchaSecretKeyV3'] ) );
+		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_recaptcha_site_key_v2', sanitize_text_field( $value['reCaptchaSiteKeyV2'] ) );
+		\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_recaptcha_site_key_v3', sanitize_text_field( $value['reCaptchaSiteKeyV3'] ) );
 
 		$responseData = [
 			'messsage' => __( 'Successfully saved data!', 'vexaltrix' ),
@@ -1152,10 +1152,10 @@ class InitBlocks implements ServiceInterface {
 				'deactivated_blocks' => $blocks,
 			]
 		);
-		$displayCondition            = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_block_condition', 'enabled' );
-		$displayResponsiveCondition = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_block_responsive', 'enabled' );
+		$displayCondition            = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_block_condition', 'enabled' );
+		$displayResponsiveCondition = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_block_responsive', 'enabled' );
 
-		$enableSelectedFonts = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_select_font_globally', 'disabled' );
+		$enableSelectedFonts = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_select_font_globally', 'disabled' );
 		$selectedFonts        = [];
 
 		if ( 'enabled' === $enableSelectedFonts ) {
@@ -1165,7 +1165,7 @@ class InitBlocks implements ServiceInterface {
 			 *
 			 * @var array
 			 */
-			$selectedFonts = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_select_font_globally', [] );
+			$selectedFonts = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_select_font_globally', [] );
 
 			if ( ! empty( $selectedFonts ) ) {
 				usort(
@@ -1190,17 +1190,17 @@ class InitBlocks implements ServiceInterface {
 		$contentWidth = \Vexaltrix\Presentation\Admin\AdminSettings::getGlobalContentWidth();
 
 
-		$containerPadding = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_container_global_padding', 'default' );
+		$containerPadding = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_container_global_padding', 'default' );
 
 		if ( 'default' === $containerPadding ) {
-			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_container_global_padding', 10 );
+			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_container_global_padding', 10 );
 			$containerPadding = 10;
 		}
 
-		$containerElementsGap = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_container_global_elements_gap', 20 );
+		$containerElementsGap = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_container_global_elements_gap', 20 );
 		$screen                 = get_current_screen();
 
-		$uagEnableQuickActionSidebar = apply_filters( 'uag_enable_quick_action_sidebar', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_quick_action_sidebar', 'enabled' ) );
+		$uagEnableQuickActionSidebar = apply_filters( 'vxt_enable_quick_action_sidebar', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_quick_action_sidebar', 'enabled' ) );
 
 		// An array of all the required Vexaltrix Admin URLs.
 		$vexaltrixAdminUrls = [
@@ -1209,7 +1209,7 @@ class InitBlocks implements ServiceInterface {
 			],
 		];
 
-		$inheritFromTheme               = 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+		$inheritFromTheme               = 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' );
 		$astraThemeSettingsAvailable   = defined( 'ASTRA_THEME_SETTINGS' );
 		$astraThemeBodyTextDecoration = $astraThemeSettingsAvailable && function_exists( 'astra_get_font_extras' ) && function_exists( 'astra_get_option' ) ? astra_get_font_extras( astra_get_option( 'body-font-extras' ), 'text-decoration' ) : '';
 		$installedPlugins                = get_plugins();
@@ -1250,33 +1250,33 @@ class InitBlocks implements ServiceInterface {
 			'vxt_ultimate_gutenberg_blocks_url'                                => VXT_URL,
 			'vxt_ultimate_gutenberg_blocks_mime_type'                          => \Vexaltrix\Core\Support\Helper::getMimeType(),
 			'vxt_ultimate_gutenberg_blocks_site_url'                           => VXT_URI,
-			'enableConditions'                        => apply_filters_deprecated( 'enableBlockCondition', [ $displayCondition ], '1.23.4', 'uag_enable_block_condition' ),
+			'enableConditions'                        => apply_filters_deprecated( 'enableBlockCondition', [ $displayCondition ], '1.23.4', 'vxt_enable_block_condition' ),
 			'enableConditionsForCoreBlocks'           => apply_filters( 'enable_block_condition_for_core', true ),
 			'enableResponsiveConditionsForCoreBlocks' => apply_filters( 'enable_responsive_condition_for_core', true ),
-			'enableMasonryGallery'                    => apply_filters( 'uag_enable_masonry_gallery', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_masonry_gallery', 'enabled' ) ),
+			'enableMasonryGallery'                    => apply_filters( 'vxt_enable_masonry_gallery', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_masonry_gallery', 'enabled' ) ),
 			'enableQuickActionSidebar'                => $uagEnableQuickActionSidebar,
-			'enableAnimationsExtension'               => apply_filters( 'uag_enable_animations_extension', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_animations_extension', 'enabled' ) ),
-			'enableResponsiveConditions'              => apply_filters( 'enableBlockResponsive', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_block_responsive', 'enabled' ) ),
+			'enableAnimationsExtension'               => apply_filters( 'vxt_enable_animations_extension', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_animations_extension', 'enabled' ) ),
+			'enableResponsiveConditions'              => apply_filters( 'enableBlockResponsive', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_block_responsive', 'enabled' ) ),
 			'number_of_icon_chunks'                   => \Vexaltrix\Core\Support\Helper::$numberOfIconChunks,
 			'vxt_ultimate_gutenberg_blocks_enable_extensions_for_blocks'       => apply_filters( 'vxt_ultimate_gutenberg_blocks_enable_extensions_for_blocks', [] ),
 			'vxt_ultimate_gutenberg_blocks_exclude_blocks_from_extension'      => $vxtUltimateGutenbergBlocksExcludeBlocksFromExtension,
-			'uag_load_select_font_globally'           => $enableSelectedFonts,
-			'uag_select_font_globally'                => $selectedFonts,
+			'vxt_load_select_font_globally'           => $enableSelectedFonts,
+			'vxt_select_font_globally'                => $selectedFonts,
 			'vxt_ultimate_gutenberg_blocks_old_user_less_than_2'               => get_option( 'vxt-old-user-less-than-2' ),
-			'collapsePanels'                         => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_collapse_panels', 'enabled' ),
-			'enableLegacyBlocks'                    => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' ),
-			'copyPaste'                              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_copy_paste', 'enabled' ),
-			'enableOnPageCssButton'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_on_page_css_button', 'yes' ),
+			'collapsePanels'                         => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_collapse_panels', 'enabled' ),
+			'enableLegacyBlocks'                    => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_legacy_blocks' ),
+			'copyPaste'                              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_copy_paste', 'enabled' ),
+			'enableOnPageCssButton'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_on_page_css_button', 'yes' ),
 			'contentWidth'                           => $contentWidth,
 			'containerGlobalPadding'                => $containerPadding,
 			'container_elements_gap'                  => $containerElementsGap,
-			'recaptchaSiteKeyV2'                   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v2', '' ),
-			'recaptchaSiteKeyV3'                   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v3', '' ),
+			'recaptchaSiteKeyV2'                   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v2', '' ),
+			'recaptchaSiteKeyV3'                   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v3', '' ),
 			'recaptchaSecretKeyV2'                 => '', // Secret keys removed from client-side — used server-side only.
 			'recaptchaSecretKeyV3'                 => '', // Secret keys removed from client-side — used server-side only.
-			'blocksEditorSpacing'                   => apply_filters( 'vxt_ultimate_gutenberg_blocks_default_blocks_editor_spacing', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_blocks_editor_spacing', 0 ) ),
-			'loadFontAwesome5'                     => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_font_awesome_5' ),
-			'autoBlockRecovery'                     => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_auto_block_recovery' ),
+			'blocksEditorSpacing'                   => apply_filters( 'vxt_ultimate_gutenberg_blocks_default_blocks_editor_spacing', \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_blocks_editor_spacing', 0 ) ),
+			'loadFontAwesome5'                     => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_font_awesome_5' ),
+			'autoBlockRecovery'                     => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_auto_block_recovery' ),
 			'font_awesome_5_polyfill'                 => [],
 			'vexaltrix_custom_fonts'                    => apply_filters( 'vexaltrix_system_fonts', [] ),
 			'vexaltrix_pro_status'                      => $status,
@@ -1286,19 +1286,19 @@ class InitBlocks implements ServiceInterface {
 				'vexaltrix'
 			),
 			'is_rtl'                                  => is_rtl(),
-			'instaLinkedAccounts'                   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_insta_linked_accounts', [] ),
-			'instaAllUsersMedia'                   => apply_filters( 'uag_instagram_transients', [] ),
+			'instaLinkedAccounts'                   => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_insta_linked_accounts', [] ),
+			'instaAllUsersMedia'                   => apply_filters( 'vxt_instagram_transients', [] ),
 			'is_site_editor'                          => $screen->id,
 			'current_post_id'                         => get_the_ID(),
-			'btnInheritFromTheme'                  => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ),
+			'btnInheritFromTheme'                  => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' ),
 			'btn_inherit_from_theme_fallback'         => $inheritFromTheme,
 			'wp_version'                              => get_bloginfo( 'version' ),
 			'isBlockTheme'                          => \Vexaltrix\Presentation\Admin\AdminSettings::isBlockTheme(),
 			'is_customize_preview'                    => is_customize_preview(),
-			'uag_enable_gbs_extension'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' ),
+			'vxt_enable_gbs_extension'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' ),
 			'current_theme'                           => wp_get_theme()->get( 'Name' ),
 			'is_gutenberg_activated'                  => is_plugin_active( 'gutenberg/gutenberg.php' ), // TODO: Once Gutenberg merged the rename functionality code in WP then we need to remove localization part for is_gutenberg_activated.
-			'header_titlebar_status'                  => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_header_titlebar', 'enabled' ),
+			'header_titlebar_status'                  => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_header_titlebar', 'enabled' ),
 			'is_astra_based_theme'                    => $astraThemeSettingsAvailable,
 			'astra_body_text_decoration'              => $astraThemeBodyTextDecoration,
 			// creating an array of iframe names to ignore and checking against that array.
@@ -1463,7 +1463,7 @@ class InitBlocks implements ServiceInterface {
 		}
 
 		// Check if GBS is enabled.
-		$gbsStatus = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' );
+		$gbsStatus = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' );
 
 		$styleName       = $block['attrs']['globalBlockStyleId'];
 		$styleClassName = 'vexaltrix-gbs-' . $styleName;
@@ -1501,7 +1501,7 @@ class InitBlocks implements ServiceInterface {
 
 		if ( ! empty( $_POST['enableQuickActionSidebar'] ) ) {
 			$vexaltrixEnableQuickActionSidebar = ( 'enabled' === $_POST['enableQuickActionSidebar'] ? 'enabled' : 'disabled' );
-			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_enable_quick_action_sidebar', $vexaltrixEnableQuickActionSidebar );
+			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_enable_quick_action_sidebar', $vexaltrixEnableQuickActionSidebar );
 			wp_send_json_success();
 		}
 		wp_send_json_error();
@@ -1538,7 +1538,7 @@ class InitBlocks implements ServiceInterface {
 	 */
 	public function uagGlobalBlockStyles() {
 		// Check if gbs enabled or not.
-		if ( 'enabled' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' ) ) {
+		if ( 'enabled' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' ) ) {
 			wp_send_json_error();
 		}
 

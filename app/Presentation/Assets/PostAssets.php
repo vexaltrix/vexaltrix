@@ -245,8 +245,8 @@ class PostAssets {
 			$this->isAllowedAssetsGeneration = $this->allowAssetsGeneration();
 		}
 		// Set other options.
-		$this->loadGfontsLocally = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_loadGfontsLocally', 'disabled' );
-		$this->preloadLocalFonts = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_preloadLocalFonts', 'disabled' );
+		$this->loadGfontsLocally = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_loadGfontsLocally', 'disabled' );
+		$this->preloadLocalFonts = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_preloadLocalFonts', 'disabled' );
 
 		if ( $this->isAllowedAssetsGeneration ) {
 			global $post;
@@ -537,7 +537,7 @@ class PostAssets {
 	 */
 	public function vexaltrixGbsLoadStyles() {
 		// Check if GBS is enabled.
-		$gbsStatus                  = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' );
+		$gbsStatus                  = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' );
 		$vexaltrixGlobalBlockStyles = get_option( 'vexaltrix_global_block_styles', [] );
 		if ( empty( $vexaltrixGlobalBlockStyles ) || ! is_array( $vexaltrixGlobalBlockStyles ) ) {
 			return;
@@ -646,23 +646,23 @@ class PostAssets {
 	 */
 	public function allowAssetsGeneration() {
 
-		$pageAssets     = get_post_meta( $this->postId, '_uag_page_assets', true );
+		$pageAssets     = get_post_meta( $this->postId, '_vxt_page_assets', true );
 		$versionUpdated = false;
 		$cssAssetInfo  = [];
 		$jsAssetInfo   = [];
 
-		if ( empty( $pageAssets ) || empty( $pageAssets['uag_version'] ) ) {
+		if ( empty( $pageAssets ) || empty( $pageAssets['vxt_version'] ) ) {
 			return true;
 		}
 
-		if ( VXT_ASSET_VER !== $pageAssets['uag_version'] ) {
+		if ( VXT_ASSET_VER !== $pageAssets['vxt_version'] ) {
 			$versionUpdated = true;
 		}
 
 		if ( 'enabled' === $this->fileGeneration ) {
 
-			$cssFileName = get_post_meta( $this->postId, '_uag_css_file_name', true );
-			$jsFileName  = get_post_meta( $this->postId, '_uag_js_file_name', true );
+			$cssFileName = get_post_meta( $this->postId, '_vxt_css_file_name', true );
+			$jsFileName  = get_post_meta( $this->postId, '_vxt_js_file_name', true );
 
 			if ( ! empty( $cssFileName ) ) {
 				$cssAssetInfo = \Vexaltrix\Core\Support\ScriptsUtils::getAssetInfo( 'css', $this->postId );
@@ -677,14 +677,14 @@ class PostAssets {
 			/**
 			 * CRITICAL FIX: Don't delete files OR meta on version mismatch.
 			 *
-			 * The _uag_page_assets meta is already deleted (line 705).
+			 * The _vxt_page_assets meta is already deleted (line 705).
 			 * This triggers regeneration without orphaning files.
 			 * file_write() will overwrite existing files safely.
 			 * If regeneration fails, old files remain accessible → No 404 error.
 			 */
 
 			// Don't delete file name meta - keeps file referenced in DB
-			// Regeneration triggered by _uag_page_assets deletion (line 705).
+			// Regeneration triggered by _vxt_page_assets deletion (line 705).
 
 			if ( empty( $cssFilePath ) || ! file_exists( $cssFilePath ) ) {
 				return true;
@@ -701,18 +701,18 @@ class PostAssets {
 			$uniqueIds = get_option( '_vxt_ultimate_gutenberg_blocks_fse_uniqids' );
 			if ( ! empty( $uniqueIds ) && is_array( $uniqueIds ) ) {
 				foreach ( $uniqueIds as $id ) {
-					delete_post_meta( (int) $id, '_uag_page_assets' );
+					delete_post_meta( (int) $id, '_vxt_page_assets' );
 				}
 			}
-			delete_post_meta( $this->postId, '_uag_page_assets' );
+			delete_post_meta( $this->postId, '_vxt_page_assets' );
 			return true;
 		}
 
 		// Set required varibled from stored data.
 		$this->currentBlockList  = $pageAssets['currentBlockList'];
 		$this->uagFlag            = $pageAssets['uagFlag'];
-		$this->stylesheet          = apply_filters( 'uag_page_assets_css', $pageAssets['css'] );
-		$this->script              = apply_filters( 'uag_page_assets_js', $pageAssets['js'] );
+		$this->stylesheet          = apply_filters( 'vxt_page_assets_css', $pageAssets['css'] );
+		$this->script              = apply_filters( 'vxt_page_assets_js', $pageAssets['js'] );
 		$this->gfonts              = $pageAssets['gfonts'];
 		$this->gfontsFiles        = $pageAssets['gfontsFiles'];
 		$this->gfontsUrl          = $pageAssets['gfontsUrl'];
@@ -823,14 +823,14 @@ class PostAssets {
 			'js'                 => $this->script,
 			'currentBlockList' => $this->currentBlockList,
 			'uagFlag'           => $this->uagFlag,
-			'uag_version'        => VXT_ASSET_VER,
+			'vxt_version'        => VXT_ASSET_VER,
 			'gfonts'             => $this->gfonts,
 			'gfontsUrl'         => $this->gfontsUrl,
 			'gfontsFiles'       => $this->gfontsFiles,
 			'uagFaqLayout'     => $this->uagFaqLayout,
 		];
 
-		update_post_meta( $this->postId, '_uag_page_assets', $metaArray );
+		update_post_meta( $this->postId, '_vxt_page_assets', $metaArray );
 	}
 	/**
 	 * This is the action where we create dynamic asset files.
@@ -904,8 +904,8 @@ class PostAssets {
 			[
 				'ajax_url'              => admin_url( 'admin-ajax.php' ),
 				'vxt_ultimate_gutenberg_blocks_forms_ajax_nonce' => $vxtUltimateGutenbergBlocksFormsAjaxNonce,
-				'recaptchaSiteKeyV2' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v2', '' ),
-				'recaptchaSiteKeyV3' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v3', '' ),
+				'recaptchaSiteKeyV2' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v2', '' ),
+				'recaptchaSiteKeyV3' => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v3', '' ),
 			]
 		);
 
@@ -1040,7 +1040,7 @@ class PostAssets {
 			}
 		}
 
-		$subsets = apply_filters( 'uag_font_subset', [] );
+		$subsets = apply_filters( 'vxt_font_subset', [] );
 
 		if ( ! empty( $subsets ) ) {
 			$extraAttr .= '&subset=' . implode( ',', $subsets );
@@ -1048,7 +1048,7 @@ class PostAssets {
 			$extraAttr .= '&subset=latin';
 		}
 
-		$display = apply_filters( 'uag_font_disaply', 'fallback' );
+		$display = apply_filters( 'vxt_font_disaply', 'fallback' );
 
 		if ( ! empty( $display ) ) {
 			$extraAttr .= '&display=' . $display;
@@ -1196,7 +1196,7 @@ class PostAssets {
 		// If UAGAnimationType is set and is not equal to none, explicitly load the extension (and it's assets) on frontend.
 		// Also check if animations extension is enabled.
 		if (
-			'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_animations_extension', 'enabled' ) &&
+			'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_animations_extension', 'enabled' ) &&
 			! empty( $block['attrs']['UAGAnimationType'] )
 		) {
 			$this->currentBlockList[] = 'vexaltrix/animations-extension';
@@ -1432,10 +1432,10 @@ class PostAssets {
 
 		$this->pageBlocks = $blocks;
 
-		$enableOnPageCssButton = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_on_page_css_button', 'yes' );
+		$enableOnPageCssButton = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_on_page_css_button', 'yes' );
 
 		if ( 'yes' === $enableOnPageCssButton ) {
-			$customCss = get_post_meta( $this->postId, '_uag_custom_page_level_css', true );
+			$customCss = get_post_meta( $this->postId, '_vxt_custom_page_level_css', true );
 
 			$customCss = ! empty( $customCss ) && is_string( $customCss ) ? $customCss : '';
 
@@ -1668,7 +1668,7 @@ class PostAssets {
 
 			if ( $result && ! $this->isPostRevision ) {
 				// Update meta with current timestamp.
-				update_post_meta( $this->postId, '_uag_' . $type . '_file_name', $fileName );
+				update_post_meta( $this->postId, '_vxt_' . $type . '_file_name', $fileName );
 			}
 		}
 
@@ -1692,7 +1692,7 @@ class PostAssets {
 		$fileSystem = vxt_ultimate_gutenberg_blocks_filesystem();
 
 		// Get timestamp - Already saved OR new one.
-		$fileName   = get_post_meta( $this->postId, '_uag_' . $type . '_file_name', true );
+		$fileName   = get_post_meta( $this->postId, '_vxt_' . $type . '_file_name', true );
 		$fileName   = empty( $fileName ) ? '' : $fileName;
 		$assetsInfo = \Vexaltrix\Core\Support\ScriptsUtils::getAssetInfo( $type, $this->postId );
 		$filePath   = $assetsInfo[ $type ];

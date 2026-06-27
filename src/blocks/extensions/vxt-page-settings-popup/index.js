@@ -26,7 +26,7 @@ const VexaltrixPageSettingsPopup = ( props ) => {
 	if ( 'function' !== typeof PluginSidebarMoreMenuItem || 'function' !== typeof PluginSidebar ) {
 		return null;
 	}
-	const customCSS = selectData( 'core/editor' ).getEditedPostAttribute( 'meta' )?._uag_custom_page_level_css;
+	const customCSS = selectData( 'core/editor' ).getEditedPostAttribute( 'meta' )?._vxt_custom_page_level_css;
 	applyScopedCSS( customCSS );
 
 	const pluginSidebarBefore = applyFilters( `vexaltrix.page-sidebar.before`, '', props );

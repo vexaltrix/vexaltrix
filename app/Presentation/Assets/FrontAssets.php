@@ -207,10 +207,10 @@ class FrontAssets implements ServiceInterface {
 		/**
 		 * Case: If previous asset version is same then we need to update the assets, resultant will reduce cache conflicts.
 		 */
-		$pageAssets = (array) get_post_meta( $postId, '_uag_page_assets', true );
-		if ( isset( $pageAssets['uag_version'] ) && VXT_ASSET_VER === $pageAssets['uag_version'] ) {
-			$pageAssets['uag_version'] = '';
-			update_post_meta( $postId, '_uag_page_assets', $pageAssets );
+		$pageAssets = (array) get_post_meta( $postId, '_vxt_page_assets', true );
+		if ( isset( $pageAssets['vxt_version'] ) && VXT_ASSET_VER === $pageAssets['vxt_version'] ) {
+			$pageAssets['vxt_version'] = '';
+			update_post_meta( $postId, '_vxt_page_assets', $pageAssets );
 		}
 	}
 

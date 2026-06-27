@@ -273,7 +273,7 @@ class Register {
 		if ( $recaptchaEnable ) {
 			$recaptchaType = ( isset( $attributes['reCaptchaType'] ) ? $attributes['reCaptchaType'] : 'v2' );
 			if ( 'v2' === $recaptchaType ) {
-				$uagRecaptchaSiteKeyV2 = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v2', '' );
+				$uagRecaptchaSiteKeyV2 = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v2', '' );
 
 				if ( ! is_string( $uagRecaptchaSiteKeyV2 ) ) {
 					$uagRecaptchaSiteKeyV2 = '';
@@ -375,9 +375,9 @@ class Register {
 			$recaptchaType   = isset( $this->saved_attributes[ $this->blockName ]['reCaptchaType'] ) ? $this->saved_attributes[ $this->blockName ]['reCaptchaType'] : $defaultAttributes['reCaptchaType']['default'];
 			$recaptchaSecret = '';
 			if ( 'v2' === $recaptchaType ) {
-				$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v2', '' );
+				$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v2', '' );
 			} else {
-				$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v3', '' );
+				$recaptchaSecret = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v3', '' );
 			}
 
 			if ( ! is_string( $recaptchaSecret ) ) {

@@ -376,7 +376,7 @@ function ApplyExtraClass( extraProps, blockType, attributes ) {
 	} = attributes;
 
 	//Filter to add responsive condition compatibility for third party blocks.
-	const blockTypes = applyFilters( 'uag_reponsive_conditions_compatible_blocks', [ 'vexaltrix/' ] );
+	const blockTypes = applyFilters( 'vxt_reponsive_conditions_compatible_blocks', [ 'vexaltrix/' ] );
 
 	let isResponsiveCompatibleBlock = false;
 	for ( const type of blockTypes ) {
@@ -456,7 +456,7 @@ const withAOSWrapperProps = createHigherOrderComponent( ( BlockListBlock ) => {
 }, 'withAOSWrapperProps' );
 
 //For UAG Blocks.
-addFilter( 'uag_advance_tab_content', 'vexaltrix/advanced-display-condition', function ( content, props ) {
+addFilter( 'vxt_advance_tab_content', 'vexaltrix/advanced-display-condition', function ( content, props ) {
 	if ( ! props ) {
 		return content;
 	}

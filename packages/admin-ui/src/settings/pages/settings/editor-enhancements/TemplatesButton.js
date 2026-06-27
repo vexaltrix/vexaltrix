@@ -21,7 +21,7 @@ const TemplatesButton = () => {
 
 		dispatch( { type: 'UPDATE_TEMPLATES_BUTTON', payload: assetStatus } );
 
-		const action = 'uag_enable_templates_button',
+		const action = 'vxt_enable_templates_button',
 			nonce = vexaltrixAdmin.enable_templates_button_nonce;
 
 		// Create an object with the security and value properties

@@ -24,7 +24,7 @@ const ContainerGlobalElementsGap = () => {
 		// Call the getApiData function with the specified parameters
         const getApiFetchData = getApiData( {
             url: vexaltrixAdmin.ajax_url,
-            action: 'uag_container_global_elements_gap',
+            action: 'vxt_container_global_elements_gap',
             data,
         } );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved

@@ -369,7 +369,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\Post\\Post' ) ) {
 				]
 			);
 
-			$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
+			$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_legacy_blocks' );
 
 			if ( 'yes' === $enableLegacyBlocks ) {
 				register_block_type(
@@ -506,7 +506,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\BlocksConfig\\Post\\Post' ) ) {
 
 			}
 
-			$inheritFromTheme = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
+			$inheritFromTheme = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' ) );
 
 			return array_merge(
 				$btnBorderAttribute,

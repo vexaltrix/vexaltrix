@@ -265,9 +265,9 @@ if ( ! class_exists( 'Vexaltrix\Transport\Api\\RestApi' ) ) {
 		 */
 		public function getQuickActionBarInitialStates() {
 			// Get value from DB for Quick Action Bar.
-			$dbValue                            = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_quick_action_sidebar' );
+			$dbValue                            = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_quick_action_sidebar' );
 			$showEnable                         = ( empty( $dbValue ) ) ? 'enabled' : $dbValue;
-			$vexaltrixEnableQuickActionSidebar = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_quick_action_sidebar', $showEnable );
+			$vexaltrixEnableQuickActionSidebar = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_quick_action_sidebar', $showEnable );
 
 			$vexaltrixDefaultAllowedQuickSidebarBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get(
 				'vxt_ultimate_gutenberg_blocks_quick_sidebar_allowed_blocks',
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Vexaltrix\Transport\Api\\RestApi' ) ) {
 			}
 			
 			$initialState = [
-				'uag_enable_quick_action_sidebar'   => $vexaltrixEnableQuickActionSidebar,
+				'vxt_enable_quick_action_sidebar'   => $vexaltrixEnableQuickActionSidebar,
 				'vxt_ultimate_gutenberg_blocks_quick_sidebar_allowed_blocks' => $vexaltrixDefaultAllowedQuickSidebarBlocks,
 			];
 
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Vexaltrix\Transport\Api\\RestApi' ) ) {
 		 */
 		public function getGbsInitialStates() {
 			// check if GBS is enabled or not.
-			if ( 'enabled' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' ) ) {
+			if ( 'enabled' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' ) ) {
 				return [];
 			}
 
@@ -428,7 +428,7 @@ if ( ! class_exists( 'Vexaltrix\Transport\Api\\RestApi' ) ) {
 		public function getItemsPermissionsCheck( $request ) {
 
 			if ( ! current_user_can( 'edit_posts' ) ) {
-				return new \WP_Error( 'uag_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'vexaltrix' ), [ 'status' => rest_authorization_required_code() ] );
+				return new \WP_Error( 'vxt_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'vexaltrix' ), [ 'status' => rest_authorization_required_code() ] );
 			}
 
 			return true;

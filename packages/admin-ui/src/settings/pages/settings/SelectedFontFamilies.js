@@ -56,7 +56,7 @@ const SelectedFontFamilies = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_load_select_font_globally',
+			action: 'vxt_load_select_font_globally',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved
@@ -69,7 +69,7 @@ const SelectedFontFamilies = () => {
 		if ( enableSelectedFontFamilies === 'enabled' ) {
 			dispatch( { type: 'UPDATE_SELECTED_FONT_FAMILIES', payload: font } );
 
-			const action = 'uag_select_font_globally',
+			const action = 'vxt_select_font_globally',
 				nonce = vexaltrixAdmin.select_font_globally_nonce;
 
 			// Create an object with the security and value properties

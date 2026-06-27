@@ -7,7 +7,7 @@ import RangeTypographyControl from './range-typography';
 import googleFonts from '@Controls/fonts';
 import Select from 'react-select';
 
-const { uag_select_font_globally, uag_load_select_font_globally } = vxt_ultimate_gutenberg_blocks_blocks_info;
+const { vxt_select_font_globally, vxt_load_select_font_globally } = vxt_ultimate_gutenberg_blocks_blocks_info;
 
 function FontFamilyControl( props ) {
 	const fonts = [
@@ -99,8 +99,8 @@ function FontFamilyControl( props ) {
 	};
 
 	const gFonts =
-		uag_load_select_font_globally === 'enabled' && uag_select_font_globally !== 0
-			? uag_select_font_globally
+		vxt_load_select_font_globally === 'enabled' && vxt_select_font_globally !== 0
+			? vxt_select_font_globally
 			: fonts;
 
 	const customSelectStyles = {

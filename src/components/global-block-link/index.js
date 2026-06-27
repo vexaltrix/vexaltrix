@@ -97,7 +97,7 @@ const GlobalBlockStyles = ( props ) => {
 		} );
 		const formData = new window.FormData();
 
-		formData.append( 'action', 'uag_global_block_styles' );
+		formData.append( 'action', 'vxt_global_block_styles' );
 		formData.append(
 			'security',
 			vxt_ultimate_gutenberg_blocks_blocks_info.vxt_ultimate_gutenberg_blocks_ajax_nonce

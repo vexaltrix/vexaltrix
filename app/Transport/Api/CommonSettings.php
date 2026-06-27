@@ -192,7 +192,7 @@ class CommonSettings extends ApiController {
 	public function getItemsPermissionsCheck( $request ) {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			return new \WP_Error( 'uag_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'vexaltrix' ), [ 'status' => rest_authorization_required_code() ] );
+			return new \WP_Error( 'vxt_rest_cannot_view', __( 'Sorry, you cannot list resources.', 'vexaltrix' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 
 		return true;

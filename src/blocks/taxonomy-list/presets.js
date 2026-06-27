@@ -80,4 +80,4 @@ const boxShadowPresets = [
 	},
 ];
 
-export default applyFilters( `uag_taxonomy_presets`, boxShadowPresets );
+export default applyFilters( `vxt_taxonomy_presets`, boxShadowPresets );

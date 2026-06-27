@@ -23,7 +23,7 @@ const HeaderTitlebar = () => {
 
 			const getApiDataFetch = getApiData( {
 				url: vexaltrixAdmin.ajax_url,
-				action: 'uag_enable_header_titlebar',
+				action: 'vxt_enable_header_titlebar',
 				data,
 			} );
 

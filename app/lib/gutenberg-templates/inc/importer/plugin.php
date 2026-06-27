@@ -1186,8 +1186,8 @@ class Plugin {
 	
 			if ( 'enabled' === $file_generation ) {
 	
-				if ( is_callable( array( 'VXT_Helper', 'delete_uag_asset_dir' ) ) ) {
-					\VXT_Helper::delete_uag_asset_dir();
+				if ( is_callable( array( 'VXT_Helper', 'delete_vxt_asset_dir' ) ) ) {
+					\VXT_Helper::delete_vxt_asset_dir();
 				}
 			}
 		}

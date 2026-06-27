@@ -35,7 +35,7 @@ registerBlockType( 'vexaltrix/advanced-heading', {
 			return atts.metadata.name;
 		}
 
-		const loopData = applyFilters( 'uag_loop_data_source_label', '', atts );
+		const loopData = applyFilters( 'vxt_loop_data_source_label', '', atts );
 
 		if ( loopData ) {
 			return loopData;

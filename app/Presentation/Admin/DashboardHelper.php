@@ -54,33 +54,33 @@ class DashboardHelper {
 			$zipAiModules = Zip_Ai_Module::get_all_modules();
 		}
 
-		$inheritFromTheme = false !== get_option( 'uag_btn_inherit_from_theme_fallback' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+		$inheritFromTheme = false !== get_option( 'vxt_btn_inherit_from_theme_fallback' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' );
 
 		$options = [
 			'rollback_to_previous_version'       => isset( $uagVersions[0]['value'] ) ? $uagVersions[0]['value'] : '',
 			'enableBetaUpdates'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_ultimate_gutenberg_blocks_beta', 'no' ),
 			'enableFileGeneration'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( '_vxt_ultimate_gutenberg_blocks_allow_file_generation', 'enabled' ),
 			'blocksActivationAndDeactivation' => self::getBlocks(),
-			'enableTemplatesButton'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_templates_button', 'yes' ),
-			'enableOnPageCssButton'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_on_page_css_button', 'yes' ),
-			'enableBlockCondition'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_block_condition', 'disabled' ),
-			'enableMasonryGallery'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_masonry_gallery', 'enabled' ),
-			'enableQuickActionSidebar'        => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_quick_action_sidebar', 'enabled' ),
-			'enableBlockResponsive'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_block_responsive', 'enabled' ),
-			'enableDynamicContent'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_dynamic_content', 'enabled' ),
-			'enableAnimationsExtension'        => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_animations_extension', 'enabled' ),
-			'enableGbsExtension'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' ),
-			'selectFontGlobally'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_select_font_globally', [] ),
-			'loadSelectFontGlobally'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_select_font_globally', 'disabled' ),
-			'loadFseFontGlobally'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_fse_font_globally', 'disabled' ),
-			'loadGfontsLocally'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_load_gfonts_locally', 'disabled' ),
-			'collapsePanels'                    => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_collapse_panels', 'enabled' ),
-			'copyPaste'                         => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_copy_paste', 'enabled' ),
-			'preloadLocalFonts'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_preload_local_fonts', 'disabled' ),
-			'btnInheritFromTheme'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ),
+			'enableTemplatesButton'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_templates_button', 'yes' ),
+			'enableOnPageCssButton'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_on_page_css_button', 'yes' ),
+			'enableBlockCondition'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_block_condition', 'disabled' ),
+			'enableMasonryGallery'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_masonry_gallery', 'enabled' ),
+			'enableQuickActionSidebar'        => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_quick_action_sidebar', 'enabled' ),
+			'enableBlockResponsive'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_block_responsive', 'enabled' ),
+			'enableDynamicContent'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_dynamic_content', 'enabled' ),
+			'enableAnimationsExtension'        => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_animations_extension', 'enabled' ),
+			'enableGbsExtension'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' ),
+			'selectFontGlobally'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_select_font_globally', [] ),
+			'loadSelectFontGlobally'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_select_font_globally', 'disabled' ),
+			'loadFseFontGlobally'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_fse_font_globally', 'disabled' ),
+			'loadGfontsLocally'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_load_gfonts_locally', 'disabled' ),
+			'collapsePanels'                    => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_collapse_panels', 'enabled' ),
+			'copyPaste'                         => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_copy_paste', 'enabled' ),
+			'preloadLocalFonts'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_preload_local_fonts', 'disabled' ),
+			'btnInheritFromTheme'             => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme', 'disabled' ),
 			'btn_inherit_from_theme_fallback'    => $inheritFromTheme,
 			'social'                             => \Vexaltrix\Presentation\Admin\AdminSettings::get(
-				'uag_social',
+				'vxt_social',
 				[
 					'socialRegister'    => false,
 					'googleClientId'    => '',
@@ -88,17 +88,17 @@ class DashboardHelper {
 					'facebookAppSecret' => '',
 				]
 			),
-			'dynamicContentMode'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_dynamic_content_mode', 'popup' ),
-			'preloadLocalFonts'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_preload_local_fonts', 'disabled' ),
-			'visibilityMode'                    => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_mode', 'disabled' ),
+			'dynamicContentMode'               => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_dynamic_content_mode', 'popup' ),
+			'preloadLocalFonts'                => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_preload_local_fonts', 'disabled' ),
+			'visibilityMode'                    => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_mode', 'disabled' ),
 			'visibilityPage'                    => self::getVisibilityPage(),
-			'uag_previous_versions'              => $uagVersions,
+			'vxt_previous_versions'              => $uagVersions,
 			'vxt_ultimate_gutenberg_blocks_old_user_less_than_2'          => get_option( 'vxt-old-user-less-than-2' ),
-			'recaptchaSiteKeyV2'              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v2', '' ),
-			'recaptchaSecretKeyV2'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v2', '' ),
-			'recaptchaSiteKeyV3'              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_site_key_v3', '' ),
-			'recaptchaSecretKeyV3'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_recaptcha_secret_key_v3', '' ),
-			'instaLinkedAccounts'              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_insta_linked_accounts', [] ),
+			'recaptchaSiteKeyV2'              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v2', '' ),
+			'recaptchaSecretKeyV2'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v2', '' ),
+			'recaptchaSiteKeyV3'              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_site_key_v3', '' ),
+			'recaptchaSecretKeyV3'            => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_recaptcha_secret_key_v3', '' ),
+			'instaLinkedAccounts'              => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_insta_linked_accounts', [] ),
 			'vexaltrix_global_fse_fonts'           => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vexaltrix_global_fse_fonts', [] ),
 			'theme_fonts'                        => $themeFontFamilies,
 			'zip_ai_modules'                     => $zipAiModules,
@@ -115,7 +115,7 @@ class DashboardHelper {
 	 * @return boolean|array
 	 */
 	public static function getVisibilityPage() {
-		$pageId = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_visibility_page', '' );
+		$pageId = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_visibility_page', '' );
 
 		if ( $pageId ) {
 			return [
@@ -160,7 +160,7 @@ class DashboardHelper {
 		$generalSettings          = self::getCommonSettings();
 		$shareableCommonSettings = \Vexaltrix\Presentation\Admin\AdminSettings::getAdminSettingsShareableData();
 		$options                   = array_merge( $generalSettings, $shareableCommonSettings );
-		$options                   = apply_filters( 'uag_global_data_options', $options );
+		$options                   = apply_filters( 'vxt_global_data_options', $options );
 
 		$mappedOptions = [];
 		foreach ( $options as $key => $value ) {

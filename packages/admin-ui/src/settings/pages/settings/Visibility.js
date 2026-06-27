@@ -36,7 +36,7 @@ const Visibility = () => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_visibility_mode',
+			action: 'vxt_visibility_mode',
 			data,
 		} );
 
@@ -58,7 +58,7 @@ const Visibility = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_visibility_page',
+			action: 'vxt_visibility_page',
 			data,
 		} );
 
@@ -80,7 +80,7 @@ const Visibility = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_fetch_pages',
+			action: 'vxt_fetch_pages',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved

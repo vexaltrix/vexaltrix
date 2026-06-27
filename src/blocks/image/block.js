@@ -46,7 +46,7 @@ registerBlockType( 'vexaltrix/image', {
 			return atts.metadata.name;
 		}
 
-		return applyFilters( 'uag_loop_data_source_label', __( 'Image', 'vexaltrix' ), atts );
+		return applyFilters( 'vxt_loop_data_source_label', __( 'Image', 'vexaltrix' ), atts );
 	},
 	usesContext: [ 'postId', 'postType' ],
 	deprecated,

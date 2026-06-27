@@ -22,7 +22,7 @@ const ContentWidth = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_content_width',
+			action: 'vxt_content_width',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved
@@ -42,7 +42,7 @@ const ContentWidth = () => {
 				currentSetting={ sprintf(
 					/* translators: abbreviation for units */
 					__( 'The current Content width is applied from %s.', 'vexaltrix' ),
-					vexaltrixAdmin.uag_content_width_set_by
+					vexaltrixAdmin.vxt_content_width_set_by
 				) }
 			>
 				<Input

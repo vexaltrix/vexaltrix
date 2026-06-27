@@ -157,4 +157,4 @@ export const boxShadowHoverPresets = [
 	},
 ];
 
-export default applyFilters( `uag_image_presets`, boxShadowPresets );
+export default applyFilters( `vxt_image_presets`, boxShadowPresets );

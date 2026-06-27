@@ -20,7 +20,7 @@ export function GoogleMapsWrapper( ChildComponent ) {
 		// Converting data to string so that we can match it with filter data format.
 		const dynamicString = `<span data-vexaltrix-dc-field="${ attributes?.dynamicContent?.address?.field }" data-vexaltrix-dc-advanced="${ attributes?.dynamicContent?.address?.advanced }" data-vexaltrix-dc-source="${ postType }|${ attributes?.dynamicContent?.address?.postId }" class="uag-pro-dynamic-content">${ attributes?.address }</span>`;
 
-		const dynamicAddress = applyFilters( 'uag_render_text_loop_data', dynamicString, context );
+		const dynamicAddress = applyFilters( 'vxt_render_text_loop_data', dynamicString, context );
 		props = { ...props, ...{ attributes: { ...attributes, address: dynamicAddress } } };
 		return <ChildComponent { ...props } />;
 	};

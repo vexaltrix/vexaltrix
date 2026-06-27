@@ -104,7 +104,7 @@ const BlockItem = ( { block, is_extension } ) => {
 			// Call the getApiData function with the specified parameters
 			const getApiFetchData = getApiData( {
 				url: vexaltrixAdmin.ajax_url,
-				action: 'uag_blocks_activation_and_deactivation',
+				action: 'vxt_blocks_activation_and_deactivation',
 				data,
 			} );
 

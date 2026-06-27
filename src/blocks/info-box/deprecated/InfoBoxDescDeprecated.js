@@ -20,7 +20,7 @@ const InfoBoxDesc = ( props ) => {
 
 	// Check if this has dynamic content.
 	if ( hasDescriptionDC ) {
-		const renderedMarkup = applyFilters( `uag_render_text_loop_data`, headingDesc, context );
+		const renderedMarkup = applyFilters( `vxt_render_text_loop_data`, headingDesc, context );
 		if ( renderedMarkup !== '' ) {
 			allowedFormats = [ 'vexaltrix/dynamic-content' ];
 			headingDesc = renderedMarkup;

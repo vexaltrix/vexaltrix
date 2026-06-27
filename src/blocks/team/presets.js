@@ -93,4 +93,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_team_presets`, presets );
+export default applyFilters( `vxt_team_presets`, presets );

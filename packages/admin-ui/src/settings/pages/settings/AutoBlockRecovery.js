@@ -29,7 +29,7 @@ const AutoBlockRecovery = () => {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_auto_block_recovery',
+			action: 'vxt_auto_block_recovery',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved

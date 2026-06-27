@@ -25,7 +25,7 @@ export default function DynamicContent() {
 		// Call the getApiData function with the specified parameters
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_dynamic_content_mode',
+			action: 'vxt_dynamic_content_mode',
 			data,
 		} );
 		// Wait for the API call to complete, then update the state to show a notification that the settings have been saved

@@ -94,7 +94,7 @@ const InspectorTabs = ( props ) => {
 	const _onTabChange = ( tab ) => {
 		renderUAGTabsSettingsInOrder();
 		setCurrentTab( tab );
-		doAction( `uag_inspector_change_tab`, tab );
+		doAction( `vxt_inspector_change_tab`, tab );
 		if ( sidebarPanel ) {
 			sidebarPanel.setAttribute( 'data-vxt-tab', tab );
 		}

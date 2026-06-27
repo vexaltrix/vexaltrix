@@ -78,4 +78,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_icon_list_presets`, presets );
+export default applyFilters( `vxt_icon_list_presets`, presets );

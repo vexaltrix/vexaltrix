@@ -137,7 +137,7 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_post_carousel_presets`, presets );
+export default applyFilters( `vxt_post_carousel_presets`, presets );
 
 const buttonsPresets = [
 	{

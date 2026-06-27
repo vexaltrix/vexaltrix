@@ -197,7 +197,7 @@ final class ScriptsUtils {
 
 		$uploadsDir = \Vexaltrix\Core\Support\Helper::getUploadDir();
 		$folderName = self::getAssetFolderName( $postId );
-		$fileName   = get_post_meta( $postId, '_uag_' . $type . '_file_name', true );
+		$fileName   = get_post_meta( $postId, '_vxt_' . $type . '_file_name', true );
 		$path        = $type;
 		$url         = $type . '_url';
 

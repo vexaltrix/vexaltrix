@@ -43,7 +43,7 @@ const DraggableBlock = ( props ) => {
 		// Call the getApiData function with the specified parameters.
 		getApiData( {
 			url: vxt_ultimate_gutenberg_blocks_blocks_info.ajax_url,
-			action: 'uag_global_update_allowed_block',
+			action: 'vxt_global_update_allowed_block',
 			data,
 		} );
 	};

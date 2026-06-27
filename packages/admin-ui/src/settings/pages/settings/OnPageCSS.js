@@ -21,7 +21,7 @@ const OnPageCSS = () => {
 
 		dispatch( { type: 'UPDATE_ON_PAGE_CSS_BUTTON', payload: assetStatus } );
 
-		const action = 'uag_enable_on_page_css_button',
+		const action = 'vxt_enable_on_page_css_button',
 			nonce = vexaltrixAdmin.enable_on_page_css_button_nonce;
 
 		// Create an object with the security and value properties

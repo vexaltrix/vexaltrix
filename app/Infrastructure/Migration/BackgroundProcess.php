@@ -90,7 +90,7 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Migration\\BackgroundProcess' ) )
 		 * @return bool|mixed False if the task is complete, or the post ID for further processing.
 		 */
 		protected function task( $postId ) {
-			if ( get_post_meta( $postId, '_uag_migration_processed', true ) ) {
+			if ( get_post_meta( $postId, '_vxt_migration_processed', true ) ) {
 				vexaltrix_log( 'Skipping already processed post ID: ' . $postId );
 				return false;
 			}
@@ -117,13 +117,13 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Migration\\BackgroundProcess' ) )
 	
 				// If the Post ID is correct ( which means the update was successful ) - Update the Post Meta and add to the log.
 				if ( ! empty( $updatedPostId ) ) {
-					update_post_meta( $post->ID, '_uag_migration_processed', '1' );
+					update_post_meta( $post->ID, '_vxt_migration_processed', '1' );
 					vexaltrix_log( 'Migration processed post ID: ' . $updatedPostId );
 				} else {
 					vexaltrix_log( 'Migration not processed for post ID: ' . $postId );
 				}
 			} else {
-				update_post_meta( $post->ID, '_uag_migration_processed', '1' );
+				update_post_meta( $post->ID, '_vxt_migration_processed', '1' );
 				vexaltrix_log( 'Migration not required for post ID: ' . $postId );
 			}
 
@@ -148,7 +148,7 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Migration\\BackgroundProcess' ) )
                     // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Reason: Necessary for migration process.
 					'meta_query'  => [
 						[
-							'key'     => '_uag_migration_processed',
+							'key'     => '_vxt_migration_processed',
 							'compare' => 'NOT EXISTS',
 						],
 					],
@@ -157,13 +157,13 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Migration\\BackgroundProcess' ) )
 
 			if ( ! $query->have_posts() ) {
 				// Delete the option once the migration progress is complete as it is not required.
-				delete_option( 'uag_migration_progress_status' );
-				update_option( 'uag_migration_complete', 'yes' );
+				delete_option( 'vxt_migration_progress_status' );
+				update_option( 'vxt_migration_complete', 'yes' );
 				delete_option( 'vxt-old-user-less-than-2' );
 				vexaltrix_log( 'End of blocks migration' );
-				set_transient( 'uag_migration_needs_reload', true );
+				set_transient( 'vxt_migration_needs_reload', true );
 			} else {
-				update_option( 'uag_migration_complete', 'no' );
+				update_option( 'vxt_migration_complete', 'no' );
 			}
 			
 		}

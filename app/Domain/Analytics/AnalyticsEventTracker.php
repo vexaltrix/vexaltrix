@@ -75,31 +75,31 @@ if ( ! class_exists( 'Vexaltrix\Domain\Analytics\\AnalyticsEventTracker' ) ) {
 		 * @since 2.19.25
 		 */
 		private static $trackedSettings = [
-			'uag_enable_gbs_extension',
-			'uag_enable_dynamic_content',
-			'uag_enable_block_condition',
-			'uag_enable_block_responsive',
-			'uag_enable_animations_extension',
-			'uag_enable_masonry_gallery',
-			'uag_enable_legacy_blocks',
-			'uag_enable_on_page_css_button',
-			'uag_enable_coming_soon_mode',
-			'uag_enable_templates_button',
-			'uag_enable_quick_action_sidebar',
-			'uag_enable_header_titlebar',
-			'uag_auto_block_recovery',
-			'uag_copy_paste',
-			'uag_dynamic_content_mode',
-			'uag_visibility_mode',
-			'uag_load_fse_font_globally',
-			'uag_load_gfonts_locally',
-			'uag_preload_local_fonts',
-			'uag_btn_inherit_from_theme',
-			'uag_container_global_padding',
-			'uag_container_global_elements_gap',
-			'uag_content_width',
-			'uag_content_width_set_by',
-			'uag_blocks_editor_spacing',
+			'vxt_enable_gbs_extension',
+			'vxt_enable_dynamic_content',
+			'vxt_enable_block_condition',
+			'vxt_enable_block_responsive',
+			'vxt_enable_animations_extension',
+			'vxt_enable_masonry_gallery',
+			'vxt_enable_legacy_blocks',
+			'vxt_enable_on_page_css_button',
+			'vxt_enable_coming_soon_mode',
+			'vxt_enable_templates_button',
+			'vxt_enable_quick_action_sidebar',
+			'vxt_enable_header_titlebar',
+			'vxt_auto_block_recovery',
+			'vxt_copy_paste',
+			'vxt_dynamic_content_mode',
+			'vxt_visibility_mode',
+			'vxt_load_fse_font_globally',
+			'vxt_load_gfonts_locally',
+			'vxt_preload_local_fonts',
+			'vxt_btn_inherit_from_theme',
+			'vxt_container_global_padding',
+			'vxt_container_global_elements_gap',
+			'vxt_content_width',
+			'vxt_content_width_set_by',
+			'vxt_blocks_editor_spacing',
 		];
 
 		/**
@@ -552,7 +552,7 @@ if ( ! class_exists( 'Vexaltrix\Domain\Analytics\\AnalyticsEventTracker' ) ) {
 				return;
 			}
 
-			$gbsEnabled = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_gbs_extension', 'enabled' );
+			$gbsEnabled = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_gbs_extension', 'enabled' );
 
 			if ( 'enabled' !== $gbsEnabled ) {
 				return;

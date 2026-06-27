@@ -35,7 +35,7 @@ const InstagramUnlinkPopup = ( props ) => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_insta_linked_accounts',
+			action: 'vxt_insta_linked_accounts',
 			data,
 		} );
 

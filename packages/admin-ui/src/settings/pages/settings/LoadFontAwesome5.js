@@ -31,7 +31,7 @@ const LoadFontAwesome5 = () => {
         // Call the getApiData function with the specified parameters
         const getApiFetchData = getApiData( {
             url: vexaltrixAdmin.ajax_url,
-            action: 'uag_load_font_awesome_5',
+            action: 'vxt_load_font_awesome_5',
             data,
         } );
         // Wait for the API call to complete, then update the state to show a notification that the settings have been saved

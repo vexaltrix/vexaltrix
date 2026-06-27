@@ -54,7 +54,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 			if ( empty( $wpCustomize ) ) {
 				add_action( 'admin_enqueue_scripts', [ $this, 'reloadOnMigrationComplete' ] );
 			}
-			add_action( 'wp_ajax_uag_migrate', [ $this, 'handleMigrationActionAjax' ] );
+			add_action( 'wp_ajax_vxt_migrate', [ $this, 'handleMigrationActionAjax' ] );
 
 			add_action( 'admin_notices', [ $this, 'registerNotices' ] );
 			add_filter( 'wp_kses_allowed_html', [ $this, 'addDataAttributes' ], 10, 2 );
@@ -63,10 +63,10 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 			add_filter( 'rank_math/researches/toc_plugins', [ $this, 'tocPlugin' ] );
 			add_action( 'admin_init', [ $this, 'activationRedirect' ] );
 			add_action( 'admin_init', [ $this, 'updateOldUserOptionByUrlParams' ] );
-			add_action( 'admin_post_uag_rollback', [ $this, 'postVxtUltimateGutenbergBlocksRollback' ] );
+			add_action( 'admin_post_vxt_rollback', [ $this, 'postVxtUltimateGutenbergBlocksRollback' ] );
 			// Update get access url in Template Kits.
 			add_filter( 'ast_block_templates_pro_url', [ $this, 'updateGutenbergTemplatesProUrl' ] );
-			add_action( 'admin_post_uag_download_log', [ $this, 'handleLogDownload' ] );
+			add_action( 'admin_post_vxt_download_log', [ $this, 'handleLogDownload' ] );
 
 		}
 
@@ -87,10 +87,10 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 			\Vexaltrix\Infrastructure\Migration\MigrateBlocks::getInstance()->blocksMigration();
 
 			// Update the migration status to 'no' before starting.
-			update_option( 'uag_migration_status', 'yes' );
+			update_option( 'vxt_migration_status', 'yes' );
 
 			// Set a new option to know that the migration process has started.
-			update_option( 'uag_migration_progress_status', 'in-progress' );
+			update_option( 'vxt_migration_progress_status', 'in-progress' );
 
 			// Prepare the response.
 			$response = [
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 		 *
 		 * Rollback to previous UAG version.
 		 *
-		 * Fired by `admin_post_uag_rollback` action.
+		 * Fired by `admin_post_vxt_rollback` action.
 		 *
 		 * @since 1.23.0
 		 * @access public
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 				);
 			}
 
-			check_admin_referer( 'uag_rollback' );
+			check_admin_referer( 'vxt_rollback' );
 
 			$rollbackVersions = \Vexaltrix\Presentation\Admin\AdminSettings::getInstance()->getRollbackVersions();
 			$updateVersion    = isset( $_GET['version'] ) ? sanitize_text_field( $_GET['version'] ) : '';
@@ -283,7 +283,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 
 			$imagePath = VXT_URL . 'assets/images/logos/vexaltrix.svg';
 
-			if ( ! get_option( 'uag_migration_status', false ) && 'yes' === get_option( 'vxt-old-user-less-than-2' ) && 'in-progress' !== get_option( 'uag_migration_progress_status', '' ) ) {
+			if ( ! get_option( 'vxt_migration_status', false ) && 'yes' === get_option( 'vxt-old-user-less-than-2' ) && 'in-progress' !== get_option( 'vxt_migration_progress_status', '' ) ) {
 
 				\VexaltrixAdminNotices::add_notice(
 					[
@@ -321,10 +321,10 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 						'display-with-other-notices' => true,
 					]
 				);
-			} elseif ( 'yes' !== get_option( 'uag_migration_complete', 0 ) && 'yes' === get_option( 'vxt-old-user-less-than-2' ) ) {
+			} elseif ( 'yes' !== get_option( 'vxt_migration_complete', 0 ) && 'yes' === get_option( 'vxt-old-user-less-than-2' ) ) {
 				\VexaltrixAdminNotices::add_notice(
 					[
-						'id'                         => 'uag_migration_in_progress',
+						'id'                         => 'vxt_migration_in_progress',
 						'type'                       => 'info',
 						'message'                    => sprintf(
 							// Translators: %1$s: Vexaltrix logo, %2$s: in-progress note.
@@ -348,10 +348,10 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 						'display-with-other-notices' => true,
 					]
 				);
-			} elseif ( 'yes' === get_option( 'uag_migration_complete', 0 ) ) {
+			} elseif ( 'yes' === get_option( 'vxt_migration_complete', 0 ) ) {
 				\VexaltrixAdminNotices::add_notice(
 					[
-						'id'                         => 'uag_migration_success',
+						'id'                         => 'vxt_migration_success',
 						'type'                       => 'success',
 						'message'                    => sprintf(
 							// Translators: %1$s: Vexaltrix logo, %2$s: success message, %3$s: additional note.
@@ -367,7 +367,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 							</div><br />',
 							$imagePath,
 							__( 'Update Successful!', 'vexaltrix' ),
-							__( 'Your Vexaltrix database is now up-to-date. Your website will continue to function as before.', 'vexaltrix' ) . ' <a href="' . esc_url( admin_url( 'admin-post.php?action=uag_download_log' ) ) . '">' . __( 'View Log', 'vexaltrix' ) . '</a>'
+							__( 'Your Vexaltrix database is now up-to-date. Your website will continue to function as before.', 'vexaltrix' ) . ' <a href="' . esc_url( admin_url( 'admin-post.php?action=vxt_download_log' ) ) . '">' . __( 'View Log', 'vexaltrix' ) . '</a>'
 						),
 						'dismissible'                => true,
 						'priority'                   => 20,
@@ -515,7 +515,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\Admin' ) ) {
 								headers: {
 									'Content-Type': 'application/x-www-form-urlencoded',
 								},
-								body: 'action=uag_migrate&security=' + encodeURIComponent('<?php echo esc_html( wp_create_nonce( 'vexaltrix-migration' ) ); ?>'),
+								body: 'action=vxt_migrate&security=' + encodeURIComponent('<?php echo esc_html( wp_create_nonce( 'vexaltrix-migration' ) ); ?>'),
 							})
 							.then(function(response) {
 								return response.json();

@@ -29,7 +29,7 @@ const AnimationsExtension = ( { trigger, searchTerm, status } ) => {
 
 			const getApiDataFetch = getApiData( {
 				url: vexaltrixAdmin.ajax_url,
-				action: 'uag_enable_animations_extension',
+				action: 'vxt_enable_animations_extension',
 				data,
 			} );
 

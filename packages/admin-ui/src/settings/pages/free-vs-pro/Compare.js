@@ -48,7 +48,7 @@ const Compare = () => {
 			// Call the getApiData function with the specified parameters
 			const getApiFetchData = getApiData( {
 				url: vexaltrixAdmin.ajax_url,
-				action: 'uag_pro_activate',
+				action: 'vxt_pro_activate',
 				data,
 			} );
 

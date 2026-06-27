@@ -77,19 +77,19 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Update' ) ) :
 
 			// Enable Legacy Blocks for users older than 2.0.5.
 			if ( version_compare( $savedVersion, '2.0.5', '<' ) ) {
-				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_enable_legacy_blocks', 'yes' );
+				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_enable_legacy_blocks', 'yes' );
 			}
 
 			// If user is older than equal to 2.12.1 then set the option.
 			if ( version_compare( $savedVersion, '2.12.1', '<=' ) ) {
-				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_enable_quick_action_sidebar', 'disabled' );
+				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_enable_quick_action_sidebar', 'disabled' );
 			}
 
 			// Delete any of the unused options that have been unsupported or no longer required.
 
 			// Delete the header titlebar option if it exists- which has been removed from version 2.14.1.
-			if ( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_header_titlebar' ) ) {
-				\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'uag_enable_header_titlebar' );
+			if ( \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_header_titlebar' ) ) {
+				\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'vxt_enable_header_titlebar' );
 			}
 
 			// Create a Core Block Array for all versions in which a Core Vexaltrix Block was added.
@@ -137,10 +137,10 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Update' ) ) :
 				}
 			}
 
-			$inheritFromTheme = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme' );
+			$inheritFromTheme = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_btn_inherit_from_theme' );
 			// If user is older than 2.13.4 and Inherit from theme is enabled update the fallback.
 			if ( version_compare( $savedVersion, '2.13.4', '<' ) && 'enabled' === $inheritFromTheme ) {
-				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_btn_inherit_from_theme_fallback', 'disabled' );
+				\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_btn_inherit_from_theme_fallback', 'disabled' );
 			}
 
 			// If the core block array is not empty, update the enabled blocks option.
@@ -177,20 +177,20 @@ if ( ! class_exists( 'Vexaltrix\Infrastructure\Update' ) ) :
 		 */
 		public static function migrateVisibilityMode() {
 
-			$oldOption      = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_coming_soon_mode' );
-			$oldOptionPage = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_coming_soon_page' );
+			$oldOption      = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_enable_coming_soon_mode' );
+			$oldOptionPage = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_coming_soon_page' );
 
 			if ( ! $oldOption && ! $oldOptionPage ) {
 				return;
 			}
 
 			// Update the option.
-			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_visibility_mode', $oldOption ? $oldOption : 'disabled' );
-			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'uag_visibility_page', $oldOptionPage ? $oldOptionPage : '' );
+			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_visibility_mode', $oldOption ? $oldOption : 'disabled' );
+			\Vexaltrix\Presentation\Admin\AdminSettings::updateAdminSettingsOption( 'vxt_visibility_page', $oldOptionPage ? $oldOptionPage : '' );
 
 			// Delete the old option.
-			\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'uag_enable_coming_soon_mode' );
-			\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'uag_coming_soon_page' );
+			\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'vxt_enable_coming_soon_mode' );
+			\Vexaltrix\Presentation\Admin\AdminSettings::deleteAdminSettingsOption( 'vxt_coming_soon_page' );
 		}
 
 		/**

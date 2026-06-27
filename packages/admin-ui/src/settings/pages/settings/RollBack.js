@@ -5,8 +5,8 @@ import { Container, Label } from '@bsf/force-ui';
 // import ConfirmationPopup from '@Common/components/ConfirmationPopup';
 
 const RollBack = () => {
-	const previousVersions = Array.isArray( vexaltrixAdmin?.global_data?.uag_previous_versions )
-		? vexaltrixAdmin.global_data.uag_previous_versions
+	const previousVersions = Array.isArray( vexaltrixAdmin?.global_data?.vxt_previous_versions )
+		? vexaltrixAdmin.global_data.vxt_previous_versions
 		: [];
 	const hasPreviousVersions = previousVersions.length > 0;
 

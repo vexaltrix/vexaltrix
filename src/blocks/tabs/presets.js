@@ -91,4 +91,4 @@ const presets = [
 	},
 ];
 
-export default applyFilters( `uag_tabs_presets`, presets );
+export default applyFilters( `vxt_tabs_presets`, presets );

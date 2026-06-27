@@ -40,7 +40,7 @@ const FSEDeleteFontConfirmPopup = ( props ) => {
 
 		const getApiFetchData = getApiData( {
 			url: vexaltrixAdmin.ajax_url,
-			action: 'uag_fse_font_globally_delete',
+			action: 'vxt_fse_font_globally_delete',
 			data,
 		} );
 

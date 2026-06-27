@@ -93,7 +93,7 @@ The following block attribute names are intentionally kept with UAG prefix for b
 ### Admin Dashboard
 - URL: `wp-admin/admin.php?page=vexaltrix`
 - REST namespace: `vexaltrix/v1`
-- AJAX prefix: `ugb_` (`uag_` remains registered for backward compatibility)
+- AJAX prefix: `vxt_` (`vxt_` remains registered for backward compatibility)
 - Mount ID: `vxt-dashboard-app`
 - Built assets: `assets/admin-ui/dashboard-app.{js,css,asset.php}`
 

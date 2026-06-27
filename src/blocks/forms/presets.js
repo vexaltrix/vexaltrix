@@ -42,7 +42,7 @@ const formsPresets = [
 	},
 ];
 
-export default applyFilters( `uag_forms_presets`, formsPresets );
+export default applyFilters( `vxt_forms_presets`, formsPresets );
 
 const buttonsPresets = [
 	{
