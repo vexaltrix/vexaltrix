@@ -618,11 +618,19 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 
 			$userIp = static::getUserIp();
 			if ( ! empty( $userIp ) ) {
+				if ( ! filter_var( $userIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) ) {
+					return $defaultCurrencyCode;
+				}
 
 				$token = $tokens[ array_rand( $tokens ) ];
 				$url   = "https://ipinfo.io/{$userIp}?token={$token}";
 
-				$request = wp_remote_get( $url );
+				$request = wp_remote_get(
+					$url,
+					[
+						'timeout' => 2,
+					]
+				);
 				if ( ! is_wp_error( $request ) && wp_remote_retrieve_response_code( $request ) === 200 ) {
 					$response = json_decode( wp_remote_retrieve_body( $request ), true );
 

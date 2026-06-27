@@ -66,7 +66,12 @@ class CommonSettings extends ApiController {
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'getCommonSettings' ],
 					'permission_callback' => [ $this, 'getItemsPermissionsCheck' ],
-					'args'                => [],
+					'args'                => [
+						'include_rollback_versions' => [
+							'type'    => 'boolean',
+							'default' => false,
+						],
+					],
 				],
 				'schema' => [ $this, 'get_public_item_schema' ],
 			]
@@ -81,7 +86,12 @@ class CommonSettings extends ApiController {
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'getCommonSettings' ],
 					'permission_callback' => [ $this, 'getItemsPermissionsCheck' ],
-					'args'                => [],
+					'args'                => [
+						'include_rollback_versions' => [
+							'type'    => 'boolean',
+							'default' => false,
+						],
+					],
 				],
 				'schema' => [ $this, 'get_public_item_schema' ],
 			]
@@ -178,7 +188,8 @@ class CommonSettings extends ApiController {
 	 */
 	public function getCommonSettings( $request ) {
 
-		$options = \Vexaltrix\Presentation\Admin\DashboardHelper::getOptions();
+		$includeRollbackVersions = (bool) $request->get_param( 'include_rollback_versions' );
+		$options                 = \Vexaltrix\Presentation\Admin\DashboardHelper::getOptions( $includeRollbackVersions );
 
 		return $options;
 	}

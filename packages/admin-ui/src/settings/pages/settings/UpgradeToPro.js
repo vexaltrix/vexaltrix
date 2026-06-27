@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 import React, { useState } from 'react';
 import ProModal from '../../../common/components/ProModal';
 
-const UpgradeNotices = ( { title, description, upgradeText, upgradeBold, modalData, dynamicContent = false } ) => {
+const UpgradeNotices = ( { title, description, upgradeText, upgradeBold, modalData, dynamicContent = false, pricingUrl = '', usePricingApi = false } ) => {
 	const dispatch = useDispatch();
 	const [ isModalOpen, setIsModalOpen ] = useState( false );
 
@@ -154,7 +154,7 @@ const UpgradeNotices = ( { title, description, upgradeText, upgradeBold, modalDa
 			</div>
 
 			{ isModalOpen && (
-				<ProModal setIsModalOpen={ setIsModalOpen } activatePro={ activatePro } modalData={ allPlansData } />
+				<ProModal setIsModalOpen={ setIsModalOpen } activatePro={ activatePro } modalData={ allPlansData } pricingUrl={ pricingUrl } usePricingApi={ usePricingApi } />
 			) }
 		</Container>
 	);

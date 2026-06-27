@@ -1,18 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { __, sprintf } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
 import RollBackConfirmPopup from './RollBackConfirmPopup';
 import { Container, Label } from '@bsf/force-ui';
 // import ConfirmationPopup from '@Common/components/ConfirmationPopup';
 
 const RollBack = () => {
-	const previousVersions = Array.isArray( vexaltrixAdmin?.global_data?.vxt_previous_versions )
+	const initialPreviousVersions = Array.isArray( vexaltrixAdmin?.global_data?.vxt_previous_versions )
 		? vexaltrixAdmin.global_data.vxt_previous_versions
 		: [];
+	const [ previousVersions, setPreviousVersions ] = useState( initialPreviousVersions );
 	const hasPreviousVersions = previousVersions.length > 0;
 
 	const [ previousVersionSelect, setPreviousVersion ] = useState( previousVersions[ 0 ]?.value || '' );
 	const [ openPopup, setopenPopup ] = useState( false );
 	const [ confirmPopup, setconfirmPopup ] = useState( false );
+
+	useEffect( () => {
+		if ( initialPreviousVersions.length > 0 ) {
+			return;
+		}
+
+		apiFetch( {
+			path: '/vxt-ugb/v1/admin/commonsettings/?include_rollback_versions=true',
+		} ).then( ( data ) => {
+			const fetchedPreviousVersions = Array.isArray( data?.vxt_previous_versions )
+				? data.vxt_previous_versions
+				: [];
+
+			setPreviousVersions( fetchedPreviousVersions );
+			setPreviousVersion( fetchedPreviousVersions[ 0 ]?.value || '' );
+		} ).catch( () => {
+			setPreviousVersions( [] );
+		} );
+	}, [] );
 
 	const rollbackButtonClickHandler = () => {
 		setopenPopup( true );

@@ -287,6 +287,7 @@ class Dashboard implements ServiceInterface {
 		// Enqueue admin scripts.
 		if ( ! empty( $_GET['page'] ) && ( $this->menuSlug === $_GET['page'] || false !== strpos( sanitize_text_field( $_GET['page'] ), $this->menuSlug . '_' ) ) || ( array_key_exists( 'post_type', $_GET ) && 'vexaltrix-popup' === $_GET['post_type'] ) ) { //phpcs:ignore WordPress.Security.NonceVerification.Recommended -- $_GET['page'] does not provide nonce.
 			add_action( 'admin_enqueue_scripts', [ $this, 'stylesScripts' ] );
+			add_action( 'admin_footer', [ $this, 'disableBrokenLinkCheckerWorker' ], 0 );
 		}
 
 	}
@@ -481,7 +482,7 @@ class Dashboard implements ServiceInterface {
 				'rollback_url'                      => esc_url( add_query_arg( 'version', 'VERSION', wp_nonce_url( admin_url( 'admin-post.php?action=vxt_rollback' ), 'vxt_rollback' ) ) ),
 				'blocks_info'                       => $blocksInfo,
 				'reusable_url'                      => esc_url( admin_url( 'edit.php?post_type=wp_block' ) ),
-				'global_data'                       => \Vexaltrix\Presentation\Admin\DashboardHelper::getOptions(),
+				'global_data'                       => \Vexaltrix\Presentation\Admin\DashboardHelper::getOptions( false ),
 				'vxt_content_width_set_by'          => \Vexaltrix\Presentation\Admin\AdminSettings::get( 'vxt_content_width_set_by', __('Vexaltrix', 'vexaltrix' ) ),
 				'vexaltrix_pro_installed'             => file_exists( VXT_DIR . '../vexaltrix-pro/vexaltrix-pro.php' ),
 				'vexaltrix_pro_licensing'             => file_exists( VXT_DIR . '../vexaltrix-pro/admin/license-handler.php' ),
@@ -769,6 +770,37 @@ class Dashboard implements ServiceInterface {
 		$jsonPluginsData = wp_json_encode( $pluginsData );
 
 		wp_localize_script( $handle, 'vxt_ultimate_gutenberg_blocks_plugins_data', $pluginsData );
+	}
+
+	/**
+	 * Stop Broken Link Checker's legacy background worker on the Vexaltrix dashboard.
+	 *
+	 * The legacy worker prints an inline admin-footer script that immediately posts
+	 * action=blc_work and can hold the dashboard load for the worker timeout.
+	 *
+	 * @since x.x.x
+	 */
+	public function disableBrokenLinkCheckerWorker() {
+		global $wp_filter;
+
+		if ( empty( $wp_filter['admin_footer'] ) || ! $wp_filter['admin_footer'] instanceof \WP_Hook ) {
+			return;
+		}
+
+		foreach ( $wp_filter['admin_footer']->callbacks as $priority => $callbacks ) {
+			foreach ( $callbacks as $callback ) {
+				if ( empty( $callback['function'] ) || ! is_array( $callback['function'] ) ) {
+					continue;
+				}
+
+				$object = $callback['function'][0];
+				$method = $callback['function'][1] ?? '';
+
+				if ( is_object( $object ) && 'wsBrokenLinkChecker' === get_class( $object ) && 'admin_footer' === $method ) {
+					remove_action( 'admin_footer', [ $object, 'admin_footer' ], $priority );
+				}
+			}
+		}
 	}
 
 

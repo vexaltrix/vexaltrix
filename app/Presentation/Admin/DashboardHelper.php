@@ -38,9 +38,9 @@ class DashboardHelper {
 	 *
 	 * @return array.
 	 */
-	public static function getCommonSettings() {
+	public static function getCommonSettings( $includeRollbackVersions = true ) {
 
-		$uagVersions = self::getRollbackVersionsOptions();
+		$uagVersions = $includeRollbackVersions ? self::getRollbackVersionsOptions() : [];
 
 		$themeData          = \WP_Theme_JSON_Resolver::get_theme_data();
 		$themeSettings      = $themeData->get_settings();
@@ -155,9 +155,9 @@ class DashboardHelper {
 	/**
 	 * Get options.
 	 */
-	public static function getOptions() {
+	public static function getOptions( $includeRollbackVersions = true ) {
 
-		$generalSettings          = self::getCommonSettings();
+		$generalSettings          = self::getCommonSettings( $includeRollbackVersions );
 		$shareableCommonSettings = \Vexaltrix\Presentation\Admin\AdminSettings::getAdminSettingsShareableData();
 		$options                   = array_merge( $generalSettings, $shareableCommonSettings );
 		$options                   = apply_filters( 'vxt_global_data_options', $options );

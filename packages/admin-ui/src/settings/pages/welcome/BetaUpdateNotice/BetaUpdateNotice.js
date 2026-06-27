@@ -9,6 +9,7 @@ import getApiData from '@Controls/getApiData';
 const BetaUpdateNotice = () => {
 	const dispatch = useDispatch();
 	const isMountedRef = useRef( true );
+	const isBetaUpdatesEnabled = 'yes' === vexaltrixAdmin?.global_data?.vxt_ultimate_gutenberg_blocks_beta;
 	const [ betaUpdateInfo, setBetaUpdateInfo ] = useState( null );
 	const [ isLoading, setIsLoading ] = useState( true );
 	const [ isUpdating, setIsUpdating ] = useState( false );
@@ -23,6 +24,11 @@ const BetaUpdateNotice = () => {
 
 	// Check for beta update on component mount
 	useEffect( () => {
+		if ( ! isBetaUpdatesEnabled ) {
+			setIsLoading( false );
+			return;
+		}
+
 		checkForBetaUpdate();
 	}, [] );
 

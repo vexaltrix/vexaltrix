@@ -759,48 +759,53 @@ class CommonSettings extends AjaxController {
 			);
 		}
 
-		// Note: Removed beta enabled check to allow dashboard notice to show.
-		// Users can check for beta updates even if not enabled yet.
+		$transientKey = md5( 'vxt_ultimate_gutenberg_blocks_beta_testers_response_key' );
+		$betaVersion  = get_site_transient( $transientKey );
 
-		// Get the beta version from WordPress.org with timeout.
-		$response = wp_remote_get(
-			'https://plugins.svn.wordpress.org/vexaltrix/trunk/readme.txt',
-			[
-				'timeout'   => 15, //phpcs:ignore WordPressVIPMinimum.Performance.RemoteRequestTimeout.timeout_timeout
-				'sslverify' => true,
-			]
-		);
+		if ( false === $betaVersion ) {
+			$betaVersion = 'false';
 
-		if ( is_wp_error( $response ) ) {
-			wp_send_json_error(
+			// Get the beta version from WordPress.org with timeout.
+			$response = wp_remote_get(
+				'https://plugins.svn.wordpress.org/vexaltrix/trunk/readme.txt',
 				[
-					'messsage' => __( 'Unable to check for beta updates.', 'vexaltrix' ),
+					'timeout'   => 3,
+					'sslverify' => true,
 				]
 			);
-		}
 
-		// Validate response status code.
-		$responseCode = wp_remote_retrieve_response_code( $response );
-		if ( 200 !== $responseCode ) {
-			wp_send_json_error(
-				[
-					'messsage' => __( 'Unable to check for beta updates.', 'vexaltrix' ),
-				]
-			);
-		}
+			if ( is_wp_error( $response ) ) {
+				wp_send_json_error(
+					[
+						'messsage' => __( 'Unable to check for beta updates.', 'vexaltrix' ),
+					]
+				);
+			}
 
-		$betaVersion = 'false';
-		$body         = wp_remote_retrieve_body( $response );
+			// Validate response status code.
+			$responseCode = wp_remote_retrieve_response_code( $response );
+			if ( 200 !== $responseCode ) {
+				wp_send_json_error(
+					[
+						'messsage' => __( 'Unable to check for beta updates.', 'vexaltrix' ),
+					]
+				);
+			}
 
-		if ( ! empty( $body ) && is_string( $body ) ) {
-			preg_match( '/Beta tag:\s*([0-9.]+)/i', $body, $matches );
-			if ( isset( $matches[1] ) ) {
-				$betaVersion = sanitize_text_field( trim( $matches[1] ) );
-				// Validate version format (x.x.x or x.x.x-beta.x).
-				if ( ! preg_match( '/^[0-9]+\.[0-9]+(\.[0-9]+)?(-[a-z0-9.]+)?$/i', $betaVersion ) ) {
-					$betaVersion = 'false';
+			$body = wp_remote_retrieve_body( $response );
+
+			if ( ! empty( $body ) && is_string( $body ) ) {
+				preg_match( '/Beta tag:\s*([0-9.]+)/i', $body, $matches );
+				if ( isset( $matches[1] ) ) {
+					$betaVersion = sanitize_text_field( trim( $matches[1] ) );
+					// Validate version format (x.x.x or x.x.x-beta.x).
+					if ( ! preg_match( '/^[0-9]+\.[0-9]+(\.[0-9]+)?(-[a-z0-9.]+)?$/i', $betaVersion ) ) {
+						$betaVersion = 'false';
+					}
 				}
 			}
+
+			set_site_transient( $transientKey, $betaVersion, 6 * HOUR_IN_SECONDS );
 		}
 
 		$currentVersion = sanitize_text_field( VXT_VER );

@@ -5,16 +5,22 @@ import { Button, DropdownMenu, Skeleton } from '@bsf/force-ui';
 import { Zap, X, Check, ChevronDown } from 'lucide-react';
 import { VXT_LINKS } from '@Store/constants';
 
-const ProModal = ( { modalData, setIsModalOpen } ) => {
+const ProModal = ( { modalData, setIsModalOpen, pricingUrl = '', usePricingApi = false } ) => {
+	const staticPricingUrl = pricingUrl || vexaltrixAdmin.vxt_links?.upsellModalAdmin || `${ VXT_LINKS.VXT_URL }/pricing/?utm_medium=vexaltrix-dashboard&utm_campaign=uag-dashboard`;
+	const shouldFetchPricing = usePricingApi;
 	const [ productsList, setProductsList ] = useState( [] );
 	const [ selectedProduct, setSelectedProduct ] = useState( '' );
-	const [ loading, setLoading ] = useState( true );
+	const [ loading, setLoading ] = useState( shouldFetchPricing );
 	const [ selectedTitle, setSelectedTitle ] = useState( 'Vexaltrix Pro' );
+	const contryCode = vexaltrixAdmin?.user_country_code || 'US';
 
 	const { title, Image, header, description, features } = modalData[ selectedTitle ];
 	 
-	const contryCode = vexaltrixAdmin.contry_code;
 	useEffect( () => {
+		if ( ! shouldFetchPricing ) {
+			return;
+		}
+
 		// Fetch pricing data from the API
 		const fetchPricingData = async () => {
 			try {
@@ -56,7 +62,7 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 		};
 
 		fetchPricingData();
-	}, [] );
+	}, [ shouldFetchPricing ] );
 
 	useEffect( () => {
 		const checkDropdown = () => {
@@ -115,6 +121,10 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 	}, [] );
 
 	useEffect( () => {
+		if ( ! shouldFetchPricing ) {
+			return;
+		}
+
 		const productName = productsList[ selectedProduct ]?.product || '';
 		const titleMapping = {
 			'Vexaltrix Pro': 'Vexaltrix Pro',
@@ -124,15 +134,18 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 		const newTitle =
 			Object.keys( titleMapping ).find( ( key ) => productName.includes( key ) ) || 'Business Toolkit';
 		setSelectedTitle( newTitle );
-	}, [ selectedProduct ] );
+	}, [ selectedProduct, shouldFetchPricing ] );
 
 	const closeModal = ( e ) => {
 		e.stopPropagation();
 	};
 
-	// Define UTM parameters
-	 
 	const utmParams = '&utm_medium=vexaltrix-dashboard&utm_campaign=upsell-popup-buy-now';
+	let checkoutUrl = staticPricingUrl;
+	if ( shouldFetchPricing && productsList[ selectedProduct ]?.checkout_url ) {
+		checkoutUrl = productsList[ selectedProduct ].checkout_url + utmParams;
+	}
+	const discountedPrice = productsList[ selectedProduct ]?.price?.[ contryCode ]?.discounted;
 
 	return (
 		<div
@@ -191,7 +204,7 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 
 						<hr className="w-full border-b-0 border-x-0 border-t border-solid border-t-border-subtle mt-4" />
 
-						{ Object.keys( productsList ).length > 0 && (
+						{ shouldFetchPricing && Object.keys( productsList ).length > 0 && (
 							<div className="flex justify-between items-center mt-4 flex-col sm:flex-row gap-2">
 								<div className="sm:w-1/2 w-full dropdown-container">
 									<DropdownMenu placement="bottom-start" style={ { width: '100%' } }>
@@ -212,13 +225,10 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 										</DropdownMenu.Trigger>
 										<DropdownMenu.ContentWrapper>
 											<DropdownMenu.Content className="w-60 dropdown-list">
-												<DropdownMenu.List
-												// style={ { zIndex: '99999999' } }
-												>
+												<DropdownMenu.List>
 													{ Object.entries( productsList ).map( ( [ key, value ] ) => (
 														<DropdownMenu.Item
 															onClick={ () => setSelectedProduct( key ) }
-															// style={ { zIndex: '99999999' } }
 															key={ value.product + value.variant }
 														>
 															{ value.product
@@ -233,37 +243,19 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 								</div>
 
 								<div className="flex items-center justify-between sm:gap-0 gap-[88px]">
-									{ }
-									{/* <Button variant="ghost" size="md" className="vxt-remove-ring">
-											{'$' + productsList[selectedProduct]?.price?.[contryCode]?.discounted }
-										{ productsList[ selectedProduct ]?.variant?.includes( 'Annual Subscription' ) ||
+									{ discountedPrice && (
+										<Button variant="ghost" size="md" className="vxt-remove-ring">
+											{ '$' + discountedPrice }
+											{ productsList[ selectedProduct ]?.variant?.includes( 'Annual Subscription' ) ||
 										productsList[ selectedProduct ]?.product?.includes( 'Annual Subscription' ) ? (
-											<span className="text-text-tertiary">
-												{ __( '/year', 'vexaltrix' ) }
-											</span>
-										) : null }
-									</Button>
-
-									<a
-										href={ productsList[ selectedProduct ]?.checkout_url + utmParams }
-										target="_blank"
-										rel="noreferrer"
-										className="no-underline text-text-on-color relative"
-									>
-										<Button
-											className=""
-											size="sm"
-											tag="button"
-											type="button"
-											variant="primary"
-											onClick={ () => setIsModalOpen( false ) }
-										>
-											{ __( 'Buy Now', 'vexaltrix' ) }
+												<span className="text-text-tertiary">
+													{ __( '/year', 'vexaltrix' ) }
+												</span>
+											) : null }
 										</Button>
-									</a> */}
-									{ }
+									) }
 									<a
-										href={ `${ VXT_LINKS.VXT_URL }/pricing/?utm_medium=vexaltrix-dashboard&utm_campaign=uag-dashboard` }
+										href={ checkoutUrl }
 										target="_blank"
 										rel="noreferrer"
 										className="no-underline text-text-on-color relative"
@@ -280,6 +272,28 @@ const ProModal = ( { modalData, setIsModalOpen } ) => {
 										</Button>
 									</a>
 								</div>
+							</div>
+						) }
+
+						{ ! shouldFetchPricing && (
+							<div className="flex justify-end mt-4">
+								<a
+									href={ checkoutUrl }
+									target="_blank"
+									rel="noreferrer"
+									className="no-underline text-text-on-color relative"
+								>
+									<Button
+										className=""
+										size="sm"
+										tag="button"
+										type="button"
+										variant="primary"
+										onClick={ () => setIsModalOpen( false ) }
+									>
+										{ __( 'Buy Now', 'vexaltrix' ) }
+									</Button>
+								</a>
 							</div>
 						) }
 

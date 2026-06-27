@@ -2,17 +2,23 @@ import { __ } from '@wordpress/i18n';
 import { Container, Title, Button, DropdownMenu, Skeleton } from '@bsf/force-ui';
 import { Zap, Check, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from '@wordpress/element';
 import { VXT_LINKS } from '@Store/constants';
+import { useEffect, useState } from '@wordpress/element';
 
-const UnlockProFeatures = ( { freeVPro = false, smallCol = false } ) => {
+const UnlockProFeatures = ( { freeVPro = false, smallCol = false, pricingUrl = '', usePricingApi = false } ) => {
+	const upgradeUrl = pricingUrl || vexaltrixAdmin.vxt_links?.uagDashboard || `${ VXT_LINKS.VXT_URL }/pricing/?utm_medium=vexaltrix-dashboard&utm_campaign=uag-dashboard`;
+	const shouldFetchPricing = usePricingApi;
 	const [ productsList, setProductsList ] = useState( [] );
 	const [ selectedProduct, setSelectedProduct ] = useState( '' );
-	const [ loading, setLoading ] = useState( true );
-	 
-	const contryCode = vexaltrixAdmin.contry_code;
+	const [ loading, setLoading ] = useState( freeVPro && shouldFetchPricing );
+	const contryCode = vexaltrixAdmin?.user_country_code || 'US';
+	const utmParams = '&utm_medium=vexaltrix-dashboard&utm_campaign=uag-dashboard-buy-now';
+
 	useEffect( () => {
-		// Fetch pricing data from the API
+		if ( ! shouldFetchPricing ) {
+			return;
+		}
+
 		const fetchPricingData = async () => {
 			try {
 				const response = await fetch( `${ VXT_LINKS.VXT_STORE_URL }/wp-json/vxt/v1/pricing`, {
@@ -23,8 +29,6 @@ const UnlockProFeatures = ( { freeVPro = false, smallCol = false } ) => {
 					body: JSON.stringify( {} ),
 				} );
 				const data = await response.json();
-
-				// Filter products based on required names
 				const filteredData = Object.entries( data.data ).reduce( ( acc, [ key, value ] ) => {
 					if (
 						( value.product.includes( 'Vexaltrix Pro - Annual Subscription' ) &&
@@ -39,34 +43,116 @@ const UnlockProFeatures = ( { freeVPro = false, smallCol = false } ) => {
 					return acc;
 				}, {} );
 
-				// Set filtered pricing data
 				setProductsList( filteredData );
 
-				// Set the first product as default
 				if ( Object.keys( filteredData ).length > 0 ) {
 					setSelectedProduct( Object.keys( filteredData )[ 0 ] );
 				}
-				setLoading( false );
 			} catch ( error ) {
 				setSelectedProduct( '' );
+			} finally {
+				setLoading( false );
 			}
 		};
 
 		fetchPricingData();
-	}, [] );
+	}, [ shouldFetchPricing ] );
 
-	// Define UTM parameters
-	 
-	const utmParams = '&utm_medium=vexaltrix-dashboard&utm_campaign=upsell-free-vs-pro-buy-now';
+	const renderPricingCta = () => {
+		if ( loading && freeVPro ) {
+			return (
+				<>
+					<Skeleton className="w-48 h-6 rounded-md" />
+					<Skeleton className="w-24 h-8 rounded-md" />
+				</>
+			);
+		}
 
-	if ( loading && freeVPro && smallCol )
-		{return (
-			<>
-				<Skeleton className="w-48 h-10 rounded-md mb-6" />
-				<Skeleton className="w-60 h-10 rounded-md mb-6" />
-				<Skeleton className="w-48 h-10 rounded-md mb-6" />
-			</>
-		);}
+		if ( shouldFetchPricing && Object.keys( productsList ).length > 0 ) {
+			const currentProduct = productsList[ selectedProduct ];
+			const productTitle = currentProduct?.product?.split( ' - ' )[ 0 ]?.replace( ' for Vexaltrix', '' );
+			const checkoutUrl = currentProduct?.checkout_url ? currentProduct.checkout_url + utmParams : upgradeUrl;
+			const discountedPrice = currentProduct?.price?.[ contryCode ]?.discounted;
+
+			return (
+				<>
+					<div className="w-1/2 dropdown-container">
+						<DropdownMenu placement="bottom-start" style={ { width: '100%' } }>
+							<DropdownMenu.Trigger style={ { width: '100%' } }>
+								<div
+									className="p-2 cursor-pointer rounded-lg outline-none shadow-none w-full flex justify-center items-center border-border-subtle font-semibold text-text-primary"
+									style={ { border: '1px solid #E5E7EB', width: '100%' } }
+								>
+									<div className="text-sm text-text-primary flex items-center justify-between w-full">
+										{ productTitle }
+										<span>
+											<ChevronDown size={ 14 } />
+										</span>
+									</div>
+								</div>
+							</DropdownMenu.Trigger>
+							<DropdownMenu.ContentWrapper>
+								<DropdownMenu.Content className="w-60 dropdown-list">
+									<DropdownMenu.List>
+										{ Object.entries( productsList ).map( ( [ key, value ] ) => (
+											<DropdownMenu.Item
+												onClick={ () => setSelectedProduct( key ) }
+												key={ value.product + value.variant }
+											>
+												{ value.product
+													.split( ' - ' )[ 0 ]
+													.replace( ' for Vexaltrix', '' ) }
+											</DropdownMenu.Item>
+										) ) }
+									</DropdownMenu.List>
+								</DropdownMenu.Content>
+							</DropdownMenu.ContentWrapper>
+						</DropdownMenu>
+					</div>
+
+					<div className="flex items-center justify-between gap-3">
+						{ discountedPrice && (
+							<Button variant="ghost" size="md" className="vxt-remove-ring">
+								{ '$' + discountedPrice }
+								{ currentProduct?.variant?.includes( 'Annual Subscription' ) ||
+								currentProduct?.product?.includes( 'Annual Subscription' ) ? (
+									<span className="text-text-tertiary">
+										{ __( '/year', 'vexaltrix' ) }
+									</span>
+								) : null }
+							</Button>
+						) }
+
+						<a
+							href={ checkoutUrl }
+							target="_blank"
+							rel="noreferrer"
+							className="no-underline text-text-on-color"
+						>
+							<Button className="" size="sm" tag="button" type="button" variant="primary">
+								{ __( 'Buy Now', 'vexaltrix' ) }
+							</Button>
+						</a>
+					</div>
+				</>
+			);
+		}
+
+		return (
+			<div className="flex items-center justify-between gap-3">
+				<a
+					href={ upgradeUrl }
+					target="_blank"
+					rel="noreferrer"
+					className="no-underline text-text-on-color"
+				>
+					<Button className="" size="sm" tag="button" type="button" variant="primary">
+						{ __( 'Buy Now', 'vexaltrix' ) }
+					</Button>
+				</a>
+			</div>
+		);
+	};
 
 	if ( smallCol )
 		{return (
@@ -124,81 +210,13 @@ const UnlockProFeatures = ( { freeVPro = false, smallCol = false } ) => {
 
 					{ freeVPro ? (
 						<div className="flex justify-between items-center mt-4">
-							<div style={ { width: '45%' } } className="dropdown-container">
-								<DropdownMenu placement="bottom-start" style={ { width: '100%' } }>
-									<DropdownMenu.Trigger style={ { width: '100%' } }>
-										<div
-											className="p-2 cursor-pointer rounded-lg outline-none shadow-none w-full flex justify-center items-center border-border-subtle font-semibold text-text-primary"
-											style={ { border: '1px solid #E5E7EB', width: '100%' } }
-										>
-											<div className="text-sm text-text-primary flex items-center justify-between w-full">
-												{ productsList[ selectedProduct ]?.product &&
-													productsList[ selectedProduct ]?.product
-														?.split( ' - ' )[ 0 ]
-														?.replace( ' for Vexaltrix', '' ) }
-												<span>
-													<ChevronDown size={ 14 } />
-												</span>
-											</div>
-										</div>
-									</DropdownMenu.Trigger>
-									<DropdownMenu.ContentWrapper>
-										<DropdownMenu.Content className="w-60" style={ { zIndex: '99999999' } }>
-											<DropdownMenu.List className="dropdown-list">
-												{ Object.entries( productsList ).map( ( [ key, value ] ) => (
-													<DropdownMenu.Item
-														key={ value.product + value.variant }
-														onClick={ () => setSelectedProduct( key ) }
-													>
-														{ value.product.split( ' - ' )[ 0 ].replace( ' for Vexaltrix', '' ) }
-													</DropdownMenu.Item>
-												) ) }
-											</DropdownMenu.List>
-										</DropdownMenu.Content>
-									</DropdownMenu.ContentWrapper>
-								</DropdownMenu>
-							</div>
-
-							<div className="flex items-center justify-between gap-3">
-								{ }
-								{/* <Button variant="ghost" size="md">
-									{'$' + productsList[selectedProduct]?.price?.[contryCode]?.discounted }
-									{ productsList[ selectedProduct ]?.variant?.includes( 'Annual Subscription' ) ||
-									productsList[ selectedProduct ]?.product?.includes( 'Annual Subscription' ) ? (
-										<span className="text-text-tertiary">
-											{ __( '/year', 'vexaltrix' ) }
-										</span>
-									) : null }
-								</Button>
-
-								<a
-									href={ productsList[ selectedProduct ]?.checkout_url + utmParams }
-									target="_blank"
-									rel="noreferrer"
-									className="no-underline text-text-on-color"
-								>
-									<Button className="" size="sm" tag="button" type="button" variant="primary">
-										{ __( 'Buy Now', 'vexaltrix' ) }
-									</Button>
-								</a> */}
-								{ }
-								<a
-									href={ `${ VXT_LINKS.VXT_URL }/pricing/?utm_medium=vexaltrix-dashboard&utm_campaign=uag-dashboard` }
-									target="_blank"
-									rel="noreferrer"
-									className="no-underline text-text-on-color"
-								>
-									<Button className="" size="sm" tag="button" type="button" variant="primary">
-										{ __( 'Buy Now', 'vexaltrix' ) }
-									</Button>
-								</a>
-							</div>
+							{ renderPricingCta() }
 						</div>
 					) : (
 						<div className="flex gap-3 mt-2">
 							<a
 								className="no-underline"
-									href={vexaltrixAdmin.vxt_links?.uagDashboard}
+									href={ upgradeUrl }
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -237,15 +255,6 @@ const UnlockProFeatures = ( { freeVPro = false, smallCol = false } ) => {
 					<Image />
 				</Container.Item>
 			</Container>
-		);}
-
-	if ( loading && freeVPro )
-		{return (
-			<>
-				<Skeleton className="w-96 h-10 rounded-md mb-6" />
-				<Skeleton className="w-120 h-10 rounded-md mb-6" />
-				<Skeleton className="w-96 h-10 rounded-md mb-6" />
-			</>
 		);}
 
 	return (
@@ -303,81 +312,13 @@ const UnlockProFeatures = ( { freeVPro = false, smallCol = false } ) => {
 
 				{ freeVPro ? (
 					<div className="flex justify-between items-center mt-4 unlock-pro-features-dropdown-container">
-						<div style={ { width: '45%' } } className="dropdown-container">
-							<DropdownMenu placement="bottom-start" className="w-60">
-								<DropdownMenu.Trigger style={ { width: '100%' } }>
-									<div
-										className="p-2 cursor-pointer rounded-lg outline-none shadow-none w-full flex justify-center items-center border-border-subtle font-semibold text-text-primary"
-										style={ { border: '1px solid #E5E7EB', width: '100%' } }
-									>
-										<div className="text-sm text-text-primary flex items-center justify-between w-full">
-											{ productsList[ selectedProduct ]?.product &&
-												productsList[ selectedProduct ]?.product
-													?.split( ' - ' )[ 0 ]
-													?.replace( ' for Vexaltrix', '' ) }
-											<span>
-												<ChevronDown size={ 14 } />
-											</span>
-										</div>
-									</div>
-								</DropdownMenu.Trigger>
-								<DropdownMenu.ContentWrapper>
-									<DropdownMenu.Content className="w-60" style={ { zIndex: '99999999' } }>
-										<DropdownMenu.List className="dropdown-list">
-											{ Object.entries( productsList ).map( ( [ key, value ] ) => (
-												<DropdownMenu.Item
-													key={ value.product + value.variant }
-													onClick={ () => setSelectedProduct( key ) }
-												>
-													{ value.product?.split( ' - ' )[ 0 ]?.replace( ' for Vexaltrix', '' ) }
-												</DropdownMenu.Item>
-											) ) }
-										</DropdownMenu.List>
-									</DropdownMenu.Content>
-								</DropdownMenu.ContentWrapper>
-							</DropdownMenu>
-						</div>
-
-						<div className="flex items-center justify-between gap-3">
-							{ }
-							{/* <Button variant="ghost" size="md">
-								{'$' + productsList[selectedProduct]?.price?.[contryCode]?.discounted }
-								{ productsList[ selectedProduct ]?.variant?.includes( 'Annual Subscription' ) ||
-								productsList[ selectedProduct ]?.product?.includes( 'Annual Subscription' ) ? (
-									<span className="text-text-tertiary">
-										{ __( '/year', 'vexaltrix' ) }
-									</span>
-								) : null }
-							</Button>
-
-							<a
-								href={ productsList[ selectedProduct ]?.checkout_url + utmParams }
-								target="_blank"
-								rel="noreferrer"
-								className="no-underline text-text-on-color"
-							>
-								<Button className="" size="sm" tag="button" type="button" variant="primary">
-									{ __( 'Buy Now', 'vexaltrix' ) }
-								</Button>
-							</a> */}
-							{ }
-							<a
-								href={ `${ VXT_LINKS.VXT_URL }/pricing/?utm_medium=vexaltrix-dashboard&utm_campaign=uag-dashboard` }
-								target="_blank"
-								rel="noreferrer"
-								className="no-underline text-text-on-color"
-							>
-								<Button className="" size="sm" tag="button" type="button" variant="primary">
-									{ __( 'Buy Now', 'vexaltrix' ) }
-								</Button>
-							</a>
-						</div>
+						{ renderPricingCta() }
 					</div>
 				) : (
 					<div className="flex gap-3 my-2">
 						<a
 							className="no-underline"
-							href={vexaltrixAdmin.vxt_links?.uagDashboard}
+							href={ upgradeUrl }
 							target="_blank"
 							rel="noreferrer"
 						>
