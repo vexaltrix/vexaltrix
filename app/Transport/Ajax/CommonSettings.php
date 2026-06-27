@@ -1338,7 +1338,7 @@ class CommonSettings extends AjaxController {
 			}
 			$blockCss = $desktop . $tabStylingCss . $mobStylingCss;
 
-			$wp_filesystem = vxt_ultimate_gutenberg_blocks_filesystem();
+			$wp_filesystem = \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 			$wp_filesystem->put_contents( $pathAndFileName, $blockCss, FS_CHMOD_FILE );
 		}
 	}

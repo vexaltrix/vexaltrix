@@ -319,7 +319,7 @@ if ( ! class_exists( 'Vexaltrix\Presentation\Admin\\AdminSettings' ) ) {
 
 			$style = '';
 
-			$wp_filesystem = vxt_ultimate_gutenberg_blocks_filesystem();
+			$wp_filesystem = \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 
 			foreach ( $combined as $key => $cBlock ) {
 

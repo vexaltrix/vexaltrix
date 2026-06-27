@@ -659,7 +659,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 			// Check the upload dir if it doesn't exist or not.
 			if ( file_exists( $dirInfo['path'] ) ) {
 				// Remove the directory.
-				$wp_filesystem = vxt_ultimate_gutenberg_blocks_filesystem();
+				$wp_filesystem = Filesystem::getInstance()->getFilesystem();
 				return $wp_filesystem->rmdir( $dirInfo['path'], true );
 			}
 
@@ -713,7 +713,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 				// Check the dir if it exists or not.
 				if ( file_exists( $path ) ) {
 
-					$wp_filesystem = vxt_ultimate_gutenberg_blocks_filesystem();
+					$wp_filesystem = Filesystem::getInstance()->getFilesystem();
 
 					// Remove the directory.
 					$wp_filesystem->rmdir( $path, true );
@@ -763,7 +763,7 @@ if ( ! class_exists( 'Vexaltrix\\Support\\Helper' ) ) {
 
 			$uploadDir = self::getUploadDir();
 
-			return vxt_ultimate_gutenberg_blocks_filesystem()->is_writable( $uploadDir['path'] );
+			return Filesystem::getInstance()->getFilesystem()->is_writable( $uploadDir['path'] );
 		}
 		/**
 		 * Gives the paged Query var.

@@ -95,7 +95,7 @@ if ( ! class_exists( 'Vexaltrix\Integration\Compatibility\\FseFontsCompatibility
 				return;
 			}
 
-			$vxtUltimateGutenbergBlocksFilesystem   = vxt_ultimate_gutenberg_blocks_filesystem();
+			$vxtUltimateGutenbergBlocksFilesystem   = \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 			$fontsFolderPath = get_stylesheet_directory() . '/assets/fonts/vexaltrix';
 
 			if ( file_exists( $fontsFolderPath ) ) {

@@ -1638,7 +1638,7 @@ class PostAssets {
 	public function createFile( $fileData, $type, $fileState = 'new', $oldFileName = '' ) {
 
 		$uploadsDir = \Vexaltrix\Core\Support\Helper::getUploadDir();
-		$fileSystem = vxt_ultimate_gutenberg_blocks_filesystem();
+		$fileSystem = \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 
 		// Example 'uag-css-15.css'.
 		$fileName = 'uag-' . $type . '-' . $this->postId . '.' . $type;
@@ -1689,7 +1689,7 @@ class PostAssets {
 			return false;
 		}
 
-		$fileSystem = vxt_ultimate_gutenberg_blocks_filesystem();
+		$fileSystem = \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 
 		// Get timestamp - Already saved OR new one.
 		$fileName   = get_post_meta( $this->postId, '_vxt_' . $type . '_file_name', true );
@@ -1809,7 +1809,7 @@ class PostAssets {
 
 		if ( file_exists( $blockStaticCssPath ) ) {
 
-			$fileSystem = vxt_ultimate_gutenberg_blocks_filesystem();
+			$fileSystem = \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 
 			$css = $fileSystem->get_contents( $blockStaticCssPath );
 		}

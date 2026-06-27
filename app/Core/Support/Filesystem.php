@@ -102,14 +102,3 @@ class Filesystem {
 function vxtUltimateGutenbergBlocksFilesystem() {
 	return \Vexaltrix\Core\Support\Filesystem::getInstance()->getFilesystem();
 }
-
-/**
- * Filesystem class (snake_case wrapper)
- *
- * @since 2.19.26
- */
-function vxt_ultimate_gutenberg_blocks_filesystem() {
-	return vxtUltimateGutenbergBlocksFilesystem();
-}
-
-
