@@ -22,7 +22,7 @@ $blockData = [
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-button-child-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'vxt-button-child' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'vxt-button-child' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

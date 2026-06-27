@@ -17,6 +17,6 @@ $blockData = [
 	'description'      => __( 'This block allows you to generate custom loop from different posts.', 'vexaltrix' ), // Need to be improved.
 	'default'          => true,
 	'extension'        => false,
-	'priority'         => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'loop-builder' ),
+	'priority'         => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'loop-builder' ),
 	'pro_filler'       => true,
 ];

@@ -49,7 +49,7 @@ $jsAttr = [
 	'confirmationType'        => isset( $attr['confirmationType'] ) && is_string( $attr['confirmationType'] ) ? sanitize_text_field( $attr['confirmationType'] ) : 'message',
 	'hidereCaptchaBatch'      => isset( $attr['hidereCaptchaBatch'] ) ? filter_var( $attr['hidereCaptchaBatch'], FILTER_VALIDATE_BOOLEAN ) : false,
 	'captchaMessage'          => isset( $attr['captchaMessage'] ) && is_string( $attr['captchaMessage'] ) ? sanitize_textarea_field( $attr['captchaMessage'] ) : __( 'Please fill up the above captcha.', 'vexaltrix' ),
-	'confirmationUrl'         => isset( $attr['confirmationUrl'] ) && is_string( $attr['confirmationUrl'] ) ? \Vexaltrix\BlocksConfig\Forms\Forms::validateConfirmationUrl( $attr['confirmationUrl'] ) : '',
+	'confirmationUrl'         => isset( $attr['confirmationUrl'] ) && is_string( $attr['confirmationUrl'] ) ? \Vexaltrix\Presentation\BlocksConfig\Forms\Forms::validateConfirmationUrl( $attr['confirmationUrl'] ) : '',
 ];
 ob_start();
 ?>

@@ -16,10 +16,10 @@ $blockData = [
 	'description'         => __( 'This block lets you add a user login form.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'login' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'login' ),
 	'static_dependencies' => [
 		'vexaltrix-pro-login-js'  => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'login' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'login' ),
 			'dep'  => [ 'wp-escape-html' ],
 			'type' => 'js',
 		],

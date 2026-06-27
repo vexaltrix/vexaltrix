@@ -28,16 +28,16 @@ $boxShadowHoverProperties = [
 	'alt_color'  => $attr['boxShadowColor'],
 ];
 
-$boxShadowCss       = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $boxShadowProperties );
-$boxShadowHoverCss = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $boxShadowHoverProperties );
+$boxShadowCss       = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $boxShadowProperties );
+$boxShadowHoverCss = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $boxShadowHoverProperties );
 
-$border        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider' );
-$borderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider', 'tablet' );
-$borderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider', 'mobile' );
+$border        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider' );
+$borderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider', 'tablet' );
+$borderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider', 'mobile' );
 
-$arrowBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider-arrow' );
-$arrowBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider-arrow', 'tablet' );
-$arrowBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider-arrow', 'mobile' );
+$arrowBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider-arrow' );
+$arrowBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider-arrow', 'tablet' );
+$arrowBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'slider-arrow', 'mobile' );
 
 $bgObjDesktop           = [
 	'backgroundType'           => $attr['backgroundType'],
@@ -65,7 +65,7 @@ $bgObjDesktop           = [
 	'yPosition'                => $attr['yPositionDesktop'],
 	'yPositionType'            => $attr['yPositionType'],
 ];
-$containerBgCssDesktop = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
+$containerBgCssDesktop = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
 
 // Tablet.
 $leftPaddingTablet   = '' !== $attr['leftPaddingTablet'] ? $attr['leftPaddingTablet'] : $attr['leftPaddingDesktop'];
@@ -101,14 +101,14 @@ $arrowPaddingMobile = '' !== $attr['arrowPaddingMobile'] ? $attr['arrowPaddingMo
 $containerCss = array_merge(
 	[
 		'box-shadow'     => $boxShadowCss,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
 	],
 	$border
 );
@@ -117,9 +117,9 @@ $containerCss = array_merge( $containerCss, $containerBgCssDesktop );
 $arrowStyle = [
 	'color'            => esc_attr( $attr['arrowColor'] ),
 	'background-color' => esc_attr( $attr['arrowBgColor'] ),
-	'width'            => \Vexaltrix\Support\Helper::getCssValue( ( $attr['arrowPadding'] * 2 ) + $attr['arrowSize'], 'px' ),
-	'height'           => \Vexaltrix\Support\Helper::getCssValue( ( $attr['arrowPadding'] * 2 ) + $attr['arrowSize'], 'px' ),
-	'line-height'      => \Vexaltrix\Support\Helper::getCssValue( ( $attr['arrowPadding'] * 2 ) + $attr['arrowSize'], 'px' ),
+	'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['arrowPadding'] * 2 ) + $attr['arrowSize'], 'px' ),
+	'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['arrowPadding'] * 2 ) + $attr['arrowSize'], 'px' ),
+	'line-height'      => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['arrowPadding'] * 2 ) + $attr['arrowSize'], 'px' ),
 ];
 
 $arrowStyle = array_merge( $arrowBorder, $arrowStyle );
@@ -133,16 +133,16 @@ $selectors = [
 		'border-color' => $border['border-color'] ? $border['border-color'] : '#4B4F58',
 	],
 	'.vxt-block-' . $id . ' .swiper-button-next:after'   => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['arrowSize'], 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['arrowSize'], 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-prev:after'   => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['arrowSize'], 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['arrowSize'], 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-pagination-bullet'   => [
 		'background-color' => $attr['arrowColor'],
 	],
 	'.vxt-block-' . $id . ' .swiper-button-prev'         => [
-		'left' => \Vexaltrix\Support\Helper::getCssValue( $attr['arrowDistance'], 'px' ),
+		'left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['arrowDistance'], 'px' ),
 	],
 	'.vxt-block-' . $id . '.vxt-slider-container .swiper-button-prev' => $arrowStyle,
 	'.vxt-block-' . $id . '.vxt-slider-container .swiper-button-next' => $arrowStyle,
@@ -153,14 +153,14 @@ $selectors = [
 		'border-color' => $attr['slider-arrowBorderHColor'],
 	],
 	'.vxt-block-' . $id . ' .swiper-button-next'         => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['arrowDistance'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['arrowDistance'], 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-wrapper'             => [
 		'align-items' => $attr['verticalAlign'],
-		'min-height'  => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeight'], 'px' ),
+		'min-height'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeight'], 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-pagination'          => [
-		'bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['dotsMarginTop'], 'px' ),
+		'bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['dotsMarginTop'], 'px' ),
 	],
 ];
 
@@ -197,26 +197,26 @@ $bgObjTablet           = [
 	'yPosition'                => $attr['yPositionTablet'],
 	'yPositionType'            => $attr['yPositionTypeTablet'],
 ];
-$containerBgCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
+$containerBgCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
 $containerTabletCss    = array_merge(
 	[
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
 	],
 	$borderTablet
 );
 $containerTabletCss    = array_merge( $containerTabletCss, $containerBgCssTablet );
 
 $arrowStyleTablet = [
-	'width'       => \Vexaltrix\Support\Helper::getCssValue( ( $arrowPaddingTablet * 2 ) + $arrowSizeTablet, 'px' ),
-	'height'      => \Vexaltrix\Support\Helper::getCssValue( ( $arrowPaddingTablet * 2 ) + $arrowSizeTablet, 'px' ),
-	'line-height' => \Vexaltrix\Support\Helper::getCssValue( ( $arrowPaddingTablet * 2 ) + $arrowSizeTablet, 'px' ),
+	'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( ( $arrowPaddingTablet * 2 ) + $arrowSizeTablet, 'px' ),
+	'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( ( $arrowPaddingTablet * 2 ) + $arrowSizeTablet, 'px' ),
+	'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $arrowPaddingTablet * 2 ) + $arrowSizeTablet, 'px' ),
 ];
 
 $arrowStyleTablet = array_merge( $arrowBorderTablet, $arrowStyleTablet );
@@ -224,24 +224,24 @@ $arrowStyleTablet = array_merge( $arrowBorderTablet, $arrowStyleTablet );
 $tSelectors = [
 	'.vxt-block-' . $id                                => $containerTabletCss, // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	'.vxt-block-' . $id . ' .swiper-button-prev:after' => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $arrowSizeTablet, 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowSizeTablet, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-next:after' => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $arrowSizeTablet, 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowSizeTablet, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-prev'       => [
-		'left' => \Vexaltrix\Support\Helper::getCssValue( $arrowDistanceTablet, 'px' ),
+		'left' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowDistanceTablet, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-next'       => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $arrowDistanceTablet, 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowDistanceTablet, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-pagination'        => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['dotsMarginTopTablet'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['dotsMarginTopTablet'], 'px' ),
 	],
 	'.vxt-block-' . $id . '.vxt-slider-container .swiper-button-prev' => $arrowStyleTablet,
 	'.vxt-block-' . $id . '.vxt-slider-container .swiper-button-next' => $arrowStyleTablet,
 	'.vxt-block-' . $id . ' .swiper-wrapper'           => [
-		'min-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightTablet'], 'px' ),
+		'min-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightTablet'], 'px' ),
 	],
 ];
 
@@ -279,26 +279,26 @@ $bgObjMobile           = [
 	'yPosition'                => $attr['yPositionMobile'],
 	'yPositionType'            => $attr['yPositionTypeMobile'],
 ];
-$containerBgCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
+$containerBgCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
 $containerMobileCss    = array_merge(
 	[
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
 	],
 	$borderMobile
 );
 $containerMobileCss    = array_merge( $containerMobileCss, $containerBgCssMobile );
 
 $arrowStyleMobile = [
-	'width'       => \Vexaltrix\Support\Helper::getCssValue( ( $arrowPaddingMobile * 2 ) + $arrowSizeMobile, 'px' ),
-	'height'      => \Vexaltrix\Support\Helper::getCssValue( ( $arrowPaddingMobile * 2 ) + $arrowSizeMobile, 'px' ),
-	'line-height' => \Vexaltrix\Support\Helper::getCssValue( ( $arrowPaddingMobile * 2 ) + $arrowSizeMobile, 'px' ),
+	'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( ( $arrowPaddingMobile * 2 ) + $arrowSizeMobile, 'px' ),
+	'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( ( $arrowPaddingMobile * 2 ) + $arrowSizeMobile, 'px' ),
+	'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $arrowPaddingMobile * 2 ) + $arrowSizeMobile, 'px' ),
 ];
 
 $arrowStyleMobile = array_merge( $arrowBorderMobile, $arrowStyleMobile );
@@ -306,24 +306,24 @@ $arrowStyleMobile = array_merge( $arrowBorderMobile, $arrowStyleMobile );
 $mSelectors = [
 	'.vxt-block-' . $id                                => $containerMobileCss, // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 	'.vxt-block-' . $id . ' .swiper-button-prev:after' => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $arrowSizeMobile, 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowSizeMobile, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-next:after' => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $arrowSizeMobile, 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowSizeMobile, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-prev'       => [
-		'left' => \Vexaltrix\Support\Helper::getCssValue( $arrowDistanceMobile, 'px' ),
+		'left' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowDistanceMobile, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-button-next'       => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $arrowDistanceMobile, 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $arrowDistanceMobile, 'px' ),
 	],
 	'.vxt-block-' . $id . ' .swiper-pagination'        => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['dotsMarginTopMobile'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['dotsMarginTopMobile'], 'px' ),
 	],
 	'.vxt-block-' . $id . '.vxt-slider-container .swiper-button-prev' => $arrowStyleMobile,
 	'.vxt-block-' . $id . '.vxt-slider-container .swiper-button-next' => $arrowStyleMobile,
 	'.vxt-block-' . $id . ' .swiper-wrapper'           => [
-		'min-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightMobile'], 'px' ),
+		'min-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightMobile'], 'px' ),
 	],
 ];
 
@@ -337,7 +337,7 @@ $selectors[ '.vxt-block-' . $id . '.uag-blocks-common-selector' ] = [
 	'--z-index-mobile'  => $zIndexMobile,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getCombinedSelectors(
 	'slider', 
 	[
 		'desktop' => $selectors,
@@ -347,4 +347,4 @@ $combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
 	$attr
 );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-slider-container' );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-slider-container' );

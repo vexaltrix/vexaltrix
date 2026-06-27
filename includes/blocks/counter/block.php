@@ -17,10 +17,10 @@ $blockData = [
 	'description'         => __( 'This block allows you to add number counter.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'counter' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'counter' ),
 	'static_dependencies' => [
 		'vxt-counter-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'counter' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'counter' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

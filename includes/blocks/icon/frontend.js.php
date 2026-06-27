@@ -17,6 +17,6 @@ $blockName = 'icon';
 $selector   = '.vxt-block-' . $id;
 $js         = '';
 
-$js .= \Vexaltrix\BlocksConfig\Icon\Icon::renderIconClick( $id );
+$js .= \Vexaltrix\Presentation\BlocksConfig\Icon\Icon::renderIconClick( $id );
 
 return $js;

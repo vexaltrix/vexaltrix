@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$borderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'column' );
+$borderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'column' );
 
 return array_merge(
 	[

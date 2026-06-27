@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$contentBorderAttributes = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'content' );
+$contentBorderAttributes = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'content' );
 
 return array_merge(
 	$contentBorderAttributes,

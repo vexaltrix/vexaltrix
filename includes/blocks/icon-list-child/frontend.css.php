@@ -7,13 +7,13 @@
  * @package ugb
  */
 
-$selectors   = \Vexaltrix\Core\Blocks\BlockHelper::getIconListChildSelectors( $attr, $id, true )['desktop'];
-$tSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getIconListChildSelectors( $attr, $id, true )['tablet'];
-$mSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getIconListChildSelectors( $attr, $id, true )['mobile'];
+$selectors   = \Vexaltrix\Presentation\Blocks\BlockHelper::getIconListChildSelectors( $attr, $id, true )['desktop'];
+$tSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getIconListChildSelectors( $attr, $id, true )['tablet'];
+$mSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getIconListChildSelectors( $attr, $id, true )['mobile'];
 
-$desktop = \Vexaltrix\Support\Helper::generateCss( $selectors, '.vxt-block-' . $id );
-$tablet  = \Vexaltrix\Support\Helper::generateCss( $tSelectors, '.vxt-block-' . $id );
-$mobile  = \Vexaltrix\Support\Helper::generateCss( $mSelectors, '.vxt-block-' . $id );
+$desktop = \Vexaltrix\Core\Support\Helper::generateCss( $selectors, '.vxt-block-' . $id );
+$tablet  = \Vexaltrix\Core\Support\Helper::generateCss( $tSelectors, '.vxt-block-' . $id );
+$mobile  = \Vexaltrix\Core\Support\Helper::generateCss( $mSelectors, '.vxt-block-' . $id );
 
 $generatedCss = [
 	'desktop' => $desktop,

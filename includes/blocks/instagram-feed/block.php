@@ -17,6 +17,6 @@ $blockData = [
 	'description'      => __( 'This block allows you to add Instagram Feeds.', 'vexaltrix' ),
 	'default'          => true,
 	'extension'        => false,
-	'priority'         => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'instagram-feed' ),
+	'priority'         => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'instagram-feed' ),
 	'pro_filler'       => true,
 ];

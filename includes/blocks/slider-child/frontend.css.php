@@ -36,7 +36,7 @@ $bgObjDesktop        = [
 	'yPosition'                => $attr['yPositionDesktop'],
 	'yPositionType'            => $attr['yPositionType'],
 ];
-$sliderBgCssDesktop = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
+$sliderBgCssDesktop = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
 
 // Tablet.
 $leftPaddingTablet   = '' !== $attr['leftPaddingTablet'] ? $attr['leftPaddingTablet'] : $attr['leftPaddingDesktop'];
@@ -62,14 +62,14 @@ $bottomMarginMobile = '' !== $attr['bottomMarginMobile'] ? $attr['bottomMarginMo
 
 $sliderCss = array_merge(
 	[
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
 	]
 );
 $sliderCss = array_merge( $sliderCss, $sliderBgCssDesktop );
@@ -104,17 +104,17 @@ $bgObjTablet        = [
 	'yPosition'                => $attr['yPositionTablet'],
 	'yPositionType'            => $attr['yPositionTypeTablet'],
 ];
-$sliderBgCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
+$sliderBgCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
 $sliderTabletCss    = array_merge(
 	[
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
 	]
 );
 $sliderTabletCss    = array_merge( $sliderTabletCss, $sliderBgCssTablet );
@@ -149,17 +149,17 @@ $bgObjMobile        = [
 	'yPosition'                => $attr['yPositionMobile'],
 	'yPositionType'            => $attr['yPositionTypeMobile'],
 ];
-$sliderBgCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
+$sliderBgCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
 $sliderMobileCss    = array_merge(
 	[
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
 	]
 );
 $sliderMobileCss    = array_merge( $sliderMobileCss, $sliderBgCssMobile );
@@ -173,4 +173,4 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

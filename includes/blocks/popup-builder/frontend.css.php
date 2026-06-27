@@ -23,9 +23,9 @@ if ( 'banner' === $attr['variantType'] ) {
 }
 
 // Border Attributes.
-$contentBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content' );
-$contentBorderCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'tablet' );
-$contentBorderCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'mobile' );
+$contentBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content' );
+$contentBorderCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'tablet' );
+$contentBorderCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'mobile' );
 
 // Background CSS.
 $bgObjDesktop = [
@@ -107,9 +107,9 @@ $bgObjMobile  = [
 	'yPositionType'            => $attr['yPositionTypeMobile'],
 ];
 
-$popupBgCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
-$popupBgCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
-$popupBgCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
+$popupBgCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
+$popupBgCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
+$popupBgCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
 
 // Box Shadow CSS.
 $boxShadowProperties       = [
@@ -130,8 +130,8 @@ $boxShadowHoverProperties = [
 	'alt_color'  => $attr['boxShadowColor'],
 ];
 
-$boxShadowCss       = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $boxShadowProperties );
-$boxShadowHoverCss = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $boxShadowHoverProperties );
+$boxShadowCss       = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $boxShadowProperties );
+$boxShadowHoverCss = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $boxShadowHoverProperties );
 
 $selectors = [
 	'.vxt-popup-builder'                         => [
@@ -144,14 +144,14 @@ $selectors = [
 		'pointer-events' => 'auto',
 	],
 	' .vxt-popup-builder__wrapper--banner'       => [
-		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : 'auto',
-		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
+		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : 'auto',
+		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
 	],
 	' .vxt-popup-builder__wrapper--popup'        => [
-		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
-		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
-		'width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['popupWidth'], $attr['popupWidthUnit'] ),
-		'margin'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
+		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
+		'width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupWidth'], $attr['popupWidthUnit'] ),
+		'margin'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['popupMarginUnit'],
 			$attr['popupMarginTop'],
 			$attr['popupMarginRight'],
@@ -163,7 +163,7 @@ $selectors = [
 	' .vxt-popup-builder__close'                 => [
 		'left'    => ( ( 'top-left' === $attr['closeIconPosition'] && ! is_rtl() ) || ( 'top-right' === $attr['closeIconPosition'] && is_rtl() ) ) ? 0 : '',
 		'right'   => ( ( 'top-right' === $attr['closeIconPosition'] && ! is_rtl() ) || ( 'top-left' === $attr['closeIconPosition'] && is_rtl() ) ) ? 0 : '',
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['closePaddingUnit'],
 			$attr['closePaddingTop'],
 			$attr['closePaddingRight'],
@@ -173,16 +173,16 @@ $selectors = [
 	],
 	// Backward Compatibility - Close button CSS for v2.12.2 and below.
 	' .vxt-popup-builder__close svg'             => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
 		'fill'        => $attr['closeIconColor'],
 	],
 	' button.vxt-popup-builder__close'           => [
 		'left'    => ( ( 'top-left' === $attr['closeIconPosition'] && ! is_rtl() ) || ( 'top-right' === $attr['closeIconPosition'] && is_rtl() ) ) ? 0 : '',
 		'right'   => ( ( 'top-right' === $attr['closeIconPosition'] && ! is_rtl() ) || ( 'top-left' === $attr['closeIconPosition'] && is_rtl() ) ) ? 0 : '',
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['closePaddingUnit'],
 			$attr['closePaddingTop'],
 			$attr['closePaddingRight'],
@@ -191,10 +191,10 @@ $selectors = [
 		),
 	],
 	' button.vxt-popup-builder__close svg'       => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
 		'fill'        => $attr['closeIconColor'],
 	],
 	' button.vxt-popup-builder__close:hover svg' => [
@@ -208,7 +208,7 @@ $selectors = [
 			'justify-content' => $attr['hasFixedHeight'] ? $attr['popupContentAlignmentV'] : '',
 			'overflow-y'      => $attr['hasFixedHeight'] && ( 'center' === $attr['popupContentAlignmentV'] || 'flex-end' === $attr['popupContentAlignmentV'] ) ? 'hidden' : '',
 			'box-shadow'      => $boxShadowCss,
-			'padding'         => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+			'padding'         => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 				$attr['popupPaddingUnit'],
 				$attr['popupPaddingTop'],
 				$attr['popupPaddingRight'],
@@ -224,23 +224,23 @@ $selectors = [
 		'border-color' => $attr['contentBorderHColor'],
 	],
 	' .vxt-popup-builder__container--banner'     => [
-		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
+		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
 	],
 	' .vxt-popup-builder__container--popup'      => [
-		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
+		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeight'], $attr['popupHeightUnit'] ) : '',
 	],
 ];
 
 $tSelectors = [
 	' .vxt-popup-builder__wrapper--banner'   => [
-		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : 'auto',
-		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
+		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : 'auto',
+		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
 	],
 	' .vxt-popup-builder__wrapper--popup'    => [
-		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
-		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
-		'width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['popupWidthTablet'], $attr['popupWidthUnitTablet'] ),
-		'margin'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
+		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
+		'width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupWidthTablet'], $attr['popupWidthUnitTablet'] ),
+		'margin'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['popupMarginUnitTablet'],
 			$attr['popupMarginTopTablet'],
 			$attr['popupMarginRightTablet'],
@@ -250,7 +250,7 @@ $tSelectors = [
 	],
 	// Backward Compatibility - Close button CSS for v2.12.2 and below.
 	' .vxt-popup-builder__close'             => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['closePaddingUnitTablet'],
 			$attr['closePaddingTopTablet'],
 			$attr['closePaddingRightTablet'],
@@ -260,13 +260,13 @@ $tSelectors = [
 	],
 	// Backward Compatibility - Close button CSS for v2.12.2 and below.
 	' .vxt-popup-builder__close svg'         => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
 	],
 	' button.vxt-popup-builder__close'       => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['closePaddingUnitTablet'],
 			$attr['closePaddingTopTablet'],
 			$attr['closePaddingRightTablet'],
@@ -275,14 +275,14 @@ $tSelectors = [
 		),
 	],
 	' button.vxt-popup-builder__close svg'   => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeTablet'], 'px' ),
 	],
 	' .vxt-popup-builder__container'         => array_merge(
 		[
-			'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+			'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 				$attr['popupPaddingUnitTablet'],
 				$attr['popupPaddingTopTablet'],
 				$attr['popupPaddingRightTablet'],
@@ -294,22 +294,22 @@ $tSelectors = [
 		$contentBorderCssTablet
 	),
 	' .vxt-popup-builder__container--banner' => [
-		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
+		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
 	],
 	' .vxt-popup-builder__container--popup'  => [
-		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
+		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightTablet'], $attr['popupHeightUnitTablet'] ) : '',
 	],
 ];
 $mSelectors = [
 	' .vxt-popup-builder__wrapper--banner'   => [
-		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : 'auto',
-		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
+		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : 'auto',
+		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
 	],
 	' .vxt-popup-builder__wrapper--popup'    => [
-		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
-		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
-		'width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['popupWidthMobile'], $attr['popupWidthUnitMobile'] ),
-		'margin'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'height'     => $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
+		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
+		'width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupWidthMobile'], $attr['popupWidthUnitMobile'] ),
+		'margin'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['popupMarginUnitMobile'],
 			$attr['popupMarginTopMobile'],
 			$attr['popupMarginRightMobile'],
@@ -319,7 +319,7 @@ $mSelectors = [
 	],
 	// Backward Compatibility - Close button CSS for v2.12.2 and below.
 	' .vxt-popup-builder__close'             => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['closePaddingUnitMobile'],
 			$attr['closePaddingTopMobile'],
 			$attr['closePaddingRightMobile'],
@@ -329,13 +329,13 @@ $mSelectors = [
 	],
 	// Backward Compatibility - Close button CSS for v2.12.2 and below.
 	' .vxt-popup-builder__close svg'         => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
 	],
 	' button.vxt-popup-builder__close'       => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['closePaddingUnitMobile'],
 			$attr['closePaddingTopMobile'],
 			$attr['closePaddingRightMobile'],
@@ -344,14 +344,14 @@ $mSelectors = [
 		),
 	],
 	' button.vxt-popup-builder__close svg'   => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSizeMobile'], 'px' ),
 	],
 	' .vxt-popup-builder__container'         => array_merge(
 		[
-			'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+			'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 				$attr['popupPaddingUnitMobile'],
 				$attr['popupPaddingTopMobile'],
 				$attr['popupPaddingRightMobile'],
@@ -363,10 +363,10 @@ $mSelectors = [
 		$contentBorderCssMobile
 	),
 	' .vxt-popup-builder__container--banner' => [
-		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
+		'min-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
 	],
 	' .vxt-popup-builder__container--popup'  => [
-		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
+		'max-height' => ! $attr['hasFixedHeight'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['popupHeightMobile'], $attr['popupHeightUnitMobile'] ) : '',
 	],
 ];
 
@@ -395,7 +395,7 @@ if ( 'banner' === $attr['variantType'] ) {
 	}
 }
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getCombinedSelectors(
 	'popup-builder', 
 	[
 		'desktop' => $selectors,
@@ -407,4 +407,4 @@ $combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
 
 $blockSelector = '.vxt-block-' . $id;
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $blockSelector );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $blockSelector );

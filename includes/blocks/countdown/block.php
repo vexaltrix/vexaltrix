@@ -17,10 +17,10 @@ $blockData = [
 	'description'         => __( 'This block allows you to add countdown timers.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'countdown' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'countdown' ),
 	'static_dependencies' => [
 		'vxt-countdown-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'vxt-countdown' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'vxt-countdown' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

@@ -12,7 +12,7 @@ This file provides guidance to Codex when working with vexaltrix.
 - **Block prefix:** `vexaltrix/` (e.g., `vexaltrix/container`)
 - **Block categories:** `vxt-gutenberg-blocks`, `vxt-gutenberg-blocks-inner`
 - **Option prefix:** `vxt_wp_blocks_` (e.g., `vxt_wp_blocks_file_generation`)
-- **PHP class prefix:** `Vexaltrix_Blocks_` (infrastructure classes in classes/)
+- **PHP class prefix:** `Vexaltrix_Blocks_` (legacy classes, now migrated to PSR-4 namespaces in `app/`)
 - **Function prefix:** `vxt_wp_blocks_` (global functions)
 - **Requires:** PHP 8.1+, WordPress 6.6+
 
@@ -29,12 +29,12 @@ This file provides guidance to Codex when working with vexaltrix.
 
 ```
 vexaltrix.php                    Main plugin entry point
-classes/                         WordPress plugin infrastructure
-classes/Core/Analytics/          Block usage analytics and event tracking
-classes/Core/Base/               Base controllers and service provider contracts
-classes/Core/Blocks/             Block registration, assets, and helpers
-classes/Core/Cache/              Cache purge integrations
-classes/Core/Commands/           WP-CLI commands
+app/Core/                        Plugin Engine: container, contracts, events, module system, service discovery
+app/Infrastructure/              System plumbing: cache, migration, install, settings repository + schema
+app/Domain/                      Business logic & rules: analytics, display conditions
+app/Integration/                 Third-party compatibility & integrations
+app/Presentation/                UI output: admin dashboard controllers, blocks registration, assets loader
+app/Transport/                   I/O endpoints: ajax handlers, REST API controllers, WP-CLI commands
 includes/                        Block PHP, configuration, and integrations
 src/                             Block editor JS/SCSS source
 packages/admin-ui/               Admin dashboard React source
@@ -99,23 +99,38 @@ The following block attribute names are intentionally kept with UAG prefix for b
 
 ### Architecture Patterns
 
-**Infrastructure classes** (`classes/`) use static `::init()` pattern:
+**Services** (Infrastructure, Domain, Integration, Presentation, Transport) implement `ServiceInterface` and are auto-discovered by `ServiceDiscovery`:
 ```php
-class Vexaltrix_Blocks_Example {
-    public static function init() {
-        add_action( 'init', array( __CLASS__, 'do_something' ) );
+namespace Vexaltrix\Presentation\Admin;
+
+use Vexaltrix\Core\Contracts\ServiceInterface;
+
+class BetaUpdates implements ServiceInterface {
+    public static function group(): string    { return 'presentation'; }
+    public static function context(): string  { return 'admin'; }
+    public static function priority(): int    { return 10; }
+
+    public function boot(): void {
+        add_filter( 'pre_set_site_transient_update_plugins', [ $this, 'my_hook' ] );
     }
 }
 ```
 
-**Core classes** (`includes/`) use the `Singleton` trait and PSR-4 autoloading:
+**Events System** allows decoupling hook listeners without modifying base:
 ```php
-namespace Vexaltrix\SomeNamespace;
-use Vexaltrix\Traits\Singleton;
-class MyClass {
-    use Singleton;
-    public function init() { /* hooks */ }
-}
+use Vexaltrix\Core\Events\EventDispatcher;
+use Vexaltrix\Infrastructure\Settings\Events\SettingChanged;
+
+$dispatcher->listen( SettingChanged::class, function( SettingChanged $e ) {
+    // React to settings change.
+} );
+```
+
+**Settings System** wraps WP options with schema validation:
+```php
+use Vexaltrix\Core\Contracts\SettingsInterface;
+// Get option using SettingsRepository (automatically injects schema defaults + prefix):
+$width = $container->get( SettingsInterface::class )->get( 'content_width' );
 ```
 
 ### PHPDoc / JSDoc

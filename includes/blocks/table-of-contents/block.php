@@ -17,11 +17,11 @@ $blockData = [
 	'description'         => __( 'Add a table of contents to allow page navigation.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'table-of-contents' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'table-of-contents' ),
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-table-of-contents' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'table-of-contents' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'table-of-contents' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

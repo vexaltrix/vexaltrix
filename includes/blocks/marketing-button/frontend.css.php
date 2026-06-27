@@ -9,7 +9,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksMarketingBtnGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksMarketingBtnGfont( $attr );
 
 $mSelectors = [];
 $tSelectors = [];
@@ -42,21 +42,21 @@ $gradientAngleMobile     = is_numeric( $attr['gradientAngleMobile'] ) ? $attr['g
 $iconColor       = ( '' === $attr['iconColor'] ) ? $attr['titleColor'] : $attr['iconColor'];
 $iconHoverColor = ( '' === $attr['iconHoverColor'] ) ? $attr['titleHoverColor'] : $attr['iconHoverColor'];
 
-$btnBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
-$btnBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$btnBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
+$btnBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$btnBorderCss,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$btnBorderCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
-$btnBorderCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
+$btnBorderCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
+$btnBorderCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
 
 
-$iconSpacing        = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpace'], 'px' );
-$iconSpacingTablet = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpaceTablet'], 'px' );
-$iconSpacingMobile = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpaceMobile'], 'px' );
+$iconSpacing        = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpace'], 'px' );
+$iconSpacingTablet = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpaceTablet'], 'px' );
+$iconSpacingMobile = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpaceMobile'], 'px' );
 
 $rightSideMargin = 'margin-right';
 $leftSideMargin  = 'margin-left';
@@ -68,7 +68,7 @@ if ( ! is_rtl() ) {
 
 $selectors = [
 	' .vxt-marketing-btn__prefix'         => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpace'], $attr['titleSpaceUnit'] ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpace'], $attr['titleSpaceUnit'] ),
 	],
 	'.vxt-marketing-btn__icon-after .vxt-marketing-btn__link svg' => [
 		$rightSideMargin => $iconSpacing,
@@ -89,8 +89,8 @@ $selectors = [
 		'vertical-align' => 'sub',
 	],
 	' svg'                                 => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconFontSize'], $attr['iconFontSizeType'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconFontSize'], $attr['iconFontSizeType'] ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconFontSize'], $attr['iconFontSizeType'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconFontSize'], $attr['iconFontSizeType'] ),
 	],
 	' .vxt-marketing-btn__link svg'       => [
 		'fill' => $iconColor,
@@ -105,8 +105,8 @@ $selectors = [
 
 $mSelectors = [
 	' svg'                         => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconFontSizeMobile'], $attr['iconFontSizeType'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconFontSizeMobile'], $attr['iconFontSizeType'] ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconFontSizeMobile'], $attr['iconFontSizeType'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconFontSizeMobile'], $attr['iconFontSizeType'] ),
 	],
 	'.vxt-marketing-btn__icon-after .vxt-marketing-btn__link svg' => [
 		$rightSideMargin => $iconSpacingMobile,
@@ -115,17 +115,17 @@ $mSelectors = [
 		$leftSideMargin => $iconSpacingMobile,
 	],
 	' .vxt-marketing-btn__prefix' => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpaceMobile'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpaceMobile'], 'px' ),
 	],
 ];
 
 $tSelectors = [
 	' .vxt-marketing-btn__prefix'         => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpaceTablet'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpaceTablet'], 'px' ),
 	],
 	' .wp-block-vxt-marketing-button svg' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconFontSizeTablet'], $attr['iconFontSizeType'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconFontSizeTablet'], $attr['iconFontSizeType'] ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconFontSizeTablet'], $attr['iconFontSizeType'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconFontSizeTablet'], $attr['iconFontSizeType'] ),
 	],
 	'.vxt-marketing-btn__icon-after .vxt-marketing-btn__link svg' => [
 		$leftSideMargin => $iconSpacingTablet,
@@ -144,33 +144,33 @@ if ( ! $attr['inheritFromTheme'] ) {
 	
 	} elseif ( 'color' === $attr['backgroundType'] ) {
 	
-		$selectors['.wp-block-vxt-marketing-button.wp-block-button .wp-block-button__link.vxt-marketing-btn__link']['background'] = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundColor'], $attr['backgroundOpacity'] );
+		$selectors['.wp-block-vxt-marketing-button.wp-block-button .wp-block-button__link.vxt-marketing-btn__link']['background'] = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundColor'], $attr['backgroundOpacity'] );
 	
-		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) a.wp-block-button__link:not(.has-background)']['background-color'] = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundColor'], $attr['backgroundOpacity'] );
+		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) a.wp-block-button__link:not(.has-background)']['background-color'] = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundColor'], $attr['backgroundOpacity'] );
 	
 		// Hover Background.
-		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) .wp-block-button__link.vxt-marketing-btn__link:hover']['background']   = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
-		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) .wp-block-button__link.vxt-marketing-btn__link:focus']['background']   = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
-		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) .wp-block-button__link.vxt-marketing-btn__link:hover']['border-color'] = \Vexaltrix\Support\Helper::hex2rgba( $attr['btnBorderHColor'] );
+		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) .wp-block-button__link.vxt-marketing-btn__link:hover']['background']   = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
+		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) .wp-block-button__link.vxt-marketing-btn__link:focus']['background']   = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
+		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) .wp-block-button__link.vxt-marketing-btn__link:hover']['border-color'] = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['btnBorderHColor'] );
 	
 		// Deprecated for v1.2.6.
-		$selectors[' .vxt-marketing-btn__link']['background'] = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundColor'], $attr['backgroundOpacity'] );
+		$selectors[' .vxt-marketing-btn__link']['background'] = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundColor'], $attr['backgroundOpacity'] );
 	
 		// Hover Background Deprecated for v1.2.6.
-		$selectors[' .vxt-marketing-btn__link:hover']['background'] = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
-		$selectors[' .vxt-marketing-btn__link:focus']['background'] = \Vexaltrix\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
+		$selectors[' .vxt-marketing-btn__link:hover']['background'] = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
+		$selectors[' .vxt-marketing-btn__link:focus']['background'] = \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['backgroundHoverColor'], $attr['backgroundHoverOpacity'] );
 	
 	} elseif ( 'gradient' === $attr['backgroundType'] ) {
 	
 		$selectors[' .vxt-marketing-btn__link']['background-color'] = 'transparent';
 		$selectors['.wp-block-vxt-marketing-button.wp-block-button:not(.is-style-outline) a.wp-block-button__link:not(.has-background)']['background-color'] = 'transparent';
 	
-		$linearGradient        = 'linear-gradient(' . $attr['gradientAngle'] . 'deg, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation1 . '%, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation2 . '%)';
-		$linearGradientTablet = 'linear-gradient(' . $attr['gradientAngleTablet'] . 'deg, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet1 . '%, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet2 . '%)';
-		$linearGradientMobile = 'linear-gradient(' . $attr['gradientAngleMobile'] . 'deg, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile1 . '%, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile2 . '%)';
-		$radialGradient        = 'radial-gradient( at center center, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation1 . '%, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation2 . '%)';
-		$radialGradientTablet = 'radial-gradient( at center center, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet1 . '%, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet2 . '%)';
-		$radialGradientMobile = 'radial-gradient( at center center, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile1 . '%, ' . \Vexaltrix\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile2 . '%)';
+		$linearGradient        = 'linear-gradient(' . $attr['gradientAngle'] . 'deg, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation1 . '%, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation2 . '%)';
+		$linearGradientTablet = 'linear-gradient(' . $attr['gradientAngleTablet'] . 'deg, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet1 . '%, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet2 . '%)';
+		$linearGradientMobile = 'linear-gradient(' . $attr['gradientAngleMobile'] . 'deg, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile1 . '%, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile2 . '%)';
+		$radialGradient        = 'radial-gradient( at center center, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation1 . '%, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocation2 . '%)';
+		$radialGradientTablet = 'radial-gradient( at center center, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet1 . '%, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationTablet2 . '%)';
+		$radialGradientMobile = 'radial-gradient( at center center, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor1'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile1 . '%, ' . \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['gradientColor2'], $attr['backgroundOpacity'] ) . ' ' . $gradientLocationMobile2 . '%)';
 
 		if ( 'linear' === $attr['gradientType'] ) {
 			$selectors[' .vxt-marketing-btn__link']['background-image'] = $linearGradient;
@@ -202,10 +202,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 			],
 			' .vxt-marketing-btn__link.wp-block-button__link' => array_merge(
 				[
-					'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeft, $attr['paddingBtnUnit'] ),
-					'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRight, $attr['paddingBtnUnit'] ),
-					'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTop, $attr['paddingBtnUnit'] ),
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottom, $attr['paddingBtnUnit'] ),
+					'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeft, $attr['paddingBtnUnit'] ),
+					'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRight, $attr['paddingBtnUnit'] ),
+					'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTop, $attr['paddingBtnUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottom, $attr['paddingBtnUnit'] ),
 				],
 				$btnBorderCss
 			),
@@ -217,10 +217,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 			],
 			' .vxt-marketing-btn__wrap .vxt-marketing-btn__link' => array_merge( // deprecated for v1.25.6 .
 				[
-					'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeft ? $btnPaddingLeft : 20, $attr['paddingBtnUnit'] ),
-					'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRight ? $btnPaddingRight : 20, $attr['paddingBtnUnit'] ),
-					'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTop ? $btnPaddingTop : 8, $attr['paddingBtnUnit'] ),
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottom ? $btnPaddingBottom : 8, $attr['paddingBtnUnit'] ),
+					'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeft ? $btnPaddingLeft : 20, $attr['paddingBtnUnit'] ),
+					'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRight ? $btnPaddingRight : 20, $attr['paddingBtnUnit'] ),
+					'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTop ? $btnPaddingTop : 8, $attr['paddingBtnUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottom ? $btnPaddingBottom : 8, $attr['paddingBtnUnit'] ),
 				],
 				$btnBorderCss
 			),
@@ -240,19 +240,19 @@ if ( ! $attr['inheritFromTheme'] ) {
 		[
 			'.wp-block-vxt-marketing-button.wp-block-button .vxt-marketing-btn__link' => array_merge(
 				[
-					'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeftMobile, $attr['mobilePaddingBtnUnit'] ),
-					'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRightMobile, $attr['mobilePaddingBtnUnit'] ),
-					'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTopMobile, $attr['mobilePaddingBtnUnit'] ),
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottomMobile, $attr['mobilePaddingBtnUnit'] ),
+					'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeftMobile, $attr['mobilePaddingBtnUnit'] ),
+					'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRightMobile, $attr['mobilePaddingBtnUnit'] ),
+					'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTopMobile, $attr['mobilePaddingBtnUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottomMobile, $attr['mobilePaddingBtnUnit'] ),
 				],
 				$btnBorderCssMobile
 			),
 			' .vxt-marketing-btn__wrap .vxt-marketing-btn__link' => array_merge( // deprecated for v1.25.6 .
 				[
-					'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeftMobile ? $btnPaddingLeftMobile : 20, $attr['paddingBtnUnit'] ),
-					'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRightMobile ? $btnPaddingRightMobile : 20, $attr['paddingBtnUnit'] ),
-					'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTopMobile ? $btnPaddingTopMobile : 8, $attr['paddingBtnUnit'] ),
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottomMobile ? $btnPaddingBottomMobile : 8, $attr['paddingBtnUnit'] ),
+					'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeftMobile ? $btnPaddingLeftMobile : 20, $attr['paddingBtnUnit'] ),
+					'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRightMobile ? $btnPaddingRightMobile : 20, $attr['paddingBtnUnit'] ),
+					'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTopMobile ? $btnPaddingTopMobile : 8, $attr['paddingBtnUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottomMobile ? $btnPaddingBottomMobile : 8, $attr['paddingBtnUnit'] ),
 				],
 				$btnBorderCssMobile
 			),
@@ -263,19 +263,19 @@ if ( ! $attr['inheritFromTheme'] ) {
 		[
 			' .vxt-marketing-btn__link.wp-block-button__link' => array_merge(
 				[
-					'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeftTablet, $attr['tabletPaddingBtnUnit'] ),
-					'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRightTablet, $attr['tabletPaddingBtnUnit'] ),
-					'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTopTablet, $attr['tabletPaddingBtnUnit'] ),
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottomTablet, $attr['tabletPaddingBtnUnit'] ),
+					'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeftTablet, $attr['tabletPaddingBtnUnit'] ),
+					'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRightTablet, $attr['tabletPaddingBtnUnit'] ),
+					'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTopTablet, $attr['tabletPaddingBtnUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottomTablet, $attr['tabletPaddingBtnUnit'] ),
 				],
 				$btnBorderCssTablet
 			),
 			' .vxt-marketing-btn__wrap .vxt-marketing-btn__link' => array_merge( // deprecated for v1.25.6 .
 				[
-					'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeftTablet ? $btnPaddingLeftTablet : 20, $attr['paddingBtnUnit'] ),
-					'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRightTablet ? $btnPaddingRightTablet : 20, $attr['paddingBtnUnit'] ),
-					'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTopTablet ? $btnPaddingTopTablet : 8, $attr['paddingBtnUnit'] ),
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottomTablet ? $btnPaddingBottomTablet : 8, $attr['paddingBtnUnit'] ),
+					'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeftTablet ? $btnPaddingLeftTablet : 20, $attr['paddingBtnUnit'] ),
+					'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRightTablet ? $btnPaddingRightTablet : 20, $attr['paddingBtnUnit'] ),
+					'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTopTablet ? $btnPaddingTopTablet : 8, $attr['paddingBtnUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottomTablet ? $btnPaddingBottomTablet : 8, $attr['paddingBtnUnit'] ),
 				],
 				$btnBorderCssTablet
 			),
@@ -293,10 +293,10 @@ $combinedSelectors = [
 ];
 
 if ( ! $attr['inheritFromTheme'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-marketing-btn__title', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'prefix', ' .vxt-marketing-btn__prefix', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-marketing-btn__title', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'prefix', ' .vxt-marketing-btn__prefix', $combinedSelectors );
 }
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.vxt-block-' : '#vxt-marketing-btn-';
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

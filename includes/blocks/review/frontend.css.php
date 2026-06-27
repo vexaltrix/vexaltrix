@@ -8,7 +8,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksReviewGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksReviewGfont( $attr );
 
 $tSelectors = [];
 $mSelectors = [];
@@ -33,10 +33,10 @@ $selectors = [
 		'color' => $attr['contentColor'],
 	],
 	' .vxt_ultimate_gutenberg_blocks_review_block'                     => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPadding, $attr['paddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPadding, $attr['paddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPadding, $attr['paddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPadding, $attr['paddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPadding, $attr['paddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPadding, $attr['paddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPadding, $attr['paddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPadding, $attr['paddingUnit'] ),
 		'text-align'     => $attr['overallAlignment'],
 	],
 	' .vxt_ultimate_gutenberg_blocks_review_summary'                   => [
@@ -53,19 +53,19 @@ $selectors = [
 
 $mSelectors = [
 	' .vxt_ultimate_gutenberg_blocks_review_block' => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingLeftMobile'], $attr['mobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingRightMobile'], $attr['mobilePaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingTopMobile'], $attr['mobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBottomMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingLeftMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingRightMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingTopMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBottomMobile'], $attr['mobilePaddingUnit'] ),
 	],
 ];
 
 $tSelectors = [
 	' .vxt_ultimate_gutenberg_blocks_review_block' => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingLeftTablet'], $attr['tabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingRightTablet'], $attr['tabletPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingTopTablet'], $attr['tabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBottomTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingLeftTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingRightTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingTopTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBottomTablet'], $attr['tabletPaddingUnit'] ),
 	],
 ];
 
@@ -75,8 +75,8 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'head', ' .vxt-rating-title, .vxt_ultimate_gutenberg_blocks_review_entry', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'subHead', ' .vxt-rating-desc, .vxt-rating-author', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'content', ' .vxt_ultimate_gutenberg_blocks_review_summary, .vxt_ultimate_gutenberg_blocks_review_block .vxt_ultimate_gutenberg_blocks_review_summary_title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'head', ' .vxt-rating-title, .vxt_ultimate_gutenberg_blocks_review_entry', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'subHead', ' .vxt-rating-desc, .vxt-rating-author', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'content', ' .vxt_ultimate_gutenberg_blocks_review_summary, .vxt_ultimate_gutenberg_blocks_review_block .vxt_ultimate_gutenberg_blocks_review_summary_title', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . substr( $attr['block_id'], 0, 8 ) );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . substr( $attr['block_id'], 0, 8 ) );

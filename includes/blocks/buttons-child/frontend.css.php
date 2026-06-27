@@ -8,9 +8,9 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksButtonsGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksButtonsGfont( $attr );
 
-$allSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getButtonsChildSelectors( $attr, $id, true );
+$allSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getButtonsChildSelectors( $attr, $id, true );
 
 $combinedSelectors = [
 	'desktop' => $allSelectors['selectors'],
@@ -18,10 +18,10 @@ $combinedSelectors = [
 	'mobile'  => $allSelectors['m_selectors'],
 ];
 if ( ! $attr['inheritFromTheme'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, '', ' .vxt-button__link', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, '', ' .vxt-button__link', $combinedSelectors );
 }
 
-return \Vexaltrix\Support\Helper::generateAllCss(
+return \Vexaltrix\Core\Support\Helper::generateAllCss(
 	$combinedSelectors,
 	'.wp-block-vxt-buttons .vxt-block-' . $id,
 	isset( $gbsClass ) ? $gbsClass : ''

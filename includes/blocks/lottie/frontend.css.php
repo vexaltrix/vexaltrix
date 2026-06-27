@@ -13,8 +13,8 @@ $mSelectors = [];
 
 $selectors                                   = [
 	'.vxt-lottie__outer-wrap' => [
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['width'], 'px' ),
-		'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['height'], 'px' ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['width'], 'px' ),
+		'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['height'], 'px' ),
 		'overflow'         => 'hidden',
 		'outline'          => 'none',
 		'background-color' => $attr['backgroundColor'],
@@ -37,15 +37,15 @@ $selectors['.vxt-lottie__outer-wrap:hover'] = [
 
 $tSelectors = [
 	'.vxt-lottie__outer-wrap' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['widthTablet'], 'px' ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['heightTablet'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthTablet'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['heightTablet'], 'px' ),
 	],
 ];
 
 $mSelectors = [
 	'.vxt-lottie__outer-wrap' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['widthMob'], 'px' ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['heightMob'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthMob'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['heightMob'], 'px' ),
 	],
 ];
 
@@ -55,4 +55,4 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

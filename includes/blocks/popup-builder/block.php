@@ -17,7 +17,7 @@ $blockData = [
 	'description'      => __( 'Create eye-catching popups that can be reused sitewide!', 'vexaltrix' ),
 	'default'          => true,
 	'extension'        => true,
-	'priority'         => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'popup-builder' ),
+	'priority'         => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'popup-builder' ),
 	'dynamic_assets'   => [
 		'dir' => 'popup-builder',
 	],

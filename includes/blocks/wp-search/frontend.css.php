@@ -9,7 +9,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksWpSearchGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksWpSearchGfont( $attr );
 
 $selectors            = [];
 $tSelectors          = [];
@@ -19,21 +19,21 @@ $boxShadowPositionCSS = $attr['boxShadowPosition'];
 if ( 'outset' === $attr['boxShadowPosition'] ) {
 	$boxShadowPositionCSS = '';
 }
-$paddingInputTop          = isset( $attr['paddingInputTop'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputTop'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['vinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputRight        = isset( $attr['paddingInputRight'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputRight'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['hinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputBottom       = isset( $attr['paddingInputBottom'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputBottom'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['vinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputLeft         = isset( $attr['paddingInputLeft'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputLeft'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['hinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputTopTablet    = isset( $attr['paddingInputTopTablet'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputTopTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['vinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputRightTablet  = isset( $attr['paddingInputRightTablet'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputRightTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['hinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputBottomTablet = isset( $attr['paddingInputBottomTablet'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputBottomTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['vinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputLeftTablet   = isset( $attr['paddingInputLeftTablet'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputLeftTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['hinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputTopMobile    = isset( $attr['paddingInputTopMobile'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputTopMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['vinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputRightMobile  = isset( $attr['paddingInputRightMobile'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputRightMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['hinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputBottomMobile = isset( $attr['paddingInputBottomMobile'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputBottomMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['vinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
-$paddingInputLeftMobile   = isset( $attr['paddingInputLeftMobile'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['paddingInputLeftMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Support\Helper::getCssValue( $attr['hinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputTop          = isset( $attr['paddingInputTop'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputTop'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputRight        = isset( $attr['paddingInputRight'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputRight'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputBottom       = isset( $attr['paddingInputBottom'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputBottom'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputLeft         = isset( $attr['paddingInputLeft'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputLeft'], $attr['inputPaddingTypeDesktop'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hinputPaddingDesktop'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputTopTablet    = isset( $attr['paddingInputTopTablet'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputTopTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputRightTablet  = isset( $attr['paddingInputRightTablet'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputRightTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputBottomTablet = isset( $attr['paddingInputBottomTablet'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputBottomTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputLeftTablet   = isset( $attr['paddingInputLeftTablet'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputLeftTablet'], $attr['tabletPaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hinputPaddingTablet'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputTopMobile    = isset( $attr['paddingInputTopMobile'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputTopMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputRightMobile  = isset( $attr['paddingInputRightMobile'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputRightMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputBottomMobile = isset( $attr['paddingInputBottomMobile'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputBottomMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
+$paddingInputLeftMobile   = isset( $attr['paddingInputLeftMobile'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingInputLeftMobile'], $attr['mobilePaddingInputUnit'] ) : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hinputPaddingMobile'], $attr['inputPaddingTypeDesktop'] );
 
-$iconSize       = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeType'] );
-$buttonIconSize = \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSize'], $attr['buttonIconSizeType'] );
+$iconSize       = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeType'] );
+$buttonIconSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSize'], $attr['buttonIconSizeType'] );
 $inputCSS       = [
 	'color'            => $attr['textColor'],
 	'background-color' => $attr['inputBgColor'],
@@ -48,29 +48,29 @@ $inputCSS       = [
 ];
 
 
-$inputBorderCSS       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'input' );
-$inputBorderCSS       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$inputBorderCSS       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'input' );
+$inputBorderCSS       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$inputBorderCSS,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$inputBorderCSSTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'input', 'tablet' );
-$inputBorderCSSMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'input', 'mobile' );
+$inputBorderCSSTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'input', 'tablet' );
+$inputBorderCSSMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'input', 'mobile' );
 
 $boxCSS = array_merge(
 	$inputBorderCSS,
 	[
 		'outline'    => 'unset',
-		'box-shadow' => \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
+		'box-shadow' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
 		'transition' => 'all .5s',
 	]
 );
 if ( 'px' === $attr['inputSizeType'] ) {
-	$boxCSS['max-width'] = \Vexaltrix\Support\Helper::getCssValue( $attr['inputSize'], $attr['inputSizeType'] );
+	$boxCSS['max-width'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['inputSize'], $attr['inputSizeType'] );
 } else {
-	$boxCSS['width'] = \Vexaltrix\Support\Helper::getCssValue( $attr['inputSize'], $attr['inputSizeType'] );
+	$boxCSS['width'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['inputSize'], $attr['inputSizeType'] );
 }
 $iconColor = $attr['textColor'];
 
@@ -80,7 +80,7 @@ if ( $attr['iconColor'] && '' !== $attr['iconColor'] ) {
 
 $selectors = [
 	' .vxt-search-form__container .vxt-search-submit' => [
-		'width'   => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonWidth'], $attr['buttonWidthType'] ),
+		'width'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonWidth'], $attr['buttonWidthType'] ),
 		'padding' => 0,
 		'border'  => 0,
 	],
@@ -122,7 +122,7 @@ if ( 'input-button' === $attr['layout'] || 'input' === $attr['layout'] ) {
 	if ( 'inset' === $attr['boxShadowPosition'] ) {
 		$selectors[' .vxt-search-wrapper .vxt-search-form__input'] = [
 
-			'box-shadow' => \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
+			'box-shadow' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
 		];
 	}
 
@@ -175,8 +175,8 @@ $combinedSelectors = [
 	'tablet'  => $tSelectors,
 	'mobile'  => $mSelectors,
 ];
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'input', ' .vxt-search-wrapper .vxt-search-form__container .vxt-search-form__input', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'input', ' .vxt-search-wrapper .vxt-search-form__container .vxt-search-form__input', $combinedSelectors );
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'button', ' .vxt-search-wrapper .vxt-search-form__container .vxt-search-submit .vxt-wp-search-button-text', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'button', ' .vxt-search-wrapper .vxt-search-form__container .vxt-search-submit .vxt-wp-search-button-text', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$borderAttributes = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute(
+$borderAttributes = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'overall'
 );
 

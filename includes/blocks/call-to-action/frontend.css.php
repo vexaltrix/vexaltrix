@@ -8,7 +8,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksCallToActionGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksCallToActionGfont( $attr );
 
 $contentWidthTabletFallback = is_numeric( $attr['contentWidthTablet'] ) ? $attr['contentWidthTablet'] : $attr['contentWidth'];
 $contentWidthMobileFallback = is_numeric( $attr['contentWidthMobile'] ) ? $attr['contentWidthMobile'] : $contentWidthTabletFallback;
@@ -19,9 +19,9 @@ $btnContentWidthMobileFallback = is_numeric( $attr['btncontentWidthMobile'] ) ? 
 $tSelectors = [];
 $mSelectors = [];
 
-$svgSize   = \Vexaltrix\Support\Helper::getCssValue( $attr['ctaFontSize'], $attr['ctaFontSizeType'] );
-$mSvgSize = \Vexaltrix\Support\Helper::getCssValue( $attr['ctaFontSizeMobile'], $attr['ctaFontSizeTypeMobile'] );
-$tSvgSize = \Vexaltrix\Support\Helper::getCssValue( $attr['ctaFontSizeTablet'], $attr['ctaFontSizeTypeTablet'] );
+$svgSize   = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaFontSize'], $attr['ctaFontSizeType'] );
+$mSvgSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaFontSizeMobile'], $attr['ctaFontSizeTypeMobile'] );
+$tSvgSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaFontSizeTablet'], $attr['ctaFontSizeTypeTablet'] );
 
 $btnPaddingTop    = isset( $attr['ctaTopPadding'] ) ? $attr['ctaTopPadding'] : $attr['ctaBtnVertPadding'];
 $btnPaddingBottom = isset( $attr['ctaBottomPadding'] ) ? $attr['ctaBottomPadding'] : $attr['ctaBtnVertPadding'];
@@ -55,17 +55,17 @@ if ( 'left' === $attr['textAlignMobile'] ) {
 $selectors = [
 	'.wp-block-vxt-call-to-action .vxt-cta__title'       => [
 		'color'         => $attr['titleColor'],
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpace'], $attr['titleSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpace'], $attr['titleSpaceType'] ),
 	],
 	'.wp-block-vxt-call-to-action .vxt-cta__desc'        => [
 		'color'         => $attr['descColor'],
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpace'], $attr['descSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpace'], $attr['descSpaceType'] ),
 	],
 	' .vxt-cta__align-button-after'                       => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaIconSpace'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaIconSpace'], 'px' ),
 	],
 	' .vxt-cta__align-button-before'                      => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaIconSpace'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaIconSpace'], 'px' ),
 	],
 	' .vxt-cta__button-wrapper .vxt-cta-with-svg'        => [
 		'font-size'   => $svgSize,
@@ -90,10 +90,10 @@ $selectors = [
 		'fill' => $attr['ctaLinkHoverColor'],
 	],
 	'.wp-block-vxt-call-to-action a.vxt-cta-second__button > svg' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
 		'fill'        => $attr['secondCtaColor'],
 	],
 	'.wp-block-vxt-call-to-action a.vxt-cta-second__button:hover > svg' => [
@@ -129,34 +129,34 @@ $selectors[' .vxt-cta__content-wrap']      = [
 	'text-align' => $attr['textAlign'],
 ];
 $selectors[' .vxt-cta__wrap']              = [
-	'width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['contentWidth'], $attr['contentWidthType'] ),
+	'width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentWidth'], $attr['contentWidthType'] ),
 	'text-align' => $attr['textAlign'],
 ];
 $selectors['.wp-block-vxt-call-to-action'] = [
 	'text-align'     => $attr['textAlign'],
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopPadding'], $attr['overallBlockPaddingUnit'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomPadding'], $attr['overallBlockPaddingUnit'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftPadding'], $attr['overallBlockPaddingUnit'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightPadding'], $attr['overallBlockPaddingUnit'] ),
-	'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMargin'], $attr['overallBlockMarginUnit'] ),
-	'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMargin'], $attr['overallBlockMarginUnit'] ),
-	'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMargin'], $attr['overallBlockMarginUnit'] ),
-	'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMargin'], $attr['overallBlockMarginUnit'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopPadding'], $attr['overallBlockPaddingUnit'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomPadding'], $attr['overallBlockPaddingUnit'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftPadding'], $attr['overallBlockPaddingUnit'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightPadding'], $attr['overallBlockPaddingUnit'] ),
+	'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMargin'], $attr['overallBlockMarginUnit'] ),
+	'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMargin'], $attr['overallBlockMarginUnit'] ),
+	'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMargin'], $attr['overallBlockMarginUnit'] ),
+	'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMargin'], $attr['overallBlockMarginUnit'] ),
 ];
 
 if ( 'left' === $attr['textAlign'] && 'right' === $attr['ctaPosition'] ) {
 	$selectors[' .vxt-cta__left-right-wrap .vxt-cta__content'] = [
-		'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaLeftSpace'], 'px' ),
+		'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaLeftSpace'], 'px' ),
 		'margin-right' => '0',
 	];
 }
 
 $tSelectors = [
 	'.wp-block-vxt-call-to-action .vxt-cta__title' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpaceTablet'], $attr['titleSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpaceTablet'], $attr['titleSpaceType'] ),
 	],
 	'.wp-block-vxt-call-to-action .vxt-cta__desc'  => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpaceTablet'], $attr['descSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpaceTablet'], $attr['descSpaceType'] ),
 	],
 	' .vxt-cta__button-wrapper .vxt-cta-with-svg'  => [
 		'font-size'   => $tSvgSize,
@@ -171,10 +171,10 @@ $tSelectors = [
 		'line-height' => $tSvgSize,
 	],
 	'.wp-block-vxt-call-to-action a.vxt-cta-second__button svg' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeTablet'], $attr['secondCtaFontSizeTypeTablet'] ),
 	],
 ];
 
@@ -187,10 +187,10 @@ $tSelectors['.vxt-cta__content-stacked-tablet .vxt-cta__wrap']               = [
 
 $mSelectors = [
 	'.wp-block-vxt-call-to-action .vxt-cta__title' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpaceMobile'], $attr['titleSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpaceMobile'], $attr['titleSpaceType'] ),
 	],
 	'.wp-block-vxt-call-to-action .vxt-cta__desc'  => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpaceMobile'], $attr['descSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpaceMobile'], $attr['descSpaceType'] ),
 	],
 	' .vxt-cta__button-wrapper .vxt-cta-with-svg'  => [
 		'font-size'   => $mSvgSize,
@@ -205,10 +205,10 @@ $mSelectors = [
 		'line-height' => $mSvgSize,
 	],
 	'.wp-block-vxt-call-to-action a.vxt-cta-second__button svg' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSizeMobile'], $attr['secondCtaFontSizeTypeMobile'] ),
 	],
 ];
 
@@ -222,69 +222,69 @@ if ( 'desktop' === $attr['stackBtn'] ) {
 
 	$selectors[' .vxt-cta__buttons']    = [
 		'flex-direction' => 'column',
-		'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
+		'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
 	];
 	$tSelectors[' .vxt-cta__buttons '] = [
-		'row-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
+		'row-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
 	];
 	$mSelectors[' .vxt-cta__buttons '] = [
-		'row-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
+		'row-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
 	];
 
 } elseif ( 'tablet' === $attr['stackBtn'] ) {
 
 	$selectors[' .vxt-cta__buttons ']  = [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
 	];
 	$tSelectors[' .vxt-cta__buttons'] = [
 		'flex-direction' => 'column',
-		'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
+		'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
 	];
 	$mSelectors[' .vxt-cta__buttons'] = [
 		'flex-direction' => 'column',
-		'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
+		'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
 	];
 
 } elseif ( 'mobile' === $attr['stackBtn'] ) {
 
 	$selectors[' .vxt-cta__buttons ']  = [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
 	];
 	$tSelectors[' .vxt-cta__buttons'] = [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
 	];
 	$mSelectors[' .vxt-cta__buttons'] = [
 		'flex-direction' => 'column',
-		'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
+		'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
 	];
 
 } elseif ( 'none' === $attr['stackBtn'] ) {
 	$selectors[' .vxt-cta__buttons']   = [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtn'], 'px' ),
 	];
 	$tSelectors[' .vxt-cta__buttons'] = [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnTablet'], 'px' ),
 	];
 	$mSelectors[' .vxt-cta__buttons'] = [
-		'column-gap'      => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
+		'column-gap'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtnMobile'], 'px' ),
 		'justify-content' => 'center',
 	];
 }
 if ( 'button' === $attr['ctaType'] && $attr['enabledSecondCtaButton'] ) {
 	$selectors['.wp-block-button .vxt-cta__buttons']   = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['btncontentWidth'], $attr['btncontentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['btncontentWidth'], $attr['btncontentWidthType'] ),
 	];
 	$tSelectors['.wp-block-button .vxt-cta__buttons'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $btnContentWidthTabletFallback, $attr['btncontentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnContentWidthTabletFallback, $attr['btncontentWidthType'] ),
 	];
 	$mSelectors['.wp-block-button .vxt-cta__buttons'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $btnContentWidthMobileFallback, $attr['btncontentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnContentWidthMobileFallback, $attr['btncontentWidthType'] ),
 	];
 }
 
-$ctaIconSpacing        = \Vexaltrix\Support\Helper::getCssValue( $attr['ctaIconSpace'], 'px' );
-$ctaIconSpacingTablet = \Vexaltrix\Support\Helper::getCssValue( $attr['ctaIconSpaceTablet'], 'px' );
-$ctaIconSpacingMobile = \Vexaltrix\Support\Helper::getCssValue( $attr['ctaIconSpaceMobile'], 'px' );
+$ctaIconSpacing        = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaIconSpace'], 'px' );
+$ctaIconSpacingTablet = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaIconSpaceTablet'], 'px' );
+$ctaIconSpacingMobile = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaIconSpaceMobile'], 'px' );
 
 $rightSideMargin = 'margin-right';
 $leftSideMargin  = 'margin-left';
@@ -338,23 +338,23 @@ if ( 'right' === $attr['ctaPosition'] && ( 'text' === $attr['ctaType'] || 'butto
 		'justify-content' => 'space-between',
 	];
 	$selectors[' .vxt-cta__content-right .vxt-cta__left-right-wrap .vxt-cta__content']        = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentWidth'], $attr['contentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentWidth'], $attr['contentWidthType'] ),
 	];
 	$selectors[' .vxt-cta__content-right .vxt-cta__left-right-wrap .vxt-cta__link-wrapper']   = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( ( 100 - $attr['contentWidth'] ), $attr['contentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( ( 100 - $attr['contentWidth'] ), $attr['contentWidthType'] ),
 	];
 	$tSelectors[' .vxt-cta__content-right .vxt-cta__left-right-wrap .vxt-cta__content']      = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentWidthTablet'], $attr['contentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentWidthTablet'], $attr['contentWidthType'] ),
 	];
 	$tSelectors[' .vxt-cta__content-right .vxt-cta__left-right-wrap .vxt-cta__link-wrapper'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( ( 100 - $contentWidthTabletFallback ), $attr['contentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( ( 100 - $contentWidthTabletFallback ), $attr['contentWidthType'] ),
 	];
 
 	$mSelectors[' .vxt-cta__content-right .vxt-cta__left-right-wrap .vxt-cta__content']      = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentWidthMobile'], $attr['contentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentWidthMobile'], $attr['contentWidthType'] ),
 	];
 	$mSelectors[' .vxt-cta__content-right .vxt-cta__left-right-wrap .vxt-cta__link-wrapper'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( ( 100 - $contentWidthMobileFallback ), $attr['contentWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( ( 100 - $contentWidthMobileFallback ), $attr['contentWidthType'] ),
 	];
 
 	$selectors['.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper '] = [
@@ -364,11 +364,11 @@ if ( 'right' === $attr['ctaPosition'] && ( 'text' === $attr['ctaType'] || 'butto
 	];
 }
 $tSelectors[' .vxt-cta__wrap'] = [
-	'width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['contentWidthTablet'], $attr['contentWidthType'] ),
+	'width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentWidthTablet'], $attr['contentWidthType'] ),
 	'text-align' => $attr['textAlignTablet'],
 ];
 $mSelectors[' .vxt-cta__wrap'] = [
-	'width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['contentWidthMobile'], $attr['contentWidthType'] ),
+	'width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentWidthMobile'], $attr['contentWidthType'] ),
 	'text-align' => $attr['textAlignMobile'],
 ];
 if ( 'desktop' === $attr['stack'] ) {
@@ -380,26 +380,26 @@ if ( 'desktop' === $attr['stack'] ) {
 	$tSelectors['.wp-block-vxt-call-to-action  '] = [
 		'flex-direction' => 'column',
 		'align-items'    => $alignmentTablet,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
 	];
 	$mSelectors['.wp-block-vxt-call-to-action  '] = [
 		'flex-direction' => 'column',
 		'align-items'    => $alignmentMobile,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
 	];
 } elseif ( 'tablet' === $attr['stack'] ) {
 
@@ -410,26 +410,26 @@ if ( 'desktop' === $attr['stack'] ) {
 	$tSelectors['.wp-block-vxt-call-to-action '] = [
 		'flex-direction' => 'column',
 		'align-items'    => $alignmentTablet,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightTabletPadding'], $attr['overallBlockTabletPaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightTabletMargin'], $attr['overallBlockTabletMarginUnit'] ),
 	];
 	$mSelectors['.wp-block-vxt-call-to-action '] = [
 		'flex-direction' => 'column',
 		'align-items'    => $alignmentMobile,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
 	];
 
 } elseif ( 'mobile' === $attr['stack'] ) {
@@ -445,14 +445,14 @@ if ( 'desktop' === $attr['stack'] ) {
 	$mSelectors['.wp-block-vxt-call-to-action '] = [
 		'flex-direction' => 'column',
 		'align-items'    => $alignmentMobile,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockTopMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockBottomMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockLeftMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBlockRightMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMobilePadding'], $attr['overallBlockMobilePaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockTopMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockBottomMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockLeftMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBlockRightMobileMargin'], $attr['overallBlockMobileMarginUnit'] ),
 	];
 
 } elseif ( 'none' === $attr['stack'] ) {
@@ -469,27 +469,27 @@ if ( 'desktop' === $attr['stack'] ) {
 		'flex-direction' => 'row',
 	];
 	$selectors['.wp-block-vxt-call-to-action .vxt-cta__buttons']   = [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonRightSpace'], $attr['buttonRightSpaceType'] ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonRightSpace'], $attr['buttonRightSpaceType'] ),
 	];
 	$tSelectors['.wp-block-vxt-call-to-action .vxt-cta__buttons'] = [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonRightSpaceTablet'], $attr['buttonRightSpaceType'] ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonRightSpaceTablet'], $attr['buttonRightSpaceType'] ),
 	];
 	$mSelectors[' .vxt-cta__outer-wrap  .vxt-cta__buttons']       = [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonRightSpaceMobile'], $attr['buttonRightSpaceType'] ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonRightSpaceMobile'], $attr['buttonRightSpaceType'] ),
 	];
 }
 
-$secondCtaIconSpacing        = \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaIconSpace'], 'px' );
-$secondCtaIconSpacingTablet = \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaIconSpaceTablet'], 'px' );
-$secondCtaIconSpacingMobile = \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaIconSpaceMobile'], 'px' );
+$secondCtaIconSpacing        = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaIconSpace'], 'px' );
+$secondCtaIconSpacingTablet = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaIconSpaceTablet'], 'px' );
+$secondCtaIconSpacingMobile = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaIconSpaceMobile'], 'px' );
 
 if ( 'before' === $attr['secondCtaIconPosition'] ) {
 	$selectors['.wp-block-vxt-call-to-action a.vxt-cta-second__button > svg']   = [
 		$leftSideMargin => $secondCtaIconSpacing,
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'width'           => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'height'          => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'line-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'width'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'height'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'line-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
 		'fill'            => $attr['secondCtaColor'],
 	];
 	$tSelectors['.wp-block-vxt-call-to-action a.vxt-cta-second__button > svg'] = [
@@ -501,10 +501,10 @@ if ( 'before' === $attr['secondCtaIconPosition'] ) {
 } else {
 	$selectors['.wp-block-vxt-call-to-action a.vxt-cta-second__button > svg']   = [
 		$rightSideMargin => $secondCtaIconSpacing,
-		'font-size'        => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
-		'line-height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'font-size'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
+		'line-height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaFontSize'], $attr['secondCtaFontSizeType'] ),
 		'fill'             => $attr['secondCtaColor'],
 	];
 	$tSelectors['.wp-block-vxt-call-to-action a.vxt-cta-second__button > svg'] = [
@@ -517,18 +517,18 @@ if ( 'before' === $attr['secondCtaIconPosition'] ) {
 
 if ( ! $attr['secInheritFromTheme'] ) {
 	
-	$secondCtaBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'secondCta' );
-	$secondCtaBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'secondCta', 'tablet' );
-	$secondCtaBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'secondCta', 'mobile' );
+	$secondCtaBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'secondCta' );
+	$secondCtaBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'secondCta', 'tablet' );
+	$secondCtaBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'secondCta', 'mobile' );
 	
 	$selectors['.wp-block-vxt-call-to-action.wp-block-button a.vxt-cta-second__button']       = array_merge(
 		[
 			'color'            => $attr['secondCtaColor'],
 			'background-color' => ( 'color' === $attr['secondCtaBgType'] ) ? $attr['secondCtaBackground'] : 'transparent',
-			'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaTopPadding'], $attr['secondCtaPaddingUnit'] ),
-			'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaBottomPadding'], $attr['secondCtaPaddingUnit'] ),
-			'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaLeftPadding'], $attr['secondCtaPaddingUnit'] ),
-			'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaRightPadding'], $attr['secondCtaPaddingUnit'] ),
+			'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaTopPadding'], $attr['secondCtaPaddingUnit'] ),
+			'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaBottomPadding'], $attr['secondCtaPaddingUnit'] ),
+			'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaLeftPadding'], $attr['secondCtaPaddingUnit'] ),
+			'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaRightPadding'], $attr['secondCtaPaddingUnit'] ),
 			'align-self'       => 'top' === $attr['buttonAlign'] ? 'flex-start' : 'center',
 			'height'           => 'fit-content',
 		],
@@ -548,41 +548,41 @@ if ( ! $attr['secInheritFromTheme'] ) {
 	$tSelectors['.wp-block-vxt-call-to-action.wp-block-button a.vxt-cta-second__button'] = $secondCtaBorderTablet;
 	$mSelectors['.wp-block-vxt-call-to-action.wp-block-button a.vxt-cta-second__button'] = $secondCtaBorderMobile;
 	$mSelectors['.wp-block-vxt-call-to-action.wp-block-button a.vxt-cta-second__button'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaTopMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaBottomMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaLeftMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaRightMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaTopMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaBottomMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaLeftMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaRightMobilePadding'], $attr['secondCtaMobilePaddingUnit'] ),
 	];
 	$tSelectors['.wp-block-vxt-call-to-action.wp-block-button a.vxt-cta-second__button'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaTopTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaBottomTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaLeftTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['secondCtaRightTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaTopTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaBottomTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaLeftTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['secondCtaRightTabletPadding'], $attr['secondCtaTabletPaddingUnit'] ),
 	];
 }
 
 if ( ! $attr['inheritFromTheme'] && 'button' === $attr['ctaType'] ) {
 
-	$ctaBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
-	$ctaBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+	$ctaBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
+	$ctaBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 		$ctaBorder,
 		( isset( $attr['ctaBorderWidth'] ) ? $attr['ctaBorderWidth'] : '' ),
 		( isset( $attr['ctaBorderRadius'] ) ? $attr['ctaBorderRadius'] : '' ),
 		( isset( $attr['ctaBorderColor'] ) ? $attr['ctaBorderColor'] : '' ),
 		( isset( $attr['ctaBorderStyle'] ) ? $attr['ctaBorderStyle'] : '' )
 	);
-	$ctaBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
-	$ctaBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
+	$ctaBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
+	$ctaBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
 
 
 	$selectors[' .vxt-cta__button-wrapper a.vxt-cta-typeof-button'] = array_merge(
 		[
 			'color'            => $attr['ctaBtnLinkColor'] ? $attr['ctaBtnLinkColor'] : '#333',
 			'background-color' => ( 'color' === $attr['ctaBgType'] ) ? $attr['ctaBgColor'] : 'transparent',
-			'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTop, $attr['ctaPaddingUnit'] ),
-			'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottom, $attr['ctaPaddingUnit'] ),
-			'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeft, $attr['ctaPaddingUnit'] ),
-			'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRight, $attr['ctaPaddingUnit'] ),
+			'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTop, $attr['ctaPaddingUnit'] ),
+			'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottom, $attr['ctaPaddingUnit'] ),
+			'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeft, $attr['ctaPaddingUnit'] ),
+			'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRight, $attr['ctaPaddingUnit'] ),
 		],
 		$ctaBorder
 	);
@@ -600,10 +600,10 @@ if ( ! $attr['inheritFromTheme'] && 'button' === $attr['ctaType'] ) {
 		[
 			'color'            => $attr['ctaBtnLinkColor'],
 			'background-color' => ( 'color' === $attr['ctaBgType'] ) ? $attr['ctaBgColor'] : 'transparent',
-			'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTop, $attr['ctaPaddingUnit'] ),
-			'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottom, $attr['ctaPaddingUnit'] ),
-			'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeft, $attr['ctaPaddingUnit'] ),
-			'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRight, $attr['ctaPaddingUnit'] ),
+			'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTop, $attr['ctaPaddingUnit'] ),
+			'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottom, $attr['ctaPaddingUnit'] ),
+			'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeft, $attr['ctaPaddingUnit'] ),
+			'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRight, $attr['ctaPaddingUnit'] ),
 		],
 		$ctaBorder
 	);
@@ -618,34 +618,34 @@ if ( ! $attr['inheritFromTheme'] && 'button' === $attr['ctaType'] ) {
 		'border-color'     => $attr['btnBorderHColor'] ? $attr['btnBorderHColor'] : $attr['ctaBorderhoverColor'],
 	];
 	$tSelectors['.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaTopPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaBottomPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaLeftPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaRightPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaTopPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaBottomPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaLeftPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaRightPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
 	];
 	$tSelectors['.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper'] = $ctaBorderTablet;
 	$mSelectors['.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaTopPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaBottomPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaLeftPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaRightPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaTopPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaBottomPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaLeftPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaRightPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
 	];
 	$mSelectors['.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper'] = $ctaBorderMobile;
 	$tSelectors['.wp-block-vxt-call-to-action.wp-block-button .vxt-cta__buttons a.vxt-cta__button-link-wrapper.wp-block-button__link'] = array_merge(
 		[
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaTopPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaBottomPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaLeftPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaRightPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaTopPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaBottomPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaLeftPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaRightPaddingTablet'], $attr['tabletCTAPaddingUnit'] ),
 		],
 		$ctaBorderTablet
 	);
 	$mSelectors['.wp-block-vxt-call-to-action.wp-block-button .vxt-cta__buttons a.vxt-cta__button-link-wrapper.wp-block-button__link'] = array_merge(
 		[
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaTopPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaBottomPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaLeftPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['ctaRightPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaTopPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaBottomPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaLeftPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['ctaRightPaddingMobile'], $attr['mobileCTAPaddingUnit'] ),
 		],
 		$ctaBorderMobile
 	);
@@ -656,28 +656,28 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 if ( ! $attr['inheritFromTheme'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', '.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-cta__button-wrapper a.vxt-cta__button-link-wrapper', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', '.wp-block-vxt-call-to-action a.vxt-cta__button-link-wrapper', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-cta__button-wrapper a.vxt-cta__button-link-wrapper', $combinedSelectors );
 }
 
 if ( ! $attr['secInheritFromTheme'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'secondCta', '.wp-block-vxt-call-to-action a.vxt-cta-second__button', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'secondCta', '.wp-block-vxt-call-to-action a.vxt-cta-second__button', $combinedSelectors );
 }
 
 if ( 'text' === $attr['ctaType'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-cta__button-wrapper a.vxt-cta-typeof-text', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-cta__button-wrapper a.vxt-cta-typeof-text', $combinedSelectors );
 }
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-cta__title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-cta__title', $combinedSelectors );
 if ( $attr['enableMultilineParagraph'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-cta__desc p', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-cta__desc p', $combinedSelectors );
 } else {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-cta__desc', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-cta__desc', $combinedSelectors );
 }
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.vxt-block-' : '#vxt-cta-block-';
 
-return \Vexaltrix\Support\Helper::generateAllCss(
+return \Vexaltrix\Core\Support\Helper::generateAllCss(
 	$combinedSelectors,
 	$baseSelector . $id,
 	isset( $gbsClass ) ? $gbsClass : ''

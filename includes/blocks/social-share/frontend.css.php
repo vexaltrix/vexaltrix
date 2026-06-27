@@ -19,9 +19,9 @@ $mAlignment = ( 'left' === $attr['alignMobile'] ) ? 'flex-start' : ( ( 'right' =
 $mSelectors = [];
 $tSelectors = [];
 
-$imageSize   = \Vexaltrix\Support\Helper::getCssValue( $attr['size'], $attr['sizeType'] );
-$mImageSize = \Vexaltrix\Support\Helper::getCssValue( $attr['sizeMobile'], $attr['sizeType'] );
-$tImageSize = \Vexaltrix\Support\Helper::getCssValue( $attr['sizeTablet'], $attr['sizeType'] );
+$imageSize   = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['size'], $attr['sizeType'] );
+$mImageSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['sizeMobile'], $attr['sizeType'] );
+$tImageSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['sizeTablet'], $attr['sizeType'] );
 
 $selectors = [
 	' .vxt-ss-repeater span.vxt-ss__link'           => [
@@ -57,60 +57,60 @@ $selectors = [
 ];
 
 $selectors['.vxt-social-share__outer-wrap .block-editor-inner-blocks']   = [
-	'text-align' => \Vexaltrix\Support\Helper::getCssValue( $attr['align'] ),
+	'text-align' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['align'] ),
 ];
 $tSelectors['.vxt-social-share__outer-wrap .block-editor-inner-blocks'] = [
-	'text-align' => \Vexaltrix\Support\Helper::getCssValue( $attr['alignTablet'] ),
+	'text-align' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['alignTablet'] ),
 ];
 $mSelectors['.vxt-social-share__outer-wrap .block-editor-inner-blocks'] = [
-	'text-align' => \Vexaltrix\Support\Helper::getCssValue( $attr['alignMobile'] ),
+	'text-align' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['alignMobile'] ),
 ];
 
 $selectors['.vxt-social-share__layout-vertical .vxt-ss__wrapper']     = [
 	'margin-left'   => 0,
 	'margin-right'  => 0,
-	'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
-	'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
+	'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
+	'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
 ];
 $selectors['.vxt-social-share__layout-vertical .vxt-ss__link']        = [
-	'padding' => \Vexaltrix\Support\Helper::getCssValue( $attr['bgSize'], 'px' ),
+	'padding' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bgSize'], 'px' ),
 ];
 $mSelectors['.vxt-social-share__layout-vertical .vxt-ss__wrapper']   = [
 	'margin-left'   => 0,
 	'margin-right'  => 0,
-	'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
-	'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
+	'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
+	'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
 ];
 $tSelectors['.vxt-social-share__layout-vertical .vxt-ss__wrapper']   = [
 	'margin-left'   => 0,
 	'margin-right'  => 0,
-	'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
-	'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
+	'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
+	'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
 ];
 $selectors['.vxt-social-share__layout-horizontal .vxt-ss__link']      = [
-	'padding' => \Vexaltrix\Support\Helper::getCssValue( $attr['bgSize'], 'px' ),
+	'padding' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bgSize'], 'px' ),
 ];
 $selectors['.vxt-social-share__layout-horizontal .vxt-ss__wrapper']   = [
-	'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
-	'margin-right' => \Vexaltrix\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
+	'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
+	'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), 'px' ),
 ];
 $mSelectors['.vxt-social-share__layout-horizontal .vxt-ss__wrapper'] = [
-	'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
-	'margin-right' => \Vexaltrix\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
+	'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
+	'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapMobileFallback / 2 ), 'px' ),
 ];
 $tSelectors['.vxt-social-share__layout-horizontal .vxt-ss__wrapper'] = [
-	'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
-	'margin-right' => \Vexaltrix\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
+	'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
+	'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $gapTabletFallback / 2 ), 'px' ),
 ];
 
 $selectors[' .wp-block-vxt-social-share-child ']   = [
-	'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['borderRadius'], 'px' ),
+	'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['borderRadius'], 'px' ),
 ];
 $mSelectors[' .wp-block-vxt-social-share-child '] = [
-	'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['borderRadiusMobile'], 'px' ),
+	'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['borderRadiusMobile'], 'px' ),
 ];
 $tSelectors[' .wp-block-vxt-social-share-child '] = [
-	'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['borderRadiusTablet'], 'px' ),
+	'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['borderRadiusTablet'], 'px' ),
 ];
 
 $selectors[' .vxt-ss__source-wrap'] = [
@@ -226,7 +226,7 @@ if ( ! $attr['childMigrate'] ) {
 			break;
 		}
 
-		$childSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getSocialShareChildSelectors( $socials, $key, $attr['childMigrate'] );
+		$childSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getSocialShareChildSelectors( $socials, $key, $attr['childMigrate'] );
 		$selectors       = array_merge( $selectors, (array) $childSelectors );
 	}
 }
@@ -238,17 +238,17 @@ if ( 'horizontal' === $attr['social_layout'] ) {
 		$selectors[' .vxt-ss__wrapper']   = [
 			'margin-left'   => 0,
 			'margin-right'  => 0,
-			'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['gap'], 'px' ),
+			'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gap'], 'px' ),
 		];
 		$tSelectors[' .vxt-ss__wrapper'] = [
 			'margin-left'   => 0,
 			'margin-right'  => 0,
-			'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapTablet'], 'px' ),
+			'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapTablet'], 'px' ),
 		];
 		$mSelectors[' .vxt-ss__wrapper'] = [
 			'margin-left'   => 0,
 			'margin-right'  => 0,
-			'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapMobile'], 'px' ),
+			'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapMobile'], 'px' ),
 		];
 
 		$selectors['.vxt-social-share__outer-wrap'] = [
@@ -286,7 +286,7 @@ if ( 'horizontal' === $attr['social_layout'] ) {
 		$tSelectors[' .vxt-ss__wrapper'] = [
 			'margin-left'   => 0,
 			'margin-right'  => 0,
-			'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapTablet'], 'px' ),
+			'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapTablet'], 'px' ),
 		];
 
 		$tSelectors['.vxt-social-share__outer-wrap'] = [
@@ -304,7 +304,7 @@ if ( 'horizontal' === $attr['social_layout'] ) {
 		$mSelectors[' .vxt-ss__wrapper'] = [
 			'margin-left'   => 0,
 			'margin-right'  => 0,
-			'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapMobile'], 'px' ),
+			'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapMobile'], 'px' ),
 		];
 
 		$mSelectors['.vxt-social-share__outer-wrap'] = [
@@ -327,4 +327,4 @@ $combinedSelectors = [
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.vxt-block-' : '#vxt-social-share-';
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

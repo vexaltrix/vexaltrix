@@ -17,11 +17,11 @@ $blockData = [
 	'description'         => __( 'Display your posts in a masonary layout.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'post-masonry' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'post-masonry' ),
 	'deprecated'          => true,
 	'static_dependencies' => [
 		'vxt-post-js'      => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'post' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'post' ),
 			'dep'  => [ 'jquery' ],
 			'type' => 'js',
 		],

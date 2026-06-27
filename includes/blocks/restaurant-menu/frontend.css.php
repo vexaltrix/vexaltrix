@@ -9,7 +9,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksRestaurantMenuGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksRestaurantMenuGfont( $attr );
 
 $mSelectors = [];
 $tSelectors = [];
@@ -41,85 +41,85 @@ $contentPaddingLeft   = isset( $attr['contentPaddingLeft'] ) ? $attr['contentPad
 
 $selectors = [
 	'.wp-block-vxt-restaurant-menu' => [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGap'], $attr['columnGapType'] ),
-		'row-gap'    => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGap'], $attr['rowGapType'] ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGap'], $attr['columnGapType'] ),
+		'row-gap'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGap'], $attr['rowGapType'] ),
 	],
 	' .vxt-rest_menu__wrap img'     => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $imgPaddingLeft, $attr['imgPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $imgPaddingRight, $attr['imgPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $imgPaddingTop, $attr['imgPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $imgPaddingBottom, $attr['imgPaddingUnit'] ),
-		'width'          => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
-		'max-width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $imgPaddingLeft, $attr['imgPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $imgPaddingRight, $attr['imgPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $imgPaddingTop, $attr['imgPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $imgPaddingBottom, $attr['imgPaddingUnit'] ),
+		'width'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
+		'max-width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
 	],
 	// Backward.
 	' .vxt-rm__separator-parent'    => [
 		'justify-content' => $align,
 	],
 	' .vxt-rm__content'             => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $contentPaddingLeft, $attr['contentPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $contentPaddingRight, $attr['contentPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $contentPaddingTop, $attr['contentPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $contentPaddingBottom, $attr['contentPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $contentPaddingLeft, $attr['contentPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $contentPaddingRight, $attr['contentPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $contentPaddingTop, $attr['contentPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $contentPaddingBottom, $attr['contentPaddingUnit'] ),
 	],
 	' .vxt-rest_menu__wrap .vxt-rm__content .vxt-rm-details .vxt-rm__title' => [
 		'color'         => $attr['titleColor'],
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpace'], $attr['titleSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpace'], $attr['titleSpaceType'] ),
 	],
 	' .vxt-rm__price'               => [
 		'color' => $attr['priceColor'],
 	],
 	' .vxt-rm__desc'                => [
 		'color'         => $attr['descColor'],
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpace'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpace'], 'px' ),
 	],
 ];
 
 $tSelectors = [
 	' .vxt-rest_menu__wrap .vxt-rm__content .vxt-rm-details .vxt-rm__title' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpaceTablet'], $attr['titleSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpaceTablet'], $attr['titleSpaceType'] ),
 	],
 	'.wp-block-vxt-restaurant-menu' => [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapType'] ),
-		'row-gap'    => \Vexaltrix\Support\Helper::getCssValue( $rowGapTabletFallback, $attr['rowGapType'] ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapType'] ),
+		'row-gap'    => \Vexaltrix\Core\Support\Helper::getCssValue( $rowGapTabletFallback, $attr['rowGapType'] ),
 	],
 	' .vxt-rest_menu__wrap img'     => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingLeftTablet'], $attr['imgTabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingRightTablet'], $attr['imgTabletPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingTopTablet'], $attr['imgTabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingBottomTablet'], $attr['imgTabletPaddingUnit'] ),
-		'width'          => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
-		'max-width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingLeftTablet'], $attr['imgTabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingRightTablet'], $attr['imgTabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingTopTablet'], $attr['imgTabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingBottomTablet'], $attr['imgTabletPaddingUnit'] ),
+		'width'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
+		'max-width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
 	],
 	' .vxt-rm__content'             => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingLeftTablet'], $attr['contentTabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingRightTablet'], $attr['contentTabletPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingTopTablet'], $attr['contentTabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingBottomTablet'], $attr['contentTabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingLeftTablet'], $attr['contentTabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingRightTablet'], $attr['contentTabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingTopTablet'], $attr['contentTabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingBottomTablet'], $attr['contentTabletPaddingUnit'] ),
 	],
 ];
 
 $mSelectors = [
 	' .vxt-rest_menu__wrap .vxt-rm__content .vxt-rm-details .vxt-rm__title' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleSpaceMobile'], $attr['titleSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleSpaceMobile'], $attr['titleSpaceType'] ),
 	],
 	'.wp-block-vxt-restaurant-menu' => [
-		'column-gap' => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapType'] ),
-		'row-gap'    => \Vexaltrix\Support\Helper::getCssValue( $rowGapMobileFallback, $attr['rowGapType'] ),
+		'column-gap' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapType'] ),
+		'row-gap'    => \Vexaltrix\Core\Support\Helper::getCssValue( $rowGapMobileFallback, $attr['rowGapType'] ),
 	],
 	' .vxt-rest_menu__wrap img'     => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingLeftMobile'], $attr['imgMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingRightMobile'], $attr['imgMobilePaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingTopMobile'], $attr['imgMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['imgPaddingBottomMobile'], $attr['imgMobilePaddingUnit'] ),
-		'width'          => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
-		'max-width'      => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingLeftMobile'], $attr['imgMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingRightMobile'], $attr['imgMobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingTopMobile'], $attr['imgMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgPaddingBottomMobile'], $attr['imgMobilePaddingUnit'] ),
+		'width'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
+		'max-width'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
 	],
 	' .vxt-rm__content'             => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingLeftMobile'], $attr['contentMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingRightMobile'], $attr['contentMobilePaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingTopMobile'], $attr['contentMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingBottomMobile'], $attr['contentMobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingLeftMobile'], $attr['contentMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingRightMobile'], $attr['contentMobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingTopMobile'], $attr['contentMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingBottomMobile'], $attr['contentMobilePaddingUnit'] ),
 	],
 ];
 
@@ -127,14 +127,14 @@ if ( 'none' !== $attr['seperatorStyle'] ) {
 	$selectors[' .vxt-rest_menu__wrap .vxt-rm__separator']   = [
 		'border-top-color' => $attr['seperatorColor'],
 		'border-top-style' => $attr['seperatorStyle'],
-		'border-top-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorThickness'], 'px' ),
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorWidth'], $attr['seperatorWidthType'] ),
+		'border-top-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorThickness'], 'px' ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorWidth'], $attr['seperatorWidthType'] ),
 	];
 	$tSelectors[' .vxt-rest_menu__wrap .vxt-rm__separator'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorWidthTablet'], $attr['seperatorWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorWidthTablet'], $attr['seperatorWidthType'] ),
 	];
 	$mSelectors[' .vxt-rest_menu__wrap .vxt-rm__separator'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorWidthMobile'], $attr['seperatorWidthType'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorWidthMobile'], $attr['seperatorWidthType'] ),
 	];
 }
 if ( 1 === $attr['columns'] ) {
@@ -285,10 +285,10 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-rm__title', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'price', ' .vxt-rm__price', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-rm__desc', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-rm__title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'price', ' .vxt-rm__price', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-rm__desc', $combinedSelectors );
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.wp-block-vxt-restaurant-menu.vxt-block-' : '#vxt-rm-';
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

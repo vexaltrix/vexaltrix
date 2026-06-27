@@ -7,8 +7,8 @@
  * @package ugb
  */
 
-$borderAttribute       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'slider' );
-$arrowBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'slider-arrow' );
+$borderAttribute       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'slider' );
+$arrowBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'slider-arrow' );
 
 $arrowBorderAttribute['slider-arrowBorderBottomLeftRadius']  = 50;
 $arrowBorderAttribute['slider-arrowBorderBottomRightRadius'] = 50;

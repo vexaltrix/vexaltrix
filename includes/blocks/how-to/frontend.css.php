@@ -8,7 +8,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksHowToGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksHowToGfont( $attr );
 
 $tSelectors = [];
 $mSelectors = [];
@@ -21,98 +21,98 @@ $selectors = [
 		'text-align' => $attr['overallAlignment'],
 	],
 	'.vxt-how-to-main-wrap p.vxt-howto-desc-text'        => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-howto__source-wrap'      => [ // For Backword.
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 	'.vxt-how-to-main-wrap .vxt-howto__source-image'     => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap span.vxt-howto__time-wrap'    => [
-		'margin-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 		'justify-content' => $attr['overallAlignment'],
 	],
 
 	'.vxt-how-to-main-wrap span.vxt-howto__cost-wrap'    => [
-		'margin-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 		'justify-content' => $attr['overallAlignment'],
 	],
 
 	' h4.vxt-howto-req-steps-text'                        => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 	' h4.vxt-howto-req-materials-text'                    => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 
 	'.vxt-how-to-main-wrap .vxt-how-to-tools-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-how-to-tools__wrap'      => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-how-to-materials-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	// for backward compatibility.
 	' .vxt-how-to-materials .vxt-how-to-materials-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	' .vxt-tools__wrap .vxt-how-to-tools-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	' .vxt-how-to-main-wrap span.vxt-howto__cost-wrap'   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	' .vxt-how-to-main-wrap span.vxt-howto__time-wrap'   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap p'                             => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	' .vxt-howto__source-wrap'                            => [ // For Backword.
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 	' .vxt-howto__source-image'                           => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['row_gap'], 'px' ),
 	],
 
 	' .vxt-infobox__content-wrap'                         => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['step_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['step_gap'], 'px' ),
 	],
 
 	' .vxt-infobox__content-wrap:last-child'              => [
 		'margin-bottom' => '0px',
 	],
 	' .vxt-how-to-step-wrap'                              => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['step_gap'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['step_gap'], 'px' ),
 	],
 
 	' .vxt-how-to-step-wrap:last-child'                   => [
 		'margin-bottom' => '0px',
 	],
 	' span.vxt-howto__time-wrap .vxt-howto-timeNeeded-value' => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['timeSpace'],
 			'px'
 		),
 	],
 
 	' span.vxt-howto__cost-wrap .vxt-howto-estcost-value' => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['costSpace'],
 			'px'
 		),
@@ -170,75 +170,75 @@ $selectors[' .vxt-materials__label'] = [
 
 $tSelectors = [
 	'.vxt-how-to-main-wrap p.vxt-howto-desc-text'     => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 	'.vxt-how-to-main-wrap .vxt-howto__source-image'  => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap span.vxt-howto__time-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap span.vxt-howto__cost-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 
 	' h4.vxt-howto-req-steps-text'                     => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 
 	' h4.vxt-howto-req-materials-text'                 => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 	'.vxt-how-to-main-wrap .vxt-how-to-tools-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-how-to-tools__wrap'   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-how-to-materials-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 ];
 
 $mSelectors = [
 	'.vxt-how-to-main-wrap p.vxt-howto-desc-text'     => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 	'.vxt-how-to-main-wrap .vxt-howto__source-image'  => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap span.vxt-howto__time-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap span.vxt-howto__cost-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 
 	' h4.vxt-howto-req-steps-text'                     => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 
 	' h4.vxt-howto-req-materials-text'                 => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 	'.vxt-how-to-main-wrap .vxt-how-to-tools-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-how-to-tools__wrap'   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 
 	'.vxt-how-to-main-wrap .vxt-how-to-materials-child__wrapper:last-child' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 ];
 
@@ -248,10 +248,10 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'subHead', ' p', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'price', ' h4', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'head', ' .vxt-howto-heading-text', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'subHead', ' .vxt-tools__label', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'subHead', ' .vxt-materials__label', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'subHead', ' p', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'price', ' h4', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'head', ' .vxt-howto-heading-text', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'subHead', ' .vxt-tools__label', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'subHead', ' .vxt-materials__label', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . $id );

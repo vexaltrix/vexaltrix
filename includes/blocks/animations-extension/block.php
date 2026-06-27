@@ -18,7 +18,7 @@ $blockData = [
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-aos-js'       => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'aos' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'aos' ),
 			'dep'  => [],
 			'type' => 'js',
 		],
@@ -26,7 +26,7 @@ $blockData = [
 			'type' => 'css',
 		],
 		'vxt-animation-js' => [
-			'src'        => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'vexaltrix-animations' ),
+			'src'        => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'vexaltrix-animations' ),
 			'dep'        => [ 'vxt-aos-js' ],
 			'type'       => 'js',
 			'skipEditor' => true,

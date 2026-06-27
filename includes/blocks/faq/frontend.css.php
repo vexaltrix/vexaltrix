@@ -8,7 +8,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksFaqGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksFaqGfont( $attr );
 
 $iconColor        = $attr['iconColor'];
 $iconActiveColor = $attr['iconActiveColor'];
@@ -34,9 +34,9 @@ if ( ! isset( $attr['iconActiveColor'] ) || '' === $attr['iconActiveColor'] ) {
 	$iconActiveColor = $attr['questionTextActiveColor'];
 }
 
-$iconSize   = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeType'] );
-$tIconSize = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTablet'], $attr['iconSizeType'] );
-$mIconSize = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMobile'], $attr['iconSizeType'] );
+$iconSize   = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeType'] );
+$tIconSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTablet'], $attr['iconSizeType'] );
+$mIconSize = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMobile'], $attr['iconSizeType'] );
 
 $answerTopPaddingDesktop    = isset( $attr['answerTopPadding'] ) ? $attr['answerTopPadding'] : $attr['vanswerPaddingDesktop'];
 $answerBottomPaddingDesktop = isset( $attr['answerBottomPadding'] ) ? $attr['answerBottomPadding'] : $attr['vanswerPaddingDesktop'];
@@ -53,20 +53,20 @@ $answerBottomPaddingMobile = isset( $attr['answerBottomPaddingMobile'] ) ? $attr
 $answerLeftPaddingMobile   = isset( $attr['answerLeftPaddingMobile'] ) ? $attr['answerLeftPaddingMobile'] : $attr['hanswerPaddingMobile'];
 $answerRightPaddingMobile  = isset( $attr['answerRightPaddingMobile'] ) ? $attr['answerRightPaddingMobile'] : $attr['hanswerPaddingMobile'];
 
-$border        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
-$border        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$border        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
+$border        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$border,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$borderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
-$borderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
+$borderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
+$borderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
 
-$iconBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon' );
-$iconBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'tablet' );
-$iconBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'mobile' );
+$iconBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon' );
+$iconBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'tablet' );
+$iconBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'mobile' );
 
 $selectors = [
 	' .vxt-icon svg'                                     => [
@@ -82,7 +82,7 @@ $selectors = [
 		'fill'      => $iconActiveColor,
 	],
 	' .vxt-faq-child__outer-wrap'                        => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGap'], $attr['rowsGapUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGap'], $attr['rowsGapUnit'] ),
 	],
 	' .vxt-faq-item'                                     => array_merge(
 		[
@@ -104,10 +104,10 @@ $selectors = [
 		'color' => $attr['questionTextActiveColor'],
 	],
 	' .vxt-faq-questions-button'                         => [
-		'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $attr['vquestionPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
-		'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['questionBottomPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
-		'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $attr['hquestionPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
-		'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $attr['questionLeftPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
+		'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vquestionPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
+		'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['questionBottomPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
+		'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hquestionPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
+		'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['questionLeftPaddingDesktop'], $attr['questionPaddingTypeDesktop'] ),
 		'background-color' => $attr['questionTextBgColor'],
 	],
 	' .vxt-faq-item.vxt-faq-item-active .vxt-faq-questions-button' => [
@@ -117,26 +117,26 @@ $selectors = [
 		'background-color' => $attr['questionTextActiveBgColor'],
 	],
 	' .vxt-faq-content'                                  => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $answerTopPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $answerBottomPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $answerRightPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $answerLeftPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $answerTopPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $answerBottomPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $answerRightPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $answerLeftPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
 	],
 	' .vxt-faq-content span'                             => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $answerTopPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $answerBottomPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $answerRightPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $answerLeftPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $answerTopPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $answerBottomPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $answerRightPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $answerLeftPaddingDesktop, $attr['answerPaddingTypeDesktop'] ),
 	],
 	'.vxt-faq-icon-row .vxt-faq-item .vxt-faq-icon-wrap' => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtwIconQUestion'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtwIconQUestion'], 'px' ),
 	],
 	'.vxt-faq-icon-row-reverse .vxt-faq-item .vxt-faq-icon-wrap' => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtwIconQUestion'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtwIconQUestion'], 'px' ),
 	],
 	'.wp-block-vxt-faq .vxt-faq-item .vxt-faq-icon-wrap' => array_merge(
 		[
-			'padding'          => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBgSize'], $attr['iconBgSizeType'] ),
+			'padding'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBgSize'], $attr['iconBgSizeType'] ),
 			'background-color' => $attr['iconBgColor'],
 		],
 		$iconBorder
@@ -154,35 +154,35 @@ $selectors = [
 		'color' => $attr['answerTextColor'],
 	],
 	'.vxt-faq__outer-wrap'                               => [
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockTopMargin'],
 			$attr['blockMarginUnit']
 		),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockRightMargin'],
 			$attr['blockMarginUnit']
 		),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockBottomMargin'],
 			$attr['blockMarginUnit']
 		),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockLeftMargin'],
 			$attr['blockMarginUnit']
 		),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockTopPadding'],
 			$attr['blockPaddingUnit']
 		),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockRightPadding'],
 			$attr['blockPaddingUnit']
 		),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockBottomPadding'],
 			$attr['blockPaddingUnit']
 		),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockLeftPadding'],
 			$attr['blockPaddingUnit']
 		),
@@ -191,34 +191,34 @@ $selectors = [
 
 $tSelectors = [
 	'.vxt-faq-icon-row .vxt-faq-item .vxt-faq-icon-wrap' => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtwIconQUestionTablet'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtwIconQUestionTablet'], 'px' ),
 	],
 	'.vxt-faq-icon-row-reverse .vxt-faq-item .vxt-faq-icon-wrap' => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtwIconQUestionTablet'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtwIconQUestionTablet'], 'px' ),
 	],
 	'.wp-block-vxt-faq .vxt-faq-item .vxt-faq-icon-wrap' => array_merge(
 		[
-			'padding' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBgSizeTablet'], $attr['iconBgSizeType'] ),
+			'padding' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBgSizeTablet'], $attr['iconBgSizeType'] ),
 		],
 		$iconBorderTablet
 	),
 	' .vxt-faq-questions-button'  => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['vquestionPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['questionBottomPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['hquestionPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['questionLeftPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vquestionPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['questionBottomPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hquestionPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['questionLeftPaddingTablet'], $attr['questionPaddingTypeTablet'] ),
 	],
 	' .vxt-faq-content'           => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $answerTopPaddingTablet, $attr['answerPaddingTypeTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $answerBottomPaddingTablet, $attr['answerPaddingTypeTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $answerRightPaddingTablet, $attr['answerPaddingTypeTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $answerLeftPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $answerTopPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $answerBottomPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $answerRightPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $answerLeftPaddingTablet, $attr['answerPaddingTypeTablet'] ),
 	],
 	' .vxt-faq-content span'      => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $answerTopPaddingTablet, $attr['answerPaddingTypeTablet'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $answerBottomPaddingTablet, $attr['answerPaddingTypeTablet'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $answerRightPaddingTablet, $attr['answerPaddingTypeTablet'] ),
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $answerLeftPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $answerTopPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $answerBottomPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $answerRightPaddingTablet, $attr['answerPaddingTypeTablet'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $answerLeftPaddingTablet, $attr['answerPaddingTypeTablet'] ),
 	],
 	' .vxt-icon svg'              => [
 		'width'     => $tIconSize,
@@ -231,54 +231,54 @@ $tSelectors = [
 		'font-size' => $tIconSize,
 	],
 	' .vxt-faq-child__outer-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGapTablet'], $attr['rowsGapUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGapTablet'], $attr['rowsGapUnit'] ),
 	],
 	' .vxt-faq-item'              => $borderTablet,
 	'.vxt-faq__outer-wrap'        => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
 	],
 ];
 $mSelectors = [
 	'.vxt-faq-icon-row .vxt-faq-item .vxt-faq-icon-wrap' => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtwIconQUestionMobile'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtwIconQUestionMobile'], 'px' ),
 	],
 	' .vxt-faq-item'              => $borderMobile,
 	'.vxt-faq-icon-row-reverse .vxt-faq-item .vxt-faq-icon-wrap' => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapBtwIconQUestionMobile'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapBtwIconQUestionMobile'], 'px' ),
 	],
 	' .vxt-faq-child__outer-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGapMobile'], $attr['rowsGapUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGapMobile'], $attr['rowsGapUnit'] ),
 	],
 	'.wp-block-vxt-faq .vxt-faq-item .vxt-faq-icon-wrap' => array_merge(
 		[
-			'padding' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBgSizeMobile'], $attr['iconBgSizeType'] ),
+			'padding' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBgSizeMobile'], $attr['iconBgSizeType'] ),
 		],
 		$iconBorderMobile
 	),
 	' .vxt-faq-questions-button'  => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['vquestionPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['questionBottomPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['hquestionPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['questionLeftPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['vquestionPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['questionBottomPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['hquestionPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['questionLeftPaddingMobile'], $attr['questionPaddingTypeMobile'] ),
 	],
 	' .vxt-faq-content'           => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $answerTopPaddingMobile, $attr['answerPaddingTypeMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $answerBottomPaddingMobile, $attr['answerPaddingTypeMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $answerRightPaddingMobile, $attr['answerPaddingTypeMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $answerLeftPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $answerTopPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $answerBottomPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $answerRightPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $answerLeftPaddingMobile, $attr['answerPaddingTypeMobile'] ),
 	],
 	' .vxt-faq-content span'      => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $answerTopPaddingMobile, $attr['answerPaddingTypeMobile'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $answerBottomPaddingMobile, $attr['answerPaddingTypeMobile'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $answerRightPaddingMobile, $attr['answerPaddingTypeMobile'] ),
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $answerLeftPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $answerTopPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $answerBottomPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $answerRightPaddingMobile, $attr['answerPaddingTypeMobile'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $answerLeftPaddingMobile, $attr['answerPaddingTypeMobile'] ),
 	],
 	' .vxt-icon svg'              => [
 		'width'     => $mIconSize,
@@ -291,14 +291,14 @@ $mSelectors = [
 		'font-size' => $mIconSize,
 	],
 	'.vxt-faq__outer-wrap'        => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
 	],
 ];
 
@@ -323,7 +323,7 @@ if ( true === $attr['enableSeparator'] ) {
 	[
 		'border-style'        => 'solid',
 		'border-top-color'    => $attr['overallBorderColor'],
-		'border-top-width'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBorderTopWidth'], 'px' ),
+		'border-top-width'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBorderTopWidth'], 'px' ),
 		'border-right-width'  => '0px',
 		'border-bottom-width' => '0px',
 		'border-left-width'   => '0px',
@@ -333,7 +333,7 @@ if ( true === $attr['enableSeparator'] ) {
 	[
 		'border-style'        => 'solid',
 		'border-top-color'    => $attr['overallBorderColor'],
-		'border-top-width'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBorderTopWidthTablet'], 'px' ),
+		'border-top-width'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBorderTopWidthTablet'], 'px' ),
 		'border-right-width'  => '0px',
 		'border-bottom-width' => '0px',
 		'border-left-width'   => '0px',
@@ -342,7 +342,7 @@ if ( true === $attr['enableSeparator'] ) {
 	[
 		'border-style'        => 'solid',
 		'border-top-color'    => $attr['overallBorderColor'],
-		'border-top-width'    => \Vexaltrix\Support\Helper::getCssValue( $attr['overallBorderTopWidthMobile'], 'px' ),
+		'border-top-width'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['overallBorderTopWidthMobile'], 'px' ),
 		'border-right-width'  => '0px',
 		'border-bottom-width' => '0px',
 		'border-left-width'   => '0px',
@@ -363,37 +363,37 @@ if ( 'grid' === $attr['layout'] ) {
 
 	$selectors['.vxt-faq-layout-grid .vxt-faq__wrap.vxt-buttons-layout-wrap ']   = [
 		'grid-template-columns' => 'repeat(' . $attr['columns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnsGap'], $attr['columnsGapUnit'] ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGap'], $attr['rowsGapUnit'] ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnsGap'], $attr['columnsGapUnit'] ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGap'], $attr['rowsGapUnit'] ),
 		'display'               => 'grid',
 	];
 	$tSelectors['.vxt-faq-layout-grid .vxt-faq__wrap.vxt-buttons-layout-wrap '] = [
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnsGapTablet'], $attr['columnsGapUnit'] ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnsGapTablet'], $attr['columnsGapUnit'] ),
 		'grid-template-columns' => 'repeat(' . $attr['tcolumns'] . ', 1fr)',
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGapTablet'], $attr['rowsGapUnit'] ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGapTablet'], $attr['rowsGapUnit'] ),
 	];
 	$mSelectors['.vxt-faq-layout-grid .vxt-faq__wrap.vxt-buttons-layout-wrap '] = [
 		'grid-template-columns' => 'repeat(' . $attr['mcolumns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnsGapMobile'], $attr['columnsGapUnit'] ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGapMobile'], $attr['rowsGapUnit'] ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnsGapMobile'], $attr['columnsGapUnit'] ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGapMobile'], $attr['rowsGapUnit'] ),
 	];
 
 	$selectors['.vxt-faq-layout-grid.vxt-faq__wrap.vxt-buttons-layout-wrap '] = [
 		'grid-template-columns' => 'repeat(' . $attr['columns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnsGap'], $attr['columnsGapUnit'] ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGap'], $attr['rowsGapUnit'] ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnsGap'], $attr['columnsGapUnit'] ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGap'], $attr['rowsGapUnit'] ),
 		'display'               => 'grid',
 	];
 
 	$tSelectors['.vxt-faq-layout-grid.vxt-faq__wrap.vxt-buttons-layout-wrap '] = [
 		'grid-template-columns' => 'repeat(' . $attr['tcolumns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnsGapTablet'], $attr['columnsGapUnit'] ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGapTablet'], $attr['rowsGapUnit'] ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnsGapTablet'], $attr['columnsGapUnit'] ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGapTablet'], $attr['rowsGapUnit'] ),
 	];
 	$mSelectors['.vxt-faq-layout-grid.vxt-faq__wrap.vxt-buttons-layout-wrap '] = [
 		'grid-template-columns' => 'repeat(' . $attr['mcolumns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnsGapMobile'], $attr['columnsGapUnit'] ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowsGapMobile'], $attr['rowsGapUnit'] ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnsGapMobile'], $attr['columnsGapUnit'] ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowsGapMobile'], $attr['rowsGapUnit'] ),
 	];
 }
 
@@ -403,7 +403,7 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'question', ' .vxt-faq-questions-button .vxt-question', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'answer', ' .vxt-faq-item .vxt-faq-content', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'question', ' .vxt-faq-questions-button .vxt-question', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'answer', ' .vxt-faq-item .vxt-faq-content', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

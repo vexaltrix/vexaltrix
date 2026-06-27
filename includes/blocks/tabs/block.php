@@ -17,11 +17,11 @@ $blockData = [
 	'description'         => __( 'Display your content under different tabs.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'tabs' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'tabs' ),
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-tabs-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'tabs' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'tabs' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

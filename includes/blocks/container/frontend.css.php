@@ -75,9 +75,9 @@ if ( 'outset' === $attr['boxShadowPositionHover'] ) {
 	$boxShadowPositionCssHover = '';
 }
 
-$border        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'container' );
-$borderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'container', 'tablet' );
-$borderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'container', 'mobile' );
+$border        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'container' );
+$borderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'container', 'tablet' );
+$borderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'container', 'mobile' );
 
 // If there's no border-color, set it to inherit.
 if ( empty( $border['border-color'] ) ) {
@@ -95,22 +95,22 @@ if ( $attr['overlayType'] && 'none' !== $attr['overlayType'] ) {
 	$tempAttr                = $attr;
 	$tempAttr['overlayType'] = 'none'; // Temporarily disable overlay to get just the background.
 	
-	$containerBgCssDesktop = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $tempAttr );
-	$containerBgCssTablet  = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $tempAttr, 'Tablet' );
-	$containerBgCssMobile  = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $tempAttr, 'Mobile' );
+	$containerBgCssDesktop = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $tempAttr );
+	$containerBgCssTablet  = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $tempAttr, 'Tablet' );
+	$containerBgCssMobile  = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $tempAttr, 'Mobile' );
 	
 	// Get the overlay CSS for the pseudo-element.
-	$containerBgOverlayCss        = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Desktop', 'yes' );
-	$containerBgOverlayCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Tablet', 'yes' );
-	$containerBgOverlayCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Mobile', 'yes' );
+	$containerBgOverlayCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Desktop', 'yes' );
+	$containerBgOverlayCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Tablet', 'yes' );
+	$containerBgOverlayCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Mobile', 'yes' );
 } else {
 	// No overlay, use the regular background CSS.
-	$containerBgCssDesktop = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr );
-	$containerBgCssTablet  = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Tablet' );
-	$containerBgCssMobile  = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Mobile' );
+	$containerBgCssDesktop = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr );
+	$containerBgCssTablet  = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Tablet' );
+	$containerBgCssMobile  = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Mobile' );
 }
 
-$videoBgCss = \Vexaltrix\Core\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Desktop', 'no' );
+$videoBgCss = \Vexaltrix\Presentation\Blocks\BlockHelper::getBackgroundCssByDevice( $attr, 'Desktop', 'no' );
 
 // Tablet.
 $leftPaddingTablet   = '' !== $attr['leftPaddingTablet'] ? $attr['leftPaddingTablet'] : $attr['leftPaddingDesktop'];
@@ -151,27 +151,27 @@ $shouldMergeInnerContainerCss = ( $attr['isBlockRootParent'] && ! $hasInnerBlock
 
 $containerCss       = array_merge(
 	[
-		'min-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightDesktop'], $attr['minHeightType'] ),
+		'min-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightDesktop'], $attr['minHeightType'] ),
 		'box-shadow'     =>
-				\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) .
+				\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) .
 				' ' .
-				\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) .
+				\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) .
 				' ' .
-				\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) .
+				\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) .
 				' ' .
-				\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) .
+				\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) .
 				' ' .
 				$attr['boxShadowColor'] .
 				' ' .
 				$boxShadowPositionCss,
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ) . ' !important',
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ) . ' !important',
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ) . ' !important',
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ) . ' !important',
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
 		'overflow'       => $attr['overflow'],
 		'order'          => 'custom' === $attr['orderDesktop'] ? $attr['customOrderDesktop'] : $attr['orderDesktop'],
 	],
@@ -218,16 +218,16 @@ $selectors = [
 		'color' => $attr['linkHoverColor'],
 	],
 	$baseSelector . ' .vxt-container__shape-top svg'    => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['topHeight'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topHeight'], 'px' ),
 	],
 	$baseSelector . ' .vxt-container__shape.vxt-container__shape-top .vxt-container__shape-fill' => [
-		'fill' => \Vexaltrix\Support\Helper::hex2rgba( $attr['topColor'], ( isset( $attr['topDividerOpacity'] ) && '' !== $attr['topDividerOpacity'] ) ? $attr['topDividerOpacity'] : 100 ),
+		'fill' => \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['topColor'], ( isset( $attr['topDividerOpacity'] ) && '' !== $attr['topDividerOpacity'] ) ? $attr['topDividerOpacity'] : 100 ),
 	],
 	$baseSelector . ' .vxt-container__shape-bottom svg' => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomHeight'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomHeight'], 'px' ),
 	],
 	$baseSelector . ' .vxt-container__shape.vxt-container__shape-bottom .vxt-container__shape-fill' => [
-		'fill' => \Vexaltrix\Support\Helper::hex2rgba( $attr['bottomColor'], ( isset( $attr['bottomDividerOpacity'] ) && '' !== $attr['bottomDividerOpacity'] ) ? $attr['bottomDividerOpacity'] : 100 ),
+		'fill' => \Vexaltrix\Core\Support\Helper::hex2rgba( $attr['bottomColor'], ( isset( $attr['bottomDividerOpacity'] ) && '' !== $attr['bottomDividerOpacity'] ) ? $attr['bottomDividerOpacity'] : 100 ),
 	],
 	$baseSelector . ' .vxt-container__video-wrap video' => [
 		'opacity' => $backgroundVideoOpacityValue,
@@ -249,15 +249,15 @@ if ( '' !== $attr['bottomWidth'] ) {
 
 $containerTabletCss = array_merge(
 	[
-		'min-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightTablet'], $attr['minHeightTypeTablet'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
+		'min-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightTablet'], $attr['minHeightTypeTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
 		'order'          => 'custom' === $orderTablet ? $customOrderTablet : $orderTablet,
 	],
 	$borderTablet
@@ -286,26 +286,26 @@ if ( $shouldMergeInnerContainerCss && ! $isLayoutGrid ) {
 
 $tSelectors = [
 	$baseSelector . ' .vxt-container__shape-bottom svg' => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomHeightTablet'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomHeightTablet'], 'px' ),
 	],
 	$baseSelector . ' .vxt-container__shape-top svg'    => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['topHeightTablet'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topHeightTablet'], 'px' ),
 	],
 ];
 
 $containerMobileCss = array_merge(
 	[
-		'min-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightMobile'], $attr['minHeightTypeMobile'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
-		'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] ),
-		'column-gap'     => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] ),
+		'min-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightMobile'], $attr['minHeightTypeMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
+		'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] ),
+		'column-gap'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] ),
 		'order'          => 'custom' === $orderMobile ? $customOrderMobile : $orderMobile,
 	],
 	$borderMobile
@@ -334,46 +334,46 @@ if ( $shouldMergeInnerContainerCss && ! $isLayoutGrid ) {
 
 $mSelectors = [
 	$baseSelector . ' .vxt-container__shape-bottom svg' => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomHeightMobile'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomHeightMobile'], 'px' ),
 	],
 	$baseSelector . ' .vxt-container__shape-top svg'    => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['topHeightMobile'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topHeightMobile'], 'px' ),
 	],
 ];
 
 if ( ! $isLayoutGrid ) {
 	// Add row and column gap if layout is not grid.
-	$containerCss['row-gap']          = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] );
-	$containerCss['column-gap']       = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] );
-	$innerContainerCss['row-gap']    = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] );
-	$innerContainerCss['column-gap'] = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] );
+	$containerCss['row-gap']          = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] );
+	$containerCss['column-gap']       = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] );
+	$innerContainerCss['row-gap']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] );
+	$innerContainerCss['column-gap'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] );
 
 	// for tablet devices.
-	$containerTabletCss['row-gap']          = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] );
-	$containerTabletCss['column-gap']       = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] );
-	$innerContainerTabletCss['row-gap']    = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] );
-	$innerContainerTabletCss['column-gap'] = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] );
+	$containerTabletCss['row-gap']          = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] );
+	$containerTabletCss['column-gap']       = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] );
+	$innerContainerTabletCss['row-gap']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] );
+	$innerContainerTabletCss['column-gap'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] );
 
 	// for mobile devices.
-	$containerMobileCss['row-gap']          = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] );
-	$containerMobileCss['column-gap']       = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] );
-	$innerContainerMobileCss['row-gap']    = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] );
-	$innerContainerMobileCss['column-gap'] = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] );
+	$containerMobileCss['row-gap']          = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] );
+	$containerMobileCss['column-gap']       = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] );
+	$innerContainerMobileCss['row-gap']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] );
+	$innerContainerMobileCss['column-gap'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] );
 }
 
 	// Add max-width and width if layout is not grid.
 	$selectors[ '.vxt-is-root-container .vxt-block-' . $id ] = [ // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-		'max-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['widthDesktop'], $attr['widthType'] ),
+		'max-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthDesktop'], $attr['widthType'] ),
 		'width'     => '100%',
 	];
 
 	$tSelectors[ '.vxt-is-root-container ' . $baseSelector ] = [ // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-		'max-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['widthTablet'], $attr['widthTypeTablet'] ),
+		'max-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthTablet'], $attr['widthTypeTablet'] ),
 		'width'     => '100%',
 	];
 
 	$mSelectors[ '.vxt-is-root-container ' . $baseSelector ] = [ // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-		'max-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['widthMobile'], $attr['widthTypeMobile'] ),
+		'max-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthMobile'], $attr['widthTypeMobile'] ),
 		'width'     => '100%',
 	];
 
@@ -411,27 +411,27 @@ if ( ! $isLayoutGrid ) {
 		$containerBaseSelector = $hasInnerBlocksWrap && $attr['isBlockRootParent'] ? $gridBaseSelector . ' > .vxt-container-inner-blocks-wrap' : $gridBaseSelector;
 		$gridCss                = [];
 		
-		$gridCss['row-gap']    = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] );
-		$gridCss['column-gap'] = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] );
+		$gridCss['row-gap']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] );
+		$gridCss['column-gap'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] );
 
 		// Grid css for desktop.
-		$selectors[ $containerBaseSelector ] = array_merge( $gridCss, \Vexaltrix\Core\Blocks\BlockHelper::gridCssObject( $attr, 'Desktop' ) );
+		$selectors[ $containerBaseSelector ] = array_merge( $gridCss, \Vexaltrix\Presentation\Blocks\BlockHelper::gridCssObject( $attr, 'Desktop' ) );
 
 		// Grid css for tablet.
 		$gridCssTablet = [];
 
-		$gridCssTablet['row-gap']    = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] );
-		$gridCssTablet['column-gap'] = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] );
+		$gridCssTablet['row-gap']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] );
+		$gridCssTablet['column-gap'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] );
 		
-		$tSelectors[ $containerBaseSelector ] = array_merge( $gridCssTablet, \Vexaltrix\Core\Blocks\BlockHelper::gridCssObject( $attr, 'Tablet' ) );
+		$tSelectors[ $containerBaseSelector ] = array_merge( $gridCssTablet, \Vexaltrix\Presentation\Blocks\BlockHelper::gridCssObject( $attr, 'Tablet' ) );
 
 		// Grid css for mobile.
 		$gridCssMobile = [];
 
-		$gridCssMobile['row-gap']    = \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] );
-		$gridCssMobile['column-gap'] = \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] );
+		$gridCssMobile['row-gap']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] );
+		$gridCssMobile['column-gap'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] );
 
-		$mSelectors[ $containerBaseSelector ] = array_merge( $gridCssMobile, \Vexaltrix\Core\Blocks\BlockHelper::gridCssObject( $attr, 'Mobile' ) );
+		$mSelectors[ $containerBaseSelector ] = array_merge( $gridCssMobile, \Vexaltrix\Presentation\Blocks\BlockHelper::gridCssObject( $attr, 'Mobile' ) );
 	}
 
 	if ( 'video' === $attr['backgroundType'] ) {
@@ -449,56 +449,56 @@ if ( ! $isLayoutGrid ) {
 		$mSelectors[ $selectorClass ] = $innerContainerMobileCss;
 
 		$selectors[ $baseSelector ]   = [
-			'min-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightDesktop'], $attr['minHeightType'] ),
+			'min-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightDesktop'], $attr['minHeightType'] ),
 			'box-shadow'     =>
-					\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) .
+					\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) .
 					' ' .
-					\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) .
+					\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) .
 					' ' .
-					\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) .
+					\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) .
 					' ' .
-					\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) .
+					\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) .
 					' ' .
 					$attr['boxShadowColor'] .
 					' ' .
 					$boxShadowPositionCss,
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
-			'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ) . ' !important',
-			'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ) . ' !important',
-			'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
-			'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
-			'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] ),
-			'column-gap'     => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPaddingDesktop'], $attr['paddingType'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPaddingDesktop'], $attr['paddingType'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPaddingDesktop'], $attr['paddingType'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPaddingDesktop'], $attr['paddingType'] ),
+			'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMarginDesktop'], $attr['marginType'] ) . ' !important',
+			'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMarginDesktop'], $attr['marginType'] ) . ' !important',
+			'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ),
+			'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ),
+			'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapDesktop'], $attr['rowGapType'] ),
+			'column-gap'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapDesktop'], $attr['columnGapType'] ),
 			'overflow'       => $attr['overflow'],
 		];
 		$tSelectors[ $baseSelector ] = [
-			'min-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightTablet'], $attr['minHeightTypeTablet'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
-			'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
-			'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
-			'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
-			'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
-			'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] ),
-			'column-gap'     => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] ),
+			'min-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightTablet'], $attr['minHeightTypeTablet'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingTablet, $attr['paddingTypeTablet'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['paddingTypeTablet'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingTablet, $attr['paddingTypeTablet'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingTablet, $attr['paddingTypeTablet'] ),
+			'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
+			'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginTablet, $attr['marginTypeTablet'] ) . ' !important',
+			'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ),
+			'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ),
+			'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], $attr['rowGapTypeTablet'] ),
+			'column-gap'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapTablet'], $attr['columnGapTypeTablet'] ),
 		];
 		$mSelectors[ $baseSelector ] = [
-			'min-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['minHeightMobile'], $attr['minHeightTypeMobile'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
-			'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
-			'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
-			'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
-			'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
-			'row-gap'        => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] ),
-			'column-gap'     => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] ),
+			'min-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['minHeightMobile'], $attr['minHeightTypeMobile'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingMobile, $attr['paddingTypeMobile'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['paddingTypeMobile'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingMobile, $attr['paddingTypeMobile'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingMobile, $attr['paddingTypeMobile'] ),
+			'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $topMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
+			'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMarginMobile, $attr['marginTypeMobile'] ) . ' !important',
+			'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ),
+			'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ),
+			'row-gap'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], $attr['rowGapTypeMobile'] ),
+			'column-gap'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], $attr['columnGapTypeMobile'] ),
 		];
 		$selectors[ '.wp-block-vxt-container' . $baseSelector . ':hover .vxt-container__video-wrap' ] = [
 			'border-color' => $attr['containerBorderHColor'],
@@ -506,13 +506,13 @@ if ( ! $isLayoutGrid ) {
 		// If hover blur or hover color are set, show the hover shadow.
 		if ( ( ( '' !== $attr['boxShadowBlurHover'] ) && ( null !== $attr['boxShadowBlurHover'] ) ) || '' !== $attr['boxShadowColorHover'] ) {
 
-			$selectors[ $baseSelector . ':hover ' ]['box-shadow'] = \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffsetHover'], 'px' ) .
+			$selectors[ $baseSelector . ':hover ' ]['box-shadow'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffsetHover'], 'px' ) .
 																	' ' .
-																	\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffsetHover'], 'px' ) .
+																	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffsetHover'], 'px' ) .
 																	' ' .
-																	\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlurHover'], 'px' ) .
+																	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlurHover'], 'px' ) .
 																	' ' .
-																	\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpreadHover'], 'px' ) .
+																	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpreadHover'], 'px' ) .
 																	' ' .
 																	$attr['boxShadowColorHover'] .
 																	' ' .
@@ -529,13 +529,13 @@ if ( ! $isLayoutGrid ) {
 		// If hover blur or hover color are set, show the hover shadow.
 		if ( ( ( '' !== $attr['boxShadowBlurHover'] ) && ( null !== $attr['boxShadowBlurHover'] ) ) || '' !== $attr['boxShadowColorHover'] ) {
 
-			$selectors[ $baseSelector . ':hover' ]['box-shadow'] = \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffsetHover'], 'px' ) .
+			$selectors[ $baseSelector . ':hover' ]['box-shadow'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffsetHover'], 'px' ) .
 																	' ' .
-																	\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffsetHover'], 'px' ) .
+																	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffsetHover'], 'px' ) .
 																	' ' .
-																	\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlurHover'], 'px' ) .
+																	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlurHover'], 'px' ) .
 																	' ' .
-																	\Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpreadHover'], 'px' ) .
+																	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpreadHover'], 'px' ) .
 																	' ' .
 																	$attr['boxShadowColorHover'] .
 																	' ' .
@@ -545,9 +545,9 @@ if ( ! $isLayoutGrid ) {
 	}
 
 	if ( 'default' === $attr['contentWidth'] ) {
-		$selectors[ $baseSelector ]['max-width']    = \Vexaltrix\Support\Helper::getCssValue( $attr['widthDesktop'], $attr['widthType'] ) . ' !important';
-		$selectors[ $baseSelector ]['margin-left']  = ( '' !== $attr['leftMarginDesktop'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ) . ' !important' : '' );
-		$selectors[ $baseSelector ]['margin-right'] = ( '' !== $attr['rightMarginDesktop'] ? \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ) . ' !important' : '' );
+		$selectors[ $baseSelector ]['max-width']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthDesktop'], $attr['widthType'] ) . ' !important';
+		$selectors[ $baseSelector ]['margin-left']  = ( '' !== $attr['leftMarginDesktop'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginDesktop'], $attr['marginType'] ) . ' !important' : '' );
+		$selectors[ $baseSelector ]['margin-right'] = ( '' !== $attr['rightMarginDesktop'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginDesktop'], $attr['marginType'] ) . ' !important' : '' );
 		// FSE container width compatibility.
 		$commonFullwidthRestrictions = ( 'auto' !== $attr['childrenWidthDesktop'] && ! $isLayoutGrid );
 
@@ -580,13 +580,13 @@ if ( ! $isLayoutGrid ) {
 		// Add the FSE compatibility width when required.
 		$selectors[ $baseSelector ]['width'] = $requiresFullwidth ? '100%' : '';
 
-		$tSelectors[ $baseSelector ]['max-width']    = \Vexaltrix\Support\Helper::getCssValue( $attr['widthTablet'], $attr['widthTypeTablet'] ) . ' !important';
-		$tSelectors[ $baseSelector ]['margin-left']  = ( '' !== $attr['leftMarginTablet'] ? \Vexaltrix\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ) . ' !important' : '' );
-		$tSelectors[ $baseSelector ]['margin-right'] = ( '' !== $attr['rightMarginTablet'] ? \Vexaltrix\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ) . ' !important' : '' );
+		$tSelectors[ $baseSelector ]['max-width']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthTablet'], $attr['widthTypeTablet'] ) . ' !important';
+		$tSelectors[ $baseSelector ]['margin-left']  = ( '' !== $attr['leftMarginTablet'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginTablet, $attr['marginTypeTablet'] ) . ' !important' : '' );
+		$tSelectors[ $baseSelector ]['margin-right'] = ( '' !== $attr['rightMarginTablet'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginTablet, $attr['marginTypeTablet'] ) . ' !important' : '' );
 
-		$mSelectors[ $baseSelector ]['max-width']    = \Vexaltrix\Support\Helper::getCssValue( $attr['widthMobile'], $attr['widthTypeMobile'] ) . ' !important';
-		$mSelectors[ $baseSelector ]['margin-left']  = ( '' !== $attr['leftMarginMobile'] ? \Vexaltrix\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ) . ' !important' : '' );
-		$mSelectors[ $baseSelector ]['margin-right'] = ( '' !== $attr['rightMarginMobile'] ? \Vexaltrix\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ) . ' !important' : '' );
+		$mSelectors[ $baseSelector ]['max-width']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthMobile'], $attr['widthTypeMobile'] ) . ' !important';
+		$mSelectors[ $baseSelector ]['margin-left']  = ( '' !== $attr['leftMarginMobile'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $leftMarginMobile, $attr['marginTypeMobile'] ) . ' !important' : '' );
+		$mSelectors[ $baseSelector ]['margin-right'] = ( '' !== $attr['rightMarginMobile'] ? \Vexaltrix\Core\Support\Helper::getCssValue( $rightMarginMobile, $attr['marginTypeMobile'] ) . ' !important' : '' );
 	}
 
 	// Add the overlay CSS if needed.
@@ -623,10 +623,10 @@ if ( ! $isLayoutGrid ) {
 						'content'        => '""',
 						'position'       => 'absolute',
 						'pointer-events' => 'none',
-						'top'            => '-' . \Vexaltrix\Support\Helper::getCssValue( $desktopBorderWidth['top'], 'px' ),
-						'left'           => '-' . \Vexaltrix\Support\Helper::getCssValue( $desktopBorderWidth['left'], 'px' ),
-						'width'          => 'calc(100% + ' . \Vexaltrix\Support\Helper::getCssValue( $desktopBorderWidth['left'], 'px' ) . ' + ' . \Vexaltrix\Support\Helper::getCssValue( $desktopBorderWidth['right'], 'px' ) . ')',
-						'height'         => 'calc(100% + ' . \Vexaltrix\Support\Helper::getCssValue( $desktopBorderWidth['top'], 'px' ) . ' + ' . \Vexaltrix\Support\Helper::getCssValue( $desktopBorderWidth['bottom'], 'px' ) . ')',
+						'top'            => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $desktopBorderWidth['top'], 'px' ),
+						'left'           => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $desktopBorderWidth['left'], 'px' ),
+						'width'          => 'calc(100% + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $desktopBorderWidth['left'], 'px' ) . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $desktopBorderWidth['right'], 'px' ) . ')',
+						'height'         => 'calc(100% + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $desktopBorderWidth['top'], 'px' ) . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $desktopBorderWidth['bottom'], 'px' ) . ')',
 					],
 					$border,
 					$containerBgOverlayCss
@@ -641,10 +641,10 @@ if ( ! $isLayoutGrid ) {
 			[
 				$baseSelector . '::before' => array_merge(
 					[
-						'top'    => '-' . \Vexaltrix\Support\Helper::getCssValue( $tabletBorderWidth['top'], 'px' ),
-						'left'   => '-' . \Vexaltrix\Support\Helper::getCssValue( $tabletBorderWidth['left'], 'px' ),
-						'width'  => 'calc(100% + ' . \Vexaltrix\Support\Helper::getCssValue( $tabletBorderWidth['left'], 'px' ) . ' + ' . \Vexaltrix\Support\Helper::getCssValue( $tabletBorderWidth['right'], 'px' ) . ')',
-						'height' => 'calc(100% + ' . \Vexaltrix\Support\Helper::getCssValue( $tabletBorderWidth['top'], 'px' ) . ' + ' . \Vexaltrix\Support\Helper::getCssValue( $tabletBorderWidth['bottom'], 'px' ) . ')',
+						'top'    => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBorderWidth['top'], 'px' ),
+						'left'   => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBorderWidth['left'], 'px' ),
+						'width'  => 'calc(100% + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBorderWidth['left'], 'px' ) . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBorderWidth['right'], 'px' ) . ')',
+						'height' => 'calc(100% + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBorderWidth['top'], 'px' ) . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBorderWidth['bottom'], 'px' ) . ')',
 					],
 					$borderTablet,
 					$containerBgOverlayCssTablet
@@ -656,10 +656,10 @@ if ( ! $isLayoutGrid ) {
 			[
 				$baseSelector . '::before' => array_merge(
 					[
-						'top'    => '-' . \Vexaltrix\Support\Helper::getCssValue( $mobileBorderWidth['top'], 'px' ),
-						'left'   => '-' . \Vexaltrix\Support\Helper::getCssValue( $mobileBorderWidth['left'], 'px' ),
-						'width'  => 'calc(100% + ' . \Vexaltrix\Support\Helper::getCssValue( $mobileBorderWidth['left'], 'px' ) . ' + ' . \Vexaltrix\Support\Helper::getCssValue( $mobileBorderWidth['right'], 'px' ) . ')',
-						'height' => 'calc(100% + ' . \Vexaltrix\Support\Helper::getCssValue( $mobileBorderWidth['top'], 'px' ) . ' + ' . \Vexaltrix\Support\Helper::getCssValue( $mobileBorderWidth['bottom'], 'px' ) . ')',
+						'top'    => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBorderWidth['top'], 'px' ),
+						'left'   => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBorderWidth['left'], 'px' ),
+						'width'  => 'calc(100% + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBorderWidth['left'], 'px' ) . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBorderWidth['right'], 'px' ) . ')',
+						'height' => 'calc(100% + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBorderWidth['top'], 'px' ) . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBorderWidth['bottom'], 'px' ) . ')',
 					],
 					$borderMobile,
 					$containerBgOverlayCssMobile
@@ -842,7 +842,7 @@ if ( ! $isLayoutGrid ) {
 		if ( $fallbackImage ) {
 			// Generate background objects for each device.
 			$bgObjDesktop           = generateBackgroundObject( $attr, $fallbackImage, 'desktop' );
-			$containerBgCssDesktop = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop, 'no' );
+			$containerBgCssDesktop = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop, 'no' );
 
 			// Add the CSS to the selectors if it exists.
 			if ( ! empty( $containerBgCssDesktop ) ) {
@@ -855,7 +855,7 @@ if ( ! $isLayoutGrid ) {
 			// Add tablet version if needed.
 			if ( isset( $attr['backgroundRepeatTablet'] ) && ! empty( $attr['backgroundRepeatTablet'] ) ) {
 				$bgObjTablet           = generateBackgroundObject( $attr, $fallbackImage, 'tablet' );
-				$containerBgCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet, 'no' );
+				$containerBgCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet, 'no' );
 				
 				if ( ! empty( $containerBgCssTablet ) ) {
 					$tSelectors[ $baseSelector ] = array_merge(
@@ -868,7 +868,7 @@ if ( ! $isLayoutGrid ) {
 			// Add mobile version if needed.
 			if ( isset( $attr['backgroundRepeatMobile'] ) && ! empty( $attr['backgroundRepeatMobile'] ) ) {
 				$bgObjMobile           = generateBackgroundObject( $attr, $fallbackImage, 'mobile' );
-				$containerBgCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile, 'no' );
+				$containerBgCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile, 'no' );
 				
 				if ( ! empty( $containerBgCssMobile ) ) {
 					$mSelectors[ $baseSelector ] = array_merge(
@@ -886,4 +886,4 @@ if ( ! $isLayoutGrid ) {
 		'mobile'  => $mSelectors,
 	];
 
-	return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.wp-block-vxt-container' );
+	return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.wp-block-vxt-container' );

@@ -9,7 +9,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksPostGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksPostGfont( $attr );
 
 $paddingLeftMobile  = isset( $attr['paddingLeftMobile'] ) ? $attr['paddingLeftMobile'] : $attr['contentPaddingMobile'];
 $paddingRightMobile = isset( $attr['paddingRightMobile'] ) ? $attr['paddingRightMobile'] : $attr['contentPaddingMobile'];
@@ -18,11 +18,11 @@ $paddingRightTablet = isset( $attr['paddingRightTablet'] ) ? $attr['paddingRight
 $paddingLeft        = isset( $attr['paddingLeft'] ) ? $attr['paddingLeft'] : $attr['contentPadding'];
 $paddingRight       = isset( $attr['paddingRight'] ) ? $attr['paddingRight'] : $attr['contentPadding'];
 
-$selectors = \Vexaltrix\Core\Blocks\BlockHelper::getPostSelectors( $attr );
+$selectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getPostSelectors( $attr );
 // Pagination CSS.
 $selectors[' .vxt-post-pagination-wrap'] = [
 
-	'margin-top'                             => \Vexaltrix\Support\Helper::getCssValue( $attr['paginationSpacing'], $attr['paginationSpacingUnit'] ),
+	'margin-top'                             => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginationSpacing'], $attr['paginationSpacingUnit'] ),
 	'justify-content'                        => $attr['paginationAlignment'],
 	'margin-' . $attr['paginationAlignment'] => '10px',
 ];
@@ -44,9 +44,9 @@ if ( 'filled' === $attr['paginationLayout'] ) {
 
 		'border-style'     => 'solid',
 		'background-color' => 'transparent',
-		'border-width'     => \Vexaltrix\Support\Helper::getCssValue( $attr['paginationBorderSize'], 'px' ),
+		'border-width'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginationBorderSize'], 'px' ),
 		'border-color'     => $attr['paginationBorderActiveColor'],
-		'border-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paginationBorderRadius'], 'px' ),
+		'border-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginationBorderRadius'], 'px' ),
 		'color'            => $attr['paginationActiveColor'],
 	];
 
@@ -54,42 +54,42 @@ if ( 'filled' === $attr['paginationLayout'] ) {
 
 		'border-style'     => 'solid',
 		'background-color' => 'transparent',
-		'border-width'     => \Vexaltrix\Support\Helper::getCssValue( $attr['paginationBorderSize'], 'px' ),
+		'border-width'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginationBorderSize'], 'px' ),
 		'border-color'     => $attr['paginationBorderColor'],
-		'border-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paginationBorderRadius'], 'px' ),
+		'border-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginationBorderRadius'], 'px' ),
 		'color'            => $attr['paginationColor'],
 	];
 
 }
 
-$mSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getPostMobileSelectors( $attr );
-$tSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getPostTabletSelectors( $attr );
+$mSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getPostMobileSelectors( $attr );
+$tSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getPostTabletSelectors( $attr );
 
 if ( 'top' === $attr['imgPosition'] ) {
 	$selectors['.vxt-equal_height_inline-read-more-buttons .vxt-post__inner-wrap .vxt-post__text:last-child']   = [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $paddingLeft, $attr['contentPaddingUnit'] ),
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $paddingRight, $attr['contentPaddingUnit'] ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeft, $attr['contentPaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRight, $attr['contentPaddingUnit'] ),
 	];
 	$mSelectors['.vxt-equal_height_inline-read-more-buttons .vxt-post__inner-wrap .vxt-post__text:last-child'] = [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $paddingLeftMobile, $attr['mobilePaddingUnit'] ),
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $paddingRightMobile, $attr['mobilePaddingUnit'] ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeftMobile, $attr['mobilePaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRightMobile, $attr['mobilePaddingUnit'] ),
 	];
 	$mSelectors['.vxt-equal_height_inline-read-more-buttons .vxt-post__inner-wrap .vxt-post__text:last-child'] = [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $paddingLeftTablet, $attr['tabletPaddingUnit'] ),
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $paddingRightTablet, $attr['tabletPaddingUnit'] ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeftTablet, $attr['tabletPaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRightTablet, $attr['tabletPaddingUnit'] ),
 	];
 } else {
 	$selectors['.vxt-equal_height_inline-read-more-buttons .vxt-post__inner-wrap .vxt-post__text:nth-last-child(2)']   = [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $paddingLeft, $attr['contentPaddingUnit'] ),
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $paddingRight, $attr['contentPaddingUnit'] ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeft, $attr['contentPaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRight, $attr['contentPaddingUnit'] ),
 	];
 	$mSelectors['.vxt-equal_height_inline-read-more-buttons .vxt-post__inner-wrap .vxt-post__text:nth-last-child(2)'] = [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $paddingLeftMobile, $attr['mobilePaddingUnit'] ),
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $paddingRightMobile, $attr['mobilePaddingUnit'] ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeftMobile, $attr['mobilePaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRightMobile, $attr['mobilePaddingUnit'] ),
 	];
 	$mSelectors['.vxt-equal_height_inline-read-more-buttons .vxt-post__inner-wrap .vxt-post__text:nth-last-child(2)'] = [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $paddingLeftTablet, $attr['tabletPaddingUnit'] ),
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $paddingRightTablet, $attr['tabletPaddingUnit'] ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeftTablet, $attr['tabletPaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRightTablet, $attr['tabletPaddingUnit'] ),
 	];
 }
 
@@ -114,10 +114,10 @@ if ( $attr['isLeftToRightLayout'] ) {
 
 
 $selectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
-	'padding-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperTopPadding'], $attr['wrapperPaddingUnit'] ),
-	'padding-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperRightPadding'], $attr['wrapperPaddingUnit'] ),
-	'padding-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperBottomPadding'], $attr['wrapperPaddingUnit'] ),
-	'padding-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperLeftPadding'], $attr['wrapperPaddingUnit'] ),
+	'padding-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperTopPadding'], $attr['wrapperPaddingUnit'] ),
+	'padding-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperRightPadding'], $attr['wrapperPaddingUnit'] ),
+	'padding-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperBottomPadding'], $attr['wrapperPaddingUnit'] ),
+	'padding-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperLeftPadding'], $attr['wrapperPaddingUnit'] ),
 	'width'           => '100%',
 	'display'         => 'flex',
 	'flex-direction'  => 'column',
@@ -126,17 +126,17 @@ $selectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
 
 
 	$tSelectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperTopPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperRightPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperBottomPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperLeftPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperTopPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperRightPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperBottomPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperLeftPaddingTablet'], $attr['wrapperPaddingUnitTablet'] ),
 	];
 
 	$mSelectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperTopPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperRightPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperBottomPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['wrapperLeftPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperTopPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperRightPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperBottomPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['wrapperLeftPaddingMobile'], $attr['wrapperPaddingUnitMobile'] ),
 		'width'          => 'unset',
 	];
 
@@ -155,10 +155,10 @@ $selectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
 			$selectors,
 			[
 				' span.vxt-post__taxonomy' => [
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
 				],
 				' .vxt-post__inner-wrap span.vxt-post__taxonomy.highlighted' => [
-					'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
+					'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
 				],
 			]
 		);
@@ -166,10 +166,10 @@ $selectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
 			$mSelectors,
 			[
 				' span.vxt-post__taxonomy' => [
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
 				],
 				' .vxt-post__inner-wrap span.vxt-post__taxonomy.highlighted' => [
-					'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
+					'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
 				],
 			]
 		);
@@ -177,10 +177,10 @@ $selectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
 			$tSelectors,
 			[
 				' span.vxt-post__taxonomy' => [
-					'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
+					'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
 				],
 				' .vxt-post__inner-wrap span.vxt-post__taxonomy.highlighted' => [
-					'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
+					'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
 				],
 			]
 		);
@@ -200,18 +200,18 @@ $selectors['.wp-block-vxt-post-grid .uag-post-grid-wrapper'] = [
 	];
 
 
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title a', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline > span', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline time', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author a', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' span.vxt-post__taxonomy', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__inner-wrap .vxt-post__taxonomy.highlighted', $combinedSelectors );
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'excerpt', ' .vxt-post__text.vxt-post__excerpt', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title a', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline > span', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline time', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author a', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' span.vxt-post__taxonomy', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__inner-wrap .vxt-post__taxonomy.highlighted', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'excerpt', ' .vxt-post__text.vxt-post__excerpt', $combinedSelectors );
 	if ( ! $attr['inheritFromThemeBtn'] ) {
-		$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta', $combinedSelectors );
-		$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta a', $combinedSelectors );
+		$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta', $combinedSelectors );
+		$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta a', $combinedSelectors );
 	}
 
-	return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+	return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

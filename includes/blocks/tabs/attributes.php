@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$borderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'tab' );
+$borderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'tab' );
 
 return array_merge(
 	[

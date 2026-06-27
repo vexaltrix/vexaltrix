@@ -15,7 +15,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksTestimonialGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksTestimonialGfont( $attr );
 
 $rowGapTabletFallback    = is_numeric( $attr['rowGapTablet'] ) ? $attr['rowGapTablet'] : $attr['rowGap'];
 $rowGapMobileFallback    = is_numeric( $attr['rowGapMobile'] ) ? $attr['rowGapMobile'] : $rowGapTabletFallback;
@@ -29,16 +29,16 @@ if ( 'left' === $attr['headingAlign'] ) {
 	$imgAlign = 'flex-end';
 }
 
-$overallBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
-$overallBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$overallBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
+$overallBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$overallBorder,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$overallBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
-$overallBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
+$overallBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
+$overallBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
 
 $position = str_replace( '-', ' ', $attr['backgroundPosition'] );
 
@@ -57,28 +57,28 @@ $imgpaddingLeft   = isset( $attr['imgpaddingLeft'] ) ? $attr['imgpaddingLeft'] :
 
 $selectors = [
 	' .vxt-testimonial__wrap'                         => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGap'], $attr['rowGapType'] ),
-		'padding-left'  => \Vexaltrix\Support\Helper::getCssValue( ( ( $attr['columnGap'] ) / 2 ), $attr['columnGapType'] ),
-		'padding-right' => \Vexaltrix\Support\Helper::getCssValue( ( ( $attr['columnGap'] ) / 2 ), $attr['columnGapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGap'], $attr['rowGapType'] ),
+		'padding-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( ( $attr['columnGap'] ) / 2 ), $attr['columnGapType'] ),
+		'padding-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( ( $attr['columnGap'] ) / 2 ), $attr['columnGapType'] ),
 	],
 	' .vxt-tm__content'                               => [
 		'text-align'     => $attr['headingAlign'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $paddingTop, $attr['paddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $paddingBottom, $attr['paddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $paddingLeft, $attr['paddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $paddingRight, $attr['paddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingTop, $attr['paddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingBottom, $attr['paddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingLeft, $attr['paddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingRight, $attr['paddingUnit'] ),
 		'align-content'  => $attr['vAlignContent'],
 	],
 	' .vxt-testimonial__wrap .vxt-tm__image-content' => [
 		'text-align'     => $attr['headingAlign'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $imgpaddingTop, $attr['imgpaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $imgpaddingBottom, $attr['imgpaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $imgpaddingLeft, $attr['imgpaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $imgpaddingRight, $attr['imgpaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $imgpaddingTop, $attr['imgpaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $imgpaddingBottom, $attr['imgpaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $imgpaddingLeft, $attr['imgpaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $imgpaddingRight, $attr['imgpaddingUnit'] ),
 	],
 	' .vxt-tm__image img'                             => [
-		'width'     => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
-		'max-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
+		'width'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
+		'max-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthType'] ),
 	],
 
 	' .vxt-tm__author-name'                           => [
@@ -90,7 +90,7 @@ $selectors = [
 	],
 	' .vxt-tm__desc'                                  => [
 		'color'         => $attr['descColor'],
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpace'], $attr['descSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpace'], $attr['descSpaceType'] ),
 	],
 	' .vxt-testimonial__wrap .vxt-tm__content'       => $overallBorder,
 	' .vxt-testimonial__wrap .vxt-tm__content:hover' => [
@@ -185,13 +185,13 @@ if ( '1' === $attr['test_item_count'] || $attr['test_item_count'] === $attr['col
 
 $mSelectors = [
 	' .vxt-testimonial__wrap'                          => [
-		'padding-left'  => \Vexaltrix\Support\Helper::getCssValue( ( ( $columnGapMobileFallback ) / 2 ), $attr['columnGapType'] ),
-		'padding-right' => \Vexaltrix\Support\Helper::getCssValue( ( ( $columnGapMobileFallback ) / 2 ), $attr['columnGapType'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $rowGapMobileFallback, $attr['rowGapType'] ),
+		'padding-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( ( $columnGapMobileFallback ) / 2 ), $attr['columnGapType'] ),
+		'padding-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( ( $columnGapMobileFallback ) / 2 ), $attr['columnGapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $rowGapMobileFallback, $attr['rowGapType'] ),
 	],
 	' .vxt-tm__image img'                              => [
-		'width'     => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
-		'max-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
+		'width'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
+		'max-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthType'] ),
 	],
 	' .vxt-tm__author-name'                            => [
 		'margin-bottom' => $attr['nameSpaceMobile'] . $attr['nameSpaceType'],
@@ -199,24 +199,24 @@ $mSelectors = [
 
 	' .vxt-testimonial__wrap .vxt-tm__content'        => $overallBorderMobile,
 	' .vxt-tm__desc'                                   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpaceMobile'], $attr['descSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpaceMobile'], $attr['descSpaceType'] ),
 		'margin-left'   => ( ( 1 === $attr['test_item_count'] ) || ( 'dots' === $attr['arrowDots'] ) || ( 1 !== $attr['columns'] ) ) ? 'auto' : '20px',
 		'margin-right'  => ( ( 1 === $attr['test_item_count'] ) || ( 'dots' === $attr['arrowDots'] ) || ( 1 !== $attr['columns'] ) ) ? 'auto' : '20px',
 	],
 	' .vxt-tm__content'                                => [
 		'text-align'     => $attr['headingAlignMobile'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingTopMobile'], $attr['mobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBottomMobile'], $attr['mobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingLeftMobile'], $attr['mobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingRightMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingTopMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBottomMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingLeftMobile'], $attr['mobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingRightMobile'], $attr['mobilePaddingUnit'] ),
 		'align-content'  => $attr['vAlignContent'],
 	],
 	'  .vxt-testimonial__wrap .vxt-tm__image-content' => [
 		'text-align'     => $attr['headingAlignMobile'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingTopMobile'], $attr['imgmobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingBottomMobile'], $attr['imgmobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingLeftMobile'], $attr['imgmobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingRightMobile'], $attr['imgmobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingTopMobile'], $attr['imgmobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingBottomMobile'], $attr['imgmobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingLeftMobile'], $attr['imgmobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingRightMobile'], $attr['imgmobilePaddingUnit'] ),
 	],
 ];
 
@@ -229,36 +229,36 @@ if ( 'gradient' === $attr['backgroundType'] ) {
 
 $tSelectors = [
 	' .vxt-testimonial__wrap'                          => [
-		'padding-left'  => \Vexaltrix\Support\Helper::getCssValue( ( ( $columnGapTabletFallback ) / 2 ), $attr['columnGapType'] ),
-		'padding-right' => \Vexaltrix\Support\Helper::getCssValue( ( ( $columnGapTabletFallback ) / 2 ), $attr['columnGapType'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $rowGapTabletFallback, $attr['rowGapType'] ),
+		'padding-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( ( $columnGapTabletFallback ) / 2 ), $attr['columnGapType'] ),
+		'padding-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( ( $columnGapTabletFallback ) / 2 ), $attr['columnGapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $rowGapTabletFallback, $attr['rowGapType'] ),
 	],
 	' .vxt-tm__image img'                              => [
-		'width'     => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
-		'max-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
+		'width'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
+		'max-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthType'] ),
 	],
 	' .vxt-tm__author-name'                            => [
 		'margin-bottom' => $attr['nameSpaceTablet'] . $attr['nameSpaceType'],
 	],
 	' .vxt-tm__desc'                                   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['descSpaceTablet'], $attr['descSpaceType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['descSpaceTablet'], $attr['descSpaceType'] ),
 	],
 
 	' .vxt-testimonial__wrap .vxt-tm__content'        => $overallBorderTablet,
 	' .vxt-tm__content'                                => [
 		'text-align'     => $attr['headingAlignTablet'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingTopTablet'], $attr['tabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBottomTablet'], $attr['tabletPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingLeftTablet'], $attr['tabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingRightTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingTopTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBottomTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingLeftTablet'], $attr['tabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingRightTablet'], $attr['tabletPaddingUnit'] ),
 		'align-content'  => $attr['vAlignContent'],
 	],
 	'  .vxt-testimonial__wrap .vxt-tm__image-content' => [
 		'text-align'     => $attr['headingAlignTablet'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingTopTablet'], $attr['imgtabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingRightTablet'], $attr['imgtabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingBottomTablet'], $attr['imgtabletPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['imgpaddingLeftTablet'], $attr['imgtabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingTopTablet'], $attr['imgtabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingRightTablet'], $attr['imgtabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingBottomTablet'], $attr['imgtabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imgpaddingLeftTablet'], $attr['imgtabletPaddingUnit'] ),
 	],
 ];
 
@@ -275,10 +275,10 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'name', '  .vxt-tm__author-name', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'company', ' .vxt-tm__company', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-tm__desc', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'name', '  .vxt-tm__author-name', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'company', ' .vxt-tm__company', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-tm__desc', $combinedSelectors );
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.vxt-block-' : '#vxt-testimonial-';
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

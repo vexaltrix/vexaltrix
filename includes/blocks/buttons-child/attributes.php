@@ -9,11 +9,11 @@
 
 $disableVHPadding = apply_filters( 'vxt_ultimate_gutenberg_blocks_disable_v_h_padding', false );
 
-$borderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
+$borderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
 
-$enableLegacyBlocks = \Vexaltrix\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
+$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
 
-$inheritFromTheme = 'enabled' === \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+$inheritFromTheme = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
 
 return array_merge(
 	[

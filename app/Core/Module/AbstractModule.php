@@ -22,7 +22,7 @@ namespace Vexaltrix\Core\Module;
 
 use Vexaltrix\Core\Module\ModuleInterface;
 use Vexaltrix\Core\Registry\ServiceRegistry;
-use Vexaltrix\Support\AssetHelper;
+use Vexaltrix\Core\Support\AssetHelper;
 
 abstract class AbstractModule implements ModuleInterface {
 
@@ -31,7 +31,7 @@ abstract class AbstractModule implements ModuleInterface {
     // ── Defaults (override in concrete modules as needed) ────────────────────
 
     public function version(): string {
-        return VEXALTRIX_VERSION;
+        return VXT_VER;
     }
 
     public function dependencies(): array {

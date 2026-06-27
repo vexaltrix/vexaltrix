@@ -17,14 +17,14 @@ $blockData = [
 	'description'         => __( 'Add accordions/FAQ schema to your page.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'faq' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'faq' ),
 	'deprecated'          => false,
 	'dynamic_assets'      => [
 		'dir' => 'faq',
 	],
 	'static_dependencies' => [
 		'vxt-faq-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'faq' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'faq' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

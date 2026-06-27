@@ -22,13 +22,13 @@ function vxt_ugb() {
 
 if ( ! function_exists( 'vxt_ultimate_gutenberg_blocks_block' ) ) {
 	/**
-	 * Gives \Vexaltrix\Core\Blocks\Block object.
+	 * Gives \Vexaltrix\Presentation\Blocks\Block object.
 	 *
 	 * @since 2.1.0
-	 * @return \Vexaltrix\Core\Blocks\Block
+	 * @return \Vexaltrix\Presentation\Blocks\Block
 	 */
 	function vxt_ultimate_gutenberg_blocks_block() {
-		return \Vexaltrix\Core\Blocks\Block::getInstance();
+		return \Vexaltrix\Presentation\Blocks\Block::getInstance();
 	}
 }
 
@@ -55,7 +55,7 @@ function vxt_ultimate_gutenberg_blocks_get_post_assets( $postId ) {
 
 	if ( ! isset( vxt_ugb()->postAssetsObjs[ $postId ] ) ) {
 
-		vxt_ugb()->postAssetsObjs[ $postId ] = new \Vexaltrix\Assets\PostAssets( $postId );
+		vxt_ugb()->postAssetsObjs[ $postId ] = new \Vexaltrix\Presentation\Assets\PostAssets( $postId );
 	}
 
 	return vxt_ugb()->postAssetsObjs[ $postId ];

@@ -8,12 +8,12 @@
  * @package ugb
  */
 
-$iconWidth = \Vexaltrix\Support\Helper::getCssValue(
+$iconWidth = \Vexaltrix\Core\Support\Helper::getCssValue(
 	$attr['iconSize'],
 	is_string( $attr['iconSizeUnit'] ) ? $attr['iconSizeUnit'] : ''
 );
 
-$transformation = \Vexaltrix\Support\Helper::getCssValue(
+$transformation = \Vexaltrix\Core\Support\Helper::getCssValue(
 	$attr['rotation'],
 	is_string( $attr['rotationUnit'] ) ? $attr['rotationUnit'] : ''
 );
@@ -27,7 +27,7 @@ $dropShadowProperties = [
 	'blur'       => $attr['iconShadowBlur'],
 	'color'      => $attr['iconShadowColor'],
 ];
-$dropShadow            = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $dropShadowProperties );
+$dropShadow            = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $dropShadowProperties );
 
 $boxShadowProperties = [
 	'horizontal' => $attr['iconBoxShadowHOffset'],
@@ -48,8 +48,8 @@ $boxShadowHoverProperties = [
 	'alt_color'  => $attr['iconBoxShadowColor'],
 ];
 
-$boxShadow           = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $boxShadowProperties );
-$boxShadowHoverCss = \Vexaltrix\Core\Blocks\BlockHelper::generateShadowCss( $boxShadowHoverProperties );
+$boxShadow           = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $boxShadowProperties );
+$boxShadowHoverCss = \Vexaltrix\Presentation\Blocks\BlockHelper::generateShadowCss( $boxShadowHoverProperties );
 
 $tSelectors = [];
 $mSelectors = [];
@@ -79,16 +79,16 @@ $selectors['.vxt-icon-wrapper .vxt-svg-wrapper']                   = array_merge
 		'display'        => 'inline-flex',
 		'background'     => $background,
 		// padding.
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['iconTopPadding'], $attr['iconPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconRightPadding'], $attr['iconPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBottomPadding'], $attr['iconPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconLeftPadding'], $attr['iconPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconTopPadding'], $attr['iconPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconRightPadding'], $attr['iconPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBottomPadding'], $attr['iconPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconLeftPadding'], $attr['iconPaddingUnit'] ),
 		// border.
 		'border-style'   => $attr['iconBorderStyle'],
 		'border-color'   => $attr['iconBorderColor'],
 		'box-shadow'     => $boxShadow,
 	],
-	\Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon' )
+	\Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon' )
 );
 $selectors['.vxt-icon-wrapper .vxt-svg-wrapper:hover']             = [
 	'border-color' => $attr['iconBorderHColor'],
@@ -100,10 +100,10 @@ $selectors['.vxt-icon-wrapper .vxt-svg-wrapper:focus-visible']     = [
 ];
 $selectors['.vxt-icon-wrapper.wp-block-vxt-icon--has-margin .vxt-icon-margin-wrapper'] = [
 	// margin.
-	'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['iconTopMargin'], $attr['iconMarginUnit'] ),
-	'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconRightMargin'], $attr['iconMarginUnit'] ),
-	'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBottomMargin'], $attr['iconMarginUnit'] ),
-	'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconLeftMargin'], $attr['iconMarginUnit'] ),
+	'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconTopMargin'], $attr['iconMarginUnit'] ),
+	'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconRightMargin'], $attr['iconMarginUnit'] ),
+	'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBottomMargin'], $attr['iconMarginUnit'] ),
+	'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconLeftMargin'], $attr['iconMarginUnit'] ),
 ];
 $selectors['.vxt-icon-wrapper .vxt-svg-wrapper:hover']                                  = [
 	'border-color' => $attr['iconBorderHColor'],
@@ -126,7 +126,7 @@ if ( $attr['useSeparateBoxShadows'] ) {
 };
 
 // Generates css for tablet devices.
-$tIconWidth                                        = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTablet'], $attr['iconSizeUnit'] );
+$tIconWidth                                        = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTablet'], $attr['iconSizeUnit'] );
 $tSelectors['.vxt-icon-wrapper']                   = [
 	'text-align' => $attr['alignTablet'],
 ];
@@ -137,21 +137,21 @@ $tSelectors['.vxt-icon-wrapper svg']               = [
 $tSelectors['.vxt-icon-wrapper .vxt-svg-wrapper'] = array_merge(
 	[
 		'display'        => 'inline-flex',
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['iconTopTabletPadding'], $attr['iconTabletPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconRightTabletPadding'], $attr['iconTabletPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBottomTabletPadding'], $attr['iconTabletPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconLeftTabletPadding'], $attr['iconTabletPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconTopTabletPadding'], $attr['iconTabletPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconRightTabletPadding'], $attr['iconTabletPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBottomTabletPadding'], $attr['iconTabletPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconLeftTabletPadding'], $attr['iconTabletPaddingUnit'] ),
 	],
-	\Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'tablet' )
+	\Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'tablet' )
 );
 $tSelectors['.vxt-icon-wrapper.wp-block-vxt-icon--has-margin .vxt-icon-margin-wrapper'] = [
-	'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['iconTopTabletMargin'], $attr['iconTabletMarginUnit'] ),
-	'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconRightTabletMargin'], $attr['iconTabletMarginUnit'] ),
-	'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBottomTabletMargin'], $attr['iconTabletMarginUnit'] ),
-	'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconLeftTabletMargin'], $attr['iconTabletMarginUnit'] ),
+	'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconTopTabletMargin'], $attr['iconTabletMarginUnit'] ),
+	'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconRightTabletMargin'], $attr['iconTabletMarginUnit'] ),
+	'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBottomTabletMargin'], $attr['iconTabletMarginUnit'] ),
+	'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconLeftTabletMargin'], $attr['iconTabletMarginUnit'] ),
 ];
 // Generates css for mobile devices.
-$mIconWidth                                        = \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMobile'], $attr['iconSizeUnit'] );
+$mIconWidth                                        = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMobile'], $attr['iconSizeUnit'] );
 $mSelectors['.vxt-icon-wrapper']                   = [
 	'text-align' => $attr['alignMobile'],
 ];
@@ -162,18 +162,18 @@ $mSelectors['.vxt-icon-wrapper svg']               = [
 $mSelectors['.vxt-icon-wrapper .vxt-svg-wrapper'] = array_merge(
 	[
 		'display'        => 'inline-flex',
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['iconTopMobilePadding'], $attr['iconMobilePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconRightMobilePadding'], $attr['iconMobilePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBottomMobilePadding'], $attr['iconMobilePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconLeftMobilePadding'], $attr['iconMobilePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconTopMobilePadding'], $attr['iconMobilePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconRightMobilePadding'], $attr['iconMobilePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBottomMobilePadding'], $attr['iconMobilePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconLeftMobilePadding'], $attr['iconMobilePaddingUnit'] ),
 	],
-	\Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'mobile' )
+	\Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'icon', 'mobile' )
 );
 $mSelectors['.vxt-icon-wrapper.wp-block-vxt-icon--has-margin .vxt-icon-margin-wrapper'] = [
-	'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['iconTopMobileMargin'], $attr['iconMobileMarginUnit'] ),
-	'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconRightMobileMargin'], $attr['iconMobileMarginUnit'] ),
-	'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconBottomMobileMargin'], $attr['iconMobileMarginUnit'] ),
-	'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconLeftMobileMargin'], $attr['iconMobileMarginUnit'] ),
+	'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconTopMobileMargin'], $attr['iconMobileMarginUnit'] ),
+	'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconRightMobileMargin'], $attr['iconMobileMarginUnit'] ),
+	'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconBottomMobileMargin'], $attr['iconMobileMarginUnit'] ),
+	'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconLeftMobileMargin'], $attr['iconMobileMarginUnit'] ),
 ];
 $combinedSelectors = [
 	'desktop' => $selectors,
@@ -181,7 +181,7 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-return \Vexaltrix\Support\Helper::generateAllCss(
+return \Vexaltrix\Core\Support\Helper::generateAllCss(
 	$combinedSelectors,
 	' .vxt-block-' . $id,
 	isset( $gbsClass ) ? $gbsClass : ''

@@ -15,7 +15,7 @@
 $attr = isset( $attr ) ? $attr : [];
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksImageGalleryGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksImageGalleryGfont( $attr );
 
 // Arrow & Dots Default Color Fallback ( Not from Theme ).
 $arrowDotColor = $attr['paginateColor'] ? $attr['paginateColor'] : '#007cba';
@@ -31,18 +31,18 @@ $gridImageGapTabletFallback = is_numeric( $attr['gridImageGapTab'] ) ? $attr['gr
 $gridImageGapMobileFallback = is_numeric( $attr['gridImageGapMob'] ) ? $attr['gridImageGapMob'] : $gridImageGapTabletFallback;
 
 // Border Attributes.
-$arrowBorderCss             = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'arrow' );
-$arrowBorderCssTablet      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'arrow', 'tablet' );
-$arrowBorderCssMobile      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'arrow', 'mobile' );
-$btnBorderCss               = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
-$btnBorderCssTablet        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
-$btnBorderCssMobile        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
-$imageBorderCss             = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'image' );
-$imageBorderCssTablet      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'image', 'tablet' );
-$imageBorderCssMobile      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'image', 'mobile' );
-$mainTitleBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'mainTitle' );
-$mainTitleBorderCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'mainTitle', 'tablet' );
-$mainTitleBorderCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'mainTitle', 'mobile' );
+$arrowBorderCss             = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'arrow' );
+$arrowBorderCssTablet      = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'arrow', 'tablet' );
+$arrowBorderCssMobile      = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'arrow', 'mobile' );
+$btnBorderCss               = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
+$btnBorderCssTablet        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
+$btnBorderCssMobile        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
+$imageBorderCss             = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'image' );
+$imageBorderCssTablet      = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'image', 'tablet' );
+$imageBorderCssMobile      = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'image', 'mobile' );
+$mainTitleBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'mainTitle' );
+$mainTitleBorderCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'mainTitle', 'tablet' );
+$mainTitleBorderCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'mainTitle', 'mobile' );
 
 // Text Decoration compatibility CSS.
 $textDecorationProp = '' === $attr['captionDecoration'] && defined( 'ASTRA_THEME_SETTINGS' ) && function_exists( 'astra_get_font_extras' ) && function_exists( 'astra_get_option' ) ? astra_get_font_extras( astra_get_option( 'body-font-extras' ), 'text-decoration' ) : $attr['captionDecoration'];
@@ -50,26 +50,26 @@ $textDecorationProp = '' === $attr['captionDecoration'] && defined( 'ASTRA_THEME
 // Box Shadow CSS.
 
 $imageBoxShadowCss       = (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowHOffset'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowHOffset'], 'px' )
 ) . ' ' . (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowVOffset'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowVOffset'], 'px' )
 ) . ' ' . (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowBlur'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowBlur'], 'px' )
 ) . ' ' . (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowSpread'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowSpread'], 'px' )
 ) . (
 	$attr['imageBoxShadowColor'] ? ( ' ' . $attr['imageBoxShadowColor'] ) : ''
 ) . ' ' . (
 	( 'inset' === $attr['imageBoxShadowPosition'] ) ? ( ' ' . $attr['imageBoxShadowPosition'] ) : ''
 );
 $imageBoxShadowHoverCss = (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowHOffsetHover'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowHOffsetHover'], 'px' )
 ) . ' ' . (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowVOffsetHover'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowVOffsetHover'], 'px' )
 ) . ' ' . (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowBlurHover'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowBlurHover'], 'px' )
 ) . ' ' . (
-	\Vexaltrix\Support\Helper::getCssValue( $attr['imageBoxShadowSpreadHover'], 'px' )
+	\Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageBoxShadowSpreadHover'], 'px' )
 ) . (
 	$attr['imageBoxShadowColorHover'] ? ( ' ' . $attr['imageBoxShadowColorHover'] ) : ''
 ) . ' ' . (
@@ -81,7 +81,7 @@ $selectors = [
 	// Feed Selectors.
 
 	'.wp-block-vxt-image-gallery'                       => [
-		'padding'    => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding'    => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['feedMarginUnit'],
 			$attr['feedMarginTop'],
 			$attr['feedMarginRight'],
@@ -104,19 +104,19 @@ $selectors = [
 		'border-color' => $attr['arrowBorderHColor'],
 	],
 	' .vexaltrix-image-gallery__control-arrows--carousel.slick-prev' => [
-		'left' => \Vexaltrix\Support\Helper::getCssValue(
+		'left' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['paginateArrowDistance'],
 			$attr['paginateArrowDistanceUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__control-arrows--carousel.slick-next' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue(
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['paginateArrowDistance'],
 			$attr['paginateArrowDistanceUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel ul.slick-dots' => [
-		'top' => \Vexaltrix\Support\Helper::getCssValue( $paginateDotDistanceFallback, 'px' ),
+		'top' => \Vexaltrix\Core\Support\Helper::getCssValue( $paginateDotDistanceFallback, 'px' ),
 	],
 	' .vexaltrix-image-gallery__layout--carousel ul.slick-dots li button:before' => [
 		'color' => $arrowDotColor,
@@ -131,19 +131,19 @@ $selectors = [
 		'color' => $attr['paginateColorHover'],
 	],
 	' .vexaltrix-image-gallery__control-loader'            => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $paginateDotDistanceFallback, $attr['paginateDotDistanceUnit'] ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $paginateDotDistanceFallback, $attr['paginateDotDistanceUnit'] ),
 	],
 	' .vexaltrix-image-gallery__control-loader div'        => [
 		'background-color' => $attr['paginateColor'],
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['paginateLoaderSize'], 'px' ),
-		'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['paginateLoaderSize'], 'px' ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginateLoaderSize'], 'px' ),
+		'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginateLoaderSize'], 'px' ),
 		'border-radius'    => '100%',
 		'padding'          => 0,
 	],
 	' .vexaltrix-image-gallery__control-button'            => array_merge(
 		[
-			'margin-top'       => \Vexaltrix\Support\Helper::getCssValue( $paginateDotDistanceFallback, $attr['paginateDotDistanceUnit'] ),
-			'padding'          => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+			'margin-top'       => \Vexaltrix\Core\Support\Helper::getCssValue( $paginateDotDistanceFallback, $attr['paginateDotDistanceUnit'] ),
+			'padding'          => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 				$attr['paginateButtonPaddingUnit'],
 				$attr['paginateButtonPaddingTop'],
 				$attr['paginateButtonPaddingRight'],
@@ -157,8 +157,8 @@ $selectors = [
 			'font-style'       => $attr['loadMoreFontStyle'],
 			'text-decoration'  => $attr['loadMoreDecoration'],
 			'text-transform'   => $attr['loadMoreTransform'],
-			'font-size'        => \Vexaltrix\Support\Helper::getCssValue( $attr['loadMoreFontSize'], $attr['loadMoreFontSizeType'] ),
-			'line-height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['loadMoreLineHeight'], $attr['loadMoreLineHeightType'] ),
+			'font-size'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loadMoreFontSize'], $attr['loadMoreFontSizeType'] ),
+			'line-height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loadMoreLineHeight'], $attr['loadMoreLineHeightType'] ),
 		],
 		$btnBorderCss
 	),
@@ -171,58 +171,58 @@ $selectors = [
 	// Media Wrapper Selectors.
 
 	' .vexaltrix-image-gallery__layout--grid'              => [
-		'grid-gap' => \Vexaltrix\Support\Helper::getCssValue(
+		'grid-gap' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['gridImageGap'],
 			$attr['gridImageGapUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--isogrid'           => [
-		'margin' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			-abs( $attr['gridImageGap'] / 2 ),
 			$attr['gridImageGapUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--isogrid .vexaltrix-image-gallery__media-wrapper--isotope' => [
-		'padding' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['gridImageGap'] / 2,
 			$attr['gridImageGapUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--masonry'           => [
-		'margin' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			-abs( $attr['gridImageGap'] / 2 ),
 			$attr['gridImageGapUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--masonry .vexaltrix-image-gallery__media-wrapper--isotope' => [
-		'padding' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['gridImageGap'] / 2,
 			$attr['gridImageGapUnit']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel'          => [
 		// Override Slick Slider Margin.
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginateDotDistanceFallback,
 			'px'
 		) . ' !important',
 	],
 	' .vexaltrix-image-gallery__layout--carousel .vexaltrix-image-gallery__media-wrapper' => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['gridImageGapUnit'],
 			0,
 			$attr['gridImageGap'] / 2
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel .slick-list' => [
-		'margin' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'margin' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['gridImageGapUnit'],
 			0,
 			-( $attr['gridImageGap'] / 2 )
 		),
 	],
 	' .vexaltrix-image-gallery__layout--tiled'             => [
-		'grid-gap' => \Vexaltrix\Support\Helper::getCssValue(
+		'grid-gap' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['gridImageGap'],
 			$attr['gridImageGapUnit']
 		),
@@ -247,31 +247,31 @@ $selectors = [
 	// Thumbnail Selectors.
 
 	' .vexaltrix-image-gallery__media-thumbnail-blurrer'   => [
-		'-webkit-backdrop-filter' => 'blur(' . \Vexaltrix\Support\Helper::getCssValue(
+		'-webkit-backdrop-filter' => 'blur(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundBlurAmount'],
 			'px'
 		) . ')',
-		'backdrop-filter'         => 'blur(' . \Vexaltrix\Support\Helper::getCssValue(
+		'backdrop-filter'         => 'blur(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundBlurAmount'],
 			'px'
 		) . ')',
 	],
 	' .vexaltrix-image-gallery__media-wrapper:hover .vexaltrix-image-gallery__media-thumbnail-blurrer' => [
-		'-webkit-backdrop-filter' => 'blur(' . \Vexaltrix\Support\Helper::getCssValue(
+		'-webkit-backdrop-filter' => 'blur(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundBlurAmountHover'],
 			'px'
 		) . ')',
-		'backdrop-filter'         => 'blur(' . \Vexaltrix\Support\Helper::getCssValue(
+		'backdrop-filter'         => 'blur(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundBlurAmountHover'],
 			'px'
 		) . ')',
 	],
 	' .vexaltrix-image-gallery__media-wrapper:focus-visible .vexaltrix-image-gallery__media-thumbnail-blurrer' => [
-		'-webkit-backdrop-filter' => 'blur(' . \Vexaltrix\Support\Helper::getCssValue(
+		'-webkit-backdrop-filter' => 'blur(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundBlurAmountHover'],
 			'px'
 		) . ')',
-		'backdrop-filter'         => 'blur(' . \Vexaltrix\Support\Helper::getCssValue(
+		'backdrop-filter'         => 'blur(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundBlurAmountHover'],
 			'px'
 		) . ')',
@@ -288,10 +288,10 @@ $selectors = [
 		'background-color' => $attr['imageDisplayCaption'] ? ( ( 'antiHover' === $attr['captionVisibility'] ) ? 'rgba(0,0,0,0)' : ( ( 'always' === $attr['captionVisibility'] && $attr['captionSeparateColors'] ) ? $attr['captionBackgroundColorHover'] : $attr['captionBackgroundColor'] ) ) : $attr['overlayColorHover'],
 	],
 	' .vexaltrix-image-gallery__media-thumbnail-caption-wrapper--bar-inside' => [
-		'-webkit-align-items'     => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
-		'align-items'             => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
-		'-webkit-justify-content' => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
-		'justify-content'         => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
+		'-webkit-align-items'     => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
+		'align-items'             => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
+		'-webkit-justify-content' => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
+		'justify-content'         => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
 	],
 
 	// Caption Selectors.
@@ -300,15 +300,15 @@ $selectors = [
 	],
 	' .vexaltrix-image-gallery__media-thumbnail-caption'   => [
 		'color'           => ( 'hover' === $attr['captionVisibility'] ) ? 'rgba(0,0,0,0)' : $attr['captionColor'],
-		'text-align'      => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2 ),
+		'text-align'      => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2 ),
 		'font-family'     => 'Default' === $attr['captionFontFamily'] ? '' : $attr['captionFontFamily'],
 		'font-weight'     => $attr['captionFontWeight'],
 		'font-style'      => $attr['captionFontStyle'],
 		'text-decoration' => $textDecorationProp,
 		'text-transform'  => $attr['captionTransform'],
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['captionFontSize'], $attr['captionFontSizeType'] ),
-		'line-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['captionLineHeight'], $attr['captionLineHeightType'] ),
-		'padding'         => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['captionFontSize'], $attr['captionFontSizeType'] ),
+		'line-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['captionLineHeight'], $attr['captionLineHeightType'] ),
+		'padding'         => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['captionPaddingUnit'],
 			$attr['captionPaddingTop'],
 			$attr['captionPaddingRight'],
@@ -317,10 +317,10 @@ $selectors = [
 		),
 	],
 	' .vexaltrix-image-gallery__media-thumbnail-caption--overlay' => [
-		'-webkit-align-items'     => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
-		'align-items'             => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
-		'-webkit-justify-content' => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
-		'justify-content'         => \Vexaltrix\Core\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
+		'-webkit-align-items'     => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
+		'align-items'             => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 1, 'flex' ),
+		'-webkit-justify-content' => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
+		'justify-content'         => \Vexaltrix\Presentation\Blocks\BlockHelper::getMatrixAlignment( $attr['imageCaptionAlignment'], 2, 'flex' ),
 	],
 	' .vexaltrix-image-gallery__media-thumbnail-caption--bar-inside' => array_merge(
 		[
@@ -374,59 +374,59 @@ $selectors = [
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--caption' => [
 		'color'           => $attr['lightboxCaptionColor'],
 		'background'      => 'linear-gradient(rgba(0,0,0,0), ' . $attr['lightboxCaptionBackgroundColor'] . ')',
-		'min-height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxCaptionHeight'], 'px' ),
+		'min-height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxCaptionHeight'], 'px' ),
 		'font-family'     => ( 'Default' === $attr['lightboxFontFamily'] ) ? '' : $attr['lightboxFontFamily'],
 		'font-weight'     => $attr['lightboxFontWeight'],
 		'font-style'      => $attr['lightboxFontStyle'],
 		'text-decoration' => $attr['lightboxDecoration'],
 		'text-transform'  => $attr['lightboxTransform'],
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxFontSize'], $attr['lightboxFontSizeType'] ),
-		'line-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxLineHeight'], $attr['lightboxLineHeightType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxFontSize'], $attr['lightboxFontSizeType'] ),
+		'line-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxLineHeight'], $attr['lightboxLineHeightType'] ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--thumbnails-wrapper' => [
 		'background-color' => $attr['lightboxDisplayCaptions'] ? $attr['lightboxCaptionBackgroundColor'] : 'transparent',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--count' => [
-		'top'         => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
-		'left'        => is_rtl() ? '' : \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
-		'right'       => is_rtl() ? \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ) : '',
+		'top'         => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'left'        => is_rtl() ? '' : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'right'       => is_rtl() ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ) : '',
 		'color'       => $attr['lightboxIconColor'],
 		'font-family' => ( 'Default' === $attr['lightboxFontFamily'] ) ? '' : $attr['lightboxFontFamily'],
 		'font-weight' => 'normal',
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) ? 'calc(' . \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) . ' * 3 / 4 )' : '',
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) ? 'calc(' . \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) . ' * 3 / 4 )' : '',
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) ? 'calc(' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) . ' * 3 / 4 )' : '',
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) ? 'calc(' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ) . ' * 3 / 4 )' : '',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--close' => [
-		'top'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
-		'right' => is_rtl() ? '' : \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
-		'left'  => is_rtl() ? \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ) : '',
+		'top'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'right' => is_rtl() ? '' : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'left'  => is_rtl() ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ) : '',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--close svg' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSize'], 'px' ),
 		'fill'   => $attr['lightboxIconColor'],
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main .swiper-button-prev' => [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
 		'color' => $attr['lightboxIconColor'],
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main .swiper-button-next' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
 		'color' => $attr['lightboxIconColor'],
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main.swiper-rtl .swiper-button-prev' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
 		'left'  => 'auto',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main.swiper-rtl .swiper-button-next' => [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistance'], 'px' ),
 		'right' => 'auto',
 	],
 ];
 
 $tSelectors = [
 	'.wp-block-vxt-image-gallery'                      => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['feedMarginUnitTab'],
 			$attr['feedMarginTopTab'],
 			$attr['feedMarginRightTab'],
@@ -437,73 +437,73 @@ $tSelectors = [
 	' .vexaltrix-image-gallery__control-arrows--carousel' => $arrowBorderCssTablet,
 	' .vexaltrix-image-gallery__control-button'           => array_merge(
 		[
-			'padding'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+			'padding'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 				$attr['paginateButtonPaddingUnitTab'],
 				$attr['paginateButtonPaddingTopTab'],
 				$attr['paginateButtonPaddingRightTab'],
 				$attr['paginateButtonPaddingBottomTab'],
 				$attr['paginateButtonPaddingLeftTab']
 			),
-			'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['loadMoreFontSizeTab'], $attr['loadMoreFontSizeType'] ),
-			'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['loadMoreLineHeightTab'], $attr['loadMoreLineHeightType'] ),
+			'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loadMoreFontSizeTab'], $attr['loadMoreFontSizeType'] ),
+			'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loadMoreLineHeightTab'], $attr['loadMoreLineHeightType'] ),
 		],
 		$btnBorderCssTablet
 	),
 	' .vexaltrix-image-gallery__layout--grid'             => [
-		'grid-gap' => \Vexaltrix\Support\Helper::getCssValue(
+		'grid-gap' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapTabletFallback,
 			$attr['gridImageGapUnitTab']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--isogrid'          => [
-		'margin' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			-abs( $gridImageGapTabletFallback / 2 ),
 			$attr['gridImageGapUnitTab']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--isogrid .vexaltrix-image-gallery__media-wrapper--isotope' => [
-		'padding' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapTabletFallback / 2,
 			$attr['gridImageGapUnitTab']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--masonry'          => [
-		'margin' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			-abs( $gridImageGapTabletFallback / 2 ),
 			$attr['gridImageGapUnitTab']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--masonry .vexaltrix-image-gallery__media-wrapper--isotope' => [
-		'padding' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapTabletFallback / 2,
 			$attr['gridImageGapUnitTab']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel .vexaltrix-image-gallery__media-wrapper' => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['gridImageGapUnitTab'],
 			0,
 			$gridImageGapTabletFallback
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel .slick-list' => [
-		'margin' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'margin' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['gridImageGapUnitTab'],
 			0,
 			-$gridImageGapTabletFallback
 		),
 	],
 	' .vexaltrix-image-gallery__layout--tiled'            => [
-		'grid-gap' => \Vexaltrix\Support\Helper::getCssValue(
+		'grid-gap' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapTabletFallback,
 			$attr['gridImageGapUnitTab']
 		),
 	],
 	' .vexaltrix-image-gallery__media'                    => $imageBorderCssTablet,
 	' .vexaltrix-image-gallery__media-thumbnail-caption'  => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['captionFontSizeTab'], $attr['captionFontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['captionLineHeightTab'], $attr['captionLineHeightType'] ),
-		'padding'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['captionFontSizeTab'], $attr['captionFontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['captionLineHeightTab'], $attr['captionLineHeightType'] ),
+		'padding'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['captionPaddingUnit'],
 			$attr['captionPaddingTop'],
 			$attr['captionPaddingRight'],
@@ -514,45 +514,45 @@ $tSelectors = [
 	' .vexaltrix-image-gallery__media-thumbnail-caption--bar-inside' => $mainTitleBorderCssTablet,
 	' .vexaltrix-image-gallery__media-thumbnail-caption--bar-outside' => $mainTitleBorderCssTablet,
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--caption' => [
-		'min-height'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxCaptionHeightTablet'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxFontSizeTab'], $attr['lightboxFontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxLineHeightTab'], $attr['lightboxLineHeightType'] ),
+		'min-height'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxCaptionHeightTablet'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxFontSizeTab'], $attr['lightboxFontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxLineHeightTab'], $attr['lightboxLineHeightType'] ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--count' => [
-		'top'         => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
-		'left'        => is_rtl() ? '' : \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
-		'right'       => is_rtl() ? \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ) : '',
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) ? 'calc(' . \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) . ' * 3 / 4 )' : '',
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) ? 'calc(' . \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) . ' * 3 / 4 )' : '',
+		'top'         => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'left'        => is_rtl() ? '' : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'right'       => is_rtl() ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ) : '',
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) ? 'calc(' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) . ' * 3 / 4 )' : '',
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) ? 'calc(' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ) . ' * 3 / 4 )' : '',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--close' => [
-		'top'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
-		'right' => is_rtl() ? '' : \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
-		'left'  => is_rtl() ? \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ) : '',
+		'top'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'right' => is_rtl() ? '' : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'left'  => is_rtl() ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ) : '',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--close svg' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeTablet'], 'px' ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main .swiper-button-prev' => [
-		'left' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main .swiper-button-next' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main.swiper-rtl .swiper-button-prev' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
 		'left'  => 'auto',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main.swiper-rtl .swiper-button-next' => [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceTablet'], 'px' ),
 		'right' => 'auto',
 	],
 ];
 
 $mSelectors = [
 	'.wp-block-vxt-image-gallery'                      => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['feedMarginUnitMob'],
 			$attr['feedMarginTopMob'],
 			$attr['feedMarginRightMob'],
@@ -563,73 +563,73 @@ $mSelectors = [
 	' .vexaltrix-image-gallery__control-arrows--carousel' => $arrowBorderCssMobile,
 	' .vexaltrix-image-gallery__control-button'           => array_merge(
 		[
-			'padding'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+			'padding'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 				$attr['paginateButtonPaddingUnitMob'],
 				$attr['paginateButtonPaddingTopMob'],
 				$attr['paginateButtonPaddingRightMob'],
 				$attr['paginateButtonPaddingBottomMob'],
 				$attr['paginateButtonPaddingLeftMob']
 			),
-			'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['loadMoreFontSizeMob'], $attr['loadMoreFontSizeType'] ),
-			'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['loadMoreLineHeightMob'], $attr['loadMoreLineHeightType'] ),
+			'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loadMoreFontSizeMob'], $attr['loadMoreFontSizeType'] ),
+			'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loadMoreLineHeightMob'], $attr['loadMoreLineHeightType'] ),
 		],
 		$btnBorderCssMobile
 	),
 	' .vexaltrix-image-gallery__layout--grid'             => [
-		'grid-gap' => \Vexaltrix\Support\Helper::getCssValue(
+		'grid-gap' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapMobileFallback,
 			$attr['gridImageGapUnitMob']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--isogrid'          => [
-		'margin' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			-abs( $gridImageGapMobileFallback / 2 ),
 			$attr['gridImageGapUnitMob']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--isogrid .vexaltrix-image-gallery__media-wrapper--isotope' => [
-		'padding' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapMobileFallback / 2,
 			$attr['gridImageGapUnitMob']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--masonry'          => [
-		'margin' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			-abs( $gridImageGapMobileFallback / 2 ),
 			$attr['gridImageGapUnitMob']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--masonry .vexaltrix-image-gallery__media-wrapper--isotope' => [
-		'padding' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapMobileFallback / 2,
 			$attr['gridImageGapUnitMob']
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel .vexaltrix-image-gallery__media-wrapper' => [
-		'padding' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'padding' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['gridImageGapUnitMob'],
 			0,
 			$gridImageGapMobileFallback
 		),
 	],
 	' .vexaltrix-image-gallery__layout--carousel .slick-list' => [
-		'margin' => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'margin' => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['gridImageGapUnitMob'],
 			0,
 			-$gridImageGapMobileFallback
 		),
 	],
 	' .vexaltrix-image-gallery__layout--tiled .vexaltrix-image-gallery__media-wrapper' => [
-		'grid-gap' => \Vexaltrix\Support\Helper::getCssValue(
+		'grid-gap' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$gridImageGapMobileFallback,
 			$attr['gridImageGapUnitMob']
 		),
 	],
 	' .vexaltrix-image-gallery__media'                    => $imageBorderCssMobile,
 	' .vexaltrix-image-gallery__media-thumbnail-caption'  => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['captionFontSizeMob'], $attr['captionFontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['captionLineHeightMob'], $attr['captionLineHeightType'] ),
-		'padding'     => \Vexaltrix\Core\Blocks\BlockHelper::generateSpacing(
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['captionFontSizeMob'], $attr['captionFontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['captionLineHeightMob'], $attr['captionLineHeightType'] ),
+		'padding'     => \Vexaltrix\Presentation\Blocks\BlockHelper::generateSpacing(
 			$attr['captionPaddingUnit'],
 			$attr['captionPaddingTop'],
 			$attr['captionPaddingRight'],
@@ -640,38 +640,38 @@ $mSelectors = [
 	' .vexaltrix-image-gallery__media-thumbnail-caption--bar-inside' => $mainTitleBorderCssMobile,
 	' .vexaltrix-image-gallery__media-thumbnail-caption--bar-outside' => $mainTitleBorderCssMobile,
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--caption' => [
-		'min-height'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxCaptionHeightMobile'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxFontSizeMob'], $attr['lightboxFontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxLineHeightMob'], $attr['lightboxLineHeightType'] ),
+		'min-height'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxCaptionHeightMobile'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxFontSizeMob'], $attr['lightboxFontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxLineHeightMob'], $attr['lightboxLineHeightType'] ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--count' => [
-		'top'         => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
-		'left'        => is_rtl() ? '' : \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
-		'right'       => is_rtl() ? \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ) : '',
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) ? 'calc(' . \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) . ' * 3 / 4 )' : '',
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) ? 'calc(' . \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) . ' * 3 / 4 )' : '',
+		'top'         => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'left'        => is_rtl() ? '' : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'right'       => is_rtl() ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ) : '',
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) ? 'calc(' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) . ' * 3 / 4 )' : '',
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) ? 'calc(' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ) . ' * 3 / 4 )' : '',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--close' => [
-		'top'   => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
-		'right' => is_rtl() ? '' : \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
-		'left'  => is_rtl() ? \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ) : '',
+		'top'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'right' => is_rtl() ? '' : \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'left'  => is_rtl() ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ) : '',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--close svg' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxIconSizeMobile'], 'px' ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main .swiper-button-prev' => [
-		'left' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main .swiper-button-next' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main.swiper-rtl .swiper-button-prev' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
 		'left'  => 'auto',
 	],
 	'+.vexaltrix-image-gallery__control-lightbox .vexaltrix-image-gallery__control-lightbox--main.swiper-rtl .swiper-button-next' => [
-		'left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
+		'left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lightboxEdgeDistanceMobile'], 'px' ),
 		'right' => 'auto',
 	],
 	// Arrow Size can be implemented for all other screen sizes if needed.
@@ -691,11 +691,11 @@ switch ( $attr['captionBackgroundEffect'] ) {
 		break;
 	case 'grayscale':
 	case 'sepia':
-		$selectors[' .vexaltrix-image-gallery__media-thumbnail']['-webkit-filter'] = $attr['captionBackgroundEffect'] . '(' . \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-thumbnail']['-webkit-filter'] = $attr['captionBackgroundEffect'] . '(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundEffectAmount'],
 			'%'
 		) . ')';
-		$selectors[' .vexaltrix-image-gallery__media-thumbnail']['filter']         = $attr['captionBackgroundEffect'] . '(' . \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-thumbnail']['filter']         = $attr['captionBackgroundEffect'] . '(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundEffectAmount'],
 			'%'
 		) . ')';
@@ -710,19 +710,19 @@ switch ( $attr['captionBackgroundEffectHover'] ) {
 		break;
 	case 'grayscale':
 	case 'sepia':
-		$selectors[' .vexaltrix-image-gallery__media-wrapper:hover .vexaltrix-image-gallery__media-thumbnail']['-webkit-filter']         = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-wrapper:hover .vexaltrix-image-gallery__media-thumbnail']['-webkit-filter']         = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundEffectAmountHover'],
 			'%'
 		) . ')';
-		$selectors[' .vexaltrix-image-gallery__media-wrapper:hover .vexaltrix-image-gallery__media-thumbnail']['filter']                 = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-wrapper:hover .vexaltrix-image-gallery__media-thumbnail']['filter']                 = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundEffectAmountHover'],
 			'%'
 		) . ')';
-		$selectors[' .vexaltrix-image-gallery__media-wrapper:focus-visible .vexaltrix-image-gallery__media-thumbnail']['-webkit-filter'] = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-wrapper:focus-visible .vexaltrix-image-gallery__media-thumbnail']['-webkit-filter'] = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundEffectAmountHover'],
 			'%'
 		) . ')';
-		$selectors[' .vexaltrix-image-gallery__media-wrapper:focus-visible .vexaltrix-image-gallery__media-thumbnail']['filter']         = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-wrapper:focus-visible .vexaltrix-image-gallery__media-thumbnail']['filter']         = $attr['captionBackgroundEffectHover'] . '(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionBackgroundEffectAmountHover'],
 			'%'
 		) . ')';
@@ -740,12 +740,12 @@ if ( ! $attr['captionBackgroundEnableBlur'] ) {
 // Caption Type based styling.
 if ( $attr['imageDisplayCaption'] && ( 'bar-outside' === $attr['captionDisplayType'] ) ) {
 	if ( 'top' === $attr['imageCaptionAlignment01'] ) {
-		$selectors[' .vexaltrix-image-gallery__media-thumbnail-caption-wrapper']['margin-bottom'] = \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-thumbnail-caption-wrapper']['margin-bottom'] = \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionGap'],
 			$attr['captionGapUnit']
 		);
 	} else {
-		$selectors[' .vexaltrix-image-gallery__media-thumbnail-caption-wrapper']['margin-top'] = \Vexaltrix\Support\Helper::getCssValue(
+		$selectors[' .vexaltrix-image-gallery__media-thumbnail-caption-wrapper']['margin-top'] = \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['captionGap'],
 			$attr['captionGapUnit']
 		);
@@ -754,7 +754,7 @@ if ( $attr['imageDisplayCaption'] && ( 'bar-outside' === $attr['captionDisplayTy
 
 // Grid based styling.
 if ( 'grid' === $attr['feedLayout'] && $attr['feedPagination'] ) {
-	$selectors[' .vexaltrix-image-gallery__control-wrapper']['margin-top'] = \Vexaltrix\Support\Helper::getCssValue(
+	$selectors[' .vexaltrix-image-gallery__control-wrapper']['margin-top'] = \Vexaltrix\Core\Support\Helper::getCssValue(
 		$paginateDotDistanceFallback,
 		$attr['paginateDotDistanceUnit']
 	);
@@ -836,7 +836,7 @@ if ( 'outset' === $attr['imageBoxShadowPositionHover'] ) {
 // Slick Dot Positioning in the Editor.
 $selectors[' .vexaltrix-image-gallery__layout--carousel .slick-dots']['margin-bottom'] = '30px !important';
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getCombinedSelectors(
 	'image-gallery',
 	[
 		'desktop' => $selectors,
@@ -848,7 +848,7 @@ $combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
 
 $baseSelector = '.vxt-block-';
 
-$cssOutput = \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+$cssOutput = \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
 
 // Touch device caption fix: on devices without hover (phones/tablets),
 // "Hide On Hover" captions must stay visible (users can't hover to hide them).

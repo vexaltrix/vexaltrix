@@ -7,10 +7,10 @@
  * @package ugb
  */
 
-$paginationMasonryBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'paginationMasonry' );
-$btnBorderAttribute                = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
-$overallBorderAttribute            = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'overall' );
-$inheritFromTheme                  = 'enabled' === ( 'deleted' !== \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
+$paginationMasonryBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'paginationMasonry' );
+$btnBorderAttribute                = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
+$overallBorderAttribute            = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'overall' );
+$inheritFromTheme                  = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
 return array_merge(
 	[
 		'blockName'                         => 'post-masonry',

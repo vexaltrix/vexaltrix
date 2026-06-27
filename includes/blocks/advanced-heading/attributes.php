@@ -7,9 +7,9 @@
  * @package ugb
  */
 
-$highlightBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'highLight' );
+$highlightBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'highLight' );
 
-$enableLegacyBlocks = \Vexaltrix\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
+$enableLegacyBlocks = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_enable_legacy_blocks' );
 
 $headingAlignmentDefault = ( 'yes' === get_option( 'vxt-old-user-less-than-2' ) ) ? 'center' : '';
 $subheadingToggleDefault = 'yes' === get_option( 'vxt-old-user-less-than-2' );

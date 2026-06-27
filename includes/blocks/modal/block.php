@@ -17,10 +17,10 @@ $blockData = [
 	'description'         => __( 'This block allows you to add modal popup.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'modal' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'modal' ),
 	'static_dependencies' => [
 		'vxt-modal-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'modal' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'modal' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

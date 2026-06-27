@@ -37,15 +37,15 @@ $expectNew = in_array( '--expect-new', $argv, true );
 \Vexaltrix\Core\Plugin::getInstance();
 
 $classes = [
-	'Vexaltrix\\Container',
+	'Vexaltrix\\Core\\Container',
 	'Vexaltrix\\Core\\Plugin',
-	'Vexaltrix\\Admin\\AdminSettings',
-	'Vexaltrix\\Admin\\DashboardHelper',
-	'Vexaltrix\\Support\\Helper',
-	'Vexaltrix\\Core\\Blocks\\BlockHelper',
-	'Vexaltrix\\Core\\Blocks\\Block',
-	'Vexaltrix\\Assets\\PostAssets',
-	'Vexaltrix\\Api\\RestApi',
+	'Vexaltrix\\Presentation\\Admin\\AdminSettings',
+	'Vexaltrix\\Presentation\\Admin\\DashboardHelper',
+	'Vexaltrix\\Core\\Support\\Helper',
+	'Vexaltrix\\Presentation\\Blocks\\BlockHelper',
+	'Vexaltrix\\Presentation\\Blocks\\Block',
+	'Vexaltrix\\Presentation\\Assets\\PostAssets',
+	'Vexaltrix\\Transport\\Api\\RestApi',
 ];
 
 foreach ( $classes as $class ) {
@@ -56,8 +56,8 @@ foreach ( $classes as $class ) {
 }
 
 if ( $expectNew ) {
-	$container = \Vexaltrix\Container::instance();
-	if ( $container !== \Vexaltrix\Container::getInstance() || $container !== \Vexaltrix\Container::getInstance() ) {
+	$container = \Vexaltrix\Core\Container::instance();
+	if ( $container !== \Vexaltrix\Core\Container::getInstance() || $container !== \Vexaltrix\Core\Container::getInstance() ) {
 		fwrite( STDERR, "Container singleton methods did not resolve to the same instance.\n" );
 		exit( 1 );
 	}

@@ -17,14 +17,14 @@ $blockData = [
 	'description'         => __( 'Display your posts in a sliding carousel layout.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'post-carousel' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'post-carousel' ),
 	'deprecated'          => false,
 	'dynamic_assets'      => [
 		'dir' => 'post-carousel',
 	],
 	'static_dependencies' => [
 		'vxt-post-js'      => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'post' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'post' ),
 			'dep'  => [ 'jquery', 'vxt-slick-js' ],
 			'type' => 'js',
 		],

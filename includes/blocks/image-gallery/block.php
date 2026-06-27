@@ -17,10 +17,10 @@ $blockData = [
 	'description'         => __( 'Create a highly customizable image gallery', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'image-gallery' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'image-gallery' ),
 	'static_dependencies' => [
 		'vxt-image-gallery-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'image-gallery' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'image-gallery' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

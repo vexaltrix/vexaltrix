@@ -8,9 +8,9 @@
  * @package ugb
  */
 
-$selectors = \Vexaltrix\Core\Blocks\BlockHelper::getSocialShareChildSelectors( $attr, $id, true );
+$selectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getSocialShareChildSelectors( $attr, $id, true );
 
-$desktop = \Vexaltrix\Support\Helper::generateCss( $selectors, '.vxt-block-' . $id );
+$desktop = \Vexaltrix\Core\Support\Helper::generateCss( $selectors, '.vxt-block-' . $id );
 
 $generatedCss = [
 	'desktop' => $desktop,

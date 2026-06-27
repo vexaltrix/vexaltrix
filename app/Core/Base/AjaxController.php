@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-use Vexaltrix\Ajax\AjaxErrors;
+use Vexaltrix\Transport\Ajax\AjaxErrors;
 
 /**
  * Class \Vexaltrix\Core\Base\AjaxController.
@@ -47,7 +47,7 @@ abstract class AjaxController {
 	 */
 	public function __construct() {
 
-		$this->errors = \Vexaltrix\Ajax\AjaxErrors::getInstance();
+		$this->errors = \Vexaltrix\Transport\Ajax\AjaxErrors::getInstance();
 	}
 
 	/**

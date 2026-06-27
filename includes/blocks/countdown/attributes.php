@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$boxBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'box' );
+$boxBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'box' );
 
 $additionalAttributes = apply_filters(
 	'vexaltrix_countdown_attributes',

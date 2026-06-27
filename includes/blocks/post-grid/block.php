@@ -17,7 +17,7 @@ $blockData = [
 	'description'         => __( 'Display your posts in a grid layout.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'post-grid' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'post-grid' ),
 	'deprecated'          => false,
 	'static_css'          => 'post',
 	'dynamic_assets'      => [
@@ -25,7 +25,7 @@ $blockData = [
 	],
 	'static_dependencies' => [
 		'vxt-post-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'post' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'post' ),
 			'type' => 'js',
 		],
 	],

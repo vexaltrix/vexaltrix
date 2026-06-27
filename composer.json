@@ -3,7 +3,13 @@
 	"description": "The Ultimate Blocks for Gutenberg extends the Gutenberg functionality with several unique and feature-rich blocks that help build websites faster.",
 	"autoload": {
 		"psr-4": {
-			"Vexaltrix\\": "app/",
+			"Vexaltrix\\Core\\": "app/Core/",
+			"Vexaltrix\\Infrastructure\\": "app/Infrastructure/",
+			"Vexaltrix\\Domain\\": "app/Domain/",
+			"Vexaltrix\\Integration\\": "app/Integration/",
+			"Vexaltrix\\Presentation\\": "app/Presentation/",
+			"Vexaltrix\\Transport\\": "app/Transport/",
+			"Vexaltrix\\Traits\\": "app/Traits/",
 			"Vexaltrix\\Libs\\": "libs/"
 		},
 		"files": [

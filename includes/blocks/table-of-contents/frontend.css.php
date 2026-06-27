@@ -10,7 +10,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksTableOfContentsGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksTableOfContentsGfont( $attr );
 
 $mSelectors = [];
 $tSelectors = [];
@@ -44,18 +44,18 @@ $tabletTopMargin    = isset( $attr['topMarginTablet'] ) ? $attr['topMarginTablet
 $tabletBottomMargin = isset( $attr['bottomMarginTablet'] ) ? $attr['bottomMarginTablet'] : $attr['vMarginTablet'];
 $tabletLeftMargin   = isset( $attr['leftMarginTablet'] ) ? $attr['leftMarginTablet'] : $attr['hMarginTablet'];
 $tabletRightMargin  = isset( $attr['rightMarginTablet'] ) ? $attr['rightMarginTablet'] : $attr['hMarginTablet'];
-$iconSize             = isset( $attr['iconSize'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ) : '20px';
+$iconSize             = isset( $attr['iconSize'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ) : '20px';
 
-$overallBorderCSS       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
-$overallBorderCSS       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$overallBorderCSS       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
+$overallBorderCSS       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$overallBorderCSS,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$overallBorderCSSTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
-$overallBorderCSSMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
+$overallBorderCSSTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
+$overallBorderCSSMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
 
 
 $selectors = [
@@ -63,10 +63,10 @@ $selectors = [
 		'text-align' => $attr['overallAlign'],
 	],
 	' .vxt-toc__list-wrap ul li'                         => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
 	],
 	' .vxt-toc__list-wrap ol li'                         => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
 	],
 	' .vxt-toc__list-wrap li a:hover'                    => [
 		'color' => $attr['linkHoverColor'],
@@ -76,20 +76,20 @@ $selectors = [
 	],
 	' .vxt-toc__wrap .vxt-toc__title-wrap'              => [
 		'justify-content' => $attr['align'],
-		'margin-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['headingBottom'], 'px' ),
+		'margin-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['headingBottom'], 'px' ),
 	],
 	' .vxt-toc__wrap .vxt-toc__title'                   => [
 		'color'           => $attr['headingColor'],
 		'justify-content' => $attr['headingAlignment'],
-		'margin-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['headingBottom'], 'px' ),
+		'margin-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['headingBottom'], 'px' ),
 	],
 	' .vxt-toc__wrap'                                    => array_merge(
 		$overallBorderCSS,
 		[
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPadding, $attr['paddingTypeDesktop'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPadding, $attr['paddingTypeDesktop'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPadding, $attr['paddingTypeDesktop'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPadding, $attr['paddingTypeDesktop'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPadding, $attr['paddingTypeDesktop'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPadding, $attr['paddingTypeDesktop'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPadding, $attr['paddingTypeDesktop'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPadding, $attr['paddingTypeDesktop'] ),
 			'background'     => $attr['backgroundColor'],
 		]
 	),
@@ -111,10 +111,10 @@ $selectors = [
 		'color' => $attr['bulletColor'],
 	],
 	' .vxt-toc__list-wrap ol.vxt-toc__list:first-child' => [
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftMargin, $attr['marginTypeDesktop'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightMargin, $attr['marginTypeDesktop'] ),
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $topMargin, $attr['marginTypeDesktop'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomMargin, $attr['marginTypeDesktop'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftMargin, $attr['marginTypeDesktop'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightMargin, $attr['marginTypeDesktop'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topMargin, $attr['marginTypeDesktop'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomMargin, $attr['marginTypeDesktop'] ),
 	],
 	' .vxt-toc__list-wrap ul.vxt-toc__list:last-child > li:last-child' => [
 		'padding-bottom' => 0,
@@ -132,16 +132,16 @@ $selectors = [
 ];
 
 if ( '' !== $attr['contentPaddingDesktop'] ) {
-	$selectors[' .vxt-toc__list-wrap ol.vxt-toc__list > li']['padding-top']    = 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
-	$selectors[' .vxt-toc__list-wrap ol.vxt-toc__list > li']['padding-bottom'] = 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
-	$selectors[' .vxt-toc__list-wrap ul.vxt-toc__list > li']['padding-top']    = 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
-	$selectors[' .vxt-toc__list-wrap ul.vxt-toc__list > li']['padding-bottom'] = 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
+	$selectors[' .vxt-toc__list-wrap ol.vxt-toc__list > li']['padding-top']    = 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
+	$selectors[' .vxt-toc__list-wrap ol.vxt-toc__list > li']['padding-bottom'] = 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
+	$selectors[' .vxt-toc__list-wrap ul.vxt-toc__list > li']['padding-top']    = 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
+	$selectors[' .vxt-toc__list-wrap ul.vxt-toc__list > li']['padding-bottom'] = 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
 	// Add the bottom padding to the unordered list that's a child of the expandable list.
-	$selectors[' .vxt-toc__list-wrap li.vxt-toc__list.vxt-toc__list--expandable > ul.vxt-toc__list']['padding-top'] = 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
+	$selectors[' .vxt-toc__list-wrap li.vxt-toc__list.vxt-toc__list--expandable > ul.vxt-toc__list']['padding-top'] = 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingDesktop'], $attr['contentPaddingTypeDesktop'] ) . ' / 2 )';
 }
 
 if ( $attr['customWidth'] ) {
-	$selectors[' .vxt-toc__wrap']['width'] = \Vexaltrix\Support\Helper::getCssValue( $attr['widthDesktop'], $attr['widthTypeDesktop'] );
+	$selectors[' .vxt-toc__wrap']['width'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthDesktop'], $attr['widthTypeDesktop'] );
 }
 
 if ( $attr['customWidth'] && $attr['makeCollapsible'] ) {
@@ -168,29 +168,29 @@ if ( $attr['disableBullets'] ) {
 
 $mSelectors = [
 	' .vxt-toc__list-wrap ul li'                         => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
 	],
 	' .vxt-toc__list-wrap ol li'                         => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
 	],
 	' .vxt-toc__title'                                   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['headingBottomMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['headingBottomMobile'], 'px' ),
 	],
 	' .vxt-toc__wrap'                                    => array_merge(
 		$overallBorderCSSMobile,
 		[
-			'width'          => \Vexaltrix\Support\Helper::getCssValue( $attr['widthMobile'], $attr['widthTypeMobile'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $mobileLeftPadding, $attr['paddingTypeMobile'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $mobileRightPadding, $attr['paddingTypeMobile'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $mobileTopPadding, $attr['paddingTypeMobile'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $mobileBottomPadding, $attr['paddingTypeMobile'] ),
+			'width'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthMobile'], $attr['widthTypeMobile'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileLeftPadding, $attr['paddingTypeMobile'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileRightPadding, $attr['paddingTypeMobile'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileTopPadding, $attr['paddingTypeMobile'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBottomPadding, $attr['paddingTypeMobile'] ),
 		]
 	),
 	' .vxt-toc__list-wrap ol.vxt-toc__list:first-child' => [
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $mobileLeftMargin, $attr['marginTypeMobile'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $mobileRightMargin, $attr['marginTypeMobile'] ),
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $mobileTopMargin, $attr['marginTypeMobile'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $mobileBottomMargin, $attr['marginTypeMobile'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileLeftMargin, $attr['marginTypeMobile'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileRightMargin, $attr['marginTypeMobile'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileTopMargin, $attr['marginTypeMobile'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $mobileBottomMargin, $attr['marginTypeMobile'] ),
 	],
 	' .vxt-toc__list-wrap'                               => [
 		'column-count' => $attr['tColumnsMobile'],
@@ -207,29 +207,29 @@ $mSelectors = [
 
 $tSelectors = [
 	' .vxt-toc__list-wrap ul li'                         => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
 	],
 	' .vxt-toc__list-wrap ol li'                         => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
 	],
 	' .vxt-toc__title'                                   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['headingBottomTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['headingBottomTablet'], 'px' ),
 	],
 	' .vxt-toc__wrap'                                    => array_merge(
 		$overallBorderCSSTablet,
 		[
-			'width'          => \Vexaltrix\Support\Helper::getCssValue( $attr['widthTablet'], $attr['widthTypeTablet'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $tabletLeftPadding, $attr['paddingTypeTablet'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $tabletRightPadding, $attr['paddingTypeTablet'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $tabletTopPadding, $attr['paddingTypeTablet'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $tabletBottomPadding, $attr['paddingTypeTablet'] ),
+			'width'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['widthTablet'], $attr['widthTypeTablet'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletLeftPadding, $attr['paddingTypeTablet'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletRightPadding, $attr['paddingTypeTablet'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletTopPadding, $attr['paddingTypeTablet'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBottomPadding, $attr['paddingTypeTablet'] ),
 		]
 	),
 	' .vxt-toc__list-wrap ol.vxt-toc__list:first-child' => [
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $tabletLeftMargin, $attr['marginTypeTablet'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $tabletRightMargin, $attr['marginTypeTablet'] ),
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $tabletTopMargin, $attr['marginTypeTablet'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $tabletBottomMargin, $attr['marginTypeTablet'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletLeftMargin, $attr['marginTypeTablet'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletRightMargin, $attr['marginTypeTablet'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletTopMargin, $attr['marginTypeTablet'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $tabletBottomMargin, $attr['marginTypeTablet'] ),
 	],
 	' .vxt-toc__list-wrap'                               => [
 		'column-count' => $attr['tColumnsTablet'],
@@ -246,23 +246,23 @@ $tSelectors = [
 
 if ( '' !== $attr['contentPaddingTablet'] ) {
 	$tSelectors[' .vxt-toc__list-wrap ol.vxt-toc__list > li'] = [
-		'padding-top'    => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
-		'padding-bottom' => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
+		'padding-top'    => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
+		'padding-bottom' => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
 	];
 	$tSelectors[' .vxt-toc__list-wrap ul.vxt-toc__list > li'] = [
-		'padding-top'    => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
-		'padding-bottom' => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
+		'padding-top'    => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
+		'padding-bottom' => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingTablet'], $attr['contentPaddingTypeTablet'] ) . ' / 2 )',
 	];
 }
 
 if ( '' !== $attr['contentPaddingMobile'] ) {
 	$mSelectors[' .vxt-toc__list-wrap ol.vxt-toc__list > li'] = [
-		'padding-top'    => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
-		'padding-bottom' => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
+		'padding-top'    => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
+		'padding-bottom' => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
 	];
 	$mSelectors[' .vxt-toc__list-wrap ul.vxt-toc__list > li'] = [
-		'padding-top'    => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
-		'padding-bottom' => 'calc( ' . \Vexaltrix\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
+		'padding-top'    => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
+		'padding-bottom' => 'calc( ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentPaddingMobile'], $attr['contentPaddingTypeMobile'] ) . ' / 2 )',
 	];
 }
 
@@ -271,25 +271,25 @@ if ( 'none' !== $attr['separatorStyle'] ) {
 	// Since we need the separator to ignore the padding and cover the entire width of the parent container,
 	// we use calc and do the following calculations.
 
-	$calcPaddingLeft  = \Vexaltrix\Support\Helper::getCssValue( $leftPadding, $attr['paddingTypeDesktop'] );
-	$calcPaddingRight = \Vexaltrix\Support\Helper::getCssValue( $rightPadding, $attr['paddingTypeDesktop'] );
+	$calcPaddingLeft  = \Vexaltrix\Core\Support\Helper::getCssValue( $leftPadding, $attr['paddingTypeDesktop'] );
+	$calcPaddingRight = \Vexaltrix\Core\Support\Helper::getCssValue( $rightPadding, $attr['paddingTypeDesktop'] );
 
-	$tCalcPaddingLeft  = \Vexaltrix\Support\Helper::getCssValue( $tabletLeftPadding, $attr['paddingTypeTablet'] );
-	$tCalcPaddingRight = \Vexaltrix\Support\Helper::getCssValue( $tabletRightPadding, $attr['paddingTypeTablet'] );
+	$tCalcPaddingLeft  = \Vexaltrix\Core\Support\Helper::getCssValue( $tabletLeftPadding, $attr['paddingTypeTablet'] );
+	$tCalcPaddingRight = \Vexaltrix\Core\Support\Helper::getCssValue( $tabletRightPadding, $attr['paddingTypeTablet'] );
 
-	$mCalcPaddingLeft  = \Vexaltrix\Support\Helper::getCssValue( $mobileLeftPadding, $attr['paddingTypeMobile'] );
-	$mCalcPaddingRight = \Vexaltrix\Support\Helper::getCssValue( $mobileRightPadding, $attr['paddingTypeMobile'] );
+	$mCalcPaddingLeft  = \Vexaltrix\Core\Support\Helper::getCssValue( $mobileLeftPadding, $attr['paddingTypeMobile'] );
+	$mCalcPaddingRight = \Vexaltrix\Core\Support\Helper::getCssValue( $mobileRightPadding, $attr['paddingTypeMobile'] );
 
 	$selectors[' .vxt-toc__separator'] = [
 		'border-top-style' => $attr['separatorStyle'],
-		'border-top-width' => \Vexaltrix\Support\Helper::getCssValue(
+		'border-top-width' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['separatorHeight'],
 			$attr['separatorHeightType']
 		),
 		'width'            => 'calc( 100% + ' . $calcPaddingLeft . ' + ' . $calcPaddingRight . ')',
 		'margin-left'      => '-' . $calcPaddingLeft,
 		'border-color'     => $attr['separatorColor'],
-		'margin-bottom'    => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-bottom'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['separatorSpace'],
 			$attr['separatorSpaceType']
 		),
@@ -302,7 +302,7 @@ if ( 'none' !== $attr['separatorStyle'] ) {
 	$tSelectors[' .vxt-toc__separator'] = [
 		'width'         => 'calc( 100% + ' . $tCalcPaddingLeft . ' + ' . $tCalcPaddingRight . ')',
 		'margin-left'   => '-' . $tCalcPaddingLeft,
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['separatorSpaceTablet'],
 			$attr['separatorSpaceType']
 		),
@@ -311,7 +311,7 @@ if ( 'none' !== $attr['separatorStyle'] ) {
 	$mSelectors[' .vxt-toc__separator'] = [
 		'width'         => 'calc( 100% + ' . $mCalcPaddingLeft . ' + ' . $mCalcPaddingRight . ')',
 		'margin-left'   => '-' . $mCalcPaddingLeft,
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['separatorSpaceMobile'],
 			$attr['separatorSpaceType']
 		),
@@ -325,16 +325,16 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'heading', ' .vxt-toc__title', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, '', ' .vxt-toc__list-wrap ol li a', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'heading', ' .vxt-toc__title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, '', ' .vxt-toc__list-wrap ol li a', $combinedSelectors );
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.vxt-block-' : '#vxt-toc-';
 
-$desktop = \Vexaltrix\Support\Helper::generateCss( $combinedSelectors['desktop'], $baseSelector . $id );
+$desktop = \Vexaltrix\Core\Support\Helper::generateCss( $combinedSelectors['desktop'], $baseSelector . $id );
 
-$tablet = \Vexaltrix\Support\Helper::generateCss( $combinedSelectors['tablet'], $baseSelector . $id );
+$tablet = \Vexaltrix\Core\Support\Helper::generateCss( $combinedSelectors['tablet'], $baseSelector . $id );
 
-$mobile = \Vexaltrix\Support\Helper::generateCss( $combinedSelectors['mobile'], $baseSelector . $id );
+$mobile = \Vexaltrix\Core\Support\Helper::generateCss( $combinedSelectors['mobile'], $baseSelector . $id );
 
 if ( '' !== $attr['scrollToTopColor'] ) {
 	$desktop .= '.vxt-toc__scroll-top { color: ' . $attr['scrollToTopColor'] . '; }';

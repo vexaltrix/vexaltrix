@@ -9,7 +9,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksInlineNoticeGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksInlineNoticeGfont( $attr );
 
 $tSelectors = [];
 $mSelectors = [];
@@ -95,18 +95,18 @@ if ( $attr['noticeDismiss'] ) {
 
 $selectors = [
 	'.wp-block-vxt-inline-notice .vxt-notice-title' => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPadding, $attr['titlePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPadding, $attr['titlePaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $titleTopPadding, $attr['titlePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $titleBottomPadding, $attr['titlePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPadding, $attr['titlePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPadding, $attr['titlePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $titleTopPadding, $attr['titlePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $titleBottomPadding, $attr['titlePaddingUnit'] ),
 		'color'          => $attr['titleColor'],
 	],
 	' .vxt-notice-text'                              => [
 		'color'          => $attr['textColor'],
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $contentLeftPadding, $attr['contentPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $contentRightPadding, $attr['contentPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $contentTopPadding, $attr['contentPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $contentBottomPadding, $attr['contentPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $contentLeftPadding, $attr['contentPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $contentRightPadding, $attr['contentPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $contentTopPadding, $attr['contentPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $contentBottomPadding, $attr['contentPaddingUnit'] ),
 	],
 	' span.vxt-notice-dismiss svg'                   => [ // For Backward.
 		'fill'  => $attr['noticeDismissColor'],
@@ -121,101 +121,101 @@ $selectors = [
 		'color' => $attr['noticeDismissColor'],
 	],
 	'.vxt-dismissable button[type="button"] svg'     => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
-		'top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['titleTopPadding'], $attr['titlePaddingUnit'] ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
+		'top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleTopPadding'], $attr['titlePaddingUnit'] ),
 	],
 	'.vxt-dismissable > svg'                         => [ // For Backward.
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
-		'top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['titleTopPadding'], $attr['titlePaddingUnit'] ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], $attr['iconSizeUnit'] ),
+		'top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleTopPadding'], $attr['titlePaddingUnit'] ),
 	],
 	'.vxt-inline_notice__align-left button[type="button"] svg' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
 	],
 	'.vxt-inline_notice__align-left svg'             => [ // For Backward.
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
 	],
 	'.vxt-inline_notice__align-center button[type="button"] svg' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
 	],
 	'.vxt-inline_notice__align-center svg'           => [ // For Backward.
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleRightPadding'], $attr['titlePaddingUnit'] ),
 	],
 ];
 
 $mSelectors = [
 	' .vxt-notice-text'                          => [
 		'color'          => $attr['textColor'],
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $contentLeftPaddingMobile, $attr['mobileContentPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $contentRightPaddingMobile, $attr['mobileContentPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $contentTopPaddingMobile, $attr['mobileContentPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $contentBottomPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $contentLeftPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $contentRightPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $contentTopPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $contentBottomPaddingMobile, $attr['mobileContentPaddingUnit'] ),
 	],
 	' .vxt-notice-title'                         => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $titleTopPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $titleBottomPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $titleTopPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $titleBottomPaddingMobile, $attr['mobileTitlePaddingUnit'] ),
 	],
 	'.vxt-dismissable button[type="button"] svg' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
-		'top'    => \Vexaltrix\Support\Helper::getCssValue( $posTopMob, $posTopUnitMob ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
+		'top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $posTopMob, $posTopUnitMob ),
 	],
 	'.vxt-dismissable > svg'                     => [ // For Backward.
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
-		'top'    => \Vexaltrix\Support\Helper::getCssValue( $posTopMob, $posTopUnitMob ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMob'], $attr['iconSizeUnit'] ),
+		'top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $posTopMob, $posTopUnitMob ),
 	],
 	'.vxt-inline_notice__align-left button[type="button"] svg' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
 	],
 	'.vxt-inline_notice__align-left svg'         => [ // For Backward.
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
 	],
 	'.vxt-inline_notice__align-center button[type="button"] svg' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
 	],
 	'.vxt-inline_notice__align-center svg'       => [ // For Backward.
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightMob, $posRightUnitMob ),
 	],
 ];
 
 $tSelectors = [
 	' .vxt-notice-text'                          => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $contentLeftPaddingTablet, $attr['tabletContentPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $contentRightPaddingTablet, $attr['tabletContentPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $contentTopPaddingTablet, $attr['tabletContentPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $contentBottomPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $contentLeftPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $contentRightPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $contentTopPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $contentBottomPaddingTablet, $attr['tabletContentPaddingUnit'] ),
 	],
 	' .vxt-notice-title'                         => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $titleTopPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $titleBottomPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $titleTopPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $titleBottomPaddingTablet, $attr['tabletTitlePaddingUnit'] ),
 	],
 	'.vxt-dismissable button[type="button"] svg' => [
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
-		'top'    => \Vexaltrix\Support\Helper::getCssValue( $posTopTab, $posTopUnitTab ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
+		'top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $posTopTab, $posTopUnitTab ),
 	],
 	'.vxt-dismissable > svg'                     => [ // For Backward.
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
-		'top'    => \Vexaltrix\Support\Helper::getCssValue( $posTopTab, $posTopUnitTab ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTab'], $attr['iconSizeUnit'] ),
+		'top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $posTopTab, $posTopUnitTab ),
 	],
 	'.vxt-inline_notice__align-left button[type="button"] svg' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
 	],
 	'.vxt-inline_notice__align-left svg'         => [ // For Backward.
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
 	],
 	'.vxt-inline_notice__align-center button[type="button"] svg' => [
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
 	],
 	'.vxt-inline_notice__align-center svg'       => [ // For Backward.
-		'right' => \Vexaltrix\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
+		'right' => \Vexaltrix\Core\Support\Helper::getCssValue( $posRightTab, $posRightUnitTab ),
 	],
 ];
 
@@ -230,21 +230,21 @@ if ( 'modern' === $attr['layout'] ) {
 	$selectors[' .vxt-notice-text']['border-bottom-left-radius']  = '3px';
 	$selectors[' .vxt-notice-text']['border-bottom-right-radius'] = '3px';
 
-	$selectors['.vxt-inline_notice__align-right button[type="button"] svg']['left']   = \Vexaltrix\Support\Helper::getCssValue( $attr['titleLeftPadding'], $attr['titlePaddingUnit'] );
-	$tSelectors['.vxt-inline_notice__align-right button[type="button"] svg']['left'] = \Vexaltrix\Support\Helper::getCssValue( $posLeftTab, $posLeftUnitTab );
-	$mSelectors['.vxt-inline_notice__align-right button[type="button"] svg']['left'] = \Vexaltrix\Support\Helper::getCssValue( $posLeftMob, $posLeftUnitMob );
+	$selectors['.vxt-inline_notice__align-right button[type="button"] svg']['left']   = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleLeftPadding'], $attr['titlePaddingUnit'] );
+	$tSelectors['.vxt-inline_notice__align-right button[type="button"] svg']['left'] = \Vexaltrix\Core\Support\Helper::getCssValue( $posLeftTab, $posLeftUnitTab );
+	$mSelectors['.vxt-inline_notice__align-right button[type="button"] svg']['left'] = \Vexaltrix\Core\Support\Helper::getCssValue( $posLeftMob, $posLeftUnitMob );
 
 } elseif ( 'simple' === $attr['layout'] ) {
 
 	$selectors[' .vxt-notice-title']['background-color'] = $attr['contentBgColor'];
-	$selectors[' .vxt-notice-title']['border-left']      = \Vexaltrix\Support\Helper::getCssValue( $attr['highlightWidth'], 'px' ) . ' solid ' . $attr['noticeColor'];
-	$tSelectors[' .vxt-notice-title']['border-left']    = \Vexaltrix\Support\Helper::getCssValue( $attr['highlightWidthTablet'], 'px' ) . ' solid ' . $attr['noticeColor'];
-	$mSelectors[' .vxt-notice-title']['border-left']    = \Vexaltrix\Support\Helper::getCssValue( $attr['highlightWidthMobile'], 'px' ) . ' solid ' . $attr['noticeColor'];
+	$selectors[' .vxt-notice-title']['border-left']      = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['highlightWidth'], 'px' ) . ' solid ' . $attr['noticeColor'];
+	$tSelectors[' .vxt-notice-title']['border-left']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['highlightWidthTablet'], 'px' ) . ' solid ' . $attr['noticeColor'];
+	$mSelectors[' .vxt-notice-title']['border-left']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['highlightWidthMobile'], 'px' ) . ' solid ' . $attr['noticeColor'];
 
 	$selectors[' .vxt-notice-text']['background-color'] = $attr['contentBgColor'];
-	$selectors[' .vxt-notice-text']['border-left']      = \Vexaltrix\Support\Helper::getCssValue( $attr['highlightWidth'], 'px' ) . ' solid ' . $attr['noticeColor'];
-	$tSelectors[' .vxt-notice-text']['border-left']    = \Vexaltrix\Support\Helper::getCssValue( $attr['highlightWidthTablet'], 'px' ) . ' solid ' . $attr['noticeColor'];
-	$mSelectors[' .vxt-notice-text']['border-left']    = \Vexaltrix\Support\Helper::getCssValue( $attr['highlightWidthMobile'], 'px' ) . ' solid ' . $attr['noticeColor'];
+	$selectors[' .vxt-notice-text']['border-left']      = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['highlightWidth'], 'px' ) . ' solid ' . $attr['noticeColor'];
+	$tSelectors[' .vxt-notice-text']['border-left']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['highlightWidthTablet'], 'px' ) . ' solid ' . $attr['noticeColor'];
+	$mSelectors[' .vxt-notice-text']['border-left']    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['highlightWidthMobile'], 'px' ) . ' solid ' . $attr['noticeColor'];
 
 	$selectors['.vxt-inline_notice__align-right button[type="button"] svg']['left']   = 'calc(' . $attr['titleLeftPadding'] . $attr['titlePaddingUnit'] . ' + ' . $attr['highlightWidth'] . 'px)';
 	$tSelectors['.vxt-inline_notice__align-right button[type="button"] svg']['left'] = 'calc(' . $posLeftTab . $posLeftUnitTab . ' + ' . $posClassicTab . 'px)';
@@ -258,7 +258,7 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-notice-title', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-notice-text', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-notice-title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'desc', ' .vxt-notice-text', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . $id );

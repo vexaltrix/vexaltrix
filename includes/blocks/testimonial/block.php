@@ -17,11 +17,11 @@ $blockData = [
 	'description'         => __( 'Display customer testimonials with customizable layouts.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'testimonial' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'testimonial' ),
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-testimonial-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'testimonial' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'testimonial' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

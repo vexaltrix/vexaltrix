@@ -17,7 +17,7 @@ $blockData = [
 	'description'      => __( 'This block lets you add a user register form.', 'vexaltrix' ),
 	'default'          => true,
 	'extension'        => false,
-	'priority'         => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'register' ),
+	'priority'         => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'register' ),
 	'deprecated'       => false,
 	'pro_filler'       => true,
 ];

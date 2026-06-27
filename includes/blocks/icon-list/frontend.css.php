@@ -10,7 +10,7 @@
 // Adds Fonts.
 // We have used the same buttons gfont function because the inputs to these functions are same.
 // If need be please add a new function for Info Box and go ahead.
-\Vexaltrix\Core\Blocks\BlockJs::blocksButtonsGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksButtonsGfont( $attr );
 
 $fontSizeFallback = is_numeric( $attr['fontSize'] ) ? $attr['fontSize'] : 16;
 
@@ -38,9 +38,9 @@ $iconLayoutMobile = ! empty( $attr['iconLayoutMobile'] ) ? $attr['iconLayoutMobi
 $mSelectors = [];
 $tSelectors = [];
 
-$iconSize   = \Vexaltrix\Support\Helper::getCssValue( $attr['size'], $attr['sizeType'] );
-$mIconSize = \Vexaltrix\Support\Helper::getCssValue( $sizeMobileFallback, $attr['sizeType'] );
-$tIconSize = \Vexaltrix\Support\Helper::getCssValue( $sizeTabletFallback, $attr['sizeType'] );
+$iconSize   = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['size'], $attr['sizeType'] );
+$mIconSize = \Vexaltrix\Core\Support\Helper::getCssValue( $sizeMobileFallback, $attr['sizeType'] );
+$tIconSize = \Vexaltrix\Core\Support\Helper::getCssValue( $sizeTabletFallback, $attr['sizeType'] );
 
 // The Math ( 3 * Icon Size ) / 5 aligns perfectly with the current defaults ( Font Size: 16px, Line Height: 1.8em ).
 $halfSize        = 3 * $attr['size'] / 5;
@@ -83,15 +83,15 @@ $selectors = [
 		[
 			'background'    => $attr['iconBgColor'],
 			'border-color'  => $attr['iconBorderColor'],
-			'padding'       => \Vexaltrix\Support\Helper::getCssValue( $attr['bgSize'], $attr['bgSizeType'] ),
-			'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['borderRadius'], 'px' ),
+			'padding'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bgSize'], $attr['bgSizeType'] ),
+			'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['borderRadius'], 'px' ),
 			'border-style'  => ( $attr['border'] > 0 ) ? 'solid' : '',
-			'border-width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['border'], $attr['borderType'] ),
+			'border-width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['border'], $attr['borderType'] ),
 			'align-self'    => $position,
 		]
 	),
 	' .wp-block-vxt-icon-list-child .vxt-icon-list__label' => [
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
 		'font-family'     => $attr['fontFamily'],
 		'text-transform'  => $attr['fontTransform'],
 		'text-decoration' => $attr['fontDecoration'] . '!important',
@@ -108,35 +108,35 @@ $selectors = [
 		'-webkit-box-align' => 'center',
 		'-ms-flex-align'    => 'center',
 		'align-items'       => 'center',
-		'margin-top'        => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-top'        => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockTopMargin'],
 			$attr['blockMarginUnit']
 		),
-		'margin-right'      => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-right'      => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockRightMargin'],
 			$attr['blockMarginUnit']
 		),
-		'margin-bottom'     => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-bottom'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockBottomMargin'],
 			$attr['blockMarginUnit']
 		),
-		'margin-left'       => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-left'       => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockLeftMargin'],
 			$attr['blockMarginUnit']
 		),
-		'padding-top'       => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-top'       => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockTopPadding'],
 			$attr['blockPaddingUnit']
 		),
-		'padding-right'     => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-right'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockRightPadding'],
 			$attr['blockPaddingUnit']
 		),
-		'padding-bottom'    => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-bottom'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockBottomPadding'],
 			$attr['blockPaddingUnit']
 		),
-		'padding-left'      => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-left'      => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockLeftPadding'],
 			$attr['blockPaddingUnit']
 		),
@@ -165,7 +165,7 @@ if ( $attr['childMigrate'] ) {
 		'text-decoration' => $attr['fontDecoration'] . '!important',
 		'font-style'      => $attr['fontStyle'],
 		'font-weight'     => $attr['fontWeight'],
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
 		'line-height'     => $attr['lineHeight'] . $attr['lineHeightType'],
 	];
 }
@@ -182,16 +182,16 @@ $tSelectors = [
 	],
 	' .wp-block-vxt-icon-list-child .vxt-icon-list__source-wrap ' => array_merge(
 		[
-			'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['borderRadiusTablet'], $attr['borderRadiusType'] ),
-			'padding'       => \Vexaltrix\Support\Helper::getCssValue( $bgSizeTabletFallback, 'px' ),
+			'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['borderRadiusTablet'], $attr['borderRadiusType'] ),
+			'padding'       => \Vexaltrix\Core\Support\Helper::getCssValue( $bgSizeTabletFallback, 'px' ),
 			'border-style'  => ( $tborderFallback > 0 ) ? 'solid' : '',
-			'border-width'  => \Vexaltrix\Support\Helper::getCssValue( $tborderFallback, $attr['borderType'] ),
+			'border-width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $tborderFallback, $attr['borderType'] ),
 			'align-self'    => $tabletPosition,
 		]
 	),
 	' .wp-block-vxt-icon-list-child .vxt-icon-list__label' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lineHeightTablet'], $attr['lineHeightType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lineHeightTablet'], $attr['lineHeightType'] ),
 	],
 	' .vxt-icon-list__wrap'         => [
 		'display'           => 'flex',
@@ -202,23 +202,23 @@ $tSelectors = [
 		'-webkit-box-align' => 'center',
 		'-ms-flex-align'    => 'center',
 		'align-items'       => 'center',
-		'margin-top'        => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-right'      => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-bottom'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-left'       => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'padding-top'       => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-top'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-right'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-bottom'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-left'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'padding-top'       => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockTopPaddingTablet'],
 			$attr['blockPaddingUnitTablet']
 		),
-		'padding-right'     => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-right'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockRightPaddingTablet'],
 			$attr['blockPaddingUnitTablet']
 		),
-		'padding-bottom'    => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-bottom'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockBottomPaddingTablet'],
 			$attr['blockPaddingUnitTablet']
 		),
-		'padding-left'      => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-left'      => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockLeftPaddingTablet'],
 			$attr['blockPaddingUnitTablet']
 		),
@@ -243,16 +243,16 @@ $mSelectors = [
 	],
 	' .wp-block-vxt-icon-list-child .vxt-icon-list__source-wrap' => array_merge(
 		[
-			'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['borderRadiusMobile'], $attr['borderRadiusType'] ),
-			'padding'       => \Vexaltrix\Support\Helper::getCssValue( $bgSizeMobileFallback, 'px' ),
+			'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['borderRadiusMobile'], $attr['borderRadiusType'] ),
+			'padding'       => \Vexaltrix\Core\Support\Helper::getCssValue( $bgSizeMobileFallback, 'px' ),
 			'border-style'  => ( $mborderFallback > 0 ) ? 'solid' : '',
-			'border-width'  => \Vexaltrix\Support\Helper::getCssValue( $mborderFallback, $attr['borderType'] ),
+			'border-width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $mborderFallback, $attr['borderType'] ),
 			'align-self'    => $mobilePosition,
 		]
 	),
 	' .wp-block-vxt-icon-list-child .vxt-icon-list__label' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lineHeightMobile'], $attr['lineHeightType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lineHeightMobile'], $attr['lineHeightType'] ),
 	],
 	' .vxt-icon-list__wrap'         => [
 		'display'           => 'flex',
@@ -263,23 +263,23 @@ $mSelectors = [
 		'-webkit-box-align' => 'center',
 		'-ms-flex-align'    => 'center',
 		'align-items'       => 'center',
-		'margin-top'        => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-right'      => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-bottom'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-left'       => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'padding-top'       => \Vexaltrix\Support\Helper::getCssValue(
+		'margin-top'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-right'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-bottom'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-left'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'padding-top'       => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockTopPaddingMobile'],
 			$attr['blockPaddingUnitMobile']
 		),
-		'padding-right'     => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-right'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockRightPaddingMobile'],
 			$attr['blockPaddingUnitMobile']
 		),
-		'padding-bottom'    => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-bottom'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockBottomPaddingMobile'],
 			$attr['blockPaddingUnitMobile']
 		),
-		'padding-left'      => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-left'      => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$attr['blockLeftPaddingMobile'],
 			$attr['blockPaddingUnitMobile']
 		),
@@ -287,33 +287,33 @@ $mSelectors = [
 ];
 
 $selectors[' .wp-block-vxt-icon-list-child .vxt-icon-list__label'] = [
-	'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
+	'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
 	'font-family'     => $attr['fontFamily'],
 	'text-transform'  => $attr['fontTransform'],
 	'text-decoration' => $attr['fontDecoration'] . '!important',
 	'font-style'      => $attr['fontStyle'],
 	'font-weight'     => $attr['fontWeight'],
 	'line-height'     => $attr['lineHeight'] . $attr['lineHeightType'],
-	'letter-spacing'  => \Vexaltrix\Support\Helper::getCssValue( $attr['labelLetterSpacing'], $attr['labelLetterSpacingType'] ),
+	'letter-spacing'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelLetterSpacing'], $attr['labelLetterSpacingType'] ),
 	'color'           => $attr['labelColor'],
 ];
 
 $mSelectors[' .wp-block-vxt-icon-list-child .vxt-icon-list__label'] = [
-	'font-size'      => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
-	'line-height'    => \Vexaltrix\Support\Helper::getCssValue( $attr['lineHeightMobile'], $attr['lineHeightType'] ),
-	'letter-spacing' => \Vexaltrix\Support\Helper::getCssValue( $attr['labelLetterSpacingMobile'], $attr['labelLetterSpacingType'] ),
+	'font-size'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['fontSizeType'] ),
+	'line-height'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lineHeightMobile'], $attr['lineHeightType'] ),
+	'letter-spacing' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelLetterSpacingMobile'], $attr['labelLetterSpacingType'] ),
 ];
 
 $tSelectors[' .wp-block-vxt-icon-list-child .vxt-icon-list__label'] = [
-	'font-size'      => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
-	'line-height'    => \Vexaltrix\Support\Helper::getCssValue( $attr['lineHeightTablet'], $attr['lineHeightType'] ),
-	'letter-spacing' => \Vexaltrix\Support\Helper::getCssValue( $attr['labelLetterSpacingTablet'], $attr['labelLetterSpacingType'] ),
+	'font-size'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['fontSizeType'] ),
+	'line-height'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lineHeightTablet'], $attr['lineHeightType'] ),
+	'letter-spacing' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelLetterSpacingTablet'], $attr['labelLetterSpacingType'] ),
 ];
 
 if ( 'horizontal' === $iconLayout ) {
 	$selectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child'] = [
-		'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), $attr['gapType'] ),
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), $attr['gapType'] ),
+		'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), $attr['gapType'] ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $attr['gap'] / 2 ), $attr['gapType'] ),
 		'display'      => 'inline-flex',
 	];
 
@@ -335,14 +335,14 @@ if ( 'horizontal' === $iconLayout ) {
 	$selectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child'] = [
 		'margin-left'   => 0,
 		'margin-right'  => 0,
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['gap'], $attr['gapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gap'], $attr['gapType'] ),
 	];
 }
 
 if ( 'horizontal' === $iconLayoutTablet ) {
 	$tSelectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child']             = [
-		'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( ( $tgapFallback / 2 ), $attr['gapType'] ),
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( ( $tgapFallback / 2 ), $attr['gapType'] ),
+		'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( $tgapFallback / 2 ), $attr['gapType'] ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $tgapFallback / 2 ), $attr['gapType'] ),
 		'display'      => 'inline-flex',
 	];
 	$tSelectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child:first-child'] = [
@@ -361,15 +361,15 @@ if ( 'horizontal' === $iconLayoutTablet ) {
 	$tSelectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child'] = [
 		'margin-left'   => 0,
 		'margin-right'  => 0,
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $tgapFallback, $attr['gapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $tgapFallback, $attr['gapType'] ),
 	];
 }
 
 
 if ( 'horizontal' === $iconLayoutMobile ) {
 	$mSelectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child']             = [
-		'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( ( $mgapFallback / 2 ), $attr['gapType'] ),
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( ( $mgapFallback / 2 ), $attr['gapType'] ),
+		'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( ( $mgapFallback / 2 ), $attr['gapType'] ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $mgapFallback / 2 ), $attr['gapType'] ),
 		'display'      => 'inline-flex',
 	];
 	$mSelectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child:first-child'] = [
@@ -387,7 +387,7 @@ if ( 'horizontal' === $iconLayoutMobile ) {
 	$mSelectors['.wp-block-vxt-icon-list .wp-block-vxt-icon-list-child'] = [
 		'margin-left'   => 0,
 		'margin-right'  => 0,
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $mgapFallback, $attr['gapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $mgapFallback, $attr['gapType'] ),
 	];
 }
 
@@ -411,7 +411,7 @@ if ( ! $attr['childMigrate'] ) {
 			'text-decoration' => $attr['fontDecoration'] . '!important',
 			'font-style'      => $attr['fontStyle'],
 			'font-weight'     => $attr['fontWeight'],
-			'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['sizeType'] ),
+			'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['sizeType'] ),
 			'line-height'     => $attr['lineHeight'] . $attr['lineHeightType'],
 		];
 		$mSelectorsChild[ $wrapper . ' .vxt-icon-list__label' ] = [
@@ -420,7 +420,7 @@ if ( ! $attr['childMigrate'] ) {
 			'text-decoration' => $attr['fontDecoration'] . '!important',
 			'font-style'      => $attr['fontStyle'],
 			'font-weight'     => $attr['fontWeight'],
-			'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['sizeType'] ),
+			'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeMobile'], $attr['sizeType'] ),
 			'line-height'     => $attr['lineHeightMobile'] . $attr['lineHeightType'],
 		];
 		$tSelectorsChild[ $wrapper . ' .vxt-icon-list__label' ] = [
@@ -429,7 +429,7 @@ if ( ! $attr['childMigrate'] ) {
 			'text-decoration' => $attr['fontDecoration'] . '!important',
 			'font-style'      => $attr['fontStyle'],
 			'font-weight'     => $attr['fontWeight'],
-			'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['sizeType'] ),
+			'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSizeTablet'], $attr['sizeType'] ),
 			'line-height'     => $attr['lineHeightTablet'] . $attr['lineHeightType'],
 		];
 
@@ -439,7 +439,7 @@ if ( ! $attr['childMigrate'] ) {
 
 		$icon = array_merge( $defaultAttr, (array) $icon );
 
-		$childSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getIconListChildSelectors( $icon, $key, $attr['childMigrate'] );
+		$childSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getIconListChildSelectors( $icon, $key, $attr['childMigrate'] );
 		$selectors       = array_merge( $selectors, (array) $childSelectors );
 		$tSelectors     = array_merge( $tSelectors, (array) $tSelectorsChild );
 		$mSelectors     = array_merge( $mSelectors, (array) $mSelectorsChild );
@@ -459,23 +459,23 @@ if ( 'right' === $attr['align'] && $attr['hideLabel'] ) {
 } else {
 	if ( 'before' === $attr['iconPlacement'] && ! $attr['hideLabel'] ) {
 		$selectors[' .vxt-icon-list__source-wrap']   = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['inner_gap'], $attr['innerGapType'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['inner_gap'], $attr['innerGapType'] ),
 		];
 		$mSelectors[' .vxt-icon-list__source-wrap'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['innerGapMobile'], $attr['innerGapType'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['innerGapMobile'], $attr['innerGapType'] ),
 		];
 		$tSelectors[' .vxt-icon-list__source-wrap'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['innerGapTablet'], $attr['innerGapType'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['innerGapTablet'], $attr['innerGapType'] ),
 		];
 	} elseif ( 'after' === $attr['iconPlacement'] && ! $attr['hideLabel'] ) {
 		$selectors[' .vxt-icon-list__source-wrap']    = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['inner_gap'], $attr['innerGapType'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['inner_gap'], $attr['innerGapType'] ),
 		];
 		$mSelectors[' .vxt-icon-list__source-wrap']  = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['innerGapMobile'], $attr['innerGapType'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['innerGapMobile'], $attr['innerGapType'] ),
 		];
 		$tSelectors[' .vxt-icon-list__source-wrap']  = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['innerGapTablet'], $attr['innerGapType'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['innerGapTablet'], $attr['innerGapType'] ),
 		];
 		$selectors[' .wp-block-vxt-icon-list-child '] = [
 			'flex-direction' => 'row-reverse',
@@ -497,4 +497,4 @@ $combinedSelectors = [
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.wp-block-vxt-icon-list.vxt-block-' : '#vxt-icon-list-';
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

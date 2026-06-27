@@ -7,10 +7,10 @@
  * @package ugb
  */
 
-$borderAttribute     = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'container' );
-$defaultWidth        = \Vexaltrix\Admin\AdminSettings::getGlobalContentWidth();
-$defaultPadding      = \Vexaltrix\Admin\AdminSettings::get( 'uag_container_global_padding', '' );
-$defaultElementsGap = \Vexaltrix\Admin\AdminSettings::get( 'uag_container_global_elements_gap', 20 );
+$borderAttribute     = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'container' );
+$defaultWidth        = \Vexaltrix\Presentation\Admin\AdminSettings::getGlobalContentWidth();
+$defaultPadding      = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_container_global_padding', '' );
+$defaultElementsGap = \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_container_global_elements_gap', 20 );
 $gridCssObject      = [
 	[
 		'default' => 'custom',

@@ -9,23 +9,23 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksModalGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksModalGfont( $attr );
 $mSelectors        = [];
 $tSelectors        = [];
 $selectors          = [];
 $isRtl             = is_rtl();
 $btnFontSizeType = is_string( $attr['btnFontSizeType'] ) ? $attr['btnFontSizeType'] : '';
-$btnIconSize      = \Vexaltrix\Support\Helper::getCssValue( $attr['btnFontSize'], $btnFontSizeType );
-$tBtnIconSize    = \Vexaltrix\Support\Helper::getCssValue( $attr['btnFontSizeTablet'], $btnFontSizeType );
-$mBtnIconSize    = \Vexaltrix\Support\Helper::getCssValue( $attr['btnFontSizeMobile'], $btnFontSizeType );
+$btnIconSize      = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['btnFontSize'], $btnFontSizeType );
+$tBtnIconSize    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['btnFontSizeTablet'], $btnFontSizeType );
+$mBtnIconSize    = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['btnFontSizeMobile'], $btnFontSizeType );
 
-$btnBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
-$btnBorderCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
-$btnBorderCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
+$btnBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
+$btnBorderCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
+$btnBorderCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
 
-$contentBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content' );
-$contentBorderCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'tablet' );
-$contentBorderCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'mobile' );
+$contentBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content' );
+$contentBorderCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'tablet' );
+$contentBorderCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'content', 'mobile' );
 
 $bgObjDesktop           = [
 	'backgroundType'           => $attr['backgroundType'],
@@ -53,28 +53,28 @@ $bgObjDesktop           = [
 	'yPosition'                => $attr['yPositionDesktop'],
 	'yPositionType'            => $attr['yPositionType'],
 ];
-$containerBgCssDesktop = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
+$containerBgCssDesktop = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjDesktop );
 
 $selectors                = [
 	'.vxt-modal-popup .vxt-modal-popup-wrap'   => [
-		'width'                      => \Vexaltrix\Support\Helper::getCssValue( $attr['modalWidth'], $attr['modalWidthType'] ),
-		'height'                     => \Vexaltrix\Support\Helper::getCssValue( $attr['modalHeight'], $attr['modalHeightType'] ),
+		'width'                      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalWidth'], $attr['modalWidthType'] ),
+		'height'                     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalHeight'], $attr['modalHeightType'] ),
 		'border-style'               => 'none',
 		'border-color'               => 'none',
-		'border-top-left-radius'     => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadius'], $attr['contentBorderRadiusUnit'] ),
-		'border-top-right-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopRightRadius'], $attr['contentBorderRadiusUnit'] ),
-		'border-bottom-left-radius'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadius'], $attr['contentBorderRadiusUnit'] ),
-		'border-bottom-right-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-top-left-radius'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-top-right-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopRightRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-bottom-left-radius'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-bottom-right-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadius'], $attr['contentBorderRadiusUnit'] ),
 		'z-index'                    => '99999',
 	],
 	' .vxt-modal-popup-content:hover'           => [
 		'border-color' => $attr['contentBorderHColor'],
 	],
 	' .vxt-modal-popup-close svg'               => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
 		'fill'        => $attr['closeIconColor'],
 	],
 	' .vxt-modal-popup-close:focus svg'         => [
@@ -86,26 +86,26 @@ $selectors                = [
 	],
 	' .vxt-modal-popup-content'                 => array_merge(
 		[
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalLeft'], $attr['paddingModalUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalRight'], $attr['paddingModalUnit'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalTop'], $attr['paddingModalUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalBottom'], $attr['paddingModalUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalLeft'], $attr['paddingModalUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalRight'], $attr['paddingModalUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalTop'], $attr['paddingModalUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalBottom'], $attr['paddingModalUnit'] ),
 		],
 		$contentBorderCss,
 		$containerBgCssDesktop
 ),
 	' .vxt-modal-trigger svg'                   => [
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
 		'fill'        => $attr['iconColor'],
 	],
 	' .vxt-modal-text.vxt-modal-trigger'       => [
 		'color' => $attr['textColor'],
 	],
 	'.vxt-modal-wrapper img.vxt-modal-trigger' => [
-		'border-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconimgBorderRadius'], $attr['iconimgBorderRadiusUnit'] ),
+		'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconimgBorderRadius'], $attr['iconimgBorderRadiusUnit'] ),
 	],
 ];
 $bgObjTablet            = [
@@ -134,7 +134,7 @@ $bgObjTablet            = [
 	'yPosition'                => $attr['yPositionTablet'],
 	'yPositionType'            => $attr['yPositionTypeTablet'],
 ];
-$containerBgCssTablet  = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
+$containerBgCssTablet  = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
 $modalWidthTypeTablet  = '' !== $attr['modalWidthTypeTablet'] ? $attr['modalWidthTypeTablet'] : $attr['modalWidthType'];
 $modalHeightTypeTablet = '' !== $attr['modalHeightTypeTablet'] ? $attr['modalHeightTypeTablet'] : $attr['modalHeightType'];
 $tSelectors              = [
@@ -142,21 +142,21 @@ $tSelectors              = [
 		'text-align' => $attr['modalAlignTablet'],
 	],
 	'.vxt-modal-popup .vxt-modal-popup-wrap' => [
-		'width'                      => \Vexaltrix\Support\Helper::getCssValue( $attr['modalWidthTablet'], $modalWidthTypeTablet ),
-		'height'                     => \Vexaltrix\Support\Helper::getCssValue( $attr['modalHeightTablet'], $modalHeightTypeTablet ),
+		'width'                      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalWidthTablet'], $modalWidthTypeTablet ),
+		'height'                     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalHeightTablet'], $modalHeightTypeTablet ),
 		'border-style'               => 'none',
 		'border-color'               => 'none',
-		'border-top-left-radius'     => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
-		'border-top-right-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
-		'border-bottom-left-radius'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
-		'border-bottom-right-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-top-left-radius'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-top-right-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-bottom-left-radius'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-bottom-right-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
 	],
 	' .vxt-modal-popup-content'               => array_merge(
 		[
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalLeftTablet'], $attr['tabletPaddingModalUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalRightTablet'], $attr['tabletPaddingModalUnit'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalTopTablet'], $attr['tabletPaddingModalUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalBottomTablet'], $attr['tabletPaddingModalUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalLeftTablet'], $attr['tabletPaddingModalUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalRightTablet'], $attr['tabletPaddingModalUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalTopTablet'], $attr['tabletPaddingModalUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalBottomTablet'], $attr['tabletPaddingModalUnit'] ),
 		],
 		$contentBorderCssTablet,
 		$containerBgCssTablet
@@ -196,7 +196,7 @@ $bgObjMobile            = [
 	'yPosition'                => $attr['yPositionMobile'],
 	'yPositionType'            => $attr['yPositionTypeMobile'],
 ];
-$containerBgCssMobile  = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
+$containerBgCssMobile  = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
 $modalWidthTypeMobile  = '' !== $attr['modalWidthTypeMobile'] ? $attr['modalWidthTypeMobile'] : $attr['modalWidthType'];
 $modalHeightTypeMobile = '' !== $attr['modalHeightTypeMobile'] ? $attr['modalHeightTypeMobile'] : $attr['modalHeightType'];
 $mSelectors              = [
@@ -204,21 +204,21 @@ $mSelectors              = [
 		'text-align' => $attr['modalAlignMobile'],
 	],
 	'.vxt-modal-popup .vxt-modal-popup-wrap' => [
-		'width'                      => \Vexaltrix\Support\Helper::getCssValue( $attr['modalWidthMobile'], $modalWidthTypeMobile ),
-		'height'                     => \Vexaltrix\Support\Helper::getCssValue( $attr['modalHeightMobile'], $modalHeightTypeMobile ),
+		'width'                      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalWidthMobile'], $modalWidthTypeMobile ),
+		'height'                     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalHeightMobile'], $modalHeightTypeMobile ),
 		'border-style'               => 'none',
 		'border-color'               => 'none',
-		'border-top-left-radius'     => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
-		'border-top-right-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
-		'border-bottom-left-radius'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
-		'border-bottom-right-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-top-left-radius'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-top-right-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-bottom-left-radius'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-bottom-right-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
 	],
 	' .vxt-modal-popup-content'               => array_merge(
 		[
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalLeftMobile'], $attr['mobilePaddingModalUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalRightMobile'], $attr['mobilePaddingModalUnit'] ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalTopMobile'], $attr['mobilePaddingModalUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingModalBottomMobile'], $attr['mobilePaddingModalUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalLeftMobile'], $attr['mobilePaddingModalUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalRightMobile'], $attr['mobilePaddingModalUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalTopMobile'], $attr['mobilePaddingModalUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingModalBottomMobile'], $attr['mobilePaddingModalUnit'] ),
 		],
 		$contentBorderCssMobile,
 		$containerBgCssMobile
@@ -233,10 +233,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 		$selectors,
 		[
 			'.vxt-modal-wrapper .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger' => [
-				'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnLeft'], $attr['paddingBtnUnit'] ),
-				'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnRight'], $attr['paddingBtnUnit'] ),
-				'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnTop'], $attr['paddingBtnUnit'] ),
-				'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnBottom'], $attr['paddingBtnUnit'] ),
+				'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnLeft'], $attr['paddingBtnUnit'] ),
+				'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnRight'], $attr['paddingBtnUnit'] ),
+				'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnTop'], $attr['paddingBtnUnit'] ),
+				'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnBottom'], $attr['paddingBtnUnit'] ),
 				'color'            => $attr['btnLinkColor'],
 				'background-color' => ( 'color' === $attr['modalTriggerBgType'] ) ? $attr['btnBgColor'] : 'transparent',
 			],
@@ -270,10 +270,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 		$tSelectors,
 		[
 			'.vxt-modal-wrapper .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger' => [
-				'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnLeftTablet'], $attr['tabletPaddingBtnUnit'] ),
-				'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnRightTablet'], $attr['tabletPaddingBtnUnit'] ),
-				'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnTopTablet'], $attr['tabletPaddingBtnUnit'] ),
-				'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnBottomTablet'], $attr['tabletPaddingBtnUnit'] ),
+				'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnLeftTablet'], $attr['tabletPaddingBtnUnit'] ),
+				'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnRightTablet'], $attr['tabletPaddingBtnUnit'] ),
+				'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnTopTablet'], $attr['tabletPaddingBtnUnit'] ),
+				'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnBottomTablet'], $attr['tabletPaddingBtnUnit'] ),
 			],
 			' .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger svg' => [
 				'width'       => $tBtnIconSize,
@@ -288,10 +288,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 		$mSelectors,
 		[
 			'.vxt-modal-wrapper .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger' => [
-				'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnLeftMobile'], $attr['mobilePaddingBtnUnit'] ),
-				'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnRightMobile'], $attr['mobilePaddingBtnUnit'] ),
-				'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnTopMobile'], $attr['mobilePaddingBtnUnit'] ),
-				'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnBottomMobile'], $attr['mobilePaddingBtnUnit'] ),
+				'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnLeftMobile'], $attr['mobilePaddingBtnUnit'] ),
+				'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnRightMobile'], $attr['mobilePaddingBtnUnit'] ),
+				'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnTopMobile'], $attr['mobilePaddingBtnUnit'] ),
+				'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnBottomMobile'], $attr['mobilePaddingBtnUnit'] ),
 			],
 			' .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger svg' => [
 				'width'       => $mBtnIconSize,
@@ -306,15 +306,15 @@ if ( ! $attr['inheritFromTheme'] ) {
 
 if ( 'popup-top-right' === $attr['closeIconPosition'] ) {
 	$selectors['.vxt-modal-popup.active .vxt-modal-popup-close'] = [
-		'top'   => '-' . \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'right' => '-' . \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'top'   => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'right' => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
 	];
 }
 
 if ( 'popup-top-left' === $attr['closeIconPosition'] ) {
 	$selectors['.vxt-modal-popup.active .vxt-modal-popup-close'] = [
-		'top'  => '-' . \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
-		'left' => '-' . \Vexaltrix\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'top'  => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
+		'left' => '-' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['closeIconSize'], 'px' ),
 	];
 }
 
@@ -324,23 +324,23 @@ $attr['buttonIconSpaceMobile'] = is_numeric( $attr['buttonIconSpaceMobile'] ) ? 
 if ( 'button' === $attr['modalTrigger'] ) {
 	if ( 'after' === $attr['buttonIconPosition'] ) {
 		$selectors[' .vxt-modal-button-link svg ']   = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
 		];
 		$tSelectors[' .vxt-modal-button-link svg '] = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
 		];
 		$mSelectors[' .vxt-modal-button-link svg '] = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
 		];
 	} else {
 		$selectors[' .vxt-modal-button-link svg']   = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
 		];
 		$tSelectors[' .vxt-modal-button-link svg'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
 		];
 		$mSelectors[' .vxt-modal-button-link svg'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
 		];
 	}
 }
@@ -349,23 +349,23 @@ if ( $isRtl ) {
 	if ( 'button' === $attr['modalTrigger'] ) {
 		if ( 'after' === $attr['buttonIconPosition'] ) {
 			$selectors[' .vxt-modal-button-link svg ']   = [
-				'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
+				'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
 			];
 			$tSelectors[' .vxt-modal-button-link svg '] = [
-				'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
+				'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
 			];
 			$mSelectors[' .vxt-modal-button-link svg '] = [
-				'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
+				'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
 			];
 		} else {
 			$selectors[' .vxt-modal-button-link svg']   = [
-				'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
+				'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpace'], $attr['buttonIconSpaceType'] ),
 			];
 			$tSelectors[' .vxt-modal-button-link svg'] = [
-				'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
+				'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceTablet'], $attr['buttonIconSpaceType'] ),
 			];
 			$mSelectors[' .vxt-modal-button-link svg'] = [
-				'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
+				'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['buttonIconSpaceMobile'], $attr['buttonIconSpaceType'] ),
 			];
 		}
 	}
@@ -374,13 +374,13 @@ if ( $isRtl ) {
 if ( 'image' === $attr['modalTrigger'] && $attr['imageWidthType'] ) {
 	// Image.
 	$selectors[' img.vxt-modal-trigger']   = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthUnit'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidth'], $attr['imageWidthUnit'] ),
 	];
 	$tSelectors[' img.vxt-modal-trigger'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthUnitTablet'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthTablet'], $attr['imageWidthUnitTablet'] ),
 	];
 	$mSelectors[' img.vxt-modal-trigger'] = [
-		'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthUnitMobile'] ),
+		'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['imageWidthMobile'], $attr['imageWidthUnitMobile'] ),
 	];
 
 }
@@ -388,36 +388,36 @@ if ( 'image' === $attr['modalTrigger'] && $attr['imageWidthType'] ) {
 if ( 'custom' !== $attr['modalBoxHeight'] ) {
 	$selectors['.vxt-modal-popup .vxt-modal-popup-wrap']   = [
 		'height'                     => 'auto',
-		'width'                      => \Vexaltrix\Support\Helper::getCssValue( $attr['modalWidth'], $attr['modalWidthType'] ),
-		'max-height'                 => \Vexaltrix\Support\Helper::getCssValue( $attr['maxHeight'], $attr['maxHeightType'] ),
+		'width'                      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalWidth'], $attr['modalWidthType'] ),
+		'max-height'                 => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['maxHeight'], $attr['maxHeightType'] ),
 		'border-style'               => 'none',
 		'border-color'               => 'none',
-		'border-top-left-radius'     => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadius'], $attr['contentBorderRadiusUnit'] ),
-		'border-top-right-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopRightRadius'], $attr['contentBorderRadiusUnit'] ),
-		'border-bottom-left-radius'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadius'], $attr['contentBorderRadiusUnit'] ),
-		'border-bottom-right-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-top-left-radius'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-top-right-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopRightRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-bottom-left-radius'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadius'], $attr['contentBorderRadiusUnit'] ),
+		'border-bottom-right-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadius'], $attr['contentBorderRadiusUnit'] ),
 	];
 	$tSelectors['.vxt-modal-popup .vxt-modal-popup-wrap'] = [
 		'height'                     => 'auto',
-		'width'                      => \Vexaltrix\Support\Helper::getCssValue( $attr['modalWidthTablet'], $modalWidthTypeTablet ),
-		'max-height'                 => \Vexaltrix\Support\Helper::getCssValue( $attr['maxHeightTablet'], $attr['maxHeightType'] ),
+		'width'                      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalWidthTablet'], $modalWidthTypeTablet ),
+		'max-height'                 => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['maxHeightTablet'], $attr['maxHeightType'] ),
 		'border-style'               => 'none',
 		'border-color'               => 'none',
-		'border-top-left-radius'     => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
-		'border-top-right-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
-		'border-bottom-left-radius'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
-		'border-bottom-right-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-top-left-radius'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-top-right-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-bottom-left-radius'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
+		'border-bottom-right-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusTablet'], $attr['contentBorderRadiusUnitTablet'] ),
 	];
 	$mSelectors['.vxt-modal-popup .vxt-modal-popup-wrap'] = [
 		'height'                     => 'auto',
-		'width'                      => \Vexaltrix\Support\Helper::getCssValue( $attr['modalWidthMobile'], $modalWidthTypeMobile ),
-		'max-height'                 => \Vexaltrix\Support\Helper::getCssValue( $attr['maxHeightMobile'], $attr['maxHeightType'] ),
+		'width'                      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['modalWidthMobile'], $modalWidthTypeMobile ),
+		'max-height'                 => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['maxHeightMobile'], $attr['maxHeightType'] ),
 		'border-style'               => 'none',
 		'border-color'               => 'none',
-		'border-top-left-radius'     => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
-		'border-top-right-radius'    => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
-		'border-bottom-left-radius'  => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
-		'border-bottom-right-radius' => \Vexaltrix\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-top-left-radius'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-top-right-radius'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderTopRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-bottom-left-radius'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomLeftRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
+		'border-bottom-right-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['contentBorderBottomRightRadiusMobile'], $attr['contentBorderRadiusUnitMobile'] ),
 	];
 }
 
@@ -491,7 +491,7 @@ if ( 'full' !== $attr['modalAlignTablet'] ) {
 	];
 }
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getCombinedSelectors(
 	'modal',
 	[
 		'desktop' => $selectors,
@@ -503,8 +503,8 @@ $combinedSelectors = \Vexaltrix\Support\Helper::getCombinedSelectors(
 
 $baseSelector = '.vxt-block-';
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'text', ' .vxt-modal-text.vxt-modal-trigger', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'text', ' .vxt-modal-text.vxt-modal-trigger', $combinedSelectors );
 if ( ! $attr['inheritFromTheme'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'btn', ' .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'btn', ' .vxt-button-wrapper .vxt-modal-button-link.vxt-modal-trigger', $combinedSelectors );
 }
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

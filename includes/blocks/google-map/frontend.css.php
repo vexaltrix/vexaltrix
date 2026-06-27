@@ -13,19 +13,19 @@ $selectors   = [];
 
 $selectors = [
 	' .vxt-google-map__iframe' => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['height'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['height'], 'px' ),
 	],
 ];
 
 $mSelectors = [
 	' .vxt-google-map__iframe' => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['heightMobile'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['heightMobile'], 'px' ),
 	],
 ];
 
 $tSelectors = [
 	' .vxt-google-map__iframe' => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['heightTablet'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['heightTablet'], 'px' ),
 	],
 ];
 
@@ -35,4 +35,4 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . $id );

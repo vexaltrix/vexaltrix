@@ -14,7 +14,7 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksFormsGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksFormsGfont( $attr );
 
 $selectors   = [];
 $mSelectors = [];
@@ -36,50 +36,50 @@ $toggleSizeNumberMobile = is_numeric( $attr['toggleSizeMobile'] ) ? $attr['toggl
 $toggleWidthSizeNumberTablet = is_numeric( $attr['toggleWidthSizeTablet'] ) ? $attr['toggleWidthSizeTablet'] : $attr['toggleWidthSize'];
 $toggleWidthSizeNumberMobile = is_numeric( $attr['toggleWidthSizeMobile'] ) ? $attr['toggleWidthSizeMobile'] : $toggleWidthSizeNumberTablet;
 
-$inputOverallBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'field' );
-$inputOverallBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$inputOverallBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'field' );
+$inputOverallBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$inputOverallBorder,
 	( isset( $attr['inputborderWidth'] ) ? $attr['inputborderWidth'] : '' ),
 	( isset( $attr['inputborderRadius'] ) ? $attr['inputborderRadius'] : '' ),
 	( isset( $attr['inputborderColor'] ) ? $attr['inputborderColor'] : '' ),
 	( isset( $attr['inputborderStyle'] ) ? $attr['inputborderStyle'] : '' )
 );
-$inputOverallBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'field', 'tablet' );
-$inputOverallBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'field', 'mobile' );
-$inputUnderlineBorder      = ( isset( $attr['fieldBorderBottomWidth'] ) ? \Vexaltrix\Support\Helper::getCssValue( $attr['fieldBorderBottomWidth'], 'px' ) : '' );
+$inputOverallBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'field', 'tablet' );
+$inputOverallBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'field', 'mobile' );
+$inputUnderlineBorder      = ( isset( $attr['fieldBorderBottomWidth'] ) ? \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fieldBorderBottomWidth'], 'px' ) : '' );
 
-$successMessageBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'successMsg' );
-$successMessageBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$successMessageBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'successMsg' );
+$successMessageBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$successMessageBorder,
 	( isset( $attr['successMessageBorderWidth'] ) ? $attr['successMessageBorderWidth'] : '' ),
 	( isset( $attr['successMessageBorderRadius'] ) ? $attr['successMessageBorderRadius'] : '' ),
 	( isset( $attr['successMessageBorderColor'] ) ? $attr['successMessageBorderColor'] : '' ),
 	( isset( $attr['successMessageBorderStyle'] ) ? $attr['successMessageBorderStyle'] : '' )
 );
-$successMessageBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'successMsg', 'tablet' );
-$successMessageBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'successMsg', 'mobile' );
+$successMessageBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'successMsg', 'tablet' );
+$successMessageBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'successMsg', 'mobile' );
 
-$failedMessageBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'errorMsg' );
-$failedMessageBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$failedMessageBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'errorMsg' );
+$failedMessageBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$failedMessageBorder,
 	( isset( $attr['failedMessageBorderWidth'] ) ? $attr['failedMessageBorderWidth'] : '' ),
 	( isset( $attr['failedMessageBorderRadius'] ) ? $attr['failedMessageBorderRadius'] : '' ),
 	( isset( $attr['failedMessageBorderColor'] ) ? $attr['failedMessageBorderColor'] : '' ),
 	( isset( $attr['failedMessageBorderStyle'] ) ? $attr['failedMessageBorderStyle'] : '' )
 );
-$failedMessageBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'errorMsg', 'tablet' );
-$failedMessageBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'errorMsg', 'mobile' );
+$failedMessageBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'errorMsg', 'tablet' );
+$failedMessageBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'errorMsg', 'mobile' );
 
-$toggleBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'checkBoxToggle' );
-$toggleBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$toggleBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'checkBoxToggle' );
+$toggleBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$toggleBorder,
 	( isset( $attr['inputborderWidth'] ) ? $attr['inputborderWidth'] : '' ),
 	( isset( $attr['inputborderRadius'] ) ? $attr['inputborderRadius'] : '' ),
 	( isset( $attr['inputborderColor'] ) ? $attr['inputborderColor'] : '' ),
 	( isset( $attr['inputborderStyle'] ) ? $attr['inputborderStyle'] : '' )
 );
-$toggleBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'checkBoxToggle', 'tablet' );
-$toggleBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'checkBoxToggle', 'mobile' );
+$toggleBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'checkBoxToggle', 'tablet' );
+$toggleBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'checkBoxToggle', 'mobile' );
 
 // Individual Toggle Border Width Fallback for Math Calculations.
 $toggleBorderTopTabletFallback    = isset( $toggleBorderTablet['border-top-width'] ) ? ( ! empty( $toggleBorderTablet['border-top-width'] ) ? $toggleBorderTablet['border-top-width'] : $toggleBorder['border-top-width'] ) : $toggleBorder['border-top-width'];
@@ -101,16 +101,16 @@ $toggleBorderRadiusTrMobileFallback = isset( $toggleBorderMobile['border-top-rig
 $toggleBorderRadiusBlMobileFallback = isset( $toggleBorderMobile['border-bottom-left-radius'] ) ? ( ! empty( $toggleBorderMobile['border-bottom-left-radius'] ) ? $toggleBorderMobile['border-bottom-left-radius'] : $toggleBorderRadiusBlTabletFallback ) : $toggleBorderRadiusBlTabletFallback;
 $toggleBorderRadiusBrMobileFallback = isset( $toggleBorderMobile['border-bottom-right-radius'] ) ? ( ! empty( $toggleBorderMobile['border-bottom-right-radius'] ) ? $toggleBorderMobile['border-bottom-right-radius'] : $toggleBorderRadiusBrTabletFallback ) : $toggleBorderRadiusBrTabletFallback;
 
-$btnBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
-$btnBorder        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$btnBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn' );
+$btnBorder        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$btnBorder,
 	( isset( $attr['submitborderWidth'] ) ? $attr['submitborderWidth'] : '' ),
 	( isset( $attr['submitborderRadius'] ) ? $attr['submitborderRadius'] : '' ),
 	( isset( $attr['submitborderColor'] ) ? $attr['submitborderColor'] : '' ),
 	( isset( $attr['submitborderStyle'] ) ? $attr['submitborderStyle'] : '' )
 );
-$btnBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
-$btnBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
+$btnBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'tablet' );
+$btnBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'btn', 'mobile' );
 
 // fallback for forms select field.
 $formsPaddingRightMobileFallback = (int) $attr['paddingFieldRightMobile'] + 30;
@@ -118,10 +118,10 @@ $formsPaddingRightTabletFallback = (int) $attr['paddingFieldRightTablet'] + 30;
 
 $selectors = [
 	'.vxt-forms__outer-wrap'                              => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingTop'], $attr['formPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingRight'], $attr['formPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingBottom'], $attr['formPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingLeft'], $attr['formPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingTop'], $attr['formPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingRight'], $attr['formPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingBottom'], $attr['formPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingLeft'], $attr['formPaddingUnit'] ),
 	],
 	' .vxt-forms-main-form textarea'                      => [
 		'text-align' => $attr['overallAlignment'],
@@ -134,12 +134,12 @@ $selectors = [
 		'text-align' => null === $attr['labelAlignment'] ? $attr['overallAlignment'] : $attr['labelAlignment'],
 	],
 	' .vxt-forms-main-form .vxt-forms-field-set'         => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['fieldGap'], $attr['fieldGapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fieldGap'], $attr['fieldGapType'] ),
 	],
 	' .vxt-forms-main-form .vxt-forms-input-label'       => [
 		'color'         => $attr['labelColor'],
-		'font-size'     => \Vexaltrix\Support\Helper::getCssValue( $attr['labelFontSize'], $attr['labelFontSizeType'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['labelGap'], $attr['labelGapUnit'] ),
+		'font-size'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelFontSize'], $attr['labelFontSizeType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelGap'], $attr['labelGapUnit'] ),
 	],
 	' .vxt-forms-success-message'                         => array_merge(
 		[
@@ -182,7 +182,7 @@ $selectors = [
 	],
 	' .vxt-slider.round'                                  => [
 		// Important is added to override the usual border radius we set with a completely round one.
-		'border-radius' => \Vexaltrix\Support\Helper::getCssValue( 20 + $attr['toggleWidthSize'], 'px' ) . ' !important',
+		'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( 20 + $attr['toggleWidthSize'], 'px' ) . ' !important',
 	],
 	// Drop icon position css.
 	// select control color.
@@ -190,7 +190,7 @@ $selectors = [
 		'background'          => 'url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgd2lkdGg9JzE4cHgnIGhlaWdodD0nMThweCcgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIj48cGF0aCBkPSJtMzk2LjYgMTYwIDE5LjQgMjAuN0wyNTYgMzUyIDk2IDE4MC43bDE5LjMtMjAuN0wyNTYgMzEwLjV6IiBmaWxsPSIjMWQyMzI3IiBjbGFzcz0iZmlsbC0wMDAwMDAiPjwvcGF0aD48L3N2Zz4=) no-repeat',
 		'-moz-appearance'     => 'none !important',
 		'-webkit-appearance'  => ' none !important',
-		'background-position' => ' top 50% right ' . \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRight'], $attr['paddingFieldUnit'] ),
+		'background-position' => ' top 50% right ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRight'], $attr['paddingFieldUnit'] ),
 		'appearance'          => 'none !important',
 		'color'               => $attr['inputplaceholderColor'],
 	],
@@ -212,27 +212,27 @@ if ( 'full' !== $attr['buttonAlign'] ) {
 
 $tSelectors = [
 	'.vxt-forms__outer-wrap'                        => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingTopTab'], $attr['formPaddingUnitTab'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingRightTab'], $attr['formPaddingUnitTab'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingBottomTab'], $attr['formPaddingUnitTab'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingLeftTab'], $attr['formPaddingUnitTab'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingTopTab'], $attr['formPaddingUnitTab'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingRightTab'], $attr['formPaddingUnitTab'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingBottomTab'], $attr['formPaddingUnitTab'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingLeftTab'], $attr['formPaddingUnitTab'] ),
 	],
 	' .vxt-forms-main-form .vxt-forms-field-set'   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['fieldGapTablet'], $attr['fieldGapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fieldGapTablet'], $attr['fieldGapType'] ),
 	],
 	' .vxt-forms-main-form .vxt-forms-input-label' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['labelGapTablet'], $attr['labelGapUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelGapTablet'], $attr['labelGapUnit'] ),
 	],
 	' .vxt-slider.round'                            => [
 		// Important is added to override the usual border radius we set with a completely round one.
-		'border-radius' => \Vexaltrix\Support\Helper::getCssValue( 20 + $toggleWidthSizeNumberTablet, 'px' ) . ' !important',
+		'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( 20 + $toggleWidthSizeNumberTablet, 'px' ) . ' !important',
 	],
 	' .vxt-forms-success-message'                   => $successMessageBorderTablet,
 	' .vxt-forms-failed-message'                    => $failedMessageBorderTablet,
 	// Drop icon position css.
 	' .vxt-form-phone-country'                      => [
-		'background-position' => 'top 50% right ' . \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRightTablet'] ? $attr['paddingFieldRightTablet'] : 12, $attr['paddingFieldUnitTablet'] ),
-		'padding-right'       => \Vexaltrix\Support\Helper::getCssValue( $formsPaddingRightTabletFallback, $attr['paddingFieldUnitTablet'] ),
+		'background-position' => 'top 50% right ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRightTablet'] ? $attr['paddingFieldRightTablet'] : 12, $attr['paddingFieldUnitTablet'] ),
+		'padding-right'       => \Vexaltrix\Core\Support\Helper::getCssValue( $formsPaddingRightTabletFallback, $attr['paddingFieldUnitTablet'] ),
 	],
 	' .vxt-forms-main-form textarea'                => [
 		'text-align' => $attr['overallAlignmentTablet'],
@@ -257,28 +257,28 @@ if ( 'full' !== $attr['buttonAlignTablet'] ) {
 
 $mSelectors = [
 	'.vxt-forms__outer-wrap'                        => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingTopMob'], $attr['formPaddingUnitMob'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingRightMob'], $attr['formPaddingUnitMob'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingBottomMob'], $attr['formPaddingUnitMob'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['formPaddingLeftMob'], $attr['formPaddingUnitMob'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingTopMob'], $attr['formPaddingUnitMob'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingRightMob'], $attr['formPaddingUnitMob'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingBottomMob'], $attr['formPaddingUnitMob'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['formPaddingLeftMob'], $attr['formPaddingUnitMob'] ),
 	],
 	' .vxt-forms-main-form .vxt-forms-field-set'   => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['fieldGapMobile'], $attr['fieldGapType'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fieldGapMobile'], $attr['fieldGapType'] ),
 	],
 	' .vxt-forms-main-form .vxt-forms-input-label' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['labelGapMobile'], $attr['labelGapUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['labelGapMobile'], $attr['labelGapUnit'] ),
 	],
 	' .vxt-slider.round'                            => [
 		// Important is added to override the usual border radius we set with a completely round one.
-		'border-radius' => \Vexaltrix\Support\Helper::getCssValue( 20 + $toggleWidthSizeNumberMobile, 'px' ) . ' !important',
+		'border-radius' => \Vexaltrix\Core\Support\Helper::getCssValue( 20 + $toggleWidthSizeNumberMobile, 'px' ) . ' !important',
 	],
 	' .vxt-forms-success-message'                   => $successMessageBorderMobile,
 	' .vxt-forms-failed-message'                    => $failedMessageBorderMobile,
 
 	// Drop icon position css.
 	' .vxt-form-phone-country'                      => [
-		'background-position' => 'top 50% right ' . \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRightMobile'] ? $attr['paddingFieldRightMobile'] : 6, $attr['paddingFieldUnitmobile'] ),
-		'padding-right'       => \Vexaltrix\Support\Helper::getCssValue( $formsPaddingRightMobileFallback, $attr['paddingFieldUnitmobile'] ),
+		'background-position' => 'top 50% right ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRightMobile'] ? $attr['paddingFieldRightMobile'] : 6, $attr['paddingFieldUnitmobile'] ),
+		'padding-right'       => \Vexaltrix\Core\Support\Helper::getCssValue( $formsPaddingRightMobileFallback, $attr['paddingFieldUnitmobile'] ),
 	],
 	' .vxt-forms-main-form textarea'                => [
 		'text-align' => $attr['overallAlignmentMobile'],
@@ -302,8 +302,8 @@ if ( 'full' !== $attr['buttonAlignMobile'] ) {
 // Checkbox Field css.
 $selectors[' .vxt-forms-checkbox-wrap input[type=checkbox] + label:before'] = [
 	'background-color' => $attr['toggleColor'],
-	'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
-	'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
+	'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
+	'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
 ];
 $selectors[' .vxt-forms-checkbox-wrap > label']                             = [
 	'color' => $attr['inputColor'],
@@ -312,8 +312,8 @@ $selectors[' .vxt-forms-checkbox-wrap > label']                             = [
 // Radio Button Field css.
 $selectors[' .vxt-forms-radio-wrap input[type=radio] + label:before'] = [
 	'background-color' => $attr['toggleColor'],
-	'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
-	'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
+	'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
+	'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
 ];
 $selectors[' .vxt-forms-radio-wrap > label']                          = [
 	'color' => $attr['inputColor'],
@@ -324,21 +324,21 @@ $selectors[' .vxt-slider']                                     = [
 	'background-color' => $attr['toggleColor'],
 ];
 $selectors[' .vxt-forms-main-form .vxt-switch']               = [
-	'height' => 'calc(' . $toggleBorder['border-top-width'] . ' + ' . $toggleBorder['border-bottom-width'] . ' + ' . \Vexaltrix\Support\Helper::getCssValue(
+	'height' => 'calc(' . $toggleBorder['border-top-width'] . ' + ' . $toggleBorder['border-bottom-width'] . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( 20 + $attr['toggleWidthSize'] + ( ( 20 + $attr['toggleWidthSize'] ) / 3 ) ),
 		'px'
 	) . ')',
-	'width'  => 'calc(' . $toggleBorder['border-left-width'] . ' + ' . $toggleBorder['border-right-width'] . ' + ' . \Vexaltrix\Support\Helper::getCssValue(
+	'width'  => 'calc(' . $toggleBorder['border-left-width'] . ' + ' . $toggleBorder['border-right-width'] . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( ( ( 20 + $attr['toggleWidthSize'] ) * 2.5 ) + ( ( 20 + $attr['toggleWidthSize'] ) / 3 ) ),
 		'px'
 	) . ')',
 ];
 $selectors[' .vxt-forms-main-form .vxt-slider:before']        = [
-	'height'           => \Vexaltrix\Support\Helper::getCssValue( 20 + $attr['toggleWidthSize'], 'px' ),
-	'width'            => \Vexaltrix\Support\Helper::getCssValue( 20 + $attr['toggleWidthSize'], 'px' ),
-	'top'              => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $attr['toggleWidthSize'] ) / 6 ), 'px' ),
-	'bottom'           => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $attr['toggleWidthSize'] ) / 6 ), 'px' ),
-	'left'             => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $attr['toggleWidthSize'] ) / 6 ), 'px' ),
+	'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( 20 + $attr['toggleWidthSize'], 'px' ),
+	'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( 20 + $attr['toggleWidthSize'], 'px' ),
+	'top'              => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $attr['toggleWidthSize'] ) / 6 ), 'px' ),
+	'bottom'           => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $attr['toggleWidthSize'] ) / 6 ), 'px' ),
+	'left'             => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $attr['toggleWidthSize'] ) / 6 ), 'px' ),
 	'background-color' => $attr['toggleDotColor'],
 	'border-radius'    => $toggleBorder['border-top-left-radius'] . ' ' . $toggleBorder['border-top-right-radius'] . ' ' . $toggleBorder['border-bottom-right-radius'] . ' ' . $toggleBorder['border-bottom-left-radius'],
 ];
@@ -347,7 +347,7 @@ $selectors[' .vxt-switch input:checked + .vxt-slider']        = [
 	'border-color'     => ! empty( $attr['checkBoxToggleBorderHColor'] ) ? $attr['checkBoxToggleBorderHColor'] : $attr['inputborderHoverColor'],
 ];
 $selectors[' .vxt-switch input:checked + .vxt-slider:before'] = [
-	'transform'        => 'translateX(' . \Vexaltrix\Support\Helper::getCssValue(
+	'transform'        => 'translateX(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( ( ( ( 20 + $attr['toggleWidthSize'] ) * 2.5 ) - ( 20 + $attr['toggleWidthSize'] ) ) ),
 		'px'
 	) . ')',
@@ -360,8 +360,8 @@ $selectors[' .vxt-switch input:focus + .vxt-slider']          = [
 // Accept Field css.
 $selectors[' .vxt-forms-accept-wrap input[type=checkbox] + label:before'] = [
 	'background-color' => $attr['toggleColor'],
-	'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
-	'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
+	'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
+	'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSize'], $attr['toggleSizeType'] ),
 ];
 $selectors[' .vxt-forms-accept-wrap > label']                             = [
 	'color' => $attr['inputColor'],
@@ -389,10 +389,10 @@ if ( 'boxed' === $attr['formStyle'] ) {
 		$inputOverallBorder
 	);
 	$selectors[' .vxt-forms-main-form .vxt-forms-input.vxt-form-phone-country'] = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( ( $paddingFieldTop - 1 ), $attr['paddingFieldUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( ( $paddingFieldBottom - 1 ), $attr['paddingFieldUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldLeft, $attr['paddingFieldUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldRight, $attr['paddingFieldUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( ( $paddingFieldTop - 1 ), $attr['paddingFieldUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( ( $paddingFieldBottom - 1 ), $attr['paddingFieldUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldLeft, $attr['paddingFieldUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldRight, $attr['paddingFieldUnit'] ),
 	];
 
 	$selectors[' .vxt-forms-input:hover']        = [
@@ -416,62 +416,62 @@ if ( 'boxed' === $attr['formStyle'] ) {
 }
 
 $selectors[' .vxt-forms-main-form  .vxt-forms-input']   = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldTop, $attr['paddingFieldUnit'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldBottom, $attr['paddingFieldUnit'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldLeft, $attr['paddingFieldUnit'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldRight, $attr['paddingFieldUnit'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldTop, $attr['paddingFieldUnit'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldBottom, $attr['paddingFieldUnit'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldLeft, $attr['paddingFieldUnit'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldRight, $attr['paddingFieldUnit'] ),
 ];
 $tSelectors[' .vxt-forms-main-form  .vxt-forms-input'] = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldTopTablet'], $attr['paddingFieldUnitTablet'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldBottomTablet'], $attr['paddingFieldUnitTablet'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldLeftTablet'], $attr['paddingFieldUnitTablet'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRightTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldTopTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldBottomTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldLeftTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRightTablet'], $attr['paddingFieldUnitTablet'] ),
 
 ];
 $tSelectors[' .vxt-forms-main-form  .vxt-forms-input.vxt-form-phone-country'] = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldTopTablet'], $attr['paddingFieldUnitTablet'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldBottomTablet'], $attr['paddingFieldUnitTablet'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldLeftTablet'], $attr['paddingFieldUnitTablet'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRightTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldTopTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldBottomTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldLeftTablet'], $attr['paddingFieldUnitTablet'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRightTablet'], $attr['paddingFieldUnitTablet'] ),
 
 ];
 $tSelectors[' .vxt-switch input:checked + .vxt-slider:before']                 = [
-	'transform' => 'translateX(' . \Vexaltrix\Support\Helper::getCssValue(
+	'transform' => 'translateX(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( ( ( ( 20 + $toggleWidthSizeNumberTablet ) * 2.5 ) - ( 20 + $toggleWidthSizeNumberTablet ) ) ),
 		'px'
 	) . ')',
 ];
 $mSelectors[' .vxt-forms-main-form  .vxt-forms-input.vxt-form-phone-country'] = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldTopMobile'], $attr['paddingFieldUnitmobile'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldBottomMobile'], $attr['paddingFieldUnitmobile'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldLeftMobile'], $attr['paddingFieldUnitmobile'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRightMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldTopMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldBottomMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldLeftMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRightMobile'], $attr['paddingFieldUnitmobile'] ),
 
 ];
 $mSelectors[' .vxt-forms-main-form  .vxt-forms-input']         = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldTopMobile'], $attr['paddingFieldUnitmobile'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldBottomMobile'], $attr['paddingFieldUnitmobile'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldLeftMobile'], $attr['paddingFieldUnitmobile'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingFieldRightMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldTopMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldBottomMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldLeftMobile'], $attr['paddingFieldUnitmobile'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingFieldRightMobile'], $attr['paddingFieldUnitmobile'] ),
 ];
 $mSelectors[' .vxt-switch input:checked + .vxt-slider:before'] = [
-	'transform' => 'translateX(' . \Vexaltrix\Support\Helper::getCssValue(
+	'transform' => 'translateX(' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( ( ( ( 20 + $toggleWidthSizeNumberMobile ) * 2.5 ) - ( 20 + $toggleWidthSizeNumberMobile ) ) ),
 		'px'
 	) . ')',
 ];
 if ( 'underlined' === $attr['formStyle'] ) {
 	$selectors[' .vxt-forms-main-form  .vxt-forms-accept-wrap input[type=checkbox] + label:before']   = [
-		'border-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
+		'border-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
 	];
 	$selectors[' .vxt-forms-main-form  .vxt-forms-checkbox-wrap input[type=checkbox] + label:before'] = [
-		'border-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
+		'border-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
 	];
 	$selectors[' .vxt-forms-main-form .vxt-slider'] = [
-		'border-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
+		'border-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
 	];
 	$selectors[' .vxt-forms-main-form  .vxt-forms-radio-wrap input[type=radio] + label:before'] = [
-		'border-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
+		'border-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['checkBoxToggleBorderBottomWidth'], 'px' ) . ' ' . $attr['checkBoxToggleBorderStyle'] . ' ' . $attr['checkBoxToggleBorderColor'],
 	];
 	$selectors[' .vxt-forms-main-form  .vxt-forms-input']                                       = array_merge(
 		[
@@ -481,12 +481,12 @@ if ( 'underlined' === $attr['formStyle'] ) {
 			'outline'        => 0,
 			'border-radius'  => 0,
 			'background'     => 'transparent',
-			'border-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['fieldBorderBottomWidth'], 'px' ) . ' ' . $attr['fieldBorderStyle'] . ' ' . $attr['fieldBorderColor'],
+			'border-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fieldBorderBottomWidth'], 'px' ) . ' ' . $attr['fieldBorderStyle'] . ' ' . $attr['fieldBorderColor'],
 			'color'          => $attr['inputColor'],
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldTop, $attr['paddingFieldUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldBottom, $attr['paddingFieldUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldLeft, $attr['paddingFieldUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $paddingFieldRight, $attr['paddingFieldUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldTop, $attr['paddingFieldUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldBottom, $attr['paddingFieldUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldLeft, $attr['paddingFieldUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $paddingFieldRight, $attr['paddingFieldUnit'] ),
 		],
 		$inputOverallBorder
 	);
@@ -529,31 +529,31 @@ $tSelectors[' .vxt-forms-checkbox-wrap input[type=checkbox]:checked + label:befo
 	'font-size' => 'calc(' . $toggleSizeNumberTablet . $attr['toggleSizeType'] . ' / 1.2)',
 ];
 $tSelectors[' .vxt-forms-checkbox-wrap input[type=checkbox] + label:before']         = [
-	'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
-	'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
+	'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
+	'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
 ];
 // Radio Button Field css.
 $tSelectors[' .vxt-forms-radio-wrap input[type=radio]:checked + label:before'] = [
 	'font-size' => 'calc(' . $toggleSizeNumberTablet . 'px / 1.2)',
 ];
 $tSelectors[' .vxt-forms-radio-wrap input[type=radio] + label:before']         = [
-	'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
-	'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
+	'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
+	'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
 ];
 // Accept Field css.
 $tSelectors[' .vxt-forms-accept-wrap input[type=checkbox]:checked + label:before'] = [
 	'font-size' => 'calc(' . $toggleSizeNumberTablet . $attr['toggleSizeType'] . ' / 1.2)',
 ];
 $tSelectors[' .vxt-forms-accept-wrap input[type=checkbox] + label:before']         = [
-	'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
-	'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
+	'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
+	'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeTablet'], $attr['toggleSizeType'] ),
 ];
 $tSelectors[' .vxt-forms-main-form .vxt-switch']                                  = [
-	'height' => 'calc(' . $toggleBorderTopTabletFallback . ' + ' . $toggleBorderBottomTabletFallback . ' + ' . \Vexaltrix\Support\Helper::getCssValue(
+	'height' => 'calc(' . $toggleBorderTopTabletFallback . ' + ' . $toggleBorderBottomTabletFallback . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( 20 + $toggleWidthSizeNumberTablet + ( ( 20 + $toggleWidthSizeNumberTablet ) / 3 ) ),
 		'px'
 	) . ')',
-	'width'  => 'calc(' . $toggleBorderLeftTabletFallback . ' + ' . $toggleBorderRightTabletFallback . ' + ' . \Vexaltrix\Support\Helper::getCssValue(
+	'width'  => 'calc(' . $toggleBorderLeftTabletFallback . ' + ' . $toggleBorderRightTabletFallback . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( ( ( 20 + $toggleWidthSizeNumberTablet ) * 2.5 ) + ( ( 20 + $toggleWidthSizeNumberTablet ) / 3 ) ),
 		'px'
 	) . ')',
@@ -561,9 +561,9 @@ $tSelectors[' .vxt-forms-main-form .vxt-switch']                                
 $tSelectors[' .vxt-forms-main-form .vxt-slider:before']                           = [
 	'height'        => 'calc(20px + ' . $toggleWidthSizeNumberTablet . 'px)',
 	'width'         => 'calc(20px + ' . $toggleWidthSizeNumberTablet . 'px)',
-	'top'           => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberTablet ) / 6 ), 'px' ),
-	'bottom'        => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberTablet ) / 6 ), 'px' ),
-	'left'          => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberTablet ) / 6 ), 'px' ),
+	'top'           => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberTablet ) / 6 ), 'px' ),
+	'bottom'        => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberTablet ) / 6 ), 'px' ),
+	'left'          => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberTablet ) / 6 ), 'px' ),
 	'border-radius' => $toggleBorderRadiusTlTabletFallback . ' ' . $toggleBorderRadiusTrTabletFallback . ' ' . $toggleBorderRadiusBrTabletFallback . ' ' . $toggleBorderRadiusBlTabletFallback,
 ];
 
@@ -572,31 +572,31 @@ $mSelectors[' .vxt-forms-checkbox-wrap input[type=checkbox]:checked + label:befo
 	'font-size' => 'calc(' . $toggleSizeNumberMobile . $attr['toggleSizeType'] . ' / 1.2)',
 ];
 $mSelectors[' .vxt-forms-checkbox-wrap input[type=checkbox] + label:before']         = [
-	'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
-	'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
+	'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
+	'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
 ];
 // Radio Button Field css.
 $mSelectors[' .vxt-forms-radio-wrap input[type=radio]:checked + label:before'] = [
 	'font-size' => 'calc(' . $toggleSizeNumberMobile . 'px / 1.2)',
 ];
 $mSelectors[' .vxt-forms-radio-wrap input[type=radio] + label:before']         = [
-	'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
-	'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
+	'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
+	'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
 ];
 // Accept Field css.
 $mSelectors[' .vxt-forms-accept-wrap input[type=checkbox]:checked + label:before'] = [
 	'font-size' => 'calc(' . $toggleSizeNumberMobile . $attr['toggleSizeType'] . ' / 1.2)',
 ];
 $mSelectors[' .vxt-forms-accept-wrap input[type=checkbox] + label:before']         = [
-	'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
-	'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
+	'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
+	'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['toggleSizeMobile'], $attr['toggleSizeType'] ),
 ];
 $mSelectors[' .vxt-forms-main-form .vxt-switch']                                  = [
-	'height' => 'calc(' . $toggleBorderTopMobileFallback . ' + ' . $toggleBorderBottomMobileFallback . ' + ' . \Vexaltrix\Support\Helper::getCssValue(
+	'height' => 'calc(' . $toggleBorderTopMobileFallback . ' + ' . $toggleBorderBottomMobileFallback . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( 20 + $toggleWidthSizeNumberMobile + ( ( 20 + $toggleWidthSizeNumberMobile ) / 3 ) ),
 		'px'
 	) . ')',
-	'width'  => 'calc(' . $toggleBorderLeftMobileFallback . ' + ' . $toggleBorderRightMobileFallback . ' + ' . \Vexaltrix\Support\Helper::getCssValue(
+	'width'  => 'calc(' . $toggleBorderLeftMobileFallback . ' + ' . $toggleBorderRightMobileFallback . ' + ' . \Vexaltrix\Core\Support\Helper::getCssValue(
 		(int) ( ( ( 20 + $toggleWidthSizeNumberMobile ) * 2.5 ) + ( ( 20 + $toggleWidthSizeNumberMobile ) / 3 ) ),
 		'px'
 	) . ')',
@@ -604,21 +604,21 @@ $mSelectors[' .vxt-forms-main-form .vxt-switch']                                
 $mSelectors[' .vxt-forms-main-form .vxt-slider:before']                           = [
 	'height'        => 'calc(20px + ' . $toggleWidthSizeNumberMobile . 'px)',
 	'width'         => 'calc(20px + ' . $toggleWidthSizeNumberMobile . 'px)',
-	'top'           => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberMobile ) / 6 ), 'px' ),
-	'bottom'        => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberMobile ) / 6 ), 'px' ),
-	'left'          => \Vexaltrix\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberMobile ) / 6 ), 'px' ),
+	'top'           => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberMobile ) / 6 ), 'px' ),
+	'bottom'        => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberMobile ) / 6 ), 'px' ),
+	'left'          => \Vexaltrix\Core\Support\Helper::getCssValue( (int) ( ( 20 + $toggleWidthSizeNumberMobile ) / 6 ), 'px' ),
 	'border-radius' => $toggleBorderRadiusTlMobileFallback . ' ' . $toggleBorderRadiusTrMobileFallback . ' ' . $toggleBorderRadiusBrMobileFallback . ' ' . $toggleBorderRadiusBlMobileFallback,
 ];
 
 if ( ! $attr['inheritFromTheme'] ) {
 	$selectors[' .vxt-forms-main-form .vxt-forms-main-submit-button-wrap.wp-block-button:not(.is-style-outline) .vxt-forms-main-submit-button.wp-block-button__link '] = array_merge(
 		[
-			'font-size'      => \Vexaltrix\Support\Helper::getCssValue( $attr['submitTextFontSize'], $attr['submitTextFontSizeType'] ),
+			'font-size'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['submitTextFontSize'], $attr['submitTextFontSizeType'] ),
 			'color'          => $attr['submitColor'],
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTop, $attr['paddingBtnUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottom, $attr['paddingBtnUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeft, $attr['paddingBtnUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRight, $attr['paddingBtnUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTop, $attr['paddingBtnUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottom, $attr['paddingBtnUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeft, $attr['paddingBtnUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRight, $attr['paddingBtnUnit'] ),
 		],
 		$btnBorder
 	);
@@ -626,12 +626,12 @@ if ( ! $attr['inheritFromTheme'] ) {
 
 	$selectors[' .vxt-forms-main-form .vxt-forms-main-submit-button '] = array_merge(
 		[
-			'font-size'      => \Vexaltrix\Support\Helper::getCssValue( $attr['submitTextFontSize'], $attr['submitTextFontSizeType'] ),
+			'font-size'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['submitTextFontSize'], $attr['submitTextFontSizeType'] ),
 			'color'          => $attr['submitColor'],
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingTop, $attr['paddingBtnUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingBottom, $attr['paddingBtnUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingLeft, $attr['paddingBtnUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $btnPaddingRight, $attr['paddingBtnUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingTop, $attr['paddingBtnUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingBottom, $attr['paddingBtnUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingLeft, $attr['paddingBtnUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $btnPaddingRight, $attr['paddingBtnUnit'] ),
 		],
 		$btnBorder
 	);
@@ -710,9 +710,9 @@ if ( ! $attr['inheritFromTheme'] ) {
 			'selectGradient'    => $attr['selectGradient'],
 		];
 	
-		$btnBgCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObj );
-		$btnBgCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
-		$btnBgCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
+		$btnBgCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObj );
+		$btnBgCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjTablet );
+		$btnBgCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgObjMobile );
 		$selectors['  .vxt-forms-main-form .wp-block-button:not(.is-style-outline) .vxt-forms-main-submit-button.wp-block-button__link']   = $btnBgCss;
 		$tSelectors['  .vxt-forms-main-form .wp-block-button:not(.is-style-outline) .vxt-forms-main-submit-button.wp-block-button__link'] = $btnBgCssTablet;
 		$mSelectors['  .vxt-forms-main-form .wp-block-button:not(.is-style-outline) .vxt-forms-main-submit-button.wp-block-button__link'] = $btnBgCssMobile;
@@ -768,9 +768,9 @@ if ( ! $attr['inheritFromTheme'] ) {
 			'selectGradient'    => $attr['selectHGradient'],
 		];
 
-		$btnHoverBgCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgHoverObj );
-		$btnHoverBgCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgHoverObjTablet );
-		$btnHoverBgCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGetBackgroundObj( $bgHoverObjMobile );
+		$btnHoverBgCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgHoverObj );
+		$btnHoverBgCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgHoverObjTablet );
+		$btnHoverBgCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGetBackgroundObj( $bgHoverObjMobile );
 
 		$selectors[' .vxt-forms-main-form .vxt-forms-main-submit-button-wrap .vxt-forms-main-submit-button.wp-block-button__link:hover']   = $btnHoverBgCss;
 		$tSelectors[' .vxt-forms-main-form .vxt-forms-main-submit-button-wrap .vxt-forms-main-submit-button.wp-block-button__link:hover'] = $btnHoverBgCssTablet;
@@ -779,10 +779,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 
 	$tSelectors[' .vxt-forms-main-form .vxt-forms-main-submit-button'] = array_merge(
 		[
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnTopTablet'], $attr['tabletPaddingBtnUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnBottomTablet'], $attr['tabletPaddingBtnUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnLeftTablet'], $attr['tabletPaddingBtnUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnRightTablet'], $attr['tabletPaddingBtnUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnTopTablet'], $attr['tabletPaddingBtnUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnBottomTablet'], $attr['tabletPaddingBtnUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnLeftTablet'], $attr['tabletPaddingBtnUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnRightTablet'], $attr['tabletPaddingBtnUnit'] ),
 		],
 		$btnBorderTablet
 	);
@@ -792,10 +792,10 @@ if ( ! $attr['inheritFromTheme'] ) {
 
 	$mSelectors[' .vxt-forms-main-form .vxt-forms-main-submit-button'] = array_merge(
 		[
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnTopMobile'], $attr['mobilePaddingBtnUnit'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnBottomMobile'], $attr['mobilePaddingBtnUnit'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnLeftMobile'], $attr['mobilePaddingBtnUnit'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['paddingBtnRightMobile'], $attr['mobilePaddingBtnUnit'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnTopMobile'], $attr['mobilePaddingBtnUnit'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnBottomMobile'], $attr['mobilePaddingBtnUnit'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnLeftMobile'], $attr['mobilePaddingBtnUnit'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paddingBtnRightMobile'], $attr['mobilePaddingBtnUnit'] ),
 		],
 		$btnBorderMobile
 	);
@@ -810,13 +810,13 @@ $combinedSelectors = [
 ];
 
 if ( ! $attr['inheritFromTheme'] ) {
-	$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'submitText', ' .vxt-forms-main-form .vxt-forms-main-submit-button', $combinedSelectors );
+	$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'submitText', ' .vxt-forms-main-form .vxt-forms-main-submit-button', $combinedSelectors );
 }
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'label', ' .vxt-forms-main-form .vxt-forms-input-label', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'label', ' .vxt-forms-main-form .vxt-forms-input-label', $combinedSelectors );
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'input', ' .vxt-forms-main-form  .vxt-forms-input::placeholder', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'input', ' .vxt-forms-main-form  .vxt-forms-input::placeholder', $combinedSelectors );
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'input', ' .vxt-forms-main-form  .vxt-forms-input', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'input', ' .vxt-forms-main-form  .vxt-forms-input', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

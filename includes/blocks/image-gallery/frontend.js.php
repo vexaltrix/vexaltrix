@@ -92,25 +92,25 @@ if ( $attr['mediaGallery'] ) {
 	switch ( $attr['feedLayout'] ) {
 		case 'grid':
 			$js = $attr['feedPagination']
-				? \Vexaltrix\BlocksConfig\ImageGallery\ImageGallery::renderFrontendGridPagination( $id, $attr, $selector, $lightboxSettings, $thumbnailSettings )
+				? \Vexaltrix\Presentation\BlocksConfig\ImageGallery\ImageGallery::renderFrontendGridPagination( $id, $attr, $selector, $lightboxSettings, $thumbnailSettings )
 				: '';
 			break;
 		case 'masonry':
-			$js = \Vexaltrix\BlocksConfig\ImageGallery\ImageGallery::renderFrontendMasonryLayout( $id, $attr, $selector, $lightboxSettings, $thumbnailSettings );
+			$js = \Vexaltrix\Presentation\BlocksConfig\ImageGallery\ImageGallery::renderFrontendMasonryLayout( $id, $attr, $selector, $lightboxSettings, $thumbnailSettings );
 			break;
 		case 'carousel':
-			$js = \Vexaltrix\BlocksConfig\ImageGallery\ImageGallery::renderFrontendCarouselLayout( $id, $settings, $selector );
+			$js = \Vexaltrix\Presentation\BlocksConfig\ImageGallery\ImageGallery::renderFrontendCarouselLayout( $id, $settings, $selector );
 			break;
 		case 'tiled':
-			$js = \Vexaltrix\BlocksConfig\ImageGallery\ImageGallery::renderFrontendTiledLayout( $id );
+			$js = \Vexaltrix\Presentation\BlocksConfig\ImageGallery\ImageGallery::renderFrontendTiledLayout( $id );
 			break;
 	}
 	switch ( $attr['imageClickEvent'] ) {
 		case 'lightbox':
-			$js .= \Vexaltrix\BlocksConfig\ImageGallery\ImageGallery::renderFrontendLightbox( $id, $attr, $lightboxSettings, $thumbnailSettings, $selector );
+			$js .= \Vexaltrix\Presentation\BlocksConfig\ImageGallery\ImageGallery::renderFrontendLightbox( $id, $attr, $lightboxSettings, $thumbnailSettings, $selector );
 			break;
 		case 'image':
-			$js .= \Vexaltrix\BlocksConfig\ImageGallery\ImageGallery::renderImageClick( $id, $attr );
+			$js .= \Vexaltrix\Presentation\BlocksConfig\ImageGallery\ImageGallery::renderImageClick( $id, $attr );
 			break;
 		case 'url':
 			$js = apply_filters( 'vxt_ultimate_gutenberg_blocks_image_gallery_pro_custom_url_js', $js, $id, $attr );

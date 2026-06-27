@@ -9,22 +9,22 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksTaxonomyListGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksTaxonomyListGfont( $attr );
 
 $selectors   = [];
 $tSelectors = [];
 $mSelectors = [];
 
-$overallBorderCss       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
-$overallBorderCss       = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$overallBorderCss       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall' );
+$overallBorderCss       = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$overallBorderCss,
 	( isset( $attr['borderThickness'] ) ? $attr['borderThickness'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$overallBorderCsstablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
-$overallBorderCssmobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
+$overallBorderCsstablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'tablet' );
+$overallBorderCssmobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'overall', 'mobile' );
 
 $topPadding    = isset( $attr['contentTopPadding'] ) ? $attr['contentTopPadding'] : $attr['contentPadding'];
 $bottomPadding = isset( $attr['contentBottomPadding'] ) ? $attr['contentBottomPadding'] : $attr['contentPadding'];
@@ -51,25 +51,25 @@ $selectors = [
 	'.vxt-taxonomy__outer-wrap.vxt-layout-grid'          => [
 		'display'               => 'grid',
 		'grid-template-columns' => 'repeat(' . $attr['columns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGap'], 'px' ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGap'], 'px' ),
 
 	],
 	'.vxt-layout-grid .vxt-taxomony-box'                 => [
-		'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $leftPadding, $attr['contentPaddingUnit'] ),
-		'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $rightPadding, $attr['contentPaddingUnit'] ),
-		'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $topPadding, $attr['contentPaddingUnit'] ),
-		'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $bottomPadding, $attr['contentPaddingUnit'] ),
-		'grid-column-gap'  => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
+		'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPadding, $attr['contentPaddingUnit'] ),
+		'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPadding, $attr['contentPaddingUnit'] ),
+		'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $topPadding, $attr['contentPaddingUnit'] ),
+		'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPadding, $attr['contentPaddingUnit'] ),
+		'grid-column-gap'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
 		'background-color' => $attr['bgColor'],
 		'text-align'       => $attr['alignment'],
-		'box-shadow'       => \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
+		'box-shadow'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
 
 	],
 	'.vxt-layout-grid .vxt-tax-title'                    => [
 		'color'         => $attr['titleColor'],
 		'margin-top'    => '0',
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleBottomSpace'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleBottomSpace'], 'px' ),
 	],
 	'.vxt-layout-grid .vxt-tax-link'                     => [
 		'color' => $attr['countColor'],
@@ -92,31 +92,31 @@ $selectors = [
 		'color' => $attr['hoverlistTextColor'],
 	],
 	'.vxt-layout-list .vxt-tax-list .vxt-tax-link-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['listBottomMargin'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['listBottomMargin'], 'px' ),
 	],
 	/* For Backword */
 	' .vxt-taxonomy-wrap.vxt-layout-grid'                => [
 		'display'               => 'grid',
 		'grid-template-columns' => 'repeat(' . $attr['columns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGap'], 'px' ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGap'], 'px' ),
 
 	],
 	' .vxt-layout-grid .vxt-taxomony-box'                => [
-		'padding-left'     => \Vexaltrix\Support\Helper::getCssValue( $leftPadding, $attr['contentPaddingUnit'] ),
-		'padding-right'    => \Vexaltrix\Support\Helper::getCssValue( $rightPadding, $attr['contentPaddingUnit'] ),
-		'padding-top'      => \Vexaltrix\Support\Helper::getCssValue( $topPadding, $attr['contentPaddingUnit'] ),
-		'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue( $bottomPadding, $attr['contentPaddingUnit'] ),
-		'grid-column-gap'  => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
+		'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPadding, $attr['contentPaddingUnit'] ),
+		'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPadding, $attr['contentPaddingUnit'] ),
+		'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue( $topPadding, $attr['contentPaddingUnit'] ),
+		'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPadding, $attr['contentPaddingUnit'] ),
+		'grid-column-gap'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGap'], 'px' ),
 		'background-color' => $attr['bgColor'],
 		'text-align'       => $attr['alignment'],
-		'box-shadow'       => \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
+		'box-shadow'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowHOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowVOffset'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowBlur'], 'px' ) . ' ' . \Vexaltrix\Core\Support\Helper::getCssValue( $attr['boxShadowSpread'], 'px' ) . ' ' . $attr['boxShadowColor'] . ' ' . $boxShadowPositionCSS,
 
 	],
 	' .vxt-layout-grid .vxt-tax-title'                   => [
 		'color'         => $attr['titleColor'],
 		'margin-top'    => '0',
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleBottomSpace'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleBottomSpace'], 'px' ),
 	],
 	' .vxt-layout-grid .vxt-tax-link'                    => [
 		'color' => $attr['countColor'],
@@ -136,7 +136,7 @@ $selectors = [
 		'color' => $attr['hoverlistTextColor'],
 	],
 	' .vxt-layout-list .vxt-tax-list .vxt-tax-link-wrap' => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['listBottomMargin'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['listBottomMargin'], 'px' ),
 	],
 	/* End Backword */
 
@@ -145,8 +145,8 @@ if ( 'none' !== $attr['seperatorStyle'] ) {
 	$selectors['.vxt-layout-list .vxt-tax-separator']        = [
 		'border-top-color' => $attr['seperatorColor'],
 		'border-top-style' => $attr['seperatorStyle'],
-		'border-top-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorThickness'], 'px' ),
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorWidth'], '%' ),
+		'border-top-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorThickness'], 'px' ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorWidth'], '%' ),
 	];
 	$selectors['.vxt-layout-list .vxt-tax-separator:hover']  = [
 		'border-top-color' => $attr['seperatorHoverColor'],
@@ -154,8 +154,8 @@ if ( 'none' !== $attr['seperatorStyle'] ) {
 	$selectors[' .vxt-layout-list .vxt-tax-separator']       = [
 		'border-top-color' => $attr['seperatorColor'],
 		'border-top-style' => $attr['seperatorStyle'],
-		'border-top-width' => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorThickness'], 'px' ),
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['seperatorWidth'], '%' ),
+		'border-top-width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorThickness'], 'px' ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['seperatorWidth'], '%' ),
 	];
 	$selectors[' .vxt-layout-list .vxt-tax-separator:hover'] = [
 		'border-top-color' => $attr['seperatorHoverColor'],
@@ -175,34 +175,34 @@ $tSelectors = [
 	],
 	'.vxt-taxonomy__outer-wrap.vxt-layout-grid' => [
 		'grid-template-columns' => 'repeat(' . $attr['tcolumns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapTablet'], 'px' ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapTablet'], 'px' ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapTablet'], 'px' ),
 	],
 	'.vxt-layout-grid .vxt-taxomony-box'        => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingTablet, $attr['tabletContentPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingTablet, $attr['tabletContentPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingTablet, $attr['tabletContentPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingTablet, $attr['tabletContentPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingTablet, $attr['tabletContentPaddingUnit'] ),
 	],
 	'.vxt-layout-grid .vxt-tax-title'           => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleBottomSpaceTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleBottomSpaceTablet'], 'px' ),
 	],
 ];
 
 $mSelectors = [
 	'.vxt-taxonomy__outer-wrap.vxt-layout-grid' => [
 		'grid-template-columns' => 'repeat(' . $attr['mcolumns'] . ', 1fr)',
-		'grid-column-gap'       => \Vexaltrix\Support\Helper::getCssValue( $attr['columnGapMobile'], 'px' ),
-		'grid-row-gap'          => \Vexaltrix\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
+		'grid-column-gap'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['columnGapMobile'], 'px' ),
+		'grid-row-gap'          => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rowGapMobile'], 'px' ),
 	],
 	'.vxt-layout-grid .vxt-taxomony-box'        => [
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $leftPaddingMobile, $attr['mobileContentPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $rightPaddingMobile, $attr['mobileContentPaddingUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $topPaddingMobile, $attr['mobileContentPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $leftPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $rightPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $topPaddingMobile, $attr['mobileContentPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $bottomPaddingMobile, $attr['mobileContentPaddingUnit'] ),
 	],
 	'.vxt-layout-grid .vxt-tax-title'           => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['titleBottomSpaceMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleBottomSpaceMobile'], 'px' ),
 	],
 ];
 
@@ -215,12 +215,12 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 /* For Backword */
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-layout-grid .vxt-tax-title', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'count', ' .vxt-layout-grid .vxt-tax-link', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'list', ' .vxt-layout-list .vxt-tax-list', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-layout-grid .vxt-tax-title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'count', ' .vxt-layout-grid .vxt-tax-link', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'list', ' .vxt-layout-list .vxt-tax-list', $combinedSelectors );
 /* End Backword */
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', '.vxt-layout-grid .vxt-tax-title', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'count', '.vxt-layout-grid .vxt-tax-link', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'list', '.vxt-layout-list .vxt-tax-list', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', '.vxt-layout-grid .vxt-tax-title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'count', '.vxt-layout-grid .vxt-tax-link', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'list', '.vxt-layout-list .vxt-tax-list', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

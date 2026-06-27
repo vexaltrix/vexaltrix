@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$iconWrapBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'iconWrap' );
+$iconWrapBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'iconWrap' );
 
 return array_merge(
 	[

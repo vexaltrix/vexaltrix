@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$inputBorderAttributes = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'input' );
+$inputBorderAttributes = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'input' );
 
 return array_merge(
 	[

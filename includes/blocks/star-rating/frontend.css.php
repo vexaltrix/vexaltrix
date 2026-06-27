@@ -10,7 +10,7 @@
  */
 
 // Add fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksStarRatingGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksStarRatingGfont( $attr );
 
 $tSelectors = [];
 $mSelectors = [];
@@ -57,35 +57,35 @@ if ( '' !== $attr['alignMobile'] ) {
 }
 
 $wrapperCSS = [
-	'margin-top'     => \Vexaltrix\Support\Helper::getCssValue(
+	'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockTopMargin'],
 		$attr['blockMarginUnit']
 	),
-	'margin-right'   => \Vexaltrix\Support\Helper::getCssValue(
+	'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockRightMargin'],
 		$attr['blockMarginUnit']
 	),
-	'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue(
+	'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockBottomMargin'],
 		$attr['blockMarginUnit']
 	),
-	'margin-left'    => \Vexaltrix\Support\Helper::getCssValue(
+	'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockLeftMargin'],
 		$attr['blockMarginUnit']
 	),
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue(
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockTopPadding'],
 		$attr['blockPaddingUnit']
 	),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue(
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockRightPadding'],
 		$attr['blockPaddingUnit']
 	),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockBottomPadding'],
 		$attr['blockPaddingUnit']
 	),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue(
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 		$attr['blockLeftPadding'],
 		$attr['blockPaddingUnit']
 	),
@@ -93,20 +93,20 @@ $wrapperCSS = [
 
 $selectors = [
 	' .uag-star-rating'        => [
-		'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['size'], 'px' ),
+		'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['size'], 'px' ),
 	],
 	' .uag-star-rating > span' => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['gap'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gap'], 'px' ),
 		'color'        => $attr['unmarkedColor'],
 	],
 	' .uag-star:nth-child(-n+' . floor( $attr['rating'] ) . ')' => [
 		'color' => $attr['color'],
 	],
 	' .uag-star-rating__title' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['fontSize'], $attr['fontSizeType'] ),
 		'font-family' => $attr['fontFamily'],
 		'font-weight' => $attr['fontWeight'],
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['lineHeight'], $attr['lineHeightType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['lineHeight'], $attr['lineHeightType'] ),
 		'color'       => $attr['titleColor'],
 	],
 ];
@@ -138,7 +138,7 @@ if ( 'stack' === $attr['layout'] ) {
 		$selectors['.wp-block-vxt-star-rating'] = array_merge(
 			[
 				'flex-direction'  => 'row-reverse',
-				'justify-content' => \Vexaltrix\Core\Blocks\BlockHelper::flexAlignmentWhenDirectionIsRowReverse( $alignment ), // To align-item in flex-direction column-reverse.
+				'justify-content' => \Vexaltrix\Presentation\Blocks\BlockHelper::flexAlignmentWhenDirectionIsRowReverse( $alignment ), // To align-item in flex-direction column-reverse.
 			],
 			$wrapperCSS
 		);
@@ -156,14 +156,14 @@ if ( 'stack' === $attr['layout'] ) {
 
 
 $wrapperCSSTablet = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
-	'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
-	'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
-	'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
-	'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPaddingTablet'], $attr['blockPaddingUnitTablet'] ),
+	'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
+	'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
+	'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
+	'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
 ];
 
 $indexTablet = 'margin-right';
@@ -193,7 +193,7 @@ if ( 'stack' === $attr['layoutTablet'] ) {
 		$tSelectors['.wp-block-vxt-star-rating'] = array_merge(
 			[
 				'flex-direction'  => 'row-reverse',
-				'justify-content' => \Vexaltrix\Core\Blocks\BlockHelper::flexAlignmentWhenDirectionIsRowReverse( $alignmentTablet ), // To align-item in flex-direction column-reverse.
+				'justify-content' => \Vexaltrix\Presentation\Blocks\BlockHelper::flexAlignmentWhenDirectionIsRowReverse( $alignmentTablet ), // To align-item in flex-direction column-reverse.
 			],
 			$wrapperCSSTablet
 		);
@@ -213,14 +213,14 @@ if ( 'stack' === $attr['layoutTablet'] ) {
 }
 
 $wrapperCSSMobile = [
-	'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-	'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-	'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-	'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
-	'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
-	'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
-	'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
-	'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
+	'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+	'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+	'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+	'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPaddingMobile'], $attr['blockPaddingUnitMobile'] ),
+	'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
+	'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
+	'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
+	'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
 ];
 
 $indexMobile = 'margin-right';
@@ -250,7 +250,7 @@ if ( 'stack' === $attr['layoutMobile'] ) {
 		$mSelectors['.wp-block-vxt-star-rating'] = array_merge(
 			[
 				'flex-direction'  => 'row-reverse',
-				'justify-content' => \Vexaltrix\Core\Blocks\BlockHelper::flexAlignmentWhenDirectionIsRowReverse( $alignmentMobile ), // To align-item in flex-direction column-reverse.
+				'justify-content' => \Vexaltrix\Presentation\Blocks\BlockHelper::flexAlignmentWhenDirectionIsRowReverse( $alignmentMobile ), // To align-item in flex-direction column-reverse.
 			],
 			$wrapperCSSMobile
 		);
@@ -269,20 +269,20 @@ if ( 'stack' === $attr['layoutMobile'] ) {
 	];
 }
 
-$selectors[' .uag-star-rating__title'][ $index ]          = \Vexaltrix\Support\Helper::getCssValue( $attr['titleGap'], 'px' );
-$tSelectors[' .uag-star-rating__title'][ $indexTablet ] = \Vexaltrix\Support\Helper::getCssValue( $attr['titleGapTablet'], 'px' );
-$mSelectors[' .uag-star-rating__title'][ $indexMobile ] = \Vexaltrix\Support\Helper::getCssValue( $attr['titleGapMobile'], 'px' );
+$selectors[' .uag-star-rating__title'][ $index ]          = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleGap'], 'px' );
+$tSelectors[' .uag-star-rating__title'][ $indexTablet ] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleGapTablet'], 'px' );
+$mSelectors[' .uag-star-rating__title'][ $indexMobile ] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['titleGapMobile'], 'px' );
 $tSelectors[' .uag-star-rating']                         = [
-	'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['sizeTablet'], 'px' ),
+	'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['sizeTablet'], 'px' ),
 ];
 $tSelectors[' .uag-star-rating > span']                  = [
-	'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapTablet'], 'px' ),
+	'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapTablet'], 'px' ),
 ];
 $mSelectors[' .uag-star-rating']                         = [
-	'font-size' => \Vexaltrix\Support\Helper::getCssValue( $attr['sizeMobile'], 'px' ),
+	'font-size' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['sizeMobile'], 'px' ),
 ];
 $mSelectors[' .uag-star-rating > span']                  = [
-	'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['gapMobile'], 'px' ),
+	'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['gapMobile'], 'px' ),
 ];
 
 $remainder = ( $attr['rating'] - floor( $attr['rating'] ) );
@@ -291,7 +291,7 @@ $width     = $remainder * 100;
 if ( 0 !== $width ) {
 	$selectors[ ' .uag-star:nth-child(' . ceil( $attr['rating'] ) . '):before' ] = [
 		'color'    => $attr['color'],
-		'width'    => \Vexaltrix\Support\Helper::getCssValue( $width, '%' ),
+		'width'    => \Vexaltrix\Core\Support\Helper::getCssValue( $width, '%' ),
 		'position' => 'absolute',
 		'content'  => "'★'",
 		'overflow' => 'hidden',
@@ -308,7 +308,7 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, '', ' .uag-star-rating__title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, '', ' .uag-star-rating__title', $combinedSelectors );
 
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . substr( $attr['block_id'], 0, 8 ) );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, ' .vxt-block-' . substr( $attr['block_id'], 0, 8 ) );

@@ -7,7 +7,7 @@
  * @package ugb
  */
 
-$arrowBorderAttributes      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute(
+$arrowBorderAttributes      = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'arrow',
 	[
 		'borderStyle'             => 'none',
@@ -21,9 +21,9 @@ $arrowBorderAttributes      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBor
 		'borderBottomRightRadius' => 50,
 	]
 );
-$btnBorderAttributes        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
-$imageBorderAttributes      = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'image' );
-$mainTitleBorderAttributes = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute(
+$btnBorderAttributes        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
+$imageBorderAttributes      = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'image' );
+$mainTitleBorderAttributes = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'mainTitle',
 	[
 		'borderTopWidth'    => 2,

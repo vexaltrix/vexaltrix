@@ -12,27 +12,27 @@ global $contentWidth;
 $bgType      = ( isset( $attr['backgroundType'] ) ) ? $attr['backgroundType'] : 'none';
 $overlayType = ( isset( $attr['overlayType'] ) ) ? $attr['overlayType'] : 'none';
 
-$border        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'column' );
-$border        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$border        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'column' );
+$border        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$border,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$borderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'column', 'tablet' );
-$borderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'column', 'mobile' );
+$borderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'column', 'tablet' );
+$borderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'column', 'mobile' );
 
 $style = array_merge(
 	[
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPadding'], $attr['desktopPaddingType'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPadding'], $attr['desktopPaddingType'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPadding'], $attr['desktopPaddingType'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPadding'], $attr['desktopPaddingType'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMargin'], $attr['desktopMarginType'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMargin'], $attr['desktopMarginType'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMargin'], $attr['desktopMarginType'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMargin'], $attr['desktopMarginType'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPadding'], $attr['desktopPaddingType'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPadding'], $attr['desktopPaddingType'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPadding'], $attr['desktopPaddingType'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPadding'], $attr['desktopPaddingType'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMargin'], $attr['desktopMarginType'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMargin'], $attr['desktopMarginType'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMargin'], $attr['desktopMarginType'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMargin'], $attr['desktopMarginType'] ),
 	],
 	$border
 );
@@ -110,20 +110,20 @@ $selectors[' > .vxt-column__overlay']['border-radius'] = $attr['columnBorderTopL
 
 if ( '' !== $attr['colWidth'] && 0 !== $attr['colWidth'] ) {
 
-	$selectors['.vxt-column__wrap']['width'] = \Vexaltrix\Support\Helper::getCssValue( $attr['colWidth'], '%' );
+	$selectors['.vxt-column__wrap']['width'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['colWidth'], '%' );
 }
 
 $mSelectors = [
 	'.vxt-column__wrap' => array_merge(
 		[
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPaddingMobile'], $attr['mobilePaddingType'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPaddingMobile'], $attr['mobilePaddingType'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPaddingMobile'], $attr['mobilePaddingType'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPaddingMobile'], $attr['mobilePaddingType'] ),
-			'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMarginMobile'], $attr['mobileMarginType'] ),
-			'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMarginMobile'], $attr['mobileMarginType'] ),
-			'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginMobile'], $attr['mobileMarginType'] ),
-			'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginMobile'], $attr['mobileMarginType'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPaddingMobile'], $attr['mobilePaddingType'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPaddingMobile'], $attr['mobilePaddingType'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPaddingMobile'], $attr['mobilePaddingType'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPaddingMobile'], $attr['mobilePaddingType'] ),
+			'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMarginMobile'], $attr['mobileMarginType'] ),
+			'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMarginMobile'], $attr['mobileMarginType'] ),
+			'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginMobile'], $attr['mobileMarginType'] ),
+			'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginMobile'], $attr['mobileMarginType'] ),
 		],
 		$borderMobile
 	),
@@ -132,14 +132,14 @@ $mSelectors = [
 $tSelectors = [
 	'.vxt-column__wrap' => array_merge(
 		[
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['topPaddingTablet'], $attr['tabletPaddingType'] ),
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomPaddingTablet'], $attr['tabletPaddingType'] ),
-			'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['leftPaddingTablet'], $attr['tabletPaddingType'] ),
-			'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['rightPaddingTablet'], $attr['tabletPaddingType'] ),
-			'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['topMarginTablet'], $attr['tabletMarginType'] ),
-			'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['bottomMarginTablet'], $attr['tabletMarginType'] ),
-			'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['leftMarginTablet'], $attr['tabletMarginType'] ),
-			'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['rightMarginTablet'], $attr['tabletMarginType'] ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topPaddingTablet'], $attr['tabletPaddingType'] ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomPaddingTablet'], $attr['tabletPaddingType'] ),
+			'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftPaddingTablet'], $attr['tabletPaddingType'] ),
+			'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightPaddingTablet'], $attr['tabletPaddingType'] ),
+			'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['topMarginTablet'], $attr['tabletMarginType'] ),
+			'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['bottomMarginTablet'], $attr['tabletMarginType'] ),
+			'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['leftMarginTablet'], $attr['tabletMarginType'] ),
+			'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['rightMarginTablet'], $attr['tabletMarginType'] ),
 		],
 		$borderTablet
 	),
@@ -147,12 +147,12 @@ $tSelectors = [
 
 if ( '' !== $attr['colWidthTablet'] && 0 !== $attr['colWidthTablet'] ) {
 
-	$tSelectors['.vxt-column__wrap']['width'] = \Vexaltrix\Support\Helper::getCssValue( $attr['colWidthTablet'], '%' );
+	$tSelectors['.vxt-column__wrap']['width'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['colWidthTablet'], '%' );
 }
 
 if ( '' !== $attr['colWidthMobile'] && 0 !== $attr['colWidthMobile'] ) {
 
-	$mSelectors['.vxt-column__wrap']['width'] = \Vexaltrix\Support\Helper::getCssValue( $attr['colWidthMobile'], '%' );
+	$mSelectors['.vxt-column__wrap']['width'] = \Vexaltrix\Core\Support\Helper::getCssValue( $attr['colWidthMobile'], '%' );
 }
 
 $combinedSelectors = [
@@ -163,4 +163,4 @@ $combinedSelectors = [
 
 $baseSelector = ( $attr['classMigrate'] ) ? '.wp-block-vxt-column.vxt-block-' : '#vxt-column-';
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, $baseSelector . $id );

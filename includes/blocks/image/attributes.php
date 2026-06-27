@@ -7,8 +7,8 @@
  * @package ugb
  */
 
-$imageAttribute   = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'image' );
-$overlayAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute(
+$imageAttribute   = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'image' );
+$overlayAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'overlay'
 );
 

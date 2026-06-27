@@ -6,12 +6,12 @@ Standalone WordPress Gutenberg block plugin using the Vexaltrix V3 architecture 
 
 ```text
 vexaltrix.php                    Main plugin entry point
-classes/                         WordPress plugin infrastructure
-classes/Core/Analytics/          Block usage analytics and event tracking
-classes/Core/Base/               Base controllers and service provider contracts
-classes/Core/Blocks/             Block registration, assets, and helpers
-classes/Core/Cache/              Cache purge integrations
-classes/Core/Commands/           WP-CLI commands
+app/Core/                        Plugin Engine: container, contracts, events, module system, service discovery
+app/Infrastructure/              System plumbing: cache, migration, install, settings repository + schema
+app/Domain/                      Business logic & rules: analytics, display conditions
+app/Integration/                 Third-party compatibility & integrations
+app/Presentation/                UI output: admin dashboard controllers, blocks registration, assets loader
+app/Transport/                   I/O endpoints: ajax handlers, REST API controllers, WP-CLI commands
 includes/                        Block PHP, configuration, and integrations
 src/                             Block editor JS/SCSS source
 packages/admin-ui/               Admin dashboard React source

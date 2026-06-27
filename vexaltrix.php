@@ -29,7 +29,7 @@ if ( ! version_compare( PHP_VERSION, '8.1', '>=' ) ) {
 		require_once $vxtUgbAutoload;
 		
 		// Initialize the IoC Container and resolve the Loader.
-		$container = \Vexaltrix\Container::getInstance();
+		$container = \Vexaltrix\Core\Container::getInstance();
 		$container->get( \Vexaltrix\Core\Plugin::class );
 	} else {
 		add_action( 'admin_notices', 'vxt_ultimate_gutenberg_blocks_fail_autoload' );

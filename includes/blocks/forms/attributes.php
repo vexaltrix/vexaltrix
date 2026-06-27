@@ -7,12 +7,12 @@
  * @package ugb
  */
 
-$successMessageBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'successMsg' );
-$failedMessageBorderAttribute  = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'errorMsg' );
-$inputBorderAttribute           = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'field' );
-$toggleBorderAttribute          = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'checkBoxToggle' );
-$submitBorderAttribute          = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
-$inheritFromTheme               = 'enabled' === ( 'deleted' !== \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
+$successMessageBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'successMsg' );
+$failedMessageBorderAttribute  = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'errorMsg' );
+$inputBorderAttribute           = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'field' );
+$toggleBorderAttribute          = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'checkBoxToggle' );
+$submitBorderAttribute          = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
+$inheritFromTheme               = 'enabled' === ( 'deleted' !== \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme_fallback', 'deleted' ) ? 'disabled' : \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' ) );
 
 return array_merge(
 	[

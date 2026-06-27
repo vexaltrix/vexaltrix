@@ -17,11 +17,11 @@ $blockData = [
 	'description'         => __( 'Create an attractive timeline to display your posts.', 'vexaltrix' ),
 	'default'             => true,
 	'extension'           => false,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'post-timeline' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'post-timeline' ),
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-timeline-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'timeline' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'timeline' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

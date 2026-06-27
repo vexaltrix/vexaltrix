@@ -7,8 +7,8 @@
  * @package ugb
  */
 
-$fieldBorderAttribute  = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'input' );
-$buttonBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
+$fieldBorderAttribute  = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'input' );
+$buttonBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
 
 return array_merge(
 	[

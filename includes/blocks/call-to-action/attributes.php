@@ -7,10 +7,10 @@
  * @package ugb
  */
 
-$ctaBorderAttribute        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
-$secondCtaBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'secondCta' );
+$ctaBorderAttribute        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'btn' );
+$secondCtaBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'secondCta' );
 
-$inheritFromTheme = 'enabled' === \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+$inheritFromTheme = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
 
 return array_merge(
 	[

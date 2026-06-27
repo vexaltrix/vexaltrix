@@ -9,7 +9,7 @@
  */
 
 // Add fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksSeparatorGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksSeparatorGfont( $attr );
 
 $mSelectors = [];
 $tSelectors = [];
@@ -17,9 +17,9 @@ $borderSize = '100%';
 
 
 $borderCss             = [
-	'-webkit-mask-size' => ( \Vexaltrix\Support\Helper::getCssValue( $attr['separatorSize'], $attr['separatorSizeType'] ) . ' ' . $borderSize ),
-	'border-top-width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorBorderHeight'], $attr['separatorBorderHeightUnit'] ),
-	'width'             => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorWidth'], $attr['separatorWidthType'] ),
+	'-webkit-mask-size' => ( \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorSize'], $attr['separatorSizeType'] ) . ' ' . $borderSize ),
+	'border-top-width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorBorderHeight'], $attr['separatorBorderHeightUnit'] ),
+	'width'             => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorWidth'], $attr['separatorWidthType'] ),
 	'border-top-color'  => $attr['separatorColor'],
 	'border-top-style'  => $attr['separatorStyle'],
 ];
@@ -36,11 +36,11 @@ if ( 'none' === $attr['elementType'] ) {
 	$borderStyle['.wp-block-vxt-separator:not(.wp-block-vxt-separator--text):not(.wp-block-vxt-separator--icon) .wp-block-vxt-separator__inner'] = $combinedBorderStyles;
 
 } else { 
-	$alignCss    = \Vexaltrix\Support\Helper::alignmentCss( $attr['separatorAlign'] );
+	$alignCss    = \Vexaltrix\Core\Support\Helper::alignmentCss( $attr['separatorAlign'] );
 	$borderStyle = [
 		'.wp-block-vxt-separator .wp-block-vxt-separator__inner' => array_merge(
 			[
-				'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorWidth'], $attr['separatorWidthType'] ),
+				'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorWidth'], $attr['separatorWidthType'] ),
 
 			],
 			$alignCss
@@ -53,7 +53,7 @@ if ( 'none' === $attr['elementType'] ) {
 
 	if ( 'left' === $attr['elementPosition'] ) {
 		$iconSpacingStyle['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
 		];
 		$borderStyle['.wp-block-vxt-separator--text .wp-block-vxt-separator__inner::before']                          = [
 			'display' => 'none',
@@ -64,7 +64,7 @@ if ( 'none' === $attr['elementType'] ) {
 	}
 	if ( 'right' === $attr['elementPosition'] ) {
 		$iconSpacingStyle['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
 		];
 		$borderStyle['.wp-block-vxt-separator--text .wp-block-vxt-separator__inner::after']                           = [
 			'display' => 'none',
@@ -75,8 +75,8 @@ if ( 'none' === $attr['elementType'] ) {
 	}
 	if ( 'center' === $attr['elementPosition'] ) {
 		$iconSpacingStyle['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
-			'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
+			'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacing'], $attr['elementSpacingUnit'] ),
 		];
 	}
 }
@@ -90,8 +90,8 @@ $blockPaddingUnit       = ! empty( $attr['blockPaddingUnit'] ) ? $attr['blockPad
 $selectors              = [
 	'.wp-block-vxt-separator'         => array_merge(
 		[
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $newPaddingTop, $newPaddingUnit ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $newPaddingBottom, $newPaddingUnit ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $newPaddingTop, $newPaddingUnit ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $newPaddingBottom, $newPaddingUnit ),
 			'text-align'     => $attr['separatorAlign'],
 		]
 	),
@@ -102,36 +102,36 @@ $selectors              = [
 		'text-transform'  => $attr['elementTextTransform'],
 		'font-weight'     => $attr['elementTextFontWeight'],
 		'color'           => $attr['elementColor'],
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextFontSize'], $attr['elementTextFontSizeType'] ),
-		'line-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextLineHeight'], $attr['elementTextLineHeightType'] ),
-		'letter-spacing'  => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextLetterSpacing'], $attr['elementTextLetterSpacingType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextFontSize'], $attr['elementTextFontSizeType'] ),
+		'line-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextLineHeight'], $attr['elementTextLineHeightType'] ),
+		'letter-spacing'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextLetterSpacing'], $attr['elementTextLetterSpacingType'] ),
 	],
 	'.wp-block-vxt-separator--icon .wp-block-vxt-separator-element svg' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidth'], $attr['elementIconWidthType'] ),
 		'color'       => $attr['elementColor'],
 		'fill'        => $attr['elementColor'],
 	],
 	' .vxt-separator-spacing-wrapper' => [
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMargin'], $attr['blockMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMargin'], $attr['blockMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMargin'], $attr['blockMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMargin'], $attr['blockMarginUnit'] ),
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPadding'], $blockPaddingUnit ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPadding'], $blockPaddingUnit ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPadding'], $blockPaddingUnit ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPadding'], $blockPaddingUnit ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMargin'], $attr['blockMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMargin'], $attr['blockMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMargin'], $attr['blockMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMargin'], $attr['blockMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPadding'], $blockPaddingUnit ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPadding'], $blockPaddingUnit ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPadding'], $blockPaddingUnit ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPadding'], $blockPaddingUnit ),
 	],
 ];
 $selectors              = array_merge( $selectors, $borderStyle, $iconSpacingStyle );
 
 // Tablet.
 $borderCssTablet = [
-	'-webkit-mask-size' => ( \Vexaltrix\Support\Helper::getCssValue( $attr['separatorSizeTablet'], $attr['separatorSizeType'] ) . ' ' . $borderSize ),
-	'border-top-width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorBorderHeightTablet'], $attr['separatorBorderHeightUnit'] ),
-	'width'             => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorWidthTablet'], $attr['separatorWidthType'] ),
+	'-webkit-mask-size' => ( \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorSizeTablet'], $attr['separatorSizeType'] ) . ' ' . $borderSize ),
+	'border-top-width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorBorderHeightTablet'], $attr['separatorBorderHeightUnit'] ),
+	'width'             => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorWidthTablet'], $attr['separatorWidthType'] ),
 	'border-top-color'  => $attr['separatorColor'],
 	'border-top-style'  => $attr['separatorStyle'],
 ];
@@ -143,11 +143,11 @@ if ( 'none' === $attr['elementType'] ) {
 	$borderStyleTablet['.wp-block-vxt-separator:not(.wp-block-vxt-separator--text):not(.wp-block-vxt-separator--icon) .wp-block-vxt-separator__inner'] = $combinedBorderStylesTablet;
 
 } else {
-	$alignCss           = \Vexaltrix\Support\Helper::alignmentCss( $attr['separatorAlignTablet'] );
+	$alignCss           = \Vexaltrix\Core\Support\Helper::alignmentCss( $attr['separatorAlignTablet'] );
 	$borderStyleTablet = [
 		'.wp-block-vxt-separator .wp-block-vxt-separator__inner' => array_merge(
 			[
-				'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorWidthTablet'], $attr['separatorWidthType'] ),
+				'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorWidthTablet'], $attr['separatorWidthType'] ),
 
 			],
 			$alignCss
@@ -159,7 +159,7 @@ if ( 'none' === $attr['elementType'] ) {
 	$borderStyleTablet['.wp-block-vxt-separator--icon .wp-block-vxt-separator__inner::after']  = $borderCssTablet;
 	if ( 'left' === $attr['elementPosition'] ) {
 		$iconSpacingStyleTablet['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
 		];
 		$borderStyleTablet['.wp-block-vxt-separator--text .wp-block-vxt-separator__inner::before']                          = [
 			'display' => 'none',
@@ -170,13 +170,13 @@ if ( 'none' === $attr['elementType'] ) {
 	}
 	if ( 'center' === $attr['elementPosition'] ) {
 		$iconSpacingStyleTablet['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
+			'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
 		];
 	}
 	if ( 'right' === $attr['elementPosition'] ) {
 		$iconSpacingStyleTablet['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingTablet'], $attr['elementSpacingUnit'] ),
 		];
 		$borderStyleTablet['.wp-block-vxt-separator--text .wp-block-vxt-separator__inner::after']                           = [
 			'display' => 'none',
@@ -192,8 +192,8 @@ $newPaddingUnitTablet   = empty( $attr['blockTopPaddingUnitTablet'] ) ? $attr['s
 $tSelectors               = [
 	'.wp-block-vxt-separator'         => array_merge(
 		[
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $newPaddingTopTablet, $newPaddingUnitTablet ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $newPaddingBottomTablet, $newPaddingUnitTablet ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $newPaddingTopTablet, $newPaddingUnitTablet ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $newPaddingBottomTablet, $newPaddingUnitTablet ),
 			'text-align'     => $attr['separatorAlignTablet'],
 		]
 ),
@@ -205,27 +205,27 @@ $tSelectors               = [
 		'font-weight'     => $attr['elementTextFontWeight'],
 		'color'           => $attr['elementColor'],
 		'margin-bottom'   => 'initial',
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextFontSizeTablet'], $attr['elementTextFontSizeType'] ),
-		'line-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextLineHeightTablet'], $attr['elementTextLineHeightType'] ),
-		'letter-spacing'  => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextLetterSpacingTablet'], $attr['elementTextLetterSpacingType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextFontSizeTablet'], $attr['elementTextFontSizeType'] ),
+		'line-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextLineHeightTablet'], $attr['elementTextLineHeightType'] ),
+		'letter-spacing'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextLetterSpacingTablet'], $attr['elementTextLetterSpacingType'] ),
 	],
 	'.wp-block-vxt-separator--icon .wp-block-vxt-separator-element svg' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr['elementIconWidthType'] ),
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr['elementIconWidthType'] ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr['elementIconWidthType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr    ['elementIconWidthType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr['elementIconWidthType'] ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr['elementIconWidthType'] ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr['elementIconWidthType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthTablet'], $attr    ['elementIconWidthType'] ),
 		'color'       => $attr['elementColor'],
 		'fill'        => $attr['elementColor'],
 	],
 	' .vxt-separator-spacing-wrapper' => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPaddingTablet'], $blockPaddingUnitTablet ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPaddingTablet'], $blockPaddingUnitTablet ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPaddingTablet'], $blockPaddingUnitTablet ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPaddingTablet'], $blockPaddingUnitTablet ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPaddingTablet'], $blockPaddingUnitTablet ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPaddingTablet'], $blockPaddingUnitTablet ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPaddingTablet'], $blockPaddingUnitTablet ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPaddingTablet'], $blockPaddingUnitTablet ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginTablet'], $attr['blockMarginUnitTablet'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginTablet'], $attr['blockMarginUnitTablet'] ),
 	],
 ];
 
@@ -234,9 +234,9 @@ $tSelectors = array_merge( $tSelectors, $borderStyleTablet, $iconSpacingStyleTab
 
 // Mobile.
 $borderCssMobile         = [
-	'-webkit-mask-size' => ( \Vexaltrix\Support\Helper::getCssValue( $attr['separatorSizeMobile'], $attr['separatorSizeType'] ) . ' ' . $borderSize ),
-	'border-top-width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorBorderHeightMobile'], $attr['separatorBorderHeightUnit'] ),
-	'width'             => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorWidthMobile'], $attr['separatorWidthType'] ),
+	'-webkit-mask-size' => ( \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorSizeMobile'], $attr['separatorSizeType'] ) . ' ' . $borderSize ),
+	'border-top-width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorBorderHeightMobile'], $attr['separatorBorderHeightUnit'] ),
+	'width'             => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorWidthMobile'], $attr['separatorWidthType'] ),
 	'border-top-color'  => $attr['separatorColor'],
 	'border-top-style'  => $attr['separatorStyle'],
 ];
@@ -247,11 +247,11 @@ if ( 'none' === $attr['elementType'] ) {
 	$borderStyleMobile['.wp-block-vxt-separator:not(.wp-block-vxt-separator--text):not(.wp-block-vxt-separator--icon) .wp-block-vxt-separator__inner'] = $combinedBorderStylesMobile;
 
 } else {
-	$alignCss           = \Vexaltrix\Support\Helper::alignmentCss( $attr['separatorAlignMobile'] );
+	$alignCss           = \Vexaltrix\Core\Support\Helper::alignmentCss( $attr['separatorAlignMobile'] );
 	$borderStyleMobile = [
 		'.wp-block-vxt-separator .wp-block-vxt-separator__inner' => array_merge(
 			[
-				'width' => \Vexaltrix\Support\Helper::getCssValue( $attr['separatorWidthMobile'], $attr['separatorWidthType'] ),
+				'width' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['separatorWidthMobile'], $attr['separatorWidthType'] ),
 
 			],
 			$alignCss
@@ -263,7 +263,7 @@ if ( 'none' === $attr['elementType'] ) {
 	$borderStyleMobile['.wp-block-vxt-separator--icon .wp-block-vxt-separator__inner::after']  = $borderCssMobile;
 	if ( 'left' === $attr['elementPosition'] ) {
 		$iconSpacingStyleMobile['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
 
 		];
 		$borderStyleMobile['.wp-block-vxt-separator--text .wp-block-vxt-separator__inner::before'] = [
@@ -275,13 +275,13 @@ if ( 'none' === $attr['elementType'] ) {
 	}
 	if ( 'center' === $attr['elementPosition'] ) {
 		$iconSpacingStyleMobile['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-left'  => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
-			'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
+			'margin-left'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
+			'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
 		];
 	}
 	if ( 'right' === $attr['elementPosition'] ) {
 		$iconSpacingStyleMobile['.wp-block-vxt-separator .wp-block-vxt-separator__inner .wp-block-vxt-separator-element'] = [
-			'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
+			'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementSpacingMobile'], $attr['elementSpacingUnit'] ),
 		];
 		$borderStyleMobile['.wp-block-vxt-separator--text .wp-block-vxt-separator__inner::after']                           = [
 			'display' => 'none',
@@ -297,8 +297,8 @@ $newPaddingUnitMobile   = empty( $attr['blockTopPaddingUnitMobile'] ) ? $attr['s
 $mSelectors               = [
 	'.wp-block-vxt-separator'         => array_merge(
 		[
-			'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $newPaddingTopMobile, $newPaddingUnitMobile ),
-			'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $newPaddingBottomMobile, $newPaddingUnitMobile ),
+			'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $newPaddingTopMobile, $newPaddingUnitMobile ),
+			'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $newPaddingBottomMobile, $newPaddingUnitMobile ),
 			'text-align'     => $attr['separatorAlignMobile'],
 		]
 ),
@@ -310,27 +310,27 @@ $mSelectors               = [
 		'font-weight'     => $attr['elementTextFontWeight'],
 		'color'           => $attr['elementColor'],
 		'margin-bottom'   => 'initial',
-		'font-size'       => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextFontSizeMobile'], $attr['elementTextFontSizeType'] ),
-		'line-height'     => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextLineHeightMobile'], $attr['elementTextLineHeightType'] ),
-		'letter-spacing'  => \Vexaltrix\Support\Helper::getCssValue( $attr['elementTextLetterSpacingMobile'], $attr['elementTextLetterSpacingType'] ),
+		'font-size'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextFontSizeMobile'], $attr['elementTextFontSizeType'] ),
+		'line-height'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextLineHeightMobile'], $attr['elementTextLineHeightType'] ),
+		'letter-spacing'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementTextLetterSpacingMobile'], $attr['elementTextLetterSpacingType'] ),
 	],
 	'.wp-block-vxt-separator--icon .wp-block-vxt-separator-element svg' => [
-		'font-size'   => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr['elementIconWidthType'] ),
-		'width'       => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr['elementIconWidthType'] ),
-		'height'      => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr['elementIconWidthType'] ),
-		'line-height' => \Vexaltrix\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr    ['elementIconWidthType'] ),
+		'font-size'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr['elementIconWidthType'] ),
+		'width'       => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr['elementIconWidthType'] ),
+		'height'      => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr['elementIconWidthType'] ),
+		'line-height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['elementIconWidthMobile'], $attr    ['elementIconWidthType'] ),
 		'color'       => $attr['elementColor'],
 		'fill'        => $attr['elementColor'],
 	],
 	' .vxt-separator-spacing-wrapper' => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopPaddingMobile'], $blockPaddingUnitMobile ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightPaddingMobile'], $blockPaddingUnitMobile ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomPaddingMobile'], $blockPaddingUnitMobile ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftPaddingMobile'], $blockPaddingUnitMobile ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopPaddingMobile'], $blockPaddingUnitMobile ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightPaddingMobile'], $blockPaddingUnitMobile ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomPaddingMobile'], $blockPaddingUnitMobile ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftPaddingMobile'], $blockPaddingUnitMobile ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockTopMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockRightMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockBottomMarginMobile'], $attr['blockMarginUnitMobile'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['blockLeftMarginMobile'], $attr['blockMarginUnitMobile'] ),
 	],
 ];
 $mSelectors               = array_merge( $mSelectors, $borderStyleMobile, $iconSpacingStyleMobile );
@@ -342,4 +342,4 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 ];
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

@@ -16,11 +16,11 @@ $blockData = [
 	'title'               => __( 'Form', 'vexaltrix' ),
 	'description'         => __( 'Add easily customizable forms to gather information.', 'vexaltrix' ),
 	'default'             => true,
-	'priority'            => \Vexaltrix\Core\Blocks\BlockPrioritization::getBlockPriority( 'forms' ),
+	'priority'            => \Vexaltrix\Presentation\Blocks\BlockPrioritization::getBlockPriority( 'forms' ),
 	'deprecated'          => false,
 	'static_dependencies' => [
 		'vxt-forms-js' => [
-			'src'  => \Vexaltrix\Support\ScriptsUtils::getJsUrl( 'forms' ),
+			'src'  => \Vexaltrix\Core\Support\ScriptsUtils::getJsUrl( 'forms' ),
 			'dep'  => [],
 			'type' => 'js',
 		],

@@ -9,18 +9,18 @@
  * @package ugb
  */
 
-$overallBorderCss    = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'tab' );
-$overallBorderCss    = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
+$overallBorderCss    = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'tab' );
+$overallBorderCss    = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateDeprecatedBorderCss(
 	$overallBorderCss,
 	( isset( $attr['borderWidth'] ) ? $attr['borderWidth'] : '' ),
 	( isset( $attr['borderRadius'] ) ? $attr['borderRadius'] : '' ),
 	( isset( $attr['borderColor'] ) ? $attr['borderColor'] : '' ),
 	( isset( $attr['borderStyle'] ) ? $attr['borderStyle'] : '' )
 );
-$overallBorderTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'tab', 'tablet' );
-$overallBorderMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'tab', 'mobile' );
+$overallBorderTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'tab', 'tablet' );
+$overallBorderMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'tab', 'mobile' );
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksTabsGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksTabsGfont( $attr );
 
 $tabTitleTopPadding    = isset( $attr['tabTitleTopPadding'] ) ? $attr['tabTitleTopPadding'] : $attr['tabTitleVertPadding'];
 $tabTitleBottomPadding = isset( $attr['tabTitleBottomPadding'] ) ? $attr['tabTitleBottomPadding'] : $attr['tabTitleVertPadding'];
@@ -46,17 +46,17 @@ $selectors = [
 		]
 	),
 	'.vxt-tabs__wrap ul.vxt-tabs__panel li.vxt-tab a '  => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $tabTitleTopPadding, $attr['tabTitlePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $tabTitleBottomPadding, $attr['tabTitlePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $tabTitleLeftPadding, $attr['tabTitlePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $tabTitleRightPadding, $attr['tabTitlePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $tabTitleTopPadding, $attr['tabTitlePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $tabTitleBottomPadding, $attr['tabTitlePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $tabTitleLeftPadding, $attr['tabTitlePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $tabTitleRightPadding, $attr['tabTitlePaddingUnit'] ),
 		'color'          => $attr['headerTextColor'],
 	],
 	'.vxt-tabs__wrap ul.vxt-tabs__panel li.vxt-tab'     => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleTopMargin'], $attr['tabTitleMarginUnit'] ),
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleLeftMargin'], $attr['tabTitleMarginUnit'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleRightMargin'], $attr['tabTitleMarginUnit'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleBottomMargin'], $attr['tabTitleMarginUnit'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleTopMargin'], $attr['tabTitleMarginUnit'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleLeftMargin'], $attr['tabTitleMarginUnit'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleRightMargin'], $attr['tabTitleMarginUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleBottomMargin'], $attr['tabTitleMarginUnit'] ),
 	],
 	'.vxt-tabs__wrap .vxt-tabs__panel .vxt-tab:hover '  => [
 		'border-color' => $attr['tabBorderHColor'],
@@ -73,14 +73,14 @@ $selectors = [
 
 	'.vxt-tabs__wrap .vxt-tabs__body-wrap '              => [
 		'background'     => $attr['bodyBgColor'],
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $tabBodyTopPadding, $attr['tabBodyPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $tabBodyBottomPadding, $attr['tabBodyPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $tabBodyLeftPadding, $attr['tabBodyPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $tabBodyRightPadding, $attr['tabBodyPaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyTopMargin'], $attr['tabBodyMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyLeftMargin'], $attr['tabBodyMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyRightMargin'], $attr['tabBodyMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyBottomMargin'], $attr['tabBodyMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $tabBodyTopPadding, $attr['tabBodyPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $tabBodyBottomPadding, $attr['tabBodyPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $tabBodyLeftPadding, $attr['tabBodyPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $tabBodyRightPadding, $attr['tabBodyPaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyTopMargin'], $attr['tabBodyMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyLeftMargin'], $attr['tabBodyMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyRightMargin'], $attr['tabBodyMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyBottomMargin'], $attr['tabBodyMarginUnit'] ),
 	],
 	'.vxt-tabs__wrap .vxt-tabs__body-wrap:hover '        => [
 		'border-color' => $attr['tabBorderHColor'],
@@ -89,21 +89,21 @@ $selectors = [
 		'color' => $attr['bodyTextColor'],
 	],
 	' .vxt-tabs__icon svg'                                => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSize'], 'px' ),
 		'fill'   => $attr['iconColor'],
 	],
 	' .vxt-tabs__icon-position-left > .vxt-tabs__icon'   => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-right > .vxt-tabs__icon'  => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-bottom > .vxt-tabs__icon' => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-top > .vxt-tabs__icon'    => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacing'], 'px' ),
 	],
 	'.vxt-tabs__hstyle1-desktop > .vxt-tabs__panel .vxt-tab' => $overallBorderCss,
 	'.vxt-tabs__hstyle1-desktop > .vxt-tabs__body-wrap'  => $overallBorderCss,
@@ -247,42 +247,42 @@ if ( 'left' === $attr['tabAlign'] ) {
 }
 $mSelectors = [
 	' .vxt-tabs__icon svg'                                => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMobile'], 'px' ),
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeMobile'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMobile'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeMobile'], 'px' ),
 	],
 	'.vxt-tabs__wrap ul.vxt-tabs__panel li.vxt-tab a '  => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleTopPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleBottomPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleLeftPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleRightPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleTopPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleBottomPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleLeftPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleRightPaddingMobile'], $attr['mobiletabTitlePaddingUnit'] ),
 	],
 	'.vxt-tabs__wrap ul.vxt-tabs__panel li.vxt-tab'     => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleTopMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleLeftMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleRightMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleBottomMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleTopMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleLeftMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleRightMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleBottomMarginMobile'], $attr['mobiletabTitleMarginUnit'] ),
 	],
 	'.vxt-tabs__wrap .vxt-tabs__body-wrap'               => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyTopPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyBottomPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyLeftPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyRightPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyTopMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyLeftMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyRightMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyBottomMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyTopPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyBottomPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyLeftPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyRightPaddingMobile'], $attr['mobiletabBodyPaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyTopMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyLeftMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyRightMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyBottomMarginMobile'], $attr['mobiletabBodyMarginUnit'] ),
 	],
 	' .vxt-tabs__icon-position-left > .vxt-tabs__icon'   => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-right > .vxt-tabs__icon'  => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-bottom > .vxt-tabs__icon' => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-top > .vxt-tabs__icon'    => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingMobile'], 'px' ),
 	],
 	'.vxt-tabs__hstyle1-mobile > .vxt-tabs__panel .vxt-tab' => $overallBorderMobile,
 	'.vxt-tabs__hstyle1-mobile > .vxt-tabs__body-wrap'   => $overallBorderMobile,
@@ -458,42 +458,42 @@ $mSelectors = [
 ];
 $tSelectors = [
 	' .vxt-tabs__icon svg'                                => [
-		'height' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTablet'], 'px' ),
-		'width'  => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSizeTablet'], 'px' ),
+		'height' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTablet'], 'px' ),
+		'width'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSizeTablet'], 'px' ),
 	],
 	'.vxt-tabs__wrap ul.vxt-tabs__panel li.vxt-tab a '  => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleTopPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleBottomPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleLeftPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleRightPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleTopPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleBottomPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleLeftPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleRightPaddingTablet'], $attr['tablettabTitlePaddingUnit'] ),
 	],
 	'.vxt-tabs__wrap ul.vxt-tabs__panel li.vxt-tab '    => [
-		'margin-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleTopMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
-		'margin-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleLeftMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
-		'margin-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleRightMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabTitleBottomMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
+		'margin-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleTopMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
+		'margin-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleLeftMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
+		'margin-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleRightMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabTitleBottomMarginTablet'], $attr['tablettabTitleMarginUnit'] ),
 	],
 	'.vxt-tabs__wrap .vxt-tabs__body-wrap '              => [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyTopPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyBottomPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyLeftPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyRightPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
-		'margin-top'     => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyTopMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
-		'margin-left'    => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyLeftMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
-		'margin-right'   => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyRightMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
-		'margin-bottom'  => \Vexaltrix\Support\Helper::getCssValue( $attr['tabBodyBottomMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyTopPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyBottomPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyLeftPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyRightPaddingTablet'], $attr['tablettabBodyPaddingUnit'] ),
+		'margin-top'     => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyTopMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
+		'margin-left'    => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyLeftMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
+		'margin-right'   => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyRightMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
+		'margin-bottom'  => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['tabBodyBottomMarginTablet'], $attr['tablettabBodyMarginUnit'] ),
 	],
 	' .vxt-tabs__icon-position-left > .vxt-tabs__icon'   => [
-		'margin-right' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
+		'margin-right' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-right > .vxt-tabs__icon'  => [
-		'margin-left' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
+		'margin-left' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-bottom > .vxt-tabs__icon' => [
-		'margin-top' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
+		'margin-top' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
 	],
 	' .vxt-tabs__icon-position-top > .vxt-tabs__icon'    => [
-		'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
+		'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['iconSpacingTablet'], 'px' ),
 	],
 	'.vxt-tabs__hstyle1-tablet > .vxt-tabs__panel .vxt-tab' => $overallBorderTablet,
 	'.vxt-tabs__hstyle1-tablet > .vxt-tabs__body-wrap'   => $overallBorderTablet,
@@ -626,6 +626,6 @@ $combinedSelectors = [
 	'mobile'  => $mSelectors,
 	'tablet'  => $tSelectors,
 ];
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', '  .vxt-tabs__panel .vxt-tab a', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', '  .vxt-tabs__panel .vxt-tab a', $combinedSelectors );
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );

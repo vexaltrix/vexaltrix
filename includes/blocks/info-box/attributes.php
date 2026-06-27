@@ -7,11 +7,11 @@
  * @package ugb
  */
 
-$ctaBorderAttribute     = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute(
+$ctaBorderAttribute     = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute(
 	'btn'
 );
-$inheritFromTheme       = 'enabled' === \Vexaltrix\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
-$infoboxBorderAttribute = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderAttribute( 'infobox' );
+$inheritFromTheme       = 'enabled' === \Vexaltrix\Presentation\Admin\AdminSettings::get( 'uag_btn_inherit_from_theme', 'disabled' );
+$infoboxBorderAttribute = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderAttribute( 'infobox' );
 $imageWidthDefault      = ( 'yes' === get_option( 'vxt-old-user-less-than-2' ) ) ? 120 : '';
 
 return array_merge(

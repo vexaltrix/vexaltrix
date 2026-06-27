@@ -8,7 +8,7 @@
 
 namespace Vexaltrix\Core\Base;
 
-use Vexaltrix\Container;
+use Vexaltrix\Core\Container;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

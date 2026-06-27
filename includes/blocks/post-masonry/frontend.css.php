@@ -9,13 +9,13 @@
  */
 
 // Adds Fonts.
-\Vexaltrix\Core\Blocks\BlockJs::blocksPostGfont( $attr );
+\Vexaltrix\Presentation\Blocks\BlockJs::blocksPostGfont( $attr );
 
-$selectors = \Vexaltrix\Core\Blocks\BlockHelper::getPostSelectors( $attr );
+$selectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getPostSelectors( $attr );
 
-$mSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getPostMobileSelectors( $attr );
+$mSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getPostMobileSelectors( $attr );
 
-$tSelectors = \Vexaltrix\Core\Blocks\BlockHelper::getPostTabletSelectors( $attr );
+$tSelectors = \Vexaltrix\Presentation\Blocks\BlockHelper::getPostTabletSelectors( $attr );
 
 $paginationpaddingTop    = isset( $attr['paginationButtonPaddingTop'] ) ? $attr['paginationButtonPaddingTop'] : $attr['vpaginationButtonPaddingDesktop'];
 $paginationpaddingBottom = isset( $attr['paginationButtonPaddingBottom'] ) ? $attr['paginationButtonPaddingBottom'] : $attr['vpaginationButtonPaddingDesktop'];
@@ -32,9 +32,9 @@ $paginationButtonPaddingBottomMobile = isset( $attr['paginationButtonPaddingBott
 $paginationButtonPaddingLeftMobile   = isset( $attr['paginationButtonPaddingLeftMobile'] ) ? $attr['paginationButtonPaddingLeftMobile'] : $attr['hpaginationButtonPaddingMobile'];
 $paginationButtonPaddingRightMobile  = isset( $attr['paginationButtonPaddingRightMobile'] ) ? $attr['paginationButtonPaddingRightMobile'] : $attr['hpaginationButtonPaddingMobile'];
 
-$paginationMasonryBorderCss        = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'paginationMasonry' );
-$paginationMasonryBorderCssTablet = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'paginationMasonry', 'tablet' );
-$paginationMasonryBorderCssMobile = \Vexaltrix\Core\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'paginationMasonry', 'mobile' );
+$paginationMasonryBorderCss        = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'paginationMasonry' );
+$paginationMasonryBorderCssTablet = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'paginationMasonry', 'tablet' );
+$paginationMasonryBorderCssMobile = \Vexaltrix\Presentation\Blocks\BlockHelper::uagGenerateBorderCss( $attr, 'paginationMasonry', 'mobile' );
 
 if ( 'infinite' === $attr['paginationType'] ) {
 
@@ -47,20 +47,20 @@ if ( 'infinite' === $attr['paginationType'] ) {
 
 			'color'            => $attr['paginationTextColor'],
 			'background-color' => $attr['paginationMasonryBgColor'],
-			'font-size'        => \Vexaltrix\Support\Helper::getCssValue( $attr['paginationFontSize'], 'px' ),
-			'padding-top'      => \Vexaltrix\Support\Helper::getCssValue(
+			'font-size'        => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['paginationFontSize'], 'px' ),
+			'padding-top'      => \Vexaltrix\Core\Support\Helper::getCssValue(
 				$paginationpaddingTop,
 				$attr['paginationButtonPaddingType']
 			),
-			'padding-bottom'   => \Vexaltrix\Support\Helper::getCssValue(
+			'padding-bottom'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 				$paginationpaddingBottom,
 				$attr['paginationButtonPaddingType']
 			),
-			'padding-right'    => \Vexaltrix\Support\Helper::getCssValue(
+			'padding-right'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 				$paginationpaddingRight,
 				$attr['paginationButtonPaddingType']
 			),
-			'padding-left'     => \Vexaltrix\Support\Helper::getCssValue(
+			'padding-left'     => \Vexaltrix\Core\Support\Helper::getCssValue(
 				$paginationpaddingLeft,
 				$attr['paginationButtonPaddingType']
 			),
@@ -73,37 +73,37 @@ if ( 'infinite' === $attr['paginationType'] ) {
 		'border-color'     => $attr['paginationMasonryBorderHColor'],
 	];
 	$mSelectors[' .vxt-post__load-more-wrap .vxt-post-pagination-button']     = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingTopMobile,
 			$attr['mobilepaginationButtonPaddingType']
 		),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingRightMobile,
 			$attr['mobilepaginationButtonPaddingType']
 		),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingBottomMobile,
 			$attr['mobilepaginationButtonPaddingType']
 		),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingLeftMobile,
 			$attr['mobilepaginationButtonPaddingType']
 		),
 	];
 	$tSelectors[' .vxt-post__load-more-wrap .vxt-post-pagination-button']     = [
-		'padding-top'    => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-top'    => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingTopTablet,
 			$attr['tabletpaginationButtonPaddingType']
 		),
-		'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingBottomTablet,
 			$attr['tabletpaginationButtonPaddingType']
 		),
-		'padding-right'  => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-right'  => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingRightTablet,
 			$attr['tabletpaginationButtonPaddingType']
 		),
-		'padding-left'   => \Vexaltrix\Support\Helper::getCssValue(
+		'padding-left'   => \Vexaltrix\Core\Support\Helper::getCssValue(
 			$paginationButtonPaddingLeftTablet,
 			$attr['tabletpaginationButtonPaddingType']
 		),
@@ -112,8 +112,8 @@ if ( 'infinite' === $attr['paginationType'] ) {
 	$mSelectors[' .vxt-post__load-more-wrap .vxt-post-pagination-button']     = $paginationMasonryBorderCssMobile;
 
 	$selectors['.vxt-post-grid .vxt-post-inf-loader div'] = [
-		'width'            => \Vexaltrix\Support\Helper::getCssValue( $attr['loaderSize'], 'px' ),
-		'height'           => \Vexaltrix\Support\Helper::getCssValue( $attr['loaderSize'], 'px' ),
+		'width'            => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loaderSize'], 'px' ),
+		'height'           => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['loaderSize'], 'px' ),
 		'background-color' => $attr['loaderColor'],
 	];
 }
@@ -123,10 +123,10 @@ if ( 'aboveTitle' === $attr['displayPostTaxonomyAboveTitle'] ) {
 		$selectors,
 		[
 			' span.vxt-post__taxonomy' => [
-				'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
+				'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
 			],
 			' .vxt-post__inner-wrap span.vxt-post__taxonomy.highlighted' => [
-				'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
+				'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpace'], $attr['taxonomyBottomSpaceUnit'] ),
 			],
 		]
 	);
@@ -134,10 +134,10 @@ if ( 'aboveTitle' === $attr['displayPostTaxonomyAboveTitle'] ) {
 		$mSelectors,
 		[
 			' span.vxt-post__taxonomy' => [
-				'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
+				'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
 			],
 			' .vxt-post__inner-wrap span.vxt-post__taxonomy.highlighted' => [
-				'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
+				'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceMobile'], $attr['taxonomyBottomSpaceUnit'] ),
 			],
 		]
 	);
@@ -145,10 +145,10 @@ if ( 'aboveTitle' === $attr['displayPostTaxonomyAboveTitle'] ) {
 		$tSelectors,
 		[
 			' span.vxt-post__taxonomy' => [
-				'padding-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
+				'padding-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
 			],
 			' .vxt-post__inner-wrap span.vxt-post__taxonomy.highlighted' => [
-				'margin-bottom' => \Vexaltrix\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
+				'margin-bottom' => \Vexaltrix\Core\Support\Helper::getCssValue( $attr['taxonomyBottomSpaceTablet'], $attr['taxonomyBottomSpaceUnit'] ),
 			],
 		]
 	);
@@ -161,18 +161,18 @@ $combinedSelectors = [
 ];
 
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title a', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline > span', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline time', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'title', ' .vxt-post__text.vxt-post__title a', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline > span', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline time', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author', $combinedSelectors );
 
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author a', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' span.vxt-post__taxonomy', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__inner-wrap .vxt-post__taxonomy.highlighted', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'excerpt', ' .vxt-post__text.vxt-post__excerpt', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta', $combinedSelectors );
-$combinedSelectors = \Vexaltrix\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta a', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__text.vxt-post-grid-byline .vxt-post__author a', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' span.vxt-post__taxonomy', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'meta', ' .vxt-post__inner-wrap .vxt-post__taxonomy.highlighted', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'excerpt', ' .vxt-post__text.vxt-post__excerpt', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta', $combinedSelectors );
+$combinedSelectors = \Vexaltrix\Core\Support\Helper::getTypographyCss( $attr, 'cta', ' .vxt-post__text.vxt-post__cta a', $combinedSelectors );
 
 
-return \Vexaltrix\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
+return \Vexaltrix\Core\Support\Helper::generateAllCss( $combinedSelectors, '.vxt-block-' . $id );
