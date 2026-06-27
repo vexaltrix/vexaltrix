@@ -11,6 +11,7 @@
 namespace Vexaltrix\Presentation\Blocks;
 
 use Vexaltrix\Core\Contracts\ServiceInterface;
+use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

@@ -9,6 +9,8 @@
 
 namespace Vexaltrix\Presentation\BlocksConfig\PopupBuilder;
 
+use WP_Query;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }

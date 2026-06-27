@@ -7,6 +7,9 @@
 
 namespace Vexaltrix\Presentation\BlocksConfig\Forms;
 
+use WP_Query;
+use WP_Error;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }

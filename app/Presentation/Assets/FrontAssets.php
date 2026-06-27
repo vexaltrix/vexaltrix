@@ -75,7 +75,7 @@ class FrontAssets implements ServiceInterface {
 
 		$this->postAssets = vxt_ultimate_gutenberg_blocks_get_post_assets( $this->postId );
 
-		if ( ! $this->postAssets->is_allowed_assets_generation ) {
+		if ( ! $this->postAssets->isAllowedAssetsGeneration ) {
 			return;
 		}
 

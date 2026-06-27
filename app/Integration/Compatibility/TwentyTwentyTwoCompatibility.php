@@ -8,6 +8,7 @@
 namespace Vexaltrix\Integration\Compatibility;
 
 use Vexaltrix\Core\Contracts\ServiceInterface;
+use WP_Query;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
